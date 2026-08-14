@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>OpenFocusd</title>
+  <link rel="icon" type="image/png" href="../img/icon_16.png">
+  <style>
+    body {
+      --loading-color: #ffffff;
+
+      background: var(--loading-color);
+    }
+
+    .cta-screen .cta {
+      display: none;
+    }
+
+    .openfocusd-popup-chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 8px 0;
+      background: #ffffff;
+    }
+
+    .body--theme-dark .openfocusd-popup-chrome {
+      background-color: #333333;
+    }
+
+    .openfocusd-popup-tabs {
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      gap: 4px;
+    }
+
+    .openfocusd-popup-tab {
+      flex: 1;
+      height: 32px;
+      padding: 0 8px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: #666666;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .openfocusd-popup-tab.is-active {
+      background: #de5833;
+      color: #ffffff;
+    }
+
+    .body--theme-dark .openfocusd-popup-tab {
+      color: #aaaaaa;
+    }
+
+    .body--theme-dark .openfocusd-popup-tab.is-active {
+      background: #de5833;
+      color: #ffffff;
+    }
+
+    .openfocusd-popup-options {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 40px;
+      padding: 0 4px 0 0;
+      background: transparent;
+    }
+
+    .page-inner.openfocusd-tab-blocker > :not(.openfocusd-popup-chrome):not(.openfocusd-group-status) {
+      display: none !important;
+    }
+
+    .page-inner.openfocusd-tab-trackers > .openfocusd-group-status {
+      display: none !important;
+    }
+
+    .page-inner[data-openfocusd-search-engine="brave"] .search-form__input {
+      background-image: none;
+      padding-left: 14px;
+    }
+
+    .openfocusd-group-status {
+      display: grid;
+      gap: 10px;
+      padding: 12px 12px 4px;
+      background: #ffffff;
+    }
+
+    .body--theme-dark .openfocusd-group-status {
+      background-color: #333333;
+    }
+
+    .openfocusd-group-status__label,
+    .openfocusd-group-status__group-label,
+    .openfocusd-group-status__remaining-label {
+      color: #666666;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .openfocusd-group-status__host,
+    .openfocusd-group-status__group-name {
+      color: #333333;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 20px;
+      word-break: break-word;
+    }
+
+    .openfocusd-group-status__box {
+      padding: 12px;
+      border-radius: 10px;
+      background: #de5833;
+      color: #ffffff;
+    }
+
+    .openfocusd-group-status__box.is-empty {
+      background: #f2f2f2;
+      color: #333333;
+    }
+
+    .openfocusd-group-status__box.is-blocked {
+      background: #333333;
+    }
+
+    .openfocusd-group-status__box .openfocusd-group-status__group-label,
+    .openfocusd-group-status__box .openfocusd-group-status__remaining-label {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .openfocusd-group-status__box.is-empty .openfocusd-group-status__group-label {
+      color: #666666;
+    }
+
+    .openfocusd-group-status__group-name,
+    .openfocusd-group-status__allowance,
+    .openfocusd-group-status__remaining {
+      color: inherit;
+    }
+
+    .openfocusd-group-status__allowance {
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+    .openfocusd-group-status__row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .openfocusd-group-status__details {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .openfocusd-group-status__time {
+      flex: 0 0 auto;
+      text-align: right;
+    }
+
+    .openfocusd-group-status__remaining-label {
+      margin-top: 0;
+    }
+
+    .openfocusd-group-status__remaining {
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 32px;
+    }
+  </style>
+  <script src="../dashboard/public/js/polyfill-loader.js"></script>
+  <link rel="stylesheet" href="../dashboard/public/css/android.css">
+  <link rel="stylesheet" href="../dashboard/public/css/base.css">
+  <link rel="stylesheet" href="../dashboard/public/css/popup.css">
+</head>
+<body class="environment--browser">
+  <div id="app"></div>
+  <script src="../dashboard/public/js/base.js"></script>
+  <script src="../public/js/popup-customizations.js"></script>
+</body>
+</html>

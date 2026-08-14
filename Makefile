@@ -216,6 +216,9 @@ $(BUILD_DIR)/public/js/feedback.js: $(WATCHED_FILES)
 $(BUILD_DIR)/public/js/options.js: $(WATCHED_FILES)
 	$(ESBUILD) shared/js/ui/pages/options.js > $@
 
+$(BUILD_DIR)/public/js/popup-customizations.js: $(WATCHED_FILES)
+	$(ESBUILD) shared/js/ui/pages/popup-customizations.js > $@
+
 $(BUILD_DIR)/public/js/devtools-panel.js: $(WATCHED_FILES)
 	$(ESBUILD) shared/js/devtools/panel.js > $@
 
@@ -234,7 +237,7 @@ $(BUILD_DIR)/public/js/fire.js: $(WATCHED_FILES)
 $(BUILD_DIR)/public/js/content-scripts/cpm.js: $(WATCHED_FILES)
 	$(ESBUILD) shared/js/cpm.js > $@
 
-JS_BUNDLES = background.js base.js feedback.js options.js devtools-panel.js list-editor.js newtab.js fire.js rollouts.js content-scripts/cpm.js
+JS_BUNDLES = background.js base.js feedback.js options.js popup-customizations.js devtools-panel.js list-editor.js newtab.js fire.js rollouts.js content-scripts/cpm.js
 BUILD_TARGETS = $(addprefix $(BUILD_DIR)/public/js/, $(JS_BUNDLES))
 
 ## Content Scope Scripts
@@ -275,7 +278,7 @@ BUILD_TARGETS += $(BUILD_DIR)/public/js/inject.js
 ## SASS
 SASS = node_modules/.bin/sass
 SCSS_SOURCE = $(shell find shared/scss/ -type f)
-OUTPUT_CSS_FILES = $(BUILD_DIR)/public/css/options.css $(BUILD_DIR)/public/css/feedback.css
+OUTPUT_CSS_FILES = $(BUILD_DIR)/public/css/options.css $(BUILD_DIR)/public/css/feedback.css $(BUILD_DIR)/public/css/blocked.css
 $(BUILD_DIR)/public/css/base.css: shared/scss/base/base.scss $(SCSS_SOURCE)
 	$(SASS) $< $@
 $(BUILD_DIR)/public/css/%.css: shared/scss/%.scss $(SCSS_SOURCE)

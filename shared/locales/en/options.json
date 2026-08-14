@@ -8,12 +8,24 @@
         }]
     },
     "optionsHeader": {
-        "title": "DuckDuckGo Options",
+        "title": "OpenFocusd Options",
         "note": "Header for options (settings) page"
     },
     "optionsSubHeader": {
         "title": "Search and browse the web without being tracked.",
         "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "Block Sites",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Allowed Sites",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "blockTrackersTab": {
+        "title": "Block Trackers",
+        "note": "Navigation tab for DuckDuckGo tracker-blocking and privacy options"
     },
     "optionsDesc": {
         "title": "DuckDuckGo protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
@@ -87,6 +99,110 @@
         "title": "Invalid URL",
         "note": "The URL the user entered is not a valid website address"
     },
+    "blockedSites": {
+        "title": "Blocked Websites",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Groups",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Each group has a shared daily time limit. While you are on a site in that group, the time counts down. When it reaches zero, every site in the group is blocked until 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Add group",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Name",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Max Time Allowed per Day",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "hr",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Save changes",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Group saved.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "The group could not be saved.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Delete group",
+        "note": "Button that deletes a website group"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blocked websites",
+        "note": "Header for websites assigned to a group"
+    },
+    "addBlockedWebsite": {
+        "title": "Add website",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Remove website",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "To remove {domain}, solve this:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "That's not the right answer.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Cancel",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Remove",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "No websites in this group yet.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Time left",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Time is up. Name, time, and existing sites are locked until 6:00. You can still add websites.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "This group cannot be changed until 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Enter a valid website address.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
     "fireButtonHeading": {
         "title": "Fire Button",
         "note": "Header for the settings for the Fire button feature"
@@ -106,6 +222,22 @@
     "fireButtonTabClosureTitle": {
         "title": "Close Tabs",
         "note": "Title for option toggle."
+    },
+    "searchEngine": {
+        "title": "Search engine",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Choose where searches from the popup and address bar keyword go.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
         "title": "No AI in Search",

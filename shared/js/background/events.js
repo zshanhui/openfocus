@@ -29,8 +29,18 @@ const {
 const manifestVersion = browserWrapper.getManifestVersion();
 
 async function onInstalled(details) {
+    if (browserName === 'chrome') {
+        try {
+            await settings.ready();
+            const { ensureSiteGroups } = await import('./site-groups-store');
+            await ensureSiteGroups();
+        } catch (error) {
+            console.warn('Failed to initialize site groups on install', error);
+        }
+    }
+
     if (details.reason.match(/install/)) {
-        // get tab URLs immediately to prevent race with install page
+        // Capture any open DuckDuckGo URLs before install initialization.
         const ddgTabUrls = await browserWrapper.getDDGTabUrls();
         await settings.ready();
         settings.updateSetting('showWelcomeBanner', true);
@@ -39,7 +49,6 @@ async function onInstalled(details) {
             settings.updateSetting('shouldFireIncontextEligibilityPixel', true);
         }
         await ATB.updateATBValues(ddgTabUrls);
-        await ATB.openPostInstallPage();
 
         if (browserName === 'chrome') {
             experiment.setActiveExperiment();
