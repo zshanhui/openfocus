@@ -10,13 +10,8 @@
  * @typedef {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').DataItemId} DisclosureParamId
  */
 
-const load = require('./load');
-const browserWrapper = require('./wrapper');
 const settings = require('./settings');
-const parseUserAgentString = require('../shared-utils/parse-user-agent-string');
 const { getCurrentTab, getURLWithoutQueryString } = require('./utils');
-const { getURL } = require('./pixels');
-const maxPixelLength = 7000;
 
 /**
  * When the user clicks to see what a breakage report will include, the details
@@ -56,78 +51,9 @@ const PARAM_IDS = [
 ];
 
 /**
- *
- * Fire a pixel
- *
- * @param {string} pixelName
- * @param {string} querystring
- * @param {Record<string, string>} [encodedParams]
- *
+ * Breakage reports are collected locally only; remote reporting is disabled.
  */
-export function fire(pixelName, querystring, encodedParams = {}) {
-    let url = constructUrl(pixelName, querystring, false, encodedParams);
-
-    // If we're over the max pixel length, truncate the less important params
-    if (url.length > maxPixelLength) {
-        url = constructUrl(pixelName, querystring, true, encodedParams);
-    }
-
-    // Send the request
-    load.url(url);
-}
-
-/**
- *
- * @param {string} pixelName
- * @param {string} querystring
- * @param {boolean} truncate
- * @param {Record<string, string>} [encodedParams]
- * @returns
- */
-function constructUrl(pixelName, querystring, truncate, encodedParams = {}) {
-    const randomNum = Math.ceil(Math.random() * 1e7);
-    const browserInfo = parseUserAgentString();
-    const browserName = browserInfo?.browser;
-    const extensionVersion = browserWrapper.getExtensionVersion();
-
-    const searchParams = new URLSearchParams(querystring);
-
-    if (extensionVersion) {
-        searchParams.append('extensionVersion', extensionVersion);
-    }
-    if (searchParams.get('category') === 'null') {
-        searchParams.delete('category');
-    }
-    if (truncate) {
-        searchParams.append('truncated', '1');
-    }
-    // build url string
-    let url = getURL(pixelName);
-    if (browserName) {
-        url += `_${browserName.toLowerCase()}`;
-    }
-    // random number cache buster
-    url += `?${randomNum}&`;
-    // some params should be not urlencoded
-    let extraParams = '';
-    [...Object.values(requestCategoryMapping)].forEach((key) => {
-        // if we're truncating, don't include the truncatable fields
-        if (truncate && truncatableFields.includes(key)) return;
-        if (searchParams.has(key)) {
-            extraParams += `&${key}=${decodeURIComponent(searchParams.get(key) || '')}`;
-            searchParams.delete(key);
-        }
-    });
-    // encodedParams are pre-encoded. Append directly without re-encoding
-    for (const [key, value] of Object.entries(encodedParams)) {
-        if (truncate && truncatableFields.includes(key)) continue;
-        extraParams += `&${key}=${value}`;
-    }
-    url += `${searchParams.toString()}${extraParams}`;
-    return url;
-}
-
-const truncatableFields = ['ignoreRequests', 'noActionRequests', 'adAttributionRequests', 'ignoredByUserRequests'];
+export function fire() {}
 
 /**
  * @type {Object<import('../../../packages/privacy-grade/src/classes/trackers').ActionName, string>}

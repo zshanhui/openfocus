@@ -12,7 +12,6 @@
  * } & ExperimentMetric} ExperimentMetricCounter
  */
 import { generateBreakageMetrics } from '../metrics';
-import { sendPixelRequest } from '../pixels';
 
 // Feature name constant for content scope experiments
 const CONTENT_SCOPE_EXPERIMENTS_FEATURE = 'contentScopeExperiments';
@@ -95,9 +94,6 @@ export default class AbnExperimentMetrics {
             // We set the enrollment timestamp as the start of the current day in ET, so that all conversion windows align with ET date changes.
             cohort.enrolledAt = startOfDayEST(Date.now());
             cohort.metrics = (metrics || generateRetentionMetrics()).map((m) => ({ ...m, counter: 0, sent: false }));
-            sendPixelRequest(`experiment_enroll_${subFeatureName}_${cohort.name}`, {
-                enrollmentDate: getDateStringEST(cohort.enrolledAt),
-            });
             // updated stored cohort metadata
             this.remoteConfig.setCohort(featureName, subFeatureName, cohort);
         }
@@ -145,15 +141,6 @@ export default class AbnExperimentMetrics {
                         })
                         .forEach((m) => {
                             m.sent = true;
-                            sendPixelRequest(`experiment_metrics_${status.subFeature}_${cohort.name}`, {
-                                metric: m.metric,
-                                conversionWindowDays:
-                                    m.conversionWindowStart === m.conversionWindowEnd
-                                        ? `${m.conversionWindowStart}`
-                                        : `${m.conversionWindowStart}-${m.conversionWindowEnd}`,
-                                value: m.value,
-                                enrollmentDate,
-                            });
                         });
                     this.remoteConfig.setCohort(status.feature, status.subFeature, cohort);
                 }

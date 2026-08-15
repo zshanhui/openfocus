@@ -137,66 +137,10 @@ describe('CPMStandaloneMessaging', () => {
     });
 
     describe('sendPixel', () => {
-        it('fires a pixel request for a non-daily type', async () => {
+        it('does not send remote telemetry', async () => {
             await messaging.sendPixel('someAutoconsentPixel', 'standard', { foo: 'bar' });
-            expect(loadUrlSpy).toHaveBeenCalledTimes(1);
-            // sendPixelRequest constructs a URL from the pixel name
-            expect(loadUrlSpy.calls.mostRecent().args[0]).toContain('someAutoconsentPixel');
-        });
-
-        it('fires a daily pixel with _daily suffix', async () => {
             await messaging.sendPixel('someAutoconsentPixel', 'daily', { foo: 'bar' });
-            expect(loadUrlSpy).toHaveBeenCalledTimes(1);
-            expect(loadUrlSpy.calls.mostRecent().args[0]).toContain('someAutoconsentPixel_daily');
-        });
-
-        it('does not fire a daily pixel more than once within 24 hours', async () => {
-            jasmine.clock().install();
-            jasmine.clock().mockDate(new Date(2025, 1, 1, 12, 0, 0));
-
-            await messaging.sendPixel('someAutoconsentPixel', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(1);
-
-            // Second call within 24 hours should be suppressed
-            jasmine.clock().tick(1000 * 60 * 60 * 12); // 12 hours
-            await messaging.sendPixel('someAutoconsentPixel', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(1);
-
-            jasmine.clock().uninstall();
-        });
-
-        it('fires a daily pixel again after 24 hours', async () => {
-            jasmine.clock().install();
-            jasmine.clock().mockDate(new Date(2025, 1, 1, 12, 0, 0));
-
-            await messaging.sendPixel('someAutoconsentPixel', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(1);
-
-            // Advance past 24 hours
-            jasmine.clock().tick(1000 * 60 * 60 * 25); // 25 hours
-            await messaging.sendPixel('someAutoconsentPixel', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(2);
-
-            jasmine.clock().uninstall();
-        });
-
-        it('tracks different daily pixels independently', async () => {
-            await messaging.sendPixel('pixel_a', 'daily', {});
-            await messaging.sendPixel('pixel_b', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(2);
-
-            // Both should be suppressed on second call
-            await messaging.sendPixel('pixel_a', 'daily', {});
-            await messaging.sendPixel('pixel_b', 'daily', {});
-            expect(loadUrlSpy).toHaveBeenCalledTimes(2);
-        });
-
-        it('persists daily pixel timestamps in settings', async () => {
-            await messaging.sendPixel('someAutoconsentPixel', 'daily', {});
-            const lastSent = settings.getSetting('pixelsLastSent');
-            expect(lastSent).toBeDefined();
-            expect(lastSent.someAutoconsentPixel_daily).toBeDefined();
-            expect(typeof lastSent.someAutoconsentPixel_daily).toBe('number');
+            expect(loadUrlSpy).not.toHaveBeenCalled();
         });
     });
 

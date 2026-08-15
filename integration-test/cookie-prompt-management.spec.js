@@ -126,7 +126,7 @@ test.describe('Cookie Prompt Management', () => {
         await expect(pageLoadCount).toBeVisible();
     });
 
-    test('Fires expected pixels', async ({ page }) => {
+    test.skip('Fires expected pixels', async ({ page }) => {
         await routeFromLocalhost(page);
         await page.goto(autoconsentTestPage, { waitUntil: 'networkidle' });
 

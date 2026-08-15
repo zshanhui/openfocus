@@ -1,5 +1,4 @@
 import browser from 'webextension-polyfill';
-import { sendPixelRequest } from '../pixels';
 import { registerMessageHandler } from '../message-registry';
 import { getDomain } from 'tldts';
 import tdsStorage from '../storage/tds';
@@ -179,16 +178,9 @@ export default class EmailAutofill {
                 this.fireAutofillPixel('email_filled_main', true);
                 break;
             case 'incontext_show':
-                sendPixelRequest('incontext_show');
-                break;
             case 'incontext_primary_cta':
-                sendPixelRequest('incontext_primary_cta');
-                break;
             case 'incontext_dismiss_persisted':
-                sendPixelRequest('incontext_dismiss_persisted');
-                break;
             case 'incontext_close_x':
-                sendPixelRequest('incontext_close_x');
                 break;
             default:
                 getFromSessionStorage('dev').then((isDev) => {
@@ -197,13 +189,10 @@ export default class EmailAutofill {
         }
     }
 
-    fireAutofillPixel(pixel, shouldUpdateLastUsed = false) {
+    fireAutofillPixel(_pixel, shouldUpdateLastUsed = false) {
         const userData = this.settings.getSetting('userData');
         if (!userData?.userName) return;
 
-        const lastAddressUsedAt = this.settings.getSetting('lastAddressUsedAt') ?? '';
-
-        sendPixelRequest(pixel, { duck_address_last_used: lastAddressUsedAt, cohort: userData.cohort });
         if (shouldUpdateLastUsed) {
             this.settings.updateSetting('lastAddressUsedAt', currentDate());
         }

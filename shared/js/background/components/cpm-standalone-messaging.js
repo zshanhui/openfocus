@@ -1,5 +1,4 @@
 import Site from '../classes/site';
-import { sendPixelRequest } from '../pixels';
 
 /**
  * @typedef {import('./cookie-prompt-management').CPMMessagingBase} CPMMessagingBase
@@ -52,18 +51,8 @@ export class CPMStandaloneMessaging {
         return this.remoteConfig.isSubFeatureEnabled('autoconsent', subfeatureName);
     }
 
-    async sendPixel(pixelName, type, params) {
-        if (type === 'daily') {
-            // emulate "daily" pixel firing
-            pixelName = `${pixelName}_daily`;
-            const lastSent = this.remoteConfig.settings.getSetting('pixelsLastSent') || {};
-            if (lastSent[pixelName] && lastSent[pixelName] > Date.now() - 1000 * 60 * 60 * 24) {
-                return;
-            }
-            lastSent[pixelName] = Date.now();
-            this.remoteConfig.settings.updateSetting('pixelsLastSent', lastSent);
-        }
-        return sendPixelRequest(pixelName, params);
+    async sendPixel() {
+        return Promise.resolve();
     }
 
     async refreshRemoteConfig() {
