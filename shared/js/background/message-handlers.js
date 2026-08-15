@@ -151,7 +151,8 @@ export async function search({ term }) {
 }
 
 export function openShareFeedbackPage() {
-    return browserWrapper.openExtensionPage('/html/feedback.html');
+    // Feedback UI entry points are disabled until we route submissions to OpenFocusd.
+    return Promise.resolve();
 }
 
 export function addDebugFlag(message, sender, req) {
