@@ -251,6 +251,18 @@
         "title": "Delete group",
         "note": "Button that deletes a website group"
     },
+    "deleteGroupConfirm": {
+        "title": "Delete the group {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Yes",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "No",
+        "note": "Cancels the current dialog without making a change"
+    },
     "groupBlockedWebsites": {
         "title": "Blocked websites",
         "note": "Header for websites assigned to a group"

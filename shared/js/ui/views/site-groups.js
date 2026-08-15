@@ -106,9 +106,11 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
 
     _rerenderPreservingFocus() {
         const pendingAllowed = this._pendingAllowed;
+        const pendingDeleteGroup = this._pendingDeleteGroup;
         this._hideRemoveDialog();
         this._hideAllowedDialog();
         this._hideAdultGamblingDisableDialog();
+        this._hideDeleteGroupDialog();
         const active = document.activeElement;
         const card = active?.closest?.('.js-site-group');
         const groupId = card?.getAttribute('data-group-id');
@@ -120,6 +122,9 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         this.setup();
         if (pendingAllowed) {
             this._showAllowedDialog(pendingAllowed.groupId, pendingAllowed.domain, pendingAllowed.overlappingAllowed);
+        }
+        if (pendingDeleteGroup) {
+            this._showDeleteGroupDialog(pendingDeleteGroup.groupId);
         }
 
         if (!groupId) {
@@ -169,6 +174,10 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._hideAdultGamblingDisableDialog();
             return;
         }
+        if (event.target.classList?.contains('js-site-group-delete-dialog')) {
+            this._hideDeleteGroupDialog();
+            return;
+        }
         if (!target.length) {
             return;
         }
@@ -200,6 +209,14 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._confirmAdultGamblingDisable();
             return;
         }
+        if (target.hasClass('js-site-group-delete-cancel')) {
+            this._hideDeleteGroupDialog();
+            return;
+        }
+        if (target.hasClass('js-site-group-delete-submit')) {
+            this._confirmDeleteGroup();
+            return;
+        }
         const $card = this._card(event);
         if (!$card.length) {
             return;
@@ -218,18 +235,22 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         if (target.hasClass('js-site-group-save')) {
             this._saveGroup($card);
         } else if (target.hasClass('js-site-group-delete')) {
-            this._deleteGroup($card);
+            this._showDeleteGroupDialog($card.attr('data-group-id'));
         } else if (target.hasClass('js-site-group-remove-domain')) {
             this._showRemoveDialog($card.attr('data-group-id'), target.attr('data-domain'));
         }
     },
 
     _onKeydown(event) {
-        if (event.key === 'Escape' && (this._pendingRemove || this._pendingAllowed || this._pendingAdultGamblingDisable)) {
+        if (
+            event.key === 'Escape' &&
+            (this._pendingRemove || this._pendingAllowed || this._pendingAdultGamblingDisable || this._pendingDeleteGroup)
+        ) {
             event.preventDefault();
             this._hideRemoveDialog();
             this._hideAllowedDialog();
             this._hideAdultGamblingDisableDialog();
+            this._hideDeleteGroupDialog();
             return;
         }
         if (event.key === 'Enter' && this._pendingRemove && window.$(event.target).hasClass('js-site-group-remove-answer')) {
@@ -353,10 +374,31 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         }
     },
 
-    async _deleteGroup($card) {
-        const id = $card.attr('data-group-id');
+    _showDeleteGroupDialog(groupId) {
+        if (!groupId) {
+            return;
+        }
+        const group = (this.model.groups || []).find((item) => item.id === groupId);
+        this._pendingDeleteGroup = { groupId };
+        const $dialog = this.$el.find('.js-site-group-delete-dialog');
+        $dialog.find('.js-site-group-delete-dialog-text').text(t('options:deleteGroupConfirm.title', { name: group?.name || '' }));
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-site-group-delete-cancel').trigger('focus');
+    },
+
+    _hideDeleteGroupDialog() {
+        this._pendingDeleteGroup = null;
+        this.$el.find('.js-site-group-delete-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmDeleteGroup() {
+        const pending = this._pendingDeleteGroup;
+        if (!pending?.groupId) {
+            return;
+        }
+        this._hideDeleteGroupDialog();
         this._updatingTimersOnly = false;
-        await this.model.deleteGroup(id);
+        await this.model.deleteGroup(pending.groupId);
     },
 
     async _addDomain($card) {

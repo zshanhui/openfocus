@@ -33,6 +33,16 @@ function groupCard(group, options = {}) {
         class="site-group-card js-site-group${locked ? ' is-locked' : ''}${alwaysBlock ? ' is-always-block' : ''}"
         data-group-id="${group.id}"
     >
+        ${
+            alwaysBlock
+                ? null
+                : bel`<button
+                    class="site-group-delete js-site-group-delete"
+                    type="button"
+                    aria-label="${t('options:deleteGroup.title')}"
+                    disabled=${locked}
+                >×</button>`
+        }
         ${locked ? bel`<p class="site-group-locked-note">${t('options:groupLockedUntilReset.title')}</p>` : null}
         <div class="site-group-card__main">
             ${timer}
@@ -56,9 +66,8 @@ function groupCard(group, options = {}) {
                     alwaysBlock
                         ? null
                         : bel`<div class="site-group-card__actions">
-                    <button class="site-group-save js-site-group-save" type="button" disabled=${locked}>${t('options:saveGroup.title')}</button>
-                    <button class="site-group-delete js-site-group-delete" type="button" disabled=${locked}>${t('options:deleteGroup.title')}</button>
                     <span class="site-group-status is-hidden js-site-group-status" role="status"></span>
+                    <button class="site-group-save js-site-group-save" type="button" disabled=${locked}>${t('options:saveGroup.title')}</button>
                 </div>`
                 }
             </div>
@@ -154,6 +163,15 @@ module.exports = function () {
                 <div class="site-group-dialog__actions">
                     <button class="site-group-dialog__no js-site-group-allowed-cancel" type="button">${t('options:confirmCancel.title')}</button>
                     <button class="site-group-dialog__yes site-group-dialog__yes--primary js-site-group-allowed-submit" type="button">${t('options:confirmAddToGroup.title')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="site-group-dialog is-hidden js-site-group-delete-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-delete-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-site-group-delete-dialog-text" id="site-group-delete-dialog-title"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-site-group-delete-cancel" type="button">${t('options:confirmNo.title')}</button>
+                    <button class="site-group-dialog__yes js-site-group-delete-submit" type="button">${t('options:confirmYes.title')}</button>
                 </div>
             </div>
         </div>
