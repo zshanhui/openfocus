@@ -16,6 +16,7 @@ module.exports = {
     searchEngine: 'ddg',
     blockedSites: {},
     allowedSites: [],
+    blockAdultGamblingSites: false,
     sanctuaryDurationSeconds: 3600,
     sanctuaryShowOnPopup: false,
     sanctuaryEndsAt: 0,

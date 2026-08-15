@@ -278,6 +278,37 @@
     border-top: 1px solid vars.$platinum-light;
 }
 
+.site-group-category {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid vars.$platinum-light;
+}
+
+.site-group-category h3 {
+    margin: 0 0 10px;
+    color: vars.$slate-light;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-group-category__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: vars.$slate;
+    font-weight: 600;
+}
+
+.site-group-category__desc {
+    max-width: 52em;
+    margin: 8px 0 0;
+    color: vars.$slate-light;
+    font-weight: normal;
+}
+
 .site-group-sites__header h3 {
     margin: 0 0 10px;
     color: vars.$slate-light;

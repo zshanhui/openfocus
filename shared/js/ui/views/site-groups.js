@@ -189,6 +189,10 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._addDomain($card);
             return;
         }
+        if (target.hasClass('js-adult-gambling-toggle')) {
+            this._toggleAdultGambling();
+            return;
+        }
         if ($card.hasClass('is-locked')) {
             return;
         }
@@ -229,6 +233,15 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     async _createGroup() {
         this._updatingTimersOnly = false;
         await this.model.create();
+    },
+
+    async _toggleAdultGambling() {
+        this._updatingTimersOnly = false;
+        try {
+            await this.model.setAdultGamblingBlock(!this.model.blockAdultGamblingSites);
+        } catch (error) {
+            console.error('Failed to update adult and gambling block', error);
+        }
     },
 
     async _saveGroup($card) {

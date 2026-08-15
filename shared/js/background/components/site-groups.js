@@ -2,6 +2,12 @@ import browser from 'webextension-polyfill';
 import { registerMessageHandler } from '../message-registry';
 import { refreshUserBlockedSitesRules } from '../dnr-user-blocklist';
 import {
+    refreshCategoryAllowRules,
+    isAdultGamblingBlockEnabled,
+    setAdultGamblingBlockEnabled,
+    shouldRedirectCategoryNavigation,
+} from '../dnr-category-blocklist';
+import {
     addDomainToGroup,
     ALARM_CHECKPOINT,
     ALARM_DAILY_RESET,
@@ -31,7 +37,7 @@ import {
     saveSiteGroups,
     updateSiteGroup,
 } from '../site-groups-store';
-import { getExtensionURL } from '../wrapper';
+import { getExtensionURL, getManifestVersion } from '../wrapper';
 
 const BLOCKED_PAGE_PATH = '/html/blocked.html';
 
@@ -68,6 +74,7 @@ export default class SiteGroups {
         registerMessageHandler('addSiteToGroup', (options) => this.handleAddDomain(options));
         registerMessageHandler('removeSiteFromGroup', (options) => this.handleRemoveDomain(options));
         registerMessageHandler('getPopupGroupStatus', (options) => this.getPopupStatus(options));
+        registerMessageHandler('setAdultGamblingBlock', (options) => this.handleSetAdultGamblingBlock(options));
 
         try {
             this.attachNavigationGuards();
@@ -162,11 +169,14 @@ export default class SiteGroups {
         }
 
         const group = findGroupForHostname(getSiteGroups(), hostname);
-        if (!group || getRemainingSeconds(group, getGroupUsage()) > 0) {
+        if (group && getRemainingSeconds(group, getGroupUsage()) <= 0) {
+            await this.redirectTab(tabId);
             return;
         }
 
-        await this.redirectTab(tabId);
+        if (await shouldRedirectCategoryNavigation(url)) {
+            await this.redirectTab(tabId);
+        }
     }
 
     async redirectOpenBlockedTabs() {
@@ -380,6 +390,8 @@ export default class SiteGroups {
         return {
             groups: getSiteGroups().map((group) => decorateGroup(group, usage, now)),
             resetHour: 6,
+            categoryBlockSupported: getManifestVersion() === 3,
+            blockAdultGamblingSites: isAdultGamblingBlockEnabled(),
         };
     }
 
@@ -506,6 +518,7 @@ export default class SiteGroups {
         }
         if (overlappingAllowed.length && replaceAllowed) {
             removeAllowedSitePatterns(overlappingAllowed);
+            await refreshCategoryAllowRules();
         }
         const groups = addDomainToGroup(getSiteGroups(), groupId, normalized);
         const group = groups.find((item) => item.id === groupId);
@@ -538,6 +551,16 @@ export default class SiteGroups {
         saveSiteGroups(removeDomainFromGroup(getSiteGroups(), groupId, domain));
         await this.syncBlockedRules();
         await this.queueSync();
+        return { saved: true, ...(await this.getState()) };
+    }
+
+    /**
+     * @param {{ enabled?: unknown }} [options]
+     */
+    async handleSetAdultGamblingBlock(options = {}) {
+        await this._ready;
+        await setAdultGamblingBlockEnabled(Boolean(options.enabled));
+        await this.redirectOpenBlockedTabs();
         return { saved: true, ...(await this.getState()) };
     }
 

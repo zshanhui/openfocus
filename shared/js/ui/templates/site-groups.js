@@ -1,5 +1,6 @@
 const bel = require('nanohtml');
 const t = window.DDG.base.i18n.t;
+const toggleButton = require('./shared/toggle-button.js');
 const { formatRemainingLong, secondsToHoursMinutes } = require('../../shared-utils/site-groups');
 
 function progressForGroup(group) {
@@ -9,12 +10,13 @@ function progressForGroup(group) {
     return Math.max(0, Math.min(100, (group.remainingSeconds / group.maxSecondsPerDay) * 100));
 }
 
-function groupCard(group) {
+function groupCard(group, options = {}) {
     const locked = Boolean(group.settingsLocked);
     const alwaysBlock = Boolean(group.isAlwaysBlock);
     const nameLocked = locked || alwaysBlock;
     const timeLocked = locked || alwaysBlock;
     const time = alwaysBlock ? { hours: 0, minutes: 0 } : secondsToHoursMinutes(group.maxSecondsPerDay);
+    const categoryEnabled = Boolean(options.blockAdultGamblingSites);
     const timer = bel`<div
         class="site-group-timer js-site-group-timer"
         style="--progress: ${progressForGroup(group)}"
@@ -60,6 +62,18 @@ function groupCard(group) {
                 }
             </div>
         </div>
+        ${
+            alwaysBlock && options.categoryBlockSupported
+                ? bel`<div class="site-group-category">
+            <h3>${t('options:adultGamblingHeading.title')}</h3>
+            <div class="site-group-category__toggle">
+                <span>${t('options:adultGamblingToggle.title')}</span>
+                ${toggleButton(categoryEnabled, 'js-adult-gambling-toggle', 'blockAdultGamblingSites')}
+            </div>
+            <p class="site-group-category__desc">${t('options:adultGamblingDesc.title')}</p>
+        </div>`
+                : null
+        }
         <div class="site-group-sites">
             <div class="site-group-sites__header">
                 <h3>${t('options:groupBlockedWebsites.title')}</h3>
@@ -101,7 +115,12 @@ module.exports = function () {
             <button class="site-groups-add js-site-groups-add" type="button">${t('options:addGroup.title')}</button>
         </div>
         <div class="site-groups-list js-site-groups-list">
-            ${groups.map(groupCard)}
+            ${groups.map((group) =>
+                groupCard(group, {
+                    blockAdultGamblingSites: Boolean(this.model.blockAdultGamblingSites),
+                    categoryBlockSupported: Boolean(this.model.categoryBlockSupported),
+                }),
+            )}
         </div>
         <div class="site-group-dialog is-hidden js-site-group-remove-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-remove-dialog-title">
             <div class="site-group-dialog__panel">

@@ -2,6 +2,7 @@ import { registerMessageHandler } from '../message-registry';
 import { findAllowedConflict, parseAllowedSitesInput } from '../../shared-utils/allowed-sites';
 import { getSiteGroups } from '../site-groups-store';
 import { addAllowedSitePatterns, clearAllowedSites, getAllowedSites, removeAllowedSitePattern } from '../allowed-sites-store';
+import { refreshCategoryAllowRules } from '../dnr-category-blocklist';
 import { isSanctuaryActive } from '../sanctuary-store';
 
 export default class AllowedSites {
@@ -80,6 +81,7 @@ export default class AllowedSites {
 
         if (toAdd.length) {
             addAllowedSitePatterns(toAdd);
+            await refreshCategoryAllowRules();
         }
 
         return {
@@ -102,6 +104,7 @@ export default class AllowedSites {
             return { saved: false, ...(await this.getState()) };
         }
         removeAllowedSitePattern(options.pattern);
+        await refreshCategoryAllowRules();
         return { saved: true, ...(await this.getState()) };
     }
 
@@ -111,6 +114,7 @@ export default class AllowedSites {
             return { saved: false, locked: true, ...(await this.getState()) };
         }
         clearAllowedSites();
+        await refreshCategoryAllowRules();
         return { saved: true, ...(await this.getState()) };
     }
 }

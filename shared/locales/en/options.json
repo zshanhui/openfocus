@@ -255,6 +255,18 @@
         "title": "Blocked websites",
         "note": "Header for websites assigned to a group"
     },
+    "adultGamblingHeading": {
+        "title": "Adult and gambling sites",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Block adult and gambling sites (~52,000)",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingDesc": {
+        "title": "When this is on, those sites are always blocked and open the same blocked page as sites you add below. Allowed Sites can still exception a site on this list.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
     "addBlockedWebsite": {
         "title": "Add website",
         "note": "Button that adds a website to the current group"

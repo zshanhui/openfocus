@@ -2,6 +2,8 @@ const Parent = window.DDG.base.Model;
 
 function SiteGroups(attrs) {
     attrs.groups = [];
+    attrs.blockAdultGamblingSites = false;
+    attrs.categoryBlockSupported = false;
     Parent.call(this, attrs);
     this.load();
 }
@@ -12,7 +14,18 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     load() {
         return this.sendMessage('getSiteGroupsState').then((state) => {
             this.set('groups', state?.groups || []);
+            this.set('blockAdultGamblingSites', Boolean(state?.blockAdultGamblingSites));
+            this.set('categoryBlockSupported', Boolean(state?.categoryBlockSupported));
             return this.groups;
+        });
+    },
+
+    setAdultGamblingBlock(enabled) {
+        return this.sendMessage('setAdultGamblingBlock', { enabled }).then((state) => {
+            this.set('groups', state?.groups || []);
+            this.set('blockAdultGamblingSites', Boolean(state?.blockAdultGamblingSites));
+            this.set('categoryBlockSupported', Boolean(state?.categoryBlockSupported));
+            return state;
         });
     },
 

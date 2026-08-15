@@ -23,7 +23,9 @@ const chrome = {
         },
         getDynamicRules() {},
         getSessionRules() {},
+        getEnabledRulesets() {},
         updateDynamicRules() {},
+        updateEnabledRulesets() {},
         updateSessionRules() {},
     },
     i18n: {

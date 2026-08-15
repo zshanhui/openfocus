@@ -95,6 +95,11 @@
                 "id": "smarter_encryption",
                 "enabled": true,
                 "path": "data/bundled/smarter-encryption-rules.json"
+            },
+            {
+                "id": "adult_gambling",
+                "enabled": false,
+                "path": "data/bundled/adult-gambling-rules.json"
             }
         ]
     }

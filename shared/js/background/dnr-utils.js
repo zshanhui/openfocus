@@ -27,6 +27,10 @@ export const SANCTUARY_BLOCK_MAIN_RULE_ID = 20013;
 export const SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID = 20014;
 export const SANCTUARY_ALLOW_RULE_ID_START = 20015;
 export const SANCTUARY_ALLOW_RULE_ID_END = 20114;
+export const CATEGORY_ALLOW_RULE_ID_START = 20115;
+export const CATEGORY_ALLOW_RULE_ID_END = 20214;
+export const CATEGORY_REDIRECT_RULE_ID_START = 20215;
+export const CATEGORY_REDIRECT_RULE_ID_END = 20314;
 
 // Rule IDs for static session rules
 export const SERVICE_WORKER_INITIATED_ALLOWING_RULE_ID = 20002;
@@ -134,6 +138,18 @@ export async function getMatchDetails(ruleId) {
         };
     }
 
+    if (ruleId >= CATEGORY_ALLOW_RULE_ID_START && ruleId <= CATEGORY_ALLOW_RULE_ID_END) {
+        return {
+            type: 'categoryAllow',
+        };
+    }
+
+    if (ruleId >= CATEGORY_REDIRECT_RULE_ID_START && ruleId <= CATEGORY_REDIRECT_RULE_ID_END) {
+        return {
+            type: 'categoryRedirect',
+        };
+    }
+
     if (ruleId === GPC_HEADER_RULE_ID) {
         return {
             type: 'gpc',
@@ -179,6 +195,12 @@ export async function clearInvalidDynamicRules() {
                 return true;
             }
             if (rule.id >= SANCTUARY_ALLOW_RULE_ID_START && rule.id <= SANCTUARY_ALLOW_RULE_ID_END) {
+                return false;
+            }
+            if (rule.id >= CATEGORY_ALLOW_RULE_ID_START && rule.id <= CATEGORY_ALLOW_RULE_ID_END) {
+                return false;
+            }
+            if (rule.id >= CATEGORY_REDIRECT_RULE_ID_START && rule.id <= CATEGORY_REDIRECT_RULE_ID_END) {
                 return false;
             }
             if (rule.id >= ruleIdRangeByConfigName._RESERVED[0] && rule.id <= ruleIdRangeByConfigName._RESERVED[1]) {

@@ -74,10 +74,10 @@ unit-test:
 
 .PHONY: unit-test
 
-NODE_TESTS = unit-test/node/**/*.js
+NODE_TESTS = unit-test/node/*.js unit-test/node/**/*.js
 node-test:
 	$(ESBUILD) --platform=node --outdir=build/node --inject:./unit-test/inject-chrome-shim.js --external:jsdom $(NODE_TESTS)
-	node_modules/.bin/jasmine build/node/*.js
+	node_modules/.bin/jasmine 'build/node/**/*.js'
 
 ## npm: Pull in the external dependencies (npm install).
 npm:
@@ -311,6 +311,19 @@ $(BUILD_DIR)/data/bundled/smarter-encryption-rules.json: build/.smarter_encrypti
 
 ifeq ('$(browser)','chrome')
   BUILD_TARGETS += $(BUILD_DIR)/data/bundled/smarter-encryption-rules.json
+endif
+
+# Adult/gambling category blocklist (StevenBlack hosts → static DNR). Chrome only.
+# Prefer a previously generated JSON so Chrome builds do not fetch GitHub.
+ifeq ('$(browser)','chrome')
+ifneq ("$(wildcard shared/data/bundled/adult-gambling-rules.json)","")
+$(BUILD_DIR)/data/bundled/adult-gambling-rules.json: shared/data/bundled/adult-gambling-rules.json | $(BUILD_DIR)/data/bundled
+	cp $< $@
+else
+$(BUILD_DIR)/data/bundled/adult-gambling-rules.json: | $(BUILD_DIR)/data/bundled
+	node scripts/generate-adult-gambling-ruleset.mjs --output $@ --hosts-output build/adult-gambling-hosts.txt --meta-output build/adult-gambling-ruleset-meta.json
+endif
+  BUILD_TARGETS += $(BUILD_DIR)/data/bundled/adult-gambling-rules.json
 endif
 
 # Generate the list of "surrogate" (stub) scripts.
