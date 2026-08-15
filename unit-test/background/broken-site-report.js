@@ -25,7 +25,6 @@ describe('broke-site-report', () => {
         expect(await getDisclosureDetails()).toEqual({
             data: [
                 { id: 'siteUrl' },
-                { id: 'atb' },
                 { id: 'errorDescriptions' },
                 { id: 'extensionVersion' },
                 { id: 'features' },
@@ -44,7 +43,6 @@ describe('broke-site-report', () => {
         expect(await getDisclosureDetails()).toEqual({
             data: [
                 { id: 'siteUrl', additional: { url: 'https://domain.example/path' } },
-                { id: 'atb' },
                 { id: 'errorDescriptions' },
                 { id: 'extensionVersion' },
                 { id: 'features' },

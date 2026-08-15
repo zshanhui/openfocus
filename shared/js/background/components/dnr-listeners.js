@@ -1,5 +1,6 @@
 import browser from 'webextension-polyfill';
-import ATB from '../atb.js';
+import { removeLegacyAtbRules, setOrUpdateSearchRedirectRule } from '../dnr-search-redirect.js';
+import { ensureInstalledAt } from '../install-utils.js';
 import { flushSessionRules } from '../dnr-session-rule-id.js';
 import { clearInvalidDynamicRules } from '../dnr-utils.js';
 import { refreshUserAllowlistRules } from '../dnr-user-allowlist.js';
@@ -51,8 +52,9 @@ export default class DNRListeners {
         await flushSessionRules();
         // check that the dynamic rule state is consistent with the rule ranges we expect
         clearInvalidDynamicRules();
-        // create ATB rule if there is a stored value in settings
-        ATB.setOrUpdateATBdnrRule(this.settings.getSetting('atb'));
+        await removeLegacyAtbRules();
+        setOrUpdateSearchRedirectRule();
+        await ensureInstalledAt();
 
         // Refresh the user allowlisting declarativeNetRequest rule, only
         // necessary to handle the upgrade between MV2 and MV3 extensions.

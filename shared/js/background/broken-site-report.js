@@ -43,7 +43,6 @@ const maxPixelLength = 7000;
  */
 const PARAM_IDS = [
     'siteUrl',
-    'atb',
     'errorDescriptions',
     'extensionVersion',
     'features',
@@ -90,15 +89,11 @@ function constructUrl(pixelName, querystring, truncate, encodedParams = {}) {
     const browserInfo = parseUserAgentString();
     const browserName = browserInfo?.browser;
     const extensionVersion = browserWrapper.getExtensionVersion();
-    const atb = settings.getSetting('atb');
 
     const searchParams = new URLSearchParams(querystring);
 
     if (extensionVersion) {
         searchParams.append('extensionVersion', extensionVersion);
-    }
-    if (atb) {
-        searchParams.append('atb', atb);
     }
     if (searchParams.get('category') === 'null') {
         searchParams.delete('category');

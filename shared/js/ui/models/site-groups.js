@@ -37,8 +37,8 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         });
     },
 
-    addDomain(groupId, domain) {
-        return this.sendMessage('addSiteToGroup', { groupId, domain }).then((state) => {
+    addDomain(groupId, domain, replaceAllowed = false) {
+        return this.sendMessage('addSiteToGroup', { groupId, domain, replaceAllowed }).then((state) => {
             this.set('groups', state?.groups || []);
             return state;
         });

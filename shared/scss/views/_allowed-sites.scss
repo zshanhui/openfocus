@@ -1,0 +1,168 @@
+@use '../vars';
+
+.options-content__allowed-sites {
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.options-content__allowed-sites .menu-title {
+    padding: 24px 0 4px;
+    color: vars.$blue-dark;
+}
+
+.options-content__allowed-sites .menu-paragraph {
+    max-width: 52em;
+    margin-bottom: 12px;
+    color: vars.$grey-dark;
+    font-weight: normal;
+    text-align: left;
+}
+
+.allowed-sites-tips {
+    max-width: 52em;
+    margin: 0 0 16px;
+    padding-left: 20px;
+    color: vars.$grey-dark;
+}
+
+.allowed-sites-tips li {
+    margin-bottom: 6px;
+}
+
+.allowed-sites-input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-height: 140px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border: 1px solid vars.$color--dark-silver;
+    border-radius: 4px;
+    color: vars.$slate;
+    font: inherit;
+    resize: vertical;
+}
+
+.allowed-sites-add {
+    height: 36px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 4px;
+    background-color: vars.$blue;
+    color: vars.$white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.allowed-sites-remove-hint {
+    margin: 20px 0 8px;
+    color: vars.$slate-light;
+    font-weight: normal;
+}
+
+.allowed-sites-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.allowed-sites-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border: 1px solid vars.$platinum;
+    border-radius: 8px;
+    background: vars.$silver-light;
+    color: vars.$slate;
+    font-weight: 600;
+}
+
+.allowed-sites-chip__remove {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: vars.$red;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.allowed-sites-chip__icon {
+    display: block;
+    color: vars.$slate;
+}
+
+.allowed-sites-error {
+    margin: 0 0 12px;
+    color: vars.$red;
+    font-weight: normal;
+    white-space: pre-wrap;
+}
+
+.allowed-sites-clear {
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid vars.$red;
+    border-radius: 4px;
+    background: transparent;
+    color: vars.$red;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.allowed-sites-clear:disabled {
+    border-color: vars.$color--light-slate;
+    background-color: transparent;
+    color: vars.$color--light-slate;
+    cursor: not-allowed;
+}
+
+.allowed-sites-note {
+    max-width: 52em;
+    margin: 16px 0 0;
+    color: vars.$slate-light;
+    font-weight: normal;
+}
+
+.sanctuary-settings {
+    margin-top: 32px;
+    padding-top: 8px;
+    border-top: 1px solid vars.$platinum-light;
+}
+
+.sanctuary-locked-note {
+    margin: 0 0 12px;
+    color: vars.$slate;
+    font-weight: 600;
+}
+
+.sanctuary-duration {
+    margin: 16px 0;
+}
+
+.sanctuary-toggle__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0 4px;
+    font-size: 16px;
+}
+
+.js-sanctuary-show-popup.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.options-content__allowed-sites.is-locked .js-allowed-sites-input,
+.options-content__allowed-sites.is-locked .js-sanctuary-hours,
+.options-content__allowed-sites.is-locked .js-sanctuary-minutes {
+    cursor: not-allowed;
+}

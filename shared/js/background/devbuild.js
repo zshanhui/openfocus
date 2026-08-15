@@ -4,7 +4,6 @@
  */
 import { onStartup, ready } from './startup';
 import Companies from './companies';
-import atb from './atb';
 import tds from './storage/tds';
 import { createNewtabTrackerStatsDebugApi } from './newtab-tracker-stats-debug';
 import { sendPageloadsWithAdAttributionPixelAndResetCount } from './classes/ad-click-attribution-policy';
@@ -32,7 +31,7 @@ export default function initDebugBuild() {
         HttpsRedirects,
         TabState,
         Wrapper,
-        atb,
+        atb: null,
         https,
         tds,
         browserWrapper,

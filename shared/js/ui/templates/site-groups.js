@@ -120,5 +120,14 @@ module.exports = function () {
                 </div>
             </div>
         </div>
+        <div class="site-group-dialog is-hidden js-site-group-allowed-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-allowed-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-site-group-allowed-dialog-text" id="site-group-allowed-dialog-title"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-site-group-allowed-cancel" type="button">${t('options:confirmCancel.title')}</button>
+                    <button class="site-group-dialog__yes site-group-dialog__yes--primary js-site-group-allowed-submit" type="button">${t('options:confirmAddToGroup.title')}</button>
+                </div>
+            </div>
+        </div>
     </section>`;
 };

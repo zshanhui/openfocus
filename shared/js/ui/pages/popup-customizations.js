@@ -1,4 +1,5 @@
 import { formatRemaining } from '../../shared-utils/site-groups';
+import { formatSanctuaryDuration } from '../../shared-utils/sanctuary';
 import { SEARCH_ENGINE_DDG, normalizeSearchEngine, searchPlaceholder } from '../../shared-utils/search-engine';
 
 const app = document.getElementById('app');
@@ -6,6 +7,7 @@ const CHROME_CLASS = 'openfocusd-popup-chrome';
 const TABS_CLASS = 'openfocusd-popup-tabs';
 const OPTIONS_BAR_CLASS = 'openfocusd-popup-options';
 const STATUS_CLASS = 'openfocusd-group-status';
+const SANCTUARY_CLASS = 'openfocusd-sanctuary';
 const TAB_BLOCKER = 'blocker';
 const TAB_TRACKERS = 'trackers';
 const TAB_BLOCKER_CLASS = 'openfocusd-tab-blocker';
@@ -199,6 +201,161 @@ async function refreshStatus(card) {
     }
 }
 
+function displayedSanctuaryRemaining(state) {
+    if (!state?.active || state.remainingSeconds <= 0) {
+        return 0;
+    }
+    return Math.max(0, state.remainingSeconds - (Date.now() - state.serverNow) / 1000);
+}
+
+function ensureSanctuaryCard(page) {
+    let card = page.querySelector(`:scope > .${SANCTUARY_CLASS}`);
+    if (!card) {
+        card = document.createElement('section');
+        card.className = SANCTUARY_CLASS;
+        card.hidden = true;
+        page.append(card);
+        card.addEventListener('click', (event) => onSanctuaryClick(card, event));
+    } else if (page.lastElementChild !== card) {
+        page.append(card);
+    }
+    return card;
+}
+
+function cannotActivateLabel(state) {
+    if (state?.cannotActivateReason === 'empty') {
+        return 'Add at least one Allowed Site first.';
+    }
+    if (state?.cannotActivateReason === 'duration') {
+        return 'Set a duration of at least 1 minute.';
+    }
+    return '';
+}
+
+function renderSanctuary(card, state) {
+    card.replaceChildren();
+    if (!state?.showOnPopup && !state?.active) {
+        card.hidden = true;
+        return;
+    }
+    card.hidden = false;
+
+    const box = el('div', 'openfocusd-sanctuary__box');
+    const row = el('div', 'openfocusd-sanctuary__row');
+    box.append(el('div', 'openfocusd-sanctuary__label', 'Sanctuary Mode'));
+    if (state.active) {
+        box.classList.add('is-active');
+        row.append(el('div', 'openfocusd-sanctuary__time', formatRemaining(displayedSanctuaryRemaining(state))));
+        box.append(row);
+        box.append(el('div', 'openfocusd-sanctuary__note', 'Cannot be turned off until the timer ends.'));
+        card.append(box);
+        return;
+    }
+
+    row.append(el('div', 'openfocusd-sanctuary__time', state.durationLabel || formatSanctuaryDuration(state.durationSeconds)));
+    const button = el('button', 'openfocusd-sanctuary__activate', 'Activate');
+    button.type = 'button';
+    button.disabled = !state.canActivate;
+    row.append(button);
+    box.append(row);
+    const reason = cannotActivateLabel(state);
+    if (reason) {
+        box.append(el('div', 'openfocusd-sanctuary__note', reason));
+    }
+    card.append(box);
+}
+
+function showSanctuaryDialog(card, state) {
+    const existing = card.querySelector('.openfocusd-sanctuary__dialog');
+    existing?.remove();
+    const dialog = el('div', 'openfocusd-sanctuary__dialog');
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    const panel = el('div', 'openfocusd-sanctuary__dialog-panel');
+    const duration = state.durationLabel || formatSanctuaryDuration(state.durationSeconds);
+    panel.append(
+        el(
+            'p',
+            'openfocusd-sanctuary__dialog-text',
+            `Block every website except your Allowed Sites for ${duration}? You cannot turn this off until the time is up.`,
+        ),
+    );
+    const actions = el('div', 'openfocusd-sanctuary__dialog-actions');
+    const cancel = el('button', 'openfocusd-sanctuary__dialog-cancel', 'Cancel');
+    cancel.type = 'button';
+    const confirm = el('button', 'openfocusd-sanctuary__dialog-confirm', 'Activate');
+    confirm.type = 'button';
+    actions.append(cancel, confirm);
+    panel.append(actions);
+    dialog.append(panel);
+    card.append(dialog);
+}
+
+async function activateSanctuary(card) {
+    try {
+        const state = await chrome.runtime.sendMessage({ messageType: 'activateSanctuary' });
+        card._sanctuary = state;
+        renderSanctuary(card, state);
+    } catch (error) {
+        console.warn('Failed to activate Sanctuary Mode', error);
+    }
+}
+
+function onSanctuaryClick(card, event) {
+    const target = event.target;
+    if (!(target instanceof Element)) {
+        return;
+    }
+    if (target.closest('.openfocusd-sanctuary__dialog') === target) {
+        card.querySelector('.openfocusd-sanctuary__dialog')?.remove();
+        return;
+    }
+    if (target.closest('.openfocusd-sanctuary__dialog-cancel')) {
+        card.querySelector('.openfocusd-sanctuary__dialog')?.remove();
+        return;
+    }
+    if (target.closest('.openfocusd-sanctuary__dialog-confirm')) {
+        card.querySelector('.openfocusd-sanctuary__dialog')?.remove();
+        activateSanctuary(card);
+        return;
+    }
+    if (target.closest('.openfocusd-sanctuary__activate')) {
+        const button = target.closest('.openfocusd-sanctuary__activate');
+        if (button instanceof HTMLButtonElement && button.disabled) {
+            return;
+        }
+        showSanctuaryDialog(card, card._sanctuary || {});
+    }
+}
+
+function tickSanctuary(card) {
+    const state = card._sanctuary;
+    if (!state?.active) {
+        return;
+    }
+    const remaining = displayedSanctuaryRemaining(state);
+    const node = card.querySelector('.openfocusd-sanctuary__time');
+    if (node) {
+        node.textContent = formatRemaining(remaining);
+    }
+    if (remaining <= 0) {
+        refreshSanctuary(card);
+    }
+}
+
+async function refreshSanctuary(card) {
+    try {
+        const state = await chrome.runtime.sendMessage({ messageType: 'getSanctuaryState' });
+        card._sanctuary = state;
+        if (card.querySelector('.openfocusd-sanctuary__dialog') && !state?.active) {
+            return;
+        }
+        renderSanctuary(card, state);
+    } catch {
+        card.hidden = true;
+    }
+}
+
 function customizePopupLayout() {
     const page = app?.querySelector('.site-info > .page-inner');
     const search = page?.querySelector(':scope > .search');
@@ -212,6 +369,7 @@ function customizePopupLayout() {
         chromeBar.after(search);
     }
     const statusCard = ensureStatusCard(page, search);
+    const sanctuaryCard = ensureSanctuaryCard(page);
     const optionsBar = chromeBar.querySelector(`.${OPTIONS_BAR_CLASS}`);
 
     const cogButton = search.querySelector(':scope > .cog-button');
@@ -226,6 +384,13 @@ function customizePopupLayout() {
         refreshStatus(statusCard);
         window.setInterval(() => tickRemaining(statusCard), 250);
         window.setInterval(() => refreshStatus(statusCard), 1000);
+    }
+
+    if (!sanctuaryCard._refreshing) {
+        sanctuaryCard._refreshing = true;
+        refreshSanctuary(sanctuaryCard);
+        window.setInterval(() => tickSanctuary(sanctuaryCard), 250);
+        window.setInterval(() => refreshSanctuary(sanctuaryCard), 1000);
     }
 }
 

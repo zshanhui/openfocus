@@ -7,10 +7,10 @@
 import browser from 'webextension-polyfill';
 import { updateActionIcon } from './events/privacy-icon-indicator';
 import httpsStorage from './storage/https';
-import ATB from './atb';
 import { clearExpiredBrokenSiteReportTimes } from './broken-site-report';
 import { sendPageloadsWithAdAttributionPixelAndResetCount } from './classes/ad-click-attribution-policy';
 import { postPopupMessage } from './popup-messaging';
+import { ensureInstalledAt } from './install-utils';
 const utils = require('./utils');
 const experiment = require('./experiments');
 const settings = require('./settings');
@@ -40,15 +40,13 @@ async function onInstalled(details) {
     }
 
     if (details.reason.match(/install/)) {
-        // Capture any open DuckDuckGo URLs before install initialization.
-        const ddgTabUrls = await browserWrapper.getDDGTabUrls();
         await settings.ready();
+        await ensureInstalledAt();
         settings.updateSetting('showWelcomeBanner', true);
         if (browserName === 'chrome') {
             settings.updateSetting('showCounterMessaging', true);
             settings.updateSetting('shouldFireIncontextEligibilityPixel', true);
         }
-        await ATB.updateATBValues(ddgTabUrls);
 
         if (browserName === 'chrome') {
             experiment.setActiveExperiment();
@@ -232,11 +230,6 @@ const isTopicsEnabled = manifestVersion === 2 && 'browsingTopics' in document &&
 
 browser.webRequest.onHeadersReceived.addListener(
     (request) => {
-        if (ATB.shouldUpdateSetAtb(request)) {
-            // returns a promise
-            return ATB.updateSetAtb();
-        }
-
         const responseHeaders = request.responseHeaders;
 
         if (isTopicsEnabled && responseHeaders && (request.type === 'main_frame' || request.type === 'sub_frame')) {

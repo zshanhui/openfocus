@@ -151,6 +151,10 @@
     color: vars.$white;
 }
 
+.site-group-dialog__yes--primary {
+    background: vars.$blue;
+}
+
 .site-group-card__main {
     display: flex;
     gap: 20px;

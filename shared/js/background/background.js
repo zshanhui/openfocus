@@ -29,6 +29,8 @@ import DebuggerConnection from './components/debugger-connection';
 import Devtools from './components/devtools';
 import DNRListeners from './components/dnr-listeners';
 import SiteGroups from './components/site-groups';
+import AllowedSites from './components/allowed-sites';
+import Sanctuary from './components/sanctuary';
 import RemoteConfig from './components/remote-config';
 import DashboardMessaging from './components/dashboard-messaging';
 import initDebugBuild from './devbuild';
@@ -116,6 +118,16 @@ if (BUILD_TARGET === 'chrome') {
         components.siteGroups = new SiteGroups({ settings });
     } catch (error) {
         console.error('Failed to start site groups', error);
+    }
+    try {
+        components.allowedSites = new AllowedSites({ settings });
+    } catch (error) {
+        console.error('Failed to start allowed sites', error);
+    }
+    try {
+        components.sanctuary = new Sanctuary({ settings });
+    } catch (error) {
+        console.error('Failed to start sanctuary', error);
     }
     components.dnrListeners = new DNRListeners({ settings, tds });
 

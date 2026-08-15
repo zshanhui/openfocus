@@ -1,6 +1,5 @@
 import browser from 'webextension-polyfill';
 import EventEmitter2 from 'eventemitter2';
-import ATB from './atb';
 import { postPopupMessage } from './popup-messaging';
 import RequestBlocklist from './components/request-blocklist';
 
@@ -74,7 +73,6 @@ function handleAmpRedirect(thisTab, url) {
  * Where most of the extension work happens.
  *
  * For each request made:
- * - Add ATB param
  * - Block tracker requests
  * - Upgrade http -> https where possible
  * @param {import('webextension-polyfill').WebRequest.OnBeforeRedirectDetailsType} requestData
@@ -137,9 +135,6 @@ function handleRequest(requestData) {
             thisTab.urlParametersRemovedUrl = null;
         }
 
-        // add atb params only to main_frame
-        const atbParametersAdded = ATB.addParametersMainFrameRequestUrl(mainFrameRequestURL);
-
         // apply no AI search redirect (noai.duckduckgo.com)
         const shouldRedirectSearch =
             mainFrameRequestURL.hostname === 'duckduckgo.com' &&
@@ -150,7 +145,7 @@ function handleRequest(requestData) {
             mainFrameRequestURL.hostname = 'noai.duckduckgo.com';
         }
 
-        if (urlParametersRemovedForThisRequest || ampRedirected || atbParametersAdded || shouldRedirectSearch) {
+        if (urlParametersRemovedForThisRequest || ampRedirected || shouldRedirectSearch) {
             return { redirectUrl: mainFrameRequestURL.href };
         }
     } else {

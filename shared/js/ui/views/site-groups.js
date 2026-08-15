@@ -99,7 +99,9 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     _rerenderPreservingFocus() {
+        const pendingAllowed = this._pendingAllowed;
         this._hideRemoveDialog();
+        this._hideAllowedDialog();
         const active = document.activeElement;
         const card = active?.closest?.('.js-site-group');
         const groupId = card?.getAttribute('data-group-id');
@@ -109,6 +111,9 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         this.unbindEvents();
         this._rerender();
         this.setup();
+        if (pendingAllowed) {
+            this._showAllowedDialog(pendingAllowed.groupId, pendingAllowed.domain, pendingAllowed.overlappingAllowed);
+        }
 
         if (!groupId) {
             return;
@@ -149,6 +154,10 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._hideRemoveDialog();
             return;
         }
+        if (event.target.classList?.contains('js-site-group-allowed-dialog')) {
+            this._hideAllowedDialog();
+            return;
+        }
         if (!target.length) {
             return;
         }
@@ -162,6 +171,14 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         }
         if (target.hasClass('js-site-group-remove-submit')) {
             this._confirmRemoveDomain();
+            return;
+        }
+        if (target.hasClass('js-site-group-allowed-cancel')) {
+            this._hideAllowedDialog();
+            return;
+        }
+        if (target.hasClass('js-site-group-allowed-submit')) {
+            this._confirmReplaceAllowed();
             return;
         }
         const $card = this._card(event);
@@ -185,9 +202,10 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     _onKeydown(event) {
-        if (event.key === 'Escape' && this._pendingRemove) {
+        if (event.key === 'Escape' && (this._pendingRemove || this._pendingAllowed)) {
             event.preventDefault();
             this._hideRemoveDialog();
+            this._hideAllowedDialog();
             return;
         }
         if (event.key === 'Enter' && this._pendingRemove && window.$(event.target).hasClass('js-site-group-remove-answer')) {
@@ -254,8 +272,16 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         try {
             const result = await this.model.addDomain(id, domain);
             const $next = this.$el.find(`.js-site-group[data-group-id="${id}"]`);
+            if (result?.sanctuaryLocked) {
+                this._showError($next, t('options:sanctuaryLockedError.title'));
+                return;
+            }
             if (result?.locked) {
                 this._showError($next, t('options:groupLockedError.title'));
+                return;
+            }
+            if (result?.needsAllowedConfirm) {
+                this._showAllowedDialog(id, result.domain, result.overlappingAllowed);
                 return;
             }
             if (result?.invalid || !result?.saved) {
@@ -295,6 +321,56 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     _hideRemoveDialog() {
         this._pendingRemove = null;
         this.$el.find('.js-site-group-remove-dialog').addClass(isHiddenClass);
+    },
+
+    _showAllowedDialog(groupId, domain, overlappingAllowed) {
+        if (!groupId || !domain) {
+            return;
+        }
+        const patterns = Array.isArray(overlappingAllowed) ? overlappingAllowed : [];
+        this._pendingAllowed = { groupId, domain, overlappingAllowed: patterns };
+        const $dialog = this.$el.find('.js-site-group-allowed-dialog');
+        $dialog.find('.js-site-group-allowed-dialog-text').text(
+            t('options:addToGroupRemovesAllowed.title', {
+                domain,
+                patterns: patterns.join(', '),
+            }),
+        );
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-site-group-allowed-submit').trigger('focus');
+    },
+
+    _hideAllowedDialog() {
+        this._pendingAllowed = null;
+        this.$el.find('.js-site-group-allowed-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmReplaceAllowed() {
+        const pending = this._pendingAllowed;
+        if (!pending?.groupId || !pending.domain) {
+            return;
+        }
+        this._hideAllowedDialog();
+        this._updatingTimersOnly = false;
+        try {
+            const result = await this.model.addDomain(pending.groupId, pending.domain, true);
+            const $next = this.$el.find(`.js-site-group[data-group-id="${pending.groupId}"]`);
+            if (result?.sanctuaryLocked) {
+                this._showError($next, t('options:sanctuaryLockedError.title'));
+                return;
+            }
+            if (result?.locked) {
+                this._showError($next, t('options:groupLockedError.title'));
+                return;
+            }
+            if (result?.invalid || !result?.saved) {
+                this._showError($next, t('options:invalidWebsite.title'));
+            }
+        } catch (error) {
+            console.error('Failed to add website', error);
+            const $next = this.$el.find(`.js-site-group[data-group-id="${pending.groupId}"]`);
+            this._showError($next, t('options:groupSaveError.title'));
+        }
     },
 
     async _confirmRemoveDomain() {

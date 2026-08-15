@@ -16,10 +16,6 @@ function FeedbackForm(attrs) {
 
     this.updateCanSubmit();
 
-    // grab atb value from background process
-    this.sendMessage('getSetting', { name: 'atb' }).then((atb) => {
-        this.atb = atb;
-    });
     this.sendMessage('getExtensionVersion').then((extensionVersion) => {
         this.extensionVersion = extensionVersion;
     });
@@ -47,7 +43,6 @@ FeedbackForm.prototype = window.$.extend({}, Parent.prototype, {
                 browser: this.browser || '',
                 browser_version: this.browserVersion || '',
                 v: this.extensionVersion || '',
-                atb: this.atb || '',
                 tds: this.tsd || '',
             },
             success: (data) => {

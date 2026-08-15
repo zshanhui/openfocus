@@ -19,13 +19,14 @@ import settings from './settings';
 // Some features only require one declarativeNetRequest rule, so hardcode those
 // rule IDs here.
 export const USER_ALLOWLIST_RULE_ID = 20001;
-export const ATB_PARAM_RULE_ID = 20003;
-export const ATB_EXTENSIONINSTALLED_RULE_ID = 20008;
-export const HOME_PAGE_RULE_ID = 20010;
 export const NEWTAB_TRACKER_STATS_REDIRECT_RULE_ID = 20006;
 export const SEARCH_REDIRECT_RULE_ID = 20009;
 export const USER_BLOCKED_SITES_RULE_ID = 20011;
 export const USER_BLOCKED_SITES_SUBRESOURCE_RULE_ID = 20012;
+export const SANCTUARY_BLOCK_MAIN_RULE_ID = 20013;
+export const SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID = 20014;
+export const SANCTUARY_ALLOW_RULE_ID_START = 20015;
+export const SANCTUARY_ALLOW_RULE_ID_END = 20114;
 
 // Rule IDs for static session rules
 export const SERVICE_WORKER_INITIATED_ALLOWING_RULE_ID = 20002;
@@ -48,13 +49,12 @@ export const ruleIdRangeByConfigName = {
 // Valid dynamic rule IDs - others will be removed on extension start
 const RESERVED_DYNAMIC_RULE_IDS = [
     USER_ALLOWLIST_RULE_ID,
-    ATB_PARAM_RULE_ID,
-    ATB_EXTENSIONINSTALLED_RULE_ID,
     NEWTAB_TRACKER_STATS_REDIRECT_RULE_ID,
     SEARCH_REDIRECT_RULE_ID,
-    HOME_PAGE_RULE_ID,
     USER_BLOCKED_SITES_RULE_ID,
     USER_BLOCKED_SITES_SUBRESOURCE_RULE_ID,
+    SANCTUARY_BLOCK_MAIN_RULE_ID,
+    SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID,
 ];
 
 /**
@@ -122,6 +122,18 @@ export async function getMatchDetails(ruleId) {
         };
     }
 
+    if (ruleId === SANCTUARY_BLOCK_MAIN_RULE_ID || ruleId === SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID) {
+        return {
+            type: 'sanctuaryBlock',
+        };
+    }
+
+    if (ruleId >= SANCTUARY_ALLOW_RULE_ID_START && ruleId <= SANCTUARY_ALLOW_RULE_ID_END) {
+        return {
+            type: 'sanctuaryAllow',
+        };
+    }
+
     if (ruleId === GPC_HEADER_RULE_ID) {
         return {
             type: 'gpc',
@@ -131,12 +143,6 @@ export async function getMatchDetails(ruleId) {
     if (ruleId === SERVICE_WORKER_INITIATED_ALLOWING_RULE_ID) {
         return {
             type: 'serviceWorkerInitiatedAllowing',
-        };
-    }
-
-    if (ruleId === ATB_PARAM_RULE_ID) {
-        return {
-            type: 'atbParam',
         };
     }
 
@@ -171,6 +177,9 @@ export async function clearInvalidDynamicRules() {
             if (rule.id >= ruleIdRangeByConfigName.combined[1]) {
                 // greater than the max rule ID
                 return true;
+            }
+            if (rule.id >= SANCTUARY_ALLOW_RULE_ID_START && rule.id <= SANCTUARY_ALLOW_RULE_ID_END) {
+                return false;
             }
             if (rule.id >= ruleIdRangeByConfigName._RESERVED[0] && rule.id <= ruleIdRangeByConfigName._RESERVED[1]) {
                 // in the reserved rule range, only explictly defined IDs are allowed

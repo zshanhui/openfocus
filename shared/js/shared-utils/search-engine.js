@@ -23,10 +23,9 @@ export function searchPlaceholder(engine) {
 /**
  * @param {string} term
  * @param {unknown} engine
- * @param {{ osName?: string, bextSuffix?: string }} [options]
  * @returns {string}
  */
-export function buildSearchUrl(term, engine, options = {}) {
+export function buildSearchUrl(term, engine) {
     const query = String(term || '');
     if (normalizeSearchEngine(engine) === SEARCH_ENGINE_BRAVE) {
         const url = new URL('https://search.brave.com/search');
@@ -36,8 +35,5 @@ export function buildSearchUrl(term, engine, options = {}) {
 
     const url = new URL('https://duckduckgo.com/');
     url.searchParams.set('q', query);
-    if (options.osName) {
-        url.searchParams.set('bext', `${options.osName}${options.bextSuffix || 'cr'}`);
-    }
     return url.toString();
 }

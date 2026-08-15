@@ -18,6 +18,9 @@ import {
     removeDomainFromGroup,
 } from '../../shared-utils/site-groups';
 import { normalizeBlockedSite } from '../../shared-utils/blocked-sites';
+import { findOverlappingAllowedPatterns } from '../../shared-utils/allowed-sites';
+import { getAllowedSites, removeAllowedSitePatterns } from '../allowed-sites-store';
+import { isSanctuaryActive } from '../sanctuary-store';
 import {
     createSiteGroup,
     deleteSiteGroup,
@@ -236,6 +239,14 @@ export default class SiteGroups {
         const previous = await this.persistElapsed(now);
         if (previous.expired && previous.group) {
             await this.expireGroup(previous.group);
+        }
+
+        if (isSanctuaryActive()) {
+            this.activeGroupId = null;
+            this.lastTickAt = null;
+            await chrome.alarms.clear(ALARM_EXPIRY);
+            await chrome.alarms.clear(ALARM_CHECKPOINT);
+            return;
         }
 
         const tab = await this.getFocusedHttpTab();
@@ -464,10 +475,10 @@ export default class SiteGroups {
     }
 
     /**
-     * @param {{ groupId?: string, domain?: string }} [options]
+     * @param {{ groupId?: string, domain?: string, replaceAllowed?: boolean }} [options]
      */
     async handleAddDomain(options = {}) {
-        const { groupId, domain } = options;
+        const { groupId, domain, replaceAllowed } = options;
         await this._ready;
         const normalized = normalizeBlockedSite(domain);
         if (!groupId || !normalized) {
@@ -476,6 +487,25 @@ export default class SiteGroups {
         const lockedMove = await this.rejectMovingFromLockedGroup(groupId, normalized);
         if (lockedMove) {
             return lockedMove;
+        }
+        const overlappingAllowed = findOverlappingAllowedPatterns(getAllowedSites(), normalized);
+        if (overlappingAllowed.length && isSanctuaryActive()) {
+            return { saved: false, locked: true, sanctuaryLocked: true, ...(await this.getState()) };
+        }
+        if (overlappingAllowed.length && !replaceAllowed) {
+            return {
+                saved: false,
+                needsAllowedConfirm: true,
+                overlappingAllowed,
+                domain: normalized,
+                ...(await this.getState()),
+            };
+        }
+        if (!getSiteGroups().some((item) => item.id === groupId)) {
+            return { saved: false, ...(await this.getState()) };
+        }
+        if (overlappingAllowed.length && replaceAllowed) {
+            removeAllowedSitePatterns(overlappingAllowed);
         }
         const groups = addDomainToGroup(getSiteGroups(), groupId, normalized);
         const group = groups.find((item) => item.id === groupId);
