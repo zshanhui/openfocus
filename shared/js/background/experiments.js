@@ -1,5 +1,4 @@
 const settings = require('./settings');
-const atbUtils = require('./atb-utils');
 const retentionExperiments = require('../../data/experiments-out');
 const ATB_FORMAT_RE = /(v\d+-\d(?:[a-z_]{2})?)$/;
 class Experiment {
@@ -78,27 +77,11 @@ class Experiment {
     }
 
     getDaysSinceInstall() {
-        const cohort = settings.getSetting('atb');
-        if (!cohort) return false;
-
-        const split = cohort.split('-');
-        let majorVersion = split[0];
-        let minorVersion = split[1];
-
-        if (!majorVersion || !minorVersion) return;
-
-        majorVersion = majorVersion.substring(1);
-
-        // remove any atb variant that may be appended to the setting.
-        minorVersion = minorVersion.replace(/[a-z_]/g, '');
-
-        return atbUtils.getDaysBetweenCohorts(
-            {
-                majorVersion: parseInt(majorVersion, 10),
-                minorVersion: parseInt(minorVersion, 10),
-            },
-            atbUtils.getCurrentATB(),
-        );
+        const days = require('./utils').daysInstalled();
+        if (Number.isNaN(days)) {
+            return false;
+        }
+        return Math.floor(days);
     }
 }
 

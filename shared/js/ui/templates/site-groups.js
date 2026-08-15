@@ -1,6 +1,8 @@
 const bel = require('nanohtml');
 const t = window.DDG.base.i18n.t;
+const toggleButton = require('./shared/toggle-button.js');
 const { formatRemainingLong, secondsToHoursMinutes } = require('../../shared-utils/site-groups');
+const { ADULT_GAMBLING_HOSTS_URL } = require('../../shared-utils/category-dnr-ruleset');
 
 function progressForGroup(group) {
     if (!group.maxSecondsPerDay) {
@@ -9,12 +11,13 @@ function progressForGroup(group) {
     return Math.max(0, Math.min(100, (group.remainingSeconds / group.maxSecondsPerDay) * 100));
 }
 
-function groupCard(group) {
+function groupCard(group, options = {}) {
     const locked = Boolean(group.settingsLocked);
     const alwaysBlock = Boolean(group.isAlwaysBlock);
     const nameLocked = locked || alwaysBlock;
     const timeLocked = locked || alwaysBlock;
     const time = alwaysBlock ? { hours: 0, minutes: 0 } : secondsToHoursMinutes(group.maxSecondsPerDay);
+    const categoryEnabled = Boolean(options.blockAdultGamblingSites);
     const timer = bel`<div
         class="site-group-timer js-site-group-timer"
         style="--progress: ${progressForGroup(group)}"
@@ -30,6 +33,16 @@ function groupCard(group) {
         class="site-group-card js-site-group${locked ? ' is-locked' : ''}${alwaysBlock ? ' is-always-block' : ''}"
         data-group-id="${group.id}"
     >
+        ${
+            alwaysBlock
+                ? null
+                : bel`<button
+                    class="site-group-delete js-site-group-delete"
+                    type="button"
+                    aria-label="${t('options:deleteGroup.title')}"
+                    disabled=${locked}
+                >×</button>`
+        }
         ${locked ? bel`<p class="site-group-locked-note">${t('options:groupLockedUntilReset.title')}</p>` : null}
         <div class="site-group-card__main">
             ${timer}
@@ -53,13 +66,32 @@ function groupCard(group) {
                     alwaysBlock
                         ? null
                         : bel`<div class="site-group-card__actions">
-                    <button class="site-group-save js-site-group-save" type="button" disabled=${locked}>${t('options:saveGroup.title')}</button>
-                    <button class="site-group-delete js-site-group-delete" type="button" disabled=${locked}>${t('options:deleteGroup.title')}</button>
                     <span class="site-group-status is-hidden js-site-group-status" role="status"></span>
+                    <button class="site-group-save js-site-group-save" type="button" disabled=${locked}>${t('options:saveGroup.title')}</button>
                 </div>`
                 }
             </div>
         </div>
+        ${
+            alwaysBlock && options.categoryBlockSupported
+                ? bel`<div class="site-group-category">
+            <h3>${t('options:adultGamblingHeading.title')}</h3>
+            <div class="site-group-category__toggle">
+                <span>
+                    ${t('options:adultGamblingToggle.title')}
+                    <a
+                        class="site-group-category__list-link"
+                        href="${ADULT_GAMBLING_HOSTS_URL}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >${t('options:adultGamblingListLink.title')}</a>
+                </span>
+                ${toggleButton(categoryEnabled, 'js-adult-gambling-toggle', 'blockAdultGamblingSites')}
+            </div>
+            <p class="site-group-category__desc">${t('options:adultGamblingDesc.title')}</p>
+        </div>`
+                : null
+        }
         <div class="site-group-sites">
             <div class="site-group-sites__header">
                 <h3>${t('options:groupBlockedWebsites.title')}</h3>
@@ -101,7 +133,12 @@ module.exports = function () {
             <button class="site-groups-add js-site-groups-add" type="button">${t('options:addGroup.title')}</button>
         </div>
         <div class="site-groups-list js-site-groups-list">
-            ${groups.map(groupCard)}
+            ${groups.map((group) =>
+                groupCard(group, {
+                    blockAdultGamblingSites: Boolean(this.model.blockAdultGamblingSites),
+                    categoryBlockSupported: Boolean(this.model.categoryBlockSupported),
+                }),
+            )}
         </div>
         <div class="site-group-dialog is-hidden js-site-group-remove-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-remove-dialog-title">
             <div class="site-group-dialog__panel">
@@ -117,6 +154,41 @@ module.exports = function () {
                 <div class="site-group-dialog__actions">
                     <button class="site-group-dialog__no js-site-group-remove-cancel" type="button">${t('options:confirmCancel.title')}</button>
                     <button class="site-group-dialog__yes js-site-group-remove-submit" type="button">${t('options:confirmRemove.title')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="site-group-dialog is-hidden js-site-group-allowed-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-allowed-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-site-group-allowed-dialog-text" id="site-group-allowed-dialog-title"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-site-group-allowed-cancel" type="button">${t('options:confirmCancel.title')}</button>
+                    <button class="site-group-dialog__yes site-group-dialog__yes--primary js-site-group-allowed-submit" type="button">${t('options:confirmAddToGroup.title')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="site-group-dialog is-hidden js-site-group-delete-dialog" role="dialog" aria-modal="true" aria-labelledby="site-group-delete-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-site-group-delete-dialog-text" id="site-group-delete-dialog-title"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-site-group-delete-cancel" type="button">${t('options:confirmNo.title')}</button>
+                    <button class="site-group-dialog__yes js-site-group-delete-submit" type="button">${t('options:confirmYes.title')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="site-group-dialog is-hidden js-adult-gambling-disable-dialog" role="dialog" aria-modal="true" aria-labelledby="adult-gambling-disable-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-adult-gambling-disable-dialog-text" id="adult-gambling-disable-dialog-title"></p>
+                <p class="site-group-dialog__math js-adult-gambling-disable-math"></p>
+                <input
+                    class="site-group-dialog__answer js-adult-gambling-disable-answer"
+                    type="number"
+                    inputmode="numeric"
+                    autocomplete="off"
+                >
+                <p class="site-group-error is-hidden js-adult-gambling-disable-error" role="alert"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-adult-gambling-disable-cancel" type="button">${t('options:confirmCancel.title')}</button>
+                    <button class="site-group-dialog__yes js-adult-gambling-disable-submit" type="button">${t('options:confirmDisableAdultGambling.title')}</button>
                 </div>
             </div>
         </div>

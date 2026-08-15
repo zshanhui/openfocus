@@ -44,11 +44,21 @@
 }
 
 .site-group-card {
+    position: relative;
     margin-bottom: 16px;
     padding: 20px;
     border: 1px solid vars.$platinum;
     border-radius: 12px;
     background: vars.$white;
+}
+
+.site-group-card:not(.is-always-block) {
+    padding-right: 48px;
+}
+
+.site-group-card.is-always-block {
+    background: #fdece7;
+    border-color: #f3c7bb;
 }
 
 .site-group-card.is-locked {
@@ -151,6 +161,10 @@
     color: vars.$white;
 }
 
+.site-group-dialog__yes--primary {
+    background: vars.$blue;
+}
+
 .site-group-card__main {
     display: flex;
     gap: 20px;
@@ -243,19 +257,31 @@
 .site-group-card__actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 12px;
     flex-wrap: wrap;
 }
 
 .site-group-delete {
-    height: 36px;
-    padding: 0 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
     border: 0;
     border-radius: 4px;
     background: transparent;
     color: vars.$red;
     cursor: pointer;
-    font-weight: 600;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.site-group-delete:hover:not(:disabled) {
+    background: rgba(222, 88, 51, 0.12);
 }
 
 .site-group-status {
@@ -267,6 +293,42 @@
     margin-top: 18px;
     padding-top: 16px;
     border-top: 1px solid vars.$platinum-light;
+}
+
+.site-group-category {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid vars.$platinum-light;
+}
+
+.site-group-category h3 {
+    margin: 0 0 10px;
+    color: vars.$slate-light;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-group-category__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: vars.$slate;
+    font-weight: 600;
+}
+
+.site-group-category__list-link {
+    margin-left: 0.35em;
+    font-weight: 600;
+}
+
+.site-group-category__desc {
+    max-width: 52em;
+    margin: 8px 0 0;
+    color: vars.$slate-light;
+    font-weight: normal;
 }
 
 .site-group-sites__header h3 {

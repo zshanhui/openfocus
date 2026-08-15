@@ -13,6 +13,7 @@
 /* allowlist */
 @include meta.load-css('views/allowlist');
 @include meta.load-css('views/site-groups');
+@include meta.load-css('views/allowed-sites');
 
 .options-page {
     min-height: 100vh;
@@ -22,7 +23,7 @@
     .page-container {
         display: grid;
         grid-template-columns: 220px minmax(0, 1fr);
-        gap: 40px;
+        gap: 0;
         width: min(1040px, calc(100% - 48px));
         margin: 0 auto;
         padding: 48px 0;
@@ -32,15 +33,31 @@
 .options-sidebar {
     position: sticky;
     top: 32px;
+    z-index: 1;
     align-self: start;
 }
 
 .options-brand {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     margin-bottom: 28px;
+    padding-right: 16px;
+}
+
+.options-brand__identity {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 10px;
+}
+
+.options-brand__logo {
+    display: block;
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
 }
 
 .options-brand__name {
@@ -51,7 +68,7 @@
 }
 
 .options-brand__badge {
-    margin-top: 2px;
+    flex: 0 0 auto;
     padding: 3px 7px;
     border-radius: 999px;
     background: vars.$platinum-light;
@@ -70,6 +87,7 @@
 }
 
 .options-tab {
+    box-sizing: border-box;
     width: 100%;
     padding: 14px 18px;
     border: 0;
@@ -93,9 +111,34 @@
     outline-offset: 2px;
 }
 
-.options-tab.is-active {
+.options-tab.is-active,
+.options-tab.is-active:hover {
+    position: relative;
+    z-index: 1;
+    width: calc(100% + 1px);
+    border-radius: 8px 0 0 8px;
     background: vars.$white;
     color: vars.$blue-dark;
+}
+
+.options-tab.is-active::before,
+.options-tab.is-active::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    width: 8px;
+    height: 8px;
+    pointer-events: none;
+}
+
+.options-tab.is-active::before {
+    top: -8px;
+    background: radial-gradient(circle at 0 0, transparent 8px, vars.$white 8.5px);
+}
+
+.options-tab.is-active::after {
+    bottom: -8px;
+    background: radial-gradient(circle at 0 100%, transparent 8px, vars.$white 8.5px);
 }
 
 .options-main {
@@ -117,7 +160,6 @@
 @media (max-width: 760px) {
     .options-page .page-container {
         grid-template-columns: 170px minmax(0, 1fr);
-        gap: 20px;
         width: calc(100% - 32px);
         padding: 24px 0;
     }

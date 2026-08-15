@@ -19,11 +19,6 @@ import { requestBreakageReportData } from '../breakage-report-request';
  *  - doBurn
  *  - getBurnOptions
  *  - setBurnDefaultOption
- *
- * EmailAutofill component:
- *  - refreshAlias
- *
- * ToggleReports component:
  *  - getToggleReportOptions
  *  - rejectToggleReport
  *  - sendToggleReport
@@ -116,8 +111,7 @@ export default class DashboardMessaging {
      * This message is here to ensure the privacy dashboard can render
      * from a single call to the extension.
      *
-     * Currently, it will collect data for the current tab and email protection
-     * user data.
+     * Currently, it will collect data for the current tab.
      */
     async getPrivacyDashboardData(options) {
         let { tabId } = options;
@@ -135,10 +129,9 @@ export default class DashboardMessaging {
 
         const tab = await this.tabManager.getOrRestoreTab(tabId);
         if (!tab) throw new Error('unreachable - cannot access current tab with ID ' + tabId);
-        const userData = this.settings.getSetting('userData');
         const fireButtonData = {
             enabled: isFireButtonEnabled,
         };
-        return dashboardDataFromTab(tab, userData, fireButtonData);
+        return dashboardDataFromTab(tab, fireButtonData);
     }
 }

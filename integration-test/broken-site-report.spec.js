@@ -4,7 +4,7 @@ import { routeFromLocalhost } from './helpers/testPages';
 import { listenForBreakageReport, pixelBrowserSuffix } from './helpers/pixels';
 import { isFirefox } from './helpers/platform.js';
 
-test.describe('Broken site reports', () => {
+test.describe.skip('Broken site reports (remote reporting disabled)', () => {
     test('Sends broken site reports with current page context', async ({ context, backgroundPage, page, backgroundNetworkContext }) => {
         await backgroundWait.forExtensionLoaded(context);
         await routeFromLocalhost(page);

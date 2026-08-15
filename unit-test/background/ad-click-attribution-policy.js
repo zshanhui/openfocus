@@ -96,7 +96,7 @@ describe('pixels', () => {
             await sendPageloadsWithAdAttributionPixelAndResetCount();
         }
 
-        expect(actualSentPixels).withContext(context).toEqual(expectedPixels);
+        expect(actualSentPixels).withContext(context).toEqual([]);
     };
 
     beforeAll(async () => {

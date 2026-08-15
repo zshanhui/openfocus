@@ -24,6 +24,9 @@ import {
     USER_ALLOWLIST_RULE_ID,
     USER_BLOCKED_SITES_RULE_ID,
     USER_BLOCKED_SITES_SUBRESOURCE_RULE_ID,
+    SANCTUARY_BLOCK_MAIN_RULE_ID,
+    SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID,
+    SANCTUARY_ALLOW_RULE_ID_START,
     SETTING_PREFIX,
 } from '../../shared/js/background/dnr-utils';
 import {
@@ -940,5 +943,9 @@ describe('declarativeNetRequest', () => {
 
         // And GPC header redirections.
         expect(await getMatchDetails(GPC_HEADER_RULE_ID)).toEqual({ type: 'gpc' });
+
+        expect(await getMatchDetails(SANCTUARY_BLOCK_MAIN_RULE_ID)).toEqual({ type: 'sanctuaryBlock' });
+        expect(await getMatchDetails(SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID)).toEqual({ type: 'sanctuaryBlock' });
+        expect(await getMatchDetails(SANCTUARY_ALLOW_RULE_ID_START)).toEqual({ type: 'sanctuaryAllow' });
     });
 });

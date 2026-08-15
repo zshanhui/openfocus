@@ -1,5 +1,4 @@
 import browser from 'webextension-polyfill';
-import parseUserAgentString from '../shared-utils/parse-user-agent-string';
 import { buildSearchUrl } from '../shared-utils/search-engine';
 import { getExtensionURL } from './wrapper';
 import { reloadCurrentTab } from './utils';
@@ -147,16 +146,13 @@ export function debuggerMessage(message, sender) {
 
 export async function search({ term }) {
     await settings.ready();
-    const browserInfo = parseUserAgentString();
-    const url = buildSearchUrl(term, settings.getSetting('searchEngine'), {
-        osName: browserInfo?.os,
-        bextSuffix: 'cr',
-    });
+    const url = buildSearchUrl(term, settings.getSetting('searchEngine'));
     browser.tabs.create({ url });
 }
 
 export function openShareFeedbackPage() {
-    return browserWrapper.openExtensionPage('/html/feedback.html');
+    // Feedback UI entry points are disabled until we route submissions to OpenFocusd.
+    return Promise.resolve();
 }
 
 export function addDebugFlag(message, sender, req) {

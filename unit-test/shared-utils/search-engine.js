@@ -22,9 +22,7 @@ describe('search engine helpers', () => {
     });
 
     it('builds DuckDuckGo and Brave search URLs', () => {
-        expect(buildSearchUrl('privacy tools', SEARCH_ENGINE_DDG, { osName: 'Mac', bextSuffix: 'cr' })).toEqual(
-            'https://duckduckgo.com/?q=privacy+tools&bext=Maccr',
-        );
+        expect(buildSearchUrl('privacy tools', SEARCH_ENGINE_DDG)).toEqual('https://duckduckgo.com/?q=privacy+tools');
         expect(buildSearchUrl('privacy tools', SEARCH_ENGINE_BRAVE)).toEqual('https://search.brave.com/search?q=privacy+tools');
     });
 });

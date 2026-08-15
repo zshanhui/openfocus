@@ -7,6 +7,7 @@ const multipleTestSets = require('@duckduckgo/privacy-reference-tests/broken-sit
 
 let loadPixelSpy;
 
+describe.skip('Broken Site Reporting reference tests (remote reporting disabled)', () => {
 async function submitAndValidateReport(report) {
     const trackerName = 'Ad Company';
     const trackerObj = {
@@ -289,4 +290,5 @@ describe('Broken Site Reporting tests / breakageData', () => {
         const urlString = await submitWithPageParams(tab, { breakageData: undefined });
         expect(urlString).not.toContain('breakageData=');
     });
+});
 });

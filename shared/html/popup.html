@@ -74,11 +74,12 @@
       background: transparent;
     }
 
-    .page-inner.openfocusd-tab-blocker > :not(.openfocusd-popup-chrome):not(.openfocusd-group-status) {
+    .page-inner.openfocusd-tab-blocker > :not(.openfocusd-popup-chrome):not(.openfocusd-group-status):not(.openfocusd-sanctuary) {
       display: none !important;
     }
 
-    .page-inner.openfocusd-tab-trackers > .openfocusd-group-status {
+    .page-inner.openfocusd-tab-trackers > .openfocusd-group-status,
+    .page-inner.openfocusd-tab-trackers > .openfocusd-sanctuary {
       display: none !important;
     }
 
@@ -179,6 +180,143 @@
       font-weight: 700;
       font-variant-numeric: tabular-nums;
       line-height: 32px;
+    }
+
+    .openfocusd-sanctuary {
+      flex: 0 0 auto;
+      margin-top: auto;
+      padding: 4px 12px 12px;
+      background: #ffffff;
+    }
+
+    .body--theme-dark .openfocusd-sanctuary {
+      background-color: #333333;
+    }
+
+    .openfocusd-sanctuary[hidden] {
+      display: none !important;
+    }
+
+    .openfocusd-sanctuary__box {
+      padding: 12px;
+      border-radius: 10px;
+      background: #f2f2f2;
+      color: #333333;
+    }
+
+    .openfocusd-sanctuary__box.is-active {
+      background: #00278e;
+      color: #ffffff;
+    }
+
+    .openfocusd-sanctuary__label {
+      color: #666666;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .openfocusd-sanctuary__box.is-active .openfocusd-sanctuary__label {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .openfocusd-sanctuary__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .openfocusd-sanctuary__time {
+      min-width: 0;
+      font-size: 22px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 26px;
+    }
+
+    .openfocusd-sanctuary__note {
+      margin: 8px 0 0;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .openfocusd-sanctuary__activate {
+      flex: 0 0 auto;
+      height: 36px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 6px;
+      background: #de5833;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .openfocusd-sanctuary__activate:disabled {
+      background: #d2d4db;
+      color: #666666;
+      cursor: not-allowed;
+    }
+
+    .openfocusd-sanctuary__dialog {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .openfocusd-sanctuary__dialog[hidden] {
+      display: none;
+    }
+
+    .openfocusd-sanctuary__dialog-panel {
+      width: min(280px, 100%);
+      padding: 16px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #333333;
+    }
+
+    .openfocusd-sanctuary__dialog-text {
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .openfocusd-sanctuary__dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .openfocusd-sanctuary__dialog-cancel,
+    .openfocusd-sanctuary__dialog-confirm {
+      height: 32px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .openfocusd-sanctuary__dialog-cancel {
+      background: #ededed;
+      color: #333333;
+    }
+
+    .openfocusd-sanctuary__dialog-confirm {
+      background: #de5833;
+      color: #ffffff;
     }
   </style>
   <script src="../dashboard/public/js/polyfill-loader.js"></script>

@@ -319,12 +319,10 @@ export class NewTabTrackerStats {
             stats.push(...spliced);
         }
 
-        const atbValue = settings.getSetting('atb');
 
         // now produce the data in the shape consumers require for rendering their UI
         // see 'dataFormatSchema' for the required format, it's in the `../newtab/schema` file
         return {
-            atb: atbValue || undefined,
             totalCount: this.stats.totalCount,
             totalPeriod: 'install-time',
             trackerCompaniesPeriod: 'last-day',

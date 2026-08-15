@@ -74,10 +74,10 @@ unit-test:
 
 .PHONY: unit-test
 
-NODE_TESTS = unit-test/node/**/*.js
+NODE_TESTS = unit-test/node/*.js unit-test/node/**/*.js
 node-test:
 	$(ESBUILD) --platform=node --outdir=build/node --inject:./unit-test/inject-chrome-shim.js --external:jsdom $(NODE_TESTS)
-	node_modules/.bin/jasmine build/node/*.js
+	node_modules/.bin/jasmine 'build/node/**/*.js'
 
 ## npm: Pull in the external dependencies (npm install).
 npm:
@@ -163,9 +163,7 @@ $(LAST_COPY): $(WATCHED_FILES) | $(MKDIR_TARGETS)
 ifneq ($(browser),embedded)
 	$(RSYNC) browsers/chrome/_locales shared/html shared/img shared/data $(BUILD_DIR)
 	$(RSYNC) node_modules/@duckduckgo/privacy-dashboard/build/app/* $(BUILD_DIR)/dashboard
-	$(RSYNC) node_modules/@duckduckgo/autofill/dist/autofill.css $(BUILD_DIR)/public/css/autofill.css
-	$(RSYNC) node_modules/@duckduckgo/autofill/dist/autofill-host-styles_$(BROWSER_TYPE).css $(BUILD_DIR)/public/css/autofill-host-styles.css
-	$(RSYNC) node_modules/@duckduckgo/autofill/dist/*.js shared/js/content-scripts/*.js $(BUILD_DIR)/public/js/content-scripts
+	$(RSYNC) shared/js/content-scripts/*.js $(BUILD_DIR)/public/js/content-scripts
 	$(RSYNC) node_modules/@duckduckgo/tracker-surrogates/surrogates/* $(BUILD_DIR)/web_accessible_resources
 endif
 	touch $@
@@ -311,6 +309,19 @@ $(BUILD_DIR)/data/bundled/smarter-encryption-rules.json: build/.smarter_encrypti
 
 ifeq ('$(browser)','chrome')
   BUILD_TARGETS += $(BUILD_DIR)/data/bundled/smarter-encryption-rules.json
+endif
+
+# Adult/gambling category blocklist (StevenBlack hosts → static DNR). Chrome only.
+# Prefer a previously generated JSON so Chrome builds do not fetch GitHub.
+ifeq ('$(browser)','chrome')
+ifneq ("$(wildcard shared/data/bundled/adult-gambling-rules.json)","")
+$(BUILD_DIR)/data/bundled/adult-gambling-rules.json: shared/data/bundled/adult-gambling-rules.json | $(BUILD_DIR)/data/bundled
+	cp $< $@
+else
+$(BUILD_DIR)/data/bundled/adult-gambling-rules.json: | $(BUILD_DIR)/data/bundled
+	node scripts/generate-adult-gambling-ruleset.mjs --output $@ --hosts-output build/adult-gambling-hosts.txt --meta-output build/adult-gambling-ruleset-meta.json
+endif
+  BUILD_TARGETS += $(BUILD_DIR)/data/bundled/adult-gambling-rules.json
 endif
 
 # Generate the list of "surrogate" (stub) scripts.

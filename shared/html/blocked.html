@@ -19,5 +19,20 @@
       This website is in a blocked group. Access resets at 6:00, or you can change groups in the extension settings.
     </p>
   </main>
+  <script>
+    chrome.runtime.sendMessage({ messageType: 'getSanctuaryState' }).then((state) => {
+      if (!state?.active) {
+        return;
+      }
+      const title = document.querySelector('.blocked-card__title');
+      const message = document.querySelector('.blocked-card__message');
+      if (title) {
+        title.textContent = 'Sanctuary Mode is on';
+      }
+      if (message) {
+        message.textContent = 'Only sites on your Allowed Sites list can be used until the timer ends.';
+      }
+    }).catch(() => {});
+  </script>
 </body>
 </html>

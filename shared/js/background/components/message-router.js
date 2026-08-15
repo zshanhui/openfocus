@@ -41,24 +41,12 @@ export default class MessageRouter extends EventTarget {
             }
 
             // TODO clean up message passing
-            const legacyMessageTypes = [
-                'addUserData',
-                'getUserData',
-                'removeUserData',
-                'getEmailProtectionCapabilities',
-                'getAddresses',
-                'refreshAlias',
-                'debuggerMessage',
-            ];
+            const legacyMessageTypes = ['debuggerMessage'];
             for (const legacyMessageType of legacyMessageTypes) {
                 if (legacyMessageType in req) {
                     req.messageType = legacyMessageType;
                     req.options = req[legacyMessageType];
                 }
-            }
-
-            if (req.registeredTempAutofillContentScript) {
-                req.messageType = 'registeredContentScript';
             }
 
             if (req.messageType && req.messageType in messageHandlers) {

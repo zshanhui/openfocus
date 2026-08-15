@@ -19,7 +19,6 @@ import { onStartup } from './startup';
 import FireButton from './components/fire-button';
 import TabTracker from './components/tab-tracking';
 import MV3ContentScriptInjection from './components/mv3-content-script-injection';
-import EmailAutofill from './components/email-autofill';
 import OmniboxSearch from './components/omnibox-search';
 import InternalUserDetector from './components/internal-user-detector';
 import TDSStorage from './components/tds';
@@ -29,6 +28,8 @@ import DebuggerConnection from './components/debugger-connection';
 import Devtools from './components/devtools';
 import DNRListeners from './components/dnr-listeners';
 import SiteGroups from './components/site-groups';
+import AllowedSites from './components/allowed-sites';
+import Sanctuary from './components/sanctuary';
 import RemoteConfig from './components/remote-config';
 import DashboardMessaging from './components/dashboard-messaging';
 import initDebugBuild from './devbuild';
@@ -64,7 +65,6 @@ const devtools = new Devtools({ tds });
 const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager });
 /**
  * @type {{
- *  autofill: EmailAutofill;
  *  dashboardMessaging: DashboardMessaging
  *  omnibox: OmniboxSearch;
  *  fireButton?: FireButton;
@@ -79,7 +79,6 @@ const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager })
  * }}
  */
 const components = {
-    autofill: new EmailAutofill({ settings }),
     dashboardMessaging,
     omnibox: new OmniboxSearch(),
     internalUser: new InternalUserDetector({ settings }),
@@ -116,6 +115,16 @@ if (BUILD_TARGET === 'chrome') {
         components.siteGroups = new SiteGroups({ settings });
     } catch (error) {
         console.error('Failed to start site groups', error);
+    }
+    try {
+        components.allowedSites = new AllowedSites({ settings });
+    } catch (error) {
+        console.error('Failed to start allowed sites', error);
+    }
+    try {
+        components.sanctuary = new Sanctuary({ settings });
+    } catch (error) {
+        console.error('Failed to start sanctuary', error);
     }
     components.dnrListeners = new DNRListeners({ settings, tds });
 

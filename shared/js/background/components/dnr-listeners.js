@@ -1,11 +1,13 @@
 import browser from 'webextension-polyfill';
-import ATB from '../atb.js';
+import { removeLegacyAtbRules, setOrUpdateSearchRedirectRule } from '../dnr-search-redirect.js';
+import { ensureInstalledAt } from '../install-utils.js';
 import { flushSessionRules } from '../dnr-session-rule-id.js';
 import { clearInvalidDynamicRules } from '../dnr-utils.js';
 import { refreshUserAllowlistRules } from '../dnr-user-allowlist.js';
 import { ensureGPCHeaderRule } from '../dnr-gpc.js';
 import { onConfigUpdate } from '../dnr-config-rulesets.js';
 import { getBlockedSites, refreshUserBlockedSitesRules } from '../dnr-user-blocklist.js';
+import { refreshAdultGamblingEnforcement } from '../dnr-category-blocklist.js';
 
 /**
  * @typedef {import('./tds.js').default} TDS
@@ -33,6 +35,7 @@ export default class DNRListeners {
         this.tds = tds;
         browser.runtime.onInstalled.addListener(this.postInstall.bind(this));
         this.refreshBlockedSitesRules();
+        this.refreshCategoryBlocklist();
         tds.remoteConfig.onUpdate(onConfigUpdate);
         tds.tds.onUpdate(onConfigUpdate);
         this.settings.onSettingUpdate.addEventListener('GPC', async () => {
@@ -45,14 +48,19 @@ export default class DNRListeners {
         await refreshUserBlockedSitesRules(await getBlockedSites());
     }
 
+    async refreshCategoryBlocklist() {
+        await refreshAdultGamblingEnforcement();
+    }
+
     async postInstall() {
         await this.settings.ready();
         // remove any orphaned session rules (can happen on extension update/restart)
         await flushSessionRules();
         // check that the dynamic rule state is consistent with the rule ranges we expect
         clearInvalidDynamicRules();
-        // create ATB rule if there is a stored value in settings
-        ATB.setOrUpdateATBdnrRule(this.settings.getSetting('atb'));
+        await removeLegacyAtbRules();
+        setOrUpdateSearchRedirectRule();
+        await ensureInstalledAt();
 
         // Refresh the user allowlisting declarativeNetRequest rule, only
         // necessary to handle the upgrade between MV2 and MV3 extensions.
@@ -67,5 +75,6 @@ export default class DNRListeners {
         }
         await refreshUserAllowlistRules(allowlistedDomains);
         await this.refreshBlockedSitesRules();
+        await this.refreshCategoryBlocklist();
     }
 }

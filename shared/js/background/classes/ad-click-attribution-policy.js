@@ -3,12 +3,10 @@ import { AD_ATTRIBUTION_POLICY_PRIORITY } from '@duckduckgo/ddg2dnr/lib/rulePrio
 import { generateDNRRule } from '@duckduckgo/ddg2dnr/lib/utils';
 
 import settings from '../settings';
-import { sendPixelRequest } from '../pixels';
 const { getFeatureSettings, getBaseDomain } = require('../utils');
 const browserWrapper = require('../wrapper');
 const { getNextSessionRuleId } = require('../dnr-session-rule-id');
 
-const appVersion = browserWrapper.getExtensionVersion();
 const manifestVersion = browserWrapper.getManifestVersion();
 
 /**
@@ -222,37 +220,11 @@ export class AdClick {
      * been sent already.
      * @param {string?} heuristicAdBaseDomain
      */
-    sendAdClickDetectedPixel(heuristicAdBaseDomain) {
+    sendAdClickDetectedPixel(_heuristicAdBaseDomain) {
         if (this.adClickDetectedPixelSent) {
             return;
         }
 
-        // Clear heuristic domain if it shouldn't be used. Not technically
-        // necessary, but helps with the unit tests.
-        if (!this.heuristicDetectionEnabled && heuristicAdBaseDomain) {
-            heuristicAdBaseDomain = null;
-        }
-
-        let domainDetection = 'none';
-
-        if (this.parameterAdBaseDomain && heuristicAdBaseDomain) {
-            if (this.parameterAdBaseDomain === heuristicAdBaseDomain) {
-                domainDetection = 'matched';
-            } else {
-                domainDetection = 'mismatch';
-            }
-        } else if (this.parameterAdBaseDomain) {
-            domainDetection = 'serp_only';
-        } else if (heuristicAdBaseDomain) {
-            domainDetection = 'heuristic_only';
-        }
-
-        sendPixelRequest('m_ad_click_detected', {
-            appVersion,
-            domainDetection,
-            heuristicDetectionEnabled: this.heuristicDetectionEnabled ? '1' : '0',
-            domainDetectionEnabled: this.domainDetectionEnabled ? '1' : 0,
-        });
         this.adClickDetectedPixelSent = true;
     }
 
@@ -316,7 +288,6 @@ export class AdClick {
         // If this is the first ad attribution request allowed for this AdClick,
         // send the 'm_ad_click_active' pixel.
         if (!this.adClickActivePixelSent) {
-            sendPixelRequest('m_ad_click_active', { appVersion });
             this.adClickActivePixelSent = true;
         }
     }
@@ -381,11 +352,5 @@ export class AdClick {
  */
 export async function sendPageloadsWithAdAttributionPixelAndResetCount() {
     await settings.ready();
-    const count = settings.getSetting('m_pageloads_with_ad_attribution.count');
-    if (typeof count === 'number' && count > 0) {
-        await sendPixelRequest('m_pageloads_with_ad_attribution', {
-            count,
-        });
-    }
     settings.updateSetting('m_pageloads_with_ad_attribution.count', 0);
 }

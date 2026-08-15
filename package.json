@@ -9,6 +9,8 @@
     "scripts": {
         "install-ci": "make npm",
         "bundle-config": "node scripts/bundleConfig.mjs && node node_modules/@duckduckgo/content-scope-scripts/injected/scripts/bundleTrackers.mjs > shared/data/bundled/tracker-lookup.json",
+        "generate-adult-gambling-ruleset": "node scripts/generate-adult-gambling-ruleset.mjs",
+        "rebuild-adult-gambling-hosts": "node scripts/generate-adult-gambling-ruleset.mjs",
         "build": "echo 'Try npm run release-firefox or npm run release-chrome instead' && exit 0",
         "dev": "echo 'Try npm run dev-firefox or npm run dev-chrome instead' && exit 0",
         "eslint": "eslint '*.js' shared/js shared/data unit-test integration-test scripts",
@@ -69,7 +71,6 @@
     },
     "dependencies": {
         "@duckduckgo/autoconsent": "^16.19.0",
-        "@duckduckgo/autofill": "github:duckduckgo/duckduckgo-autofill#17.0.1",
         "@duckduckgo/content-scope-scripts": "github:duckduckgo/content-scope-scripts#13.34.0",
         "@duckduckgo/ddg2dnr": "file:packages/ddg2dnr",
         "@duckduckgo/jsbloom": "^1.0.2",

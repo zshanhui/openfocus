@@ -1,30 +1,20 @@
-/* global BUILD_TARGET */
-import load from './load';
-import { getBrowserName } from './utils';
+/**
+ * Remote telemetry to improving.duckduckgo.com is disabled in OpenFocusd.
+ */
 
 /**
- *
- * Return URL for the pixel request
- * @param {string} pixelName
+ * @param {string} _pixelName
  * @returns {string}
  */
-export function getURL(pixelName) {
-    if (!pixelName) throw new Error('pixelName is required');
-
-    const url = 'https://improving.duckduckgo.com/t/';
-    return url + pixelName;
+export function getURL(_pixelName) {
+    return '';
 }
 
-export function sendPixelRequest(pixelName, params = {}) {
-    // Pixel requests should never fire for Firefox users.
-    if (BUILD_TARGET === 'firefox') {
-        return;
-    }
-
-    const browserName = getBrowserName() || 'unknown';
-
-    const randomNum = Math.ceil(Math.random() * 1e7);
-    const searchParams = new URLSearchParams(Object.entries(params));
-    const url = getURL(`${pixelName}_extension_${browserName}`) + `?${randomNum}&${searchParams.toString()}`;
-    return load.url(url);
+/**
+ * @param {string} _pixelName
+ * @param {Record<string, string>} [_params]
+ * @returns {Promise<void>}
+ */
+export function sendPixelRequest(_pixelName, _params = {}) {
+    return Promise.resolve();
 }

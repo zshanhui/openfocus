@@ -2,7 +2,6 @@ import { test, expect } from './helpers/playwrightHarness';
 import backgroundWait from './helpers/backgroundWait';
 import { routeFromLocalhost } from './helpers/testPages';
 import { overridePrivacyConfigFromContent, overrideTds } from './helpers/testConfig';
-import { listenForBreakageReport } from './helpers/pixels';
 import emptyConfig from './data/configs/empty-config.json';
 
 test.describe('Extension functions with empty configuration', () => {
@@ -49,18 +48,25 @@ test.describe('Extension functions with empty configuration', () => {
         expect(await isAllowlisted()).toBe(true);
     });
 
-    test('Broken site report works', async ({ backgroundPage, page, backgroundNetworkContext }) => {
+    test('Broken site report submission does not send telemetry', async ({ backgroundPage, page, backgroundNetworkContext }) => {
         await routeFromLocalhost(page);
         await page.goto('https://privacy-test-pages.site/', { waitUntil: 'networkidle' });
         await page.bringToFront();
 
-        const breakageReport = listenForBreakageReport(backgroundNetworkContext);
+        let telemetryRequest = false;
+        const onRequest = (request) => {
+            if (request.url().includes('improving.duckduckgo.com')) {
+                telemetryRequest = true;
+            }
+        };
+        backgroundNetworkContext.on('request', onRequest);
+
         await backgroundPage.evaluate(() =>
             globalThis.components.dashboardMessaging.submitBrokenSiteReport({ category: 'dislike', description: 'Hello Dax' }),
         );
-        const pixel = await breakageReport;
-        expect(pixel.name).toMatch(/^epbf_/);
-        expect(pixel.params.description).toBe('Hello Dax');
+        await page.waitForTimeout(500);
+        backgroundNetworkContext.off('request', onRequest);
+        expect(telemetryRequest).toBe(false);
     });
 
     test('Configuration updates are applied', async ({ backgroundPage, backgroundNetworkContext, page }) => {

@@ -451,30 +451,31 @@ export function getInstallTimestamp(atb) {
 }
 
 /**
- * Checks if the extension was installed within days of the from date
- * @param {number} numberOfDays
+ * Returns the days since the extension was installed.
  * @param {number} [fromDate]
- * @param {string} [atb]
- * @returns {boolean}
+ * @returns {number}
  */
-export function isInstalledWithinDays(numberOfDays, fromDate = Date.now(), atb = settings.getSetting('atb')) {
-    return daysInstalled(fromDate, atb) <= numberOfDays;
+export function daysInstalled(fromDate = Date.now()) {
+    const installedAt = settings.getSetting('installedAt');
+    if (!installedAt) {
+        const legacyAtb = settings.getSetting('atb');
+        if (!legacyAtb) return NaN;
+        const installTimestamp = getInstallTimestamp(legacyAtb);
+        if (!installTimestamp) return NaN;
+        return (fromDate - installTimestamp) / dayMultiplier;
+    }
+
+    return (fromDate - installedAt) / dayMultiplier;
 }
 
 /**
- * Returns the days since installed using atb
+ * Checks if the extension was installed within days of the from date
+ * @param {number} numberOfDays
  * @param {number} [fromDate]
- * @param {string} [atb]
- * @returns {number}
+ * @returns {boolean}
  */
-export function daysInstalled(fromDate = Date.now(), atb = settings.getSetting('atb')) {
-    if (!atb) return NaN;
-
-    const installTimestamp = getInstallTimestamp(atb);
-    // If we can't get the install date, assume it wasn't installed in time period
-    if (!installTimestamp) return NaN;
-
-    return (fromDate - installTimestamp) / dayMultiplier;
+export function isInstalledWithinDays(numberOfDays, fromDate = Date.now()) {
+    return daysInstalled(fromDate) <= numberOfDays;
 }
 
 /**

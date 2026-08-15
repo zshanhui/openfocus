@@ -1,6 +1,6 @@
 const experiment = require('../../shared/js/background/experiments');
 const settings = require('../../shared/js/background/settings');
-const atbUtils = require('../../shared/js/background/atb-utils');
+const settingHelper = require('../helpers/settings');
 
 describe('experiment.getVariant', () => {
     const tests = [
@@ -61,71 +61,14 @@ describe('experiment.getATBVariant', () => {
 });
 
 describe('experiment.getDaysSinceInstall', () => {
-    const tests = [
-        {
-            atb: 'v214-1',
-            currentATB: { majorVersion: 214, minorVersion: 1 },
-            diff: 0,
-        },
-        {
-            atb: 'v214-1',
-            currentATB: { majorVersion: 215, minorVersion: 1 },
-            diff: 7,
-        },
-        {
-            atb: 'v215-1',
-            currentATB: { majorVersion: 214, minorVersion: 1 },
-            diff: -7,
-        },
-    ];
+    it('returns days since install from installedAt', () => {
+        const installedAt = Date.now() - 3 * 24 * 60 * 60 * 1000;
+        settingHelper.stub({ installedAt });
+        expect(experiment.getDaysSinceInstall()).toBe(3);
+    });
 
-    tests.forEach((test) => {
-        it(`calculates ${test.diff} days since install for atb ${test.atb}`, () => {
-            const baseTime = new Date(test.date);
-            jasmine.clock().mockDate(baseTime);
-
-            spyOn(settings, 'getSetting').and.returnValue(test.atb);
-            spyOn(atbUtils, 'getCurrentATB').and.returnValue(test.currentATB);
-
-            const result = experiment.getDaysSinceInstall();
-            jasmine.clock().uninstall();
-            expect(result).toBe(test.diff);
-        });
+    it('returns false when install time is unknown', () => {
+        settingHelper.stub({ installedAt: null, atb: null });
+        expect(experiment.getDaysSinceInstall()).toBe(false);
     });
 });
-
-// describe('experiment.setActiveExperiment', () => {
-//     global.retentionExperiments = {
-//         'a': {
-//             name: 'active_experiment',
-//             description: 'the currently active experiment',
-//             settings: {
-//                 featureFlag: true
-//             }
-//         }
-//     }
-
-//     const tests = [{
-//         atb: 'v123-1ab',
-//         variant: 'a',
-//         featureFlag: true
-//     }, {
-//         atb: 'v123-1xy',
-//         variant: 'a',
-//         featureFlag: false
-//     }]
-
-//     beforeEach(() => {
-//         // spyOn(settings, 'updateSetting')
-//         spyOn(settings, 'ready').and.returnValue(Promise.resolve())
-//     })
-
-//     tests.forEach((test) => {
-//         it(`parses experiments-out`, () => {
-//             spyOn(settings, 'getSetting').and.returnValue(test.atb)
-//             experiment.setActiveExperiment()
-//             expect(settings.getSetting).toHaveBeenCalled()
-//             expect(experiment.variant).toBe(test.variant)
-//         })
-//     })
-// })

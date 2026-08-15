@@ -59,31 +59,12 @@
                 "public/js/inject.js"
             ],
             "run_at": "document_start"
-        },
-        {
-            "js": [
-                "public/js/content-scripts/autofill.js"
-            ],
-            "css": [
-                "public/css/autofill-host-styles.css"
-            ],
-            "matches": [
-                "<all_urls>"
-            ],
-            "exclude_matches": [
-                "*://localhost/*",
-                "*://*.localhost/*"
-            ],
-            "all_frames": true,
-            "run_at": "document_start",
-            "match_about_blank": true
         }
     ],
     "options_ui": {
         "page": "html/options.html"
     },
     "permissions": [
-        "contextMenus",
         "webRequest",
         "webRequestBlocking",
         "*://*/*",
@@ -96,7 +77,6 @@
     ],
     "web_accessible_resources": [
         "/web_accessible_resources/*",
-        "/public/css/autofill.css",
         "/public/font/*"
     ]
 }

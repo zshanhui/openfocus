@@ -1,4 +1,5 @@
 const utils = require('../../shared/js/background/utils');
+const settingHelper = require('../helpers/settings');
 const tdsStorage = require('../../shared/js/background/storage/tds').default;
 const tds = require('./../data/tds');
 const load = require('./../helpers/utils.js');
@@ -254,27 +255,34 @@ describe('utils.getInstallTimestamp()', () => {
 });
 
 describe('utils.isInstalledWithinDays()', () => {
+    const installTimestamp = utils.getInstallTimestamp('v35-7');
+
+    beforeEach(() => {
+        settingHelper.stub({ installedAt: installTimestamp });
+    });
+
     it('should return true as installed within 3 days', () => {
         const date = 1477609200000; // Fri Oct 28 2016
-        const result = utils.isInstalledWithinDays(3, date, 'v35-7');
+        const result = utils.isInstalledWithinDays(3, date);
         expect(result).toEqual(true);
     });
 
     it('should return false as not installed within 3 days', () => {
         const date = 1477695600000; // Sat Oct 29 2016
-        const result = utils.isInstalledWithinDays(3, date, 'v35-7');
+        const result = utils.isInstalledWithinDays(3, date);
         expect(result).toEqual(false);
     });
 
     it('should return true as installed within 4 days', () => {
         const date = 1477695600000; // Sat Oct 29 2016
-        const result = utils.isInstalledWithinDays(4, date, 'v35-7');
+        const result = utils.isInstalledWithinDays(4, date);
         expect(result).toEqual(true);
     });
 
-    it('should return false for missing atb value', () => {
+    it('should return false for missing install timestamp', () => {
+        settingHelper.stub({ installedAt: null, atb: null });
         const date = 1477695600000; // Sat Oct 29 2016
-        const result = utils.isInstalledWithinDays(4, date, null);
+        const result = utils.isInstalledWithinDays(4, date);
         expect(result).toEqual(false);
     });
 });

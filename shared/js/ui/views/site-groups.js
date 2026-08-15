@@ -14,6 +14,12 @@ function createRemovalChallenge() {
     return { a, b, answer: a + b };
 }
 
+function createMultiplicationChallenge() {
+    const a = randomTwoDigit();
+    const b = randomTwoDigit();
+    return { a, b, answer: a * b };
+}
+
 function SiteGroups(ops) {
     this.model = ops.model;
     this.pageView = ops.pageView;
@@ -99,7 +105,12 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     _rerenderPreservingFocus() {
+        const pendingAllowed = this._pendingAllowed;
+        const pendingDeleteGroup = this._pendingDeleteGroup;
         this._hideRemoveDialog();
+        this._hideAllowedDialog();
+        this._hideAdultGamblingDisableDialog();
+        this._hideDeleteGroupDialog();
         const active = document.activeElement;
         const card = active?.closest?.('.js-site-group');
         const groupId = card?.getAttribute('data-group-id');
@@ -109,6 +120,12 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         this.unbindEvents();
         this._rerender();
         this.setup();
+        if (pendingAllowed) {
+            this._showAllowedDialog(pendingAllowed.groupId, pendingAllowed.domain, pendingAllowed.overlappingAllowed);
+        }
+        if (pendingDeleteGroup) {
+            this._showDeleteGroupDialog(pendingDeleteGroup.groupId);
+        }
 
         if (!groupId) {
             return;
@@ -149,6 +166,18 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._hideRemoveDialog();
             return;
         }
+        if (event.target.classList?.contains('js-site-group-allowed-dialog')) {
+            this._hideAllowedDialog();
+            return;
+        }
+        if (event.target.classList?.contains('js-adult-gambling-disable-dialog')) {
+            this._hideAdultGamblingDisableDialog();
+            return;
+        }
+        if (event.target.classList?.contains('js-site-group-delete-dialog')) {
+            this._hideDeleteGroupDialog();
+            return;
+        }
         if (!target.length) {
             return;
         }
@@ -164,6 +193,30 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._confirmRemoveDomain();
             return;
         }
+        if (target.hasClass('js-site-group-allowed-cancel')) {
+            this._hideAllowedDialog();
+            return;
+        }
+        if (target.hasClass('js-site-group-allowed-submit')) {
+            this._confirmReplaceAllowed();
+            return;
+        }
+        if (target.hasClass('js-adult-gambling-disable-cancel')) {
+            this._hideAdultGamblingDisableDialog();
+            return;
+        }
+        if (target.hasClass('js-adult-gambling-disable-submit')) {
+            this._confirmAdultGamblingDisable();
+            return;
+        }
+        if (target.hasClass('js-site-group-delete-cancel')) {
+            this._hideDeleteGroupDialog();
+            return;
+        }
+        if (target.hasClass('js-site-group-delete-submit')) {
+            this._confirmDeleteGroup();
+            return;
+        }
         const $card = this._card(event);
         if (!$card.length) {
             return;
@@ -172,27 +225,46 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._addDomain($card);
             return;
         }
+        if (target.hasClass('js-adult-gambling-toggle')) {
+            this._toggleAdultGambling();
+            return;
+        }
         if ($card.hasClass('is-locked')) {
             return;
         }
         if (target.hasClass('js-site-group-save')) {
             this._saveGroup($card);
         } else if (target.hasClass('js-site-group-delete')) {
-            this._deleteGroup($card);
+            this._showDeleteGroupDialog($card.attr('data-group-id'));
         } else if (target.hasClass('js-site-group-remove-domain')) {
             this._showRemoveDialog($card.attr('data-group-id'), target.attr('data-domain'));
         }
     },
 
     _onKeydown(event) {
-        if (event.key === 'Escape' && this._pendingRemove) {
+        if (
+            event.key === 'Escape' &&
+            (this._pendingRemove || this._pendingAllowed || this._pendingAdultGamblingDisable || this._pendingDeleteGroup)
+        ) {
             event.preventDefault();
             this._hideRemoveDialog();
+            this._hideAllowedDialog();
+            this._hideAdultGamblingDisableDialog();
+            this._hideDeleteGroupDialog();
             return;
         }
         if (event.key === 'Enter' && this._pendingRemove && window.$(event.target).hasClass('js-site-group-remove-answer')) {
             event.preventDefault();
             this._confirmRemoveDomain();
+            return;
+        }
+        if (
+            event.key === 'Enter' &&
+            this._pendingAdultGamblingDisable &&
+            window.$(event.target).hasClass('js-adult-gambling-disable-answer')
+        ) {
+            event.preventDefault();
+            this._confirmAdultGamblingDisable();
             return;
         }
         if (event.key !== 'Enter') {
@@ -211,6 +283,68 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     async _createGroup() {
         this._updatingTimersOnly = false;
         await this.model.create();
+    },
+
+    async _toggleAdultGambling() {
+        if (this.model.blockAdultGamblingSites) {
+            this._showAdultGamblingDisableDialog();
+            return;
+        }
+        this._updatingTimersOnly = false;
+        try {
+            await this.model.setAdultGamblingBlock(true);
+        } catch (error) {
+            console.error('Failed to update adult and gambling block', error);
+        }
+    },
+
+    _showAdultGamblingDisableDialog() {
+        this._pendingAdultGamblingDisable = { challenge: createMultiplicationChallenge() };
+        const $dialog = this.$el.find('.js-adult-gambling-disable-dialog');
+        $dialog.find('.js-adult-gambling-disable-dialog-text').text(t('options:adultGamblingDisableConfirm.title'));
+        $dialog.find('.js-adult-gambling-disable-math').text(
+            t('options:adultGamblingDisableMath.title', {
+                a: this._pendingAdultGamblingDisable.challenge.a,
+                b: this._pendingAdultGamblingDisable.challenge.b,
+            }),
+        );
+        $dialog.find('.js-adult-gambling-disable-error').addClass(isHiddenClass).text('');
+        $dialog.find('.js-adult-gambling-disable-answer').val('');
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-adult-gambling-disable-answer').trigger('focus');
+    },
+
+    _hideAdultGamblingDisableDialog() {
+        this._pendingAdultGamblingDisable = null;
+        this.$el.find('.js-adult-gambling-disable-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmAdultGamblingDisable() {
+        const pending = this._pendingAdultGamblingDisable;
+        if (!pending?.challenge) {
+            return;
+        }
+        const $dialog = this.$el.find('.js-adult-gambling-disable-dialog');
+        const guess = Number($dialog.find('.js-adult-gambling-disable-answer').val());
+        if (!Number.isInteger(guess) || guess !== pending.challenge.answer) {
+            pending.challenge = createMultiplicationChallenge();
+            $dialog.find('.js-adult-gambling-disable-math').text(
+                t('options:adultGamblingDisableMath.title', {
+                    a: pending.challenge.a,
+                    b: pending.challenge.b,
+                }),
+            );
+            $dialog.find('.js-adult-gambling-disable-error').text(t('options:removeWebsiteMathWrong.title')).removeClass(isHiddenClass);
+            $dialog.find('.js-adult-gambling-disable-answer').val('').trigger('focus');
+            return;
+        }
+        this._hideAdultGamblingDisableDialog();
+        this._updatingTimersOnly = false;
+        try {
+            await this.model.setAdultGamblingBlock(false);
+        } catch (error) {
+            console.error('Failed to update adult and gambling block', error);
+        }
     },
 
     async _saveGroup($card) {
@@ -240,10 +374,31 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         }
     },
 
-    async _deleteGroup($card) {
-        const id = $card.attr('data-group-id');
+    _showDeleteGroupDialog(groupId) {
+        if (!groupId) {
+            return;
+        }
+        const group = (this.model.groups || []).find((item) => item.id === groupId);
+        this._pendingDeleteGroup = { groupId };
+        const $dialog = this.$el.find('.js-site-group-delete-dialog');
+        $dialog.find('.js-site-group-delete-dialog-text').text(t('options:deleteGroupConfirm.title', { name: group?.name || '' }));
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-site-group-delete-cancel').trigger('focus');
+    },
+
+    _hideDeleteGroupDialog() {
+        this._pendingDeleteGroup = null;
+        this.$el.find('.js-site-group-delete-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmDeleteGroup() {
+        const pending = this._pendingDeleteGroup;
+        if (!pending?.groupId) {
+            return;
+        }
+        this._hideDeleteGroupDialog();
         this._updatingTimersOnly = false;
-        await this.model.deleteGroup(id);
+        await this.model.deleteGroup(pending.groupId);
     },
 
     async _addDomain($card) {
@@ -254,8 +409,16 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         try {
             const result = await this.model.addDomain(id, domain);
             const $next = this.$el.find(`.js-site-group[data-group-id="${id}"]`);
+            if (result?.sanctuaryLocked) {
+                this._showError($next, t('options:sanctuaryLockedError.title'));
+                return;
+            }
             if (result?.locked) {
                 this._showError($next, t('options:groupLockedError.title'));
+                return;
+            }
+            if (result?.needsAllowedConfirm) {
+                this._showAllowedDialog(id, result.domain, result.overlappingAllowed);
                 return;
             }
             if (result?.invalid || !result?.saved) {
@@ -295,6 +458,56 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     _hideRemoveDialog() {
         this._pendingRemove = null;
         this.$el.find('.js-site-group-remove-dialog').addClass(isHiddenClass);
+    },
+
+    _showAllowedDialog(groupId, domain, overlappingAllowed) {
+        if (!groupId || !domain) {
+            return;
+        }
+        const patterns = Array.isArray(overlappingAllowed) ? overlappingAllowed : [];
+        this._pendingAllowed = { groupId, domain, overlappingAllowed: patterns };
+        const $dialog = this.$el.find('.js-site-group-allowed-dialog');
+        $dialog.find('.js-site-group-allowed-dialog-text').text(
+            t('options:addToGroupRemovesAllowed.title', {
+                domain,
+                patterns: patterns.join(', '),
+            }),
+        );
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-site-group-allowed-submit').trigger('focus');
+    },
+
+    _hideAllowedDialog() {
+        this._pendingAllowed = null;
+        this.$el.find('.js-site-group-allowed-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmReplaceAllowed() {
+        const pending = this._pendingAllowed;
+        if (!pending?.groupId || !pending.domain) {
+            return;
+        }
+        this._hideAllowedDialog();
+        this._updatingTimersOnly = false;
+        try {
+            const result = await this.model.addDomain(pending.groupId, pending.domain, true);
+            const $next = this.$el.find(`.js-site-group[data-group-id="${pending.groupId}"]`);
+            if (result?.sanctuaryLocked) {
+                this._showError($next, t('options:sanctuaryLockedError.title'));
+                return;
+            }
+            if (result?.locked) {
+                this._showError($next, t('options:groupLockedError.title'));
+                return;
+            }
+            if (result?.invalid || !result?.saved) {
+                this._showError($next, t('options:invalidWebsite.title'));
+            }
+        } catch (error) {
+            console.error('Failed to add website', error);
+            const $next = this.$el.find(`.js-site-group[data-group-id="${pending.groupId}"]`);
+            this._showError($next, t('options:groupSaveError.title'));
+        }
     },
 
     async _confirmRemoveDomain() {
