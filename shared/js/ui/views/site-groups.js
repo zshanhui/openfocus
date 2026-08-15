@@ -14,6 +14,12 @@ function createRemovalChallenge() {
     return { a, b, answer: a + b };
 }
 
+function createMultiplicationChallenge() {
+    const a = randomTwoDigit();
+    const b = randomTwoDigit();
+    return { a, b, answer: a * b };
+}
+
 function SiteGroups(ops) {
     this.model = ops.model;
     this.pageView = ops.pageView;
@@ -102,6 +108,7 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         const pendingAllowed = this._pendingAllowed;
         this._hideRemoveDialog();
         this._hideAllowedDialog();
+        this._hideAdultGamblingDisableDialog();
         const active = document.activeElement;
         const card = active?.closest?.('.js-site-group');
         const groupId = card?.getAttribute('data-group-id');
@@ -158,6 +165,10 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
             this._hideAllowedDialog();
             return;
         }
+        if (event.target.classList?.contains('js-adult-gambling-disable-dialog')) {
+            this._hideAdultGamblingDisableDialog();
+            return;
+        }
         if (!target.length) {
             return;
         }
@@ -179,6 +190,14 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
         }
         if (target.hasClass('js-site-group-allowed-submit')) {
             this._confirmReplaceAllowed();
+            return;
+        }
+        if (target.hasClass('js-adult-gambling-disable-cancel')) {
+            this._hideAdultGamblingDisableDialog();
+            return;
+        }
+        if (target.hasClass('js-adult-gambling-disable-submit')) {
+            this._confirmAdultGamblingDisable();
             return;
         }
         const $card = this._card(event);
@@ -206,15 +225,25 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     _onKeydown(event) {
-        if (event.key === 'Escape' && (this._pendingRemove || this._pendingAllowed)) {
+        if (event.key === 'Escape' && (this._pendingRemove || this._pendingAllowed || this._pendingAdultGamblingDisable)) {
             event.preventDefault();
             this._hideRemoveDialog();
             this._hideAllowedDialog();
+            this._hideAdultGamblingDisableDialog();
             return;
         }
         if (event.key === 'Enter' && this._pendingRemove && window.$(event.target).hasClass('js-site-group-remove-answer')) {
             event.preventDefault();
             this._confirmRemoveDomain();
+            return;
+        }
+        if (
+            event.key === 'Enter' &&
+            this._pendingAdultGamblingDisable &&
+            window.$(event.target).hasClass('js-adult-gambling-disable-answer')
+        ) {
+            event.preventDefault();
+            this._confirmAdultGamblingDisable();
             return;
         }
         if (event.key !== 'Enter') {
@@ -236,9 +265,62 @@ SiteGroups.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     async _toggleAdultGambling() {
+        if (this.model.blockAdultGamblingSites) {
+            this._showAdultGamblingDisableDialog();
+            return;
+        }
         this._updatingTimersOnly = false;
         try {
-            await this.model.setAdultGamblingBlock(!this.model.blockAdultGamblingSites);
+            await this.model.setAdultGamblingBlock(true);
+        } catch (error) {
+            console.error('Failed to update adult and gambling block', error);
+        }
+    },
+
+    _showAdultGamblingDisableDialog() {
+        this._pendingAdultGamblingDisable = { challenge: createMultiplicationChallenge() };
+        const $dialog = this.$el.find('.js-adult-gambling-disable-dialog');
+        $dialog.find('.js-adult-gambling-disable-dialog-text').text(t('options:adultGamblingDisableConfirm.title'));
+        $dialog.find('.js-adult-gambling-disable-math').text(
+            t('options:adultGamblingDisableMath.title', {
+                a: this._pendingAdultGamblingDisable.challenge.a,
+                b: this._pendingAdultGamblingDisable.challenge.b,
+            }),
+        );
+        $dialog.find('.js-adult-gambling-disable-error').addClass(isHiddenClass).text('');
+        $dialog.find('.js-adult-gambling-disable-answer').val('');
+        $dialog.removeClass(isHiddenClass);
+        $dialog.find('.js-adult-gambling-disable-answer').trigger('focus');
+    },
+
+    _hideAdultGamblingDisableDialog() {
+        this._pendingAdultGamblingDisable = null;
+        this.$el.find('.js-adult-gambling-disable-dialog').addClass(isHiddenClass);
+    },
+
+    async _confirmAdultGamblingDisable() {
+        const pending = this._pendingAdultGamblingDisable;
+        if (!pending?.challenge) {
+            return;
+        }
+        const $dialog = this.$el.find('.js-adult-gambling-disable-dialog');
+        const guess = Number($dialog.find('.js-adult-gambling-disable-answer').val());
+        if (!Number.isInteger(guess) || guess !== pending.challenge.answer) {
+            pending.challenge = createMultiplicationChallenge();
+            $dialog.find('.js-adult-gambling-disable-math').text(
+                t('options:adultGamblingDisableMath.title', {
+                    a: pending.challenge.a,
+                    b: pending.challenge.b,
+                }),
+            );
+            $dialog.find('.js-adult-gambling-disable-error').text(t('options:removeWebsiteMathWrong.title')).removeClass(isHiddenClass);
+            $dialog.find('.js-adult-gambling-disable-answer').val('').trigger('focus');
+            return;
+        }
+        this._hideAdultGamblingDisableDialog();
+        this._updatingTimersOnly = false;
+        try {
+            await this.model.setAdultGamblingBlock(false);
         } catch (error) {
             console.error('Failed to update adult and gambling block', error);
         }

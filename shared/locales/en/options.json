@@ -260,12 +260,28 @@
         "note": "Section header on Always Block for the optional adult and gambling category list"
     },
     "adultGamblingToggle": {
-        "title": "Block adult and gambling sites (~52,000)",
+        "title": "Block adult and gambling sites",
         "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(more than 52k sites)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
     },
     "adultGamblingDesc": {
         "title": "When this is on, those sites are always blocked and open the same blocked page as sites you add below. Allowed Sites can still exception a site on this list.",
         "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "To turn off adult and gambling blocking, solve this:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Turn off",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
     },
     "addBlockedWebsite": {
         "title": "Add website",

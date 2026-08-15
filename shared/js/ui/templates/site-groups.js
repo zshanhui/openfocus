@@ -2,6 +2,7 @@ const bel = require('nanohtml');
 const t = window.DDG.base.i18n.t;
 const toggleButton = require('./shared/toggle-button.js');
 const { formatRemainingLong, secondsToHoursMinutes } = require('../../shared-utils/site-groups');
+const { ADULT_GAMBLING_HOSTS_URL } = require('../../shared-utils/category-dnr-ruleset');
 
 function progressForGroup(group) {
     if (!group.maxSecondsPerDay) {
@@ -67,7 +68,15 @@ function groupCard(group, options = {}) {
                 ? bel`<div class="site-group-category">
             <h3>${t('options:adultGamblingHeading.title')}</h3>
             <div class="site-group-category__toggle">
-                <span>${t('options:adultGamblingToggle.title')}</span>
+                <span>
+                    ${t('options:adultGamblingToggle.title')}
+                    <a
+                        class="site-group-category__list-link"
+                        href="${ADULT_GAMBLING_HOSTS_URL}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >${t('options:adultGamblingListLink.title')}</a>
+                </span>
                 ${toggleButton(categoryEnabled, 'js-adult-gambling-toggle', 'blockAdultGamblingSites')}
             </div>
             <p class="site-group-category__desc">${t('options:adultGamblingDesc.title')}</p>
@@ -145,6 +154,23 @@ module.exports = function () {
                 <div class="site-group-dialog__actions">
                     <button class="site-group-dialog__no js-site-group-allowed-cancel" type="button">${t('options:confirmCancel.title')}</button>
                     <button class="site-group-dialog__yes site-group-dialog__yes--primary js-site-group-allowed-submit" type="button">${t('options:confirmAddToGroup.title')}</button>
+                </div>
+            </div>
+        </div>
+        <div class="site-group-dialog is-hidden js-adult-gambling-disable-dialog" role="dialog" aria-modal="true" aria-labelledby="adult-gambling-disable-dialog-title">
+            <div class="site-group-dialog__panel">
+                <p class="site-group-dialog__text js-adult-gambling-disable-dialog-text" id="adult-gambling-disable-dialog-title"></p>
+                <p class="site-group-dialog__math js-adult-gambling-disable-math"></p>
+                <input
+                    class="site-group-dialog__answer js-adult-gambling-disable-answer"
+                    type="number"
+                    inputmode="numeric"
+                    autocomplete="off"
+                >
+                <p class="site-group-error is-hidden js-adult-gambling-disable-error" role="alert"></p>
+                <div class="site-group-dialog__actions">
+                    <button class="site-group-dialog__no js-adult-gambling-disable-cancel" type="button">${t('options:confirmCancel.title')}</button>
+                    <button class="site-group-dialog__yes js-adult-gambling-disable-submit" type="button">${t('options:confirmDisableAdultGambling.title')}</button>
                 </div>
             </div>
         </div>
