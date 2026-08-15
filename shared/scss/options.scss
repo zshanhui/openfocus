@@ -21,22 +21,20 @@
     color: vars.$slate;
 
     .page-container {
-        --options-column-gap: 40px;
         display: grid;
         grid-template-columns: 220px minmax(0, 1fr);
-        gap: var(--options-column-gap);
+        gap: 0;
         width: min(1040px, calc(100% - 48px));
         margin: 0 auto;
         padding: 48px 0;
-        overflow: visible;
     }
 }
 
 .options-sidebar {
     position: sticky;
     top: 32px;
+    z-index: 1;
     align-self: start;
-    overflow: visible;
 }
 
 .options-brand {
@@ -45,6 +43,7 @@
     flex-wrap: wrap;
     gap: 8px 12px;
     margin-bottom: 28px;
+    padding-right: 16px;
 }
 
 .options-brand__identity {
@@ -88,6 +87,7 @@
 }
 
 .options-tab {
+    box-sizing: border-box;
     width: 100%;
     padding: 14px 18px;
     border: 0;
@@ -115,8 +115,7 @@
 .options-tab.is-active:hover {
     position: relative;
     z-index: 1;
-    margin-right: calc(var(--options-column-gap) * -1 - 1px);
-    padding-right: calc(18px + var(--options-column-gap) + 1px);
+    width: calc(100% + 1px);
     border-radius: 8px 0 0 8px;
     background: vars.$white;
     color: vars.$blue-dark;
@@ -126,7 +125,7 @@
 .options-tab.is-active::after {
     content: '';
     position: absolute;
-    right: 0;
+    right: 1px;
     width: 8px;
     height: 8px;
     pointer-events: none;
@@ -160,7 +159,6 @@
 
 @media (max-width: 760px) {
     .options-page .page-container {
-        --options-column-gap: 20px;
         grid-template-columns: 170px minmax(0, 1fr);
         width: calc(100% - 32px);
         padding: 24px 0;
@@ -175,11 +173,6 @@
         padding-right: 12px;
         padding-left: 12px;
         font-size: 15px;
-    }
-
-    .options-tab.is-active,
-    .options-tab.is-active:hover {
-        padding-right: calc(12px + var(--options-column-gap) + 1px);
     }
 }
 
