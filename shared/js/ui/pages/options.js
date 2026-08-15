@@ -13,9 +13,6 @@ const siteGroupsTemplate = require('./../templates/site-groups.js');
 const AllowedSitesView = require('./../views/allowed-sites.js');
 const AllowedSitesModel = require('./../models/allowed-sites.js');
 const allowedSitesTemplate = require('./../templates/allowed-sites.js');
-const UserDataView = require('./../views/user-data.js');
-const UserDataModel = require('./../models/user-data.js');
-const userDataTemplate = require('./../templates/user-data.js');
 const BackgroundMessageModel = require('./../models/background-message.js');
 const InternalOptionsView = require('./../views/internal-options.js').default;
 const t = window.DDG.base.i18n.t;
@@ -73,13 +70,6 @@ Options.prototype = window.$.extend({}, Parent.prototype, mixins.setBrowserClass
                 template: allowedSitesTemplate,
             });
         }
-
-        this.views.userData = new UserDataView({
-            pageView: this,
-            model: new UserDataModel({}),
-            appendTo: $blockTrackersParent,
-            template: userDataTemplate,
-        });
 
         this.views.internal = new InternalOptionsView({
             pageView: this,

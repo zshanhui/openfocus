@@ -19,7 +19,6 @@ import { onStartup } from './startup';
 import FireButton from './components/fire-button';
 import TabTracker from './components/tab-tracking';
 import MV3ContentScriptInjection from './components/mv3-content-script-injection';
-import EmailAutofill from './components/email-autofill';
 import OmniboxSearch from './components/omnibox-search';
 import InternalUserDetector from './components/internal-user-detector';
 import TDSStorage from './components/tds';
@@ -66,7 +65,6 @@ const devtools = new Devtools({ tds });
 const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager });
 /**
  * @type {{
- *  autofill: EmailAutofill;
  *  dashboardMessaging: DashboardMessaging
  *  omnibox: OmniboxSearch;
  *  fireButton?: FireButton;
@@ -81,7 +79,6 @@ const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager })
  * }}
  */
 const components = {
-    autofill: new EmailAutofill({ settings }),
     dashboardMessaging,
     omnibox: new OmniboxSearch(),
     internalUser: new InternalUserDetector({ settings }),

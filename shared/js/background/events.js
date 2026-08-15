@@ -54,26 +54,6 @@ async function onInstalled(details) {
     } else if (details.reason.match(/update/) && browserName === 'chrome') {
         experiment.setActiveExperiment();
     }
-
-    // Inject the email content script on all tabs upon installation (not needed on Firefox)
-    // FIXME the below code throws an unhandled exception in MV3
-    try {
-        if (browserName !== 'moz') {
-            const tabs = await browser.tabs.query({});
-            for (const tab of tabs) {
-                // Ignore URLs that we aren't permitted to access
-                if (tab.url.startsWith('chrome://')) {
-                    continue;
-                }
-                await browserWrapper.executeScript({
-                    target: { tabId: tab.id },
-                    files: ['public/js/content-scripts/autofill.js'],
-                });
-            }
-        }
-    } catch (e) {
-        console.warn('Failed to inject email content script at startup:', e);
-    }
 }
 
 browser.runtime.onInstalled.addListener(onInstalled);

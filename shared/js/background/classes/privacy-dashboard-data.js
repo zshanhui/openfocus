@@ -4,7 +4,6 @@ import { getUserLocale } from '../i18n';
  * @typedef {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').DetectedRequest} DetectedRequest
  * @typedef {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').ProtectionsStatus} ProtectionsStatus
  * @typedef {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').ParentEntity} ParentEntity
- * @typedef {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').EmailProtectionUserData} EmailProtectionUserData
  */
 
 /**
@@ -12,10 +11,10 @@ import { getUserLocale } from '../i18n';
  * The return type of this function comes from a schema defined in the Privacy Dashboard,
  *
  * @param {import("./tab.js")} tab
- * @param {EmailProtectionUserData | undefined | {}} userData
+ * @param {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').FireButtonData | undefined} fireButtonData
  * @returns {ExtensionGetPrivacyDashboardData}
  */
-export function dashboardDataFromTab(tab, userData, fireButtonData) {
+export function dashboardDataFromTab(tab, fireButtonData) {
     const protectionsEnabled = !tab.site.allowlisted && !tab.site.isBroken && tab.site.enabledFeatures.includes('contentBlocking');
 
     // parent entity, if available
@@ -38,13 +37,6 @@ export function dashboardDataFromTab(tab, userData, fireButtonData) {
 
     const requests = convertToRequests(tab, protectionsEnabled);
 
-    // Only assign `emailProtectionUserData` if we're sure it is valid data (eg: has at least 'nextAlias'
-    // - otherwise allow it to be undefined.
-    let emailProtectionUserData;
-    if (userData && 'nextAlias' in userData) {
-        emailProtectionUserData = userData;
-    }
-
     return {
         tab: {
             id: tab.id,
@@ -62,7 +54,7 @@ export function dashboardDataFromTab(tab, userData, fireButtonData) {
         requestData: {
             requests,
         },
-        emailProtectionUserData,
+        emailProtectionUserData: undefined,
         fireButton: fireButtonData,
     };
 }
