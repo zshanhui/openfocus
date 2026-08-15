@@ -181,7 +181,6 @@ test.describe('User blocked websites', () => {
 
         const extensionId = new URL(backgroundPage.url()).hostname;
         const sanctuaryBlockMainRuleId = 20013;
-        const sanctuaryBlockSubresourceRuleId = 20014;
         const sanctuaryAllowRuleIdStart = 20015;
 
         const activated = await backgroundPage.evaluate(async () => {
@@ -198,7 +197,7 @@ test.describe('User blocked websites', () => {
                 const rules = await chrome.declarativeNetRequest.getDynamicRules();
                 return ruleIds.every((ruleId) => rules.some((rule) => rule.id === ruleId));
             },
-            [sanctuaryBlockMainRuleId, sanctuaryBlockSubresourceRuleId, sanctuaryAllowRuleIdStart],
+            [sanctuaryBlockMainRuleId, sanctuaryAllowRuleIdStart],
         );
 
         const rules = await backgroundPage.evaluate(
@@ -206,7 +205,7 @@ test.describe('User blocked websites', () => {
                 const installed = await chrome.declarativeNetRequest.getDynamicRules();
                 return installed.filter((rule) => ruleIds.includes(rule.id));
             },
-            [sanctuaryBlockMainRuleId, sanctuaryBlockSubresourceRuleId, sanctuaryAllowRuleIdStart],
+            [sanctuaryBlockMainRuleId, sanctuaryAllowRuleIdStart],
         );
         const redirectRule = rules.find((rule) => rule.id === sanctuaryBlockMainRuleId);
         const allowRule = rules.find((rule) => rule.id === sanctuaryAllowRuleIdStart);
@@ -215,7 +214,7 @@ test.describe('User blocked websites', () => {
             redirect: { extensionPath: '/html/blocked.html' },
         });
         expect(redirectRule.condition.regexFilter).toBe('^https?://');
-        expect(allowRule.action.type).toBe('allowAllRequests');
+        expect(allowRule.action.type).toBe('allow');
         expect(allowRule.condition.requestDomains).toEqual(['khanacademy.org']);
         expect(allowRule.condition.resourceTypes).toEqual(['main_frame']);
 

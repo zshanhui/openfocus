@@ -1,4 +1,4 @@
-import { generateDNRRule, resourceTypes } from '@duckduckgo/ddg2dnr/lib/utils';
+import { generateDNRRule } from '@duckduckgo/ddg2dnr/lib/utils';
 import { SANCTUARY_ALLOW_PRIORITY, SANCTUARY_BLOCK_PRIORITY } from '@duckduckgo/ddg2dnr/lib/rulePriorities';
 import { dnrRegexForAllowedPattern, requestDomainForAllowedPattern } from '../shared-utils/allowed-sites';
 import {
@@ -59,15 +59,14 @@ async function buildAllowRules(patterns) {
     const rules = [];
     let nextId = SANCTUARY_ALLOW_RULE_ID_START;
 
-    // allowAllRequests lets the allowed page load its own third-party scripts/CDNs.
-    // A plain `allow` only matches the listed hosts, so the catch-all subresource
-    // block left those pages spinning.
+    // Only exempt top-level navigations. Tracker blocking still applies unless
+    // the user has turned it off for the site.
     if (requestDomains.length && nextId <= SANCTUARY_ALLOW_RULE_ID_END) {
         rules.push(
             generateDNRRule({
                 id: nextId,
                 priority: SANCTUARY_ALLOW_PRIORITY,
-                actionType: 'allowAllRequests',
+                actionType: 'allow',
                 requestDomains: Array.from(new Set(requestDomains)).sort(),
                 resourceTypes: [MAIN_FRAME_RESOURCE_TYPE],
             }),
@@ -86,7 +85,7 @@ async function buildAllowRules(patterns) {
             generateDNRRule({
                 id: nextId,
                 priority: SANCTUARY_ALLOW_PRIORITY,
-                actionType: 'allowAllRequests',
+                actionType: 'allow',
                 regexFilter,
                 resourceTypes: [MAIN_FRAME_RESOURCE_TYPE],
             }),
@@ -103,7 +102,6 @@ async function buildAllowRules(patterns) {
  */
 export async function refreshSanctuaryRules(patterns) {
     const addRules = [];
-    const subresourceTypes = resourceTypes.filter((resourceType) => resourceType !== MAIN_FRAME_RESOURCE_TYPE);
 
     if (await regexSupported(CATCH_ALL_REGEX)) {
         addRules.push(
@@ -116,13 +114,6 @@ export async function refreshSanctuaryRules(patterns) {
                 },
                 regexFilter: CATCH_ALL_REGEX,
                 resourceTypes: [MAIN_FRAME_RESOURCE_TYPE],
-            }),
-            generateDNRRule({
-                id: SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID,
-                priority: SANCTUARY_BLOCK_PRIORITY,
-                actionType: 'block',
-                regexFilter: CATCH_ALL_REGEX,
-                resourceTypes: subresourceTypes,
             }),
         );
         addRules.push(...(await buildAllowRules(patterns)));

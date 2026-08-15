@@ -39,13 +39,13 @@ describe('sanctuary DNR rules', () => {
         spyOn(chrome.declarativeNetRequest, 'isRegexSupported').and.resolveTo({ isSupported: true });
     });
 
-    it('installs a catch-all block plus requestDomain and regex allows', async () => {
+    it('installs a main-frame catch-all plus requestDomain and regex allows', async () => {
         await refreshSanctuaryRules(['khanacademy.org', '*.youtube.com', '*.edu', '*docs*']);
         const rules = lastAddedRules(updateDynamicRules);
         const main = rules.find((rule) => rule.id === SANCTUARY_BLOCK_MAIN_RULE_ID);
         const sub = rules.find((rule) => rule.id === SANCTUARY_BLOCK_SUBRESOURCE_RULE_ID);
         const allowByDomain = rules.find((rule) => rule.condition.requestDomains);
-        const regexAllows = rules.filter((rule) => rule.action.type === 'allowAllRequests' && rule.condition.regexFilter);
+        const regexAllows = rules.filter((rule) => rule.action.type === 'allow' && rule.condition.regexFilter);
 
         expect(main.priority).toBe(SANCTUARY_BLOCK_PRIORITY);
         expect(main.action).toEqual({
@@ -54,15 +54,11 @@ describe('sanctuary DNR rules', () => {
         });
         expect(main.condition.regexFilter).toBe('^https?://');
         expect(main.condition.resourceTypes).toEqual(['main_frame']);
-
-        expect(sub.priority).toBe(SANCTUARY_BLOCK_PRIORITY);
-        expect(sub.action.type).toBe('block');
-        expect(sub.condition.regexFilter).toBe('^https?://');
-        expect(sub.condition.resourceTypes).not.toContain('main_frame');
+        expect(sub).toBeUndefined();
 
         expect(allowByDomain.id).toBe(SANCTUARY_ALLOW_RULE_ID_START);
         expect(allowByDomain.priority).toBe(SANCTUARY_ALLOW_PRIORITY);
-        expect(allowByDomain.action.type).toBe('allowAllRequests');
+        expect(allowByDomain.action.type).toBe('allow');
         expect(allowByDomain.condition.requestDomains).toEqual(['khanacademy.org', 'youtube.com']);
         expect(allowByDomain.condition.resourceTypes).toEqual(['main_frame']);
 
