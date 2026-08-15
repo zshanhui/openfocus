@@ -51,6 +51,11 @@
     background: vars.$white;
 }
 
+.site-group-card.is-always-block {
+    background: #fdece7;
+    border-color: #f3c7bb;
+}
+
 .site-group-card.is-locked {
     background: vars.$silver-light;
 }
