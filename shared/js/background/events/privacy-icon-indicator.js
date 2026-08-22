@@ -4,7 +4,7 @@ import { getSiteGroups } from '../site-groups-store';
 import { getAllowedSites } from '../allowed-sites-store';
 import { findGroupForHostname, hostnameFromUrl } from '../../shared-utils/site-groups';
 import { isHostnameAllowed } from '../../shared-utils/allowed-sites';
-import Site from '../classes/site';
+import { registerMessageHandler } from '../message-registry';
 
 const BLOCKED_PAGE_PATH = '/html/blocked.html';
 
@@ -14,6 +14,24 @@ const BLOCKED_PAGE_PATH = '/html/blocked.html';
  */
 function isBlockedPage(url) {
     return typeof url === 'string' && url.includes(BLOCKED_PAGE_PATH);
+}
+
+/**
+ * @param {string | null | undefined} url
+ * @param {import('../../shared-utils/site-groups').SiteGroup[]=} groups
+ * @param {string[]=} allowedPatterns
+ */
+function iconPathForUrl(url, groups, allowedPatterns) {
+    const hostname = hostnameFromUrl(url);
+    const inBlockGroup = isBlockedPage(url) || Boolean(findGroupForHostname(groups ?? getSiteGroups(), hostname));
+    const onAllowedSites = isHostnameAllowed(hostname, allowedPatterns ?? getAllowedSites());
+    if (inBlockGroup) {
+        return iconPaths.inBlockGroup;
+    }
+    if (onAllowedSites) {
+        return iconPaths.regular;
+    }
+    return iconPaths.withSpecialState;
 }
 
 /**
@@ -30,16 +48,18 @@ function isBlockedPage(url) {
  * @returns {Promise<void>}
  */
 export function updateActionIcon(site, tabId, groups, allowedPatterns) {
-    const hostname = hostnameFromUrl(site?.url);
-    const inBlockGroup = isBlockedPage(site?.url) || Boolean(findGroupForHostname(groups ?? getSiteGroups(), hostname));
-    const onAllowedSites = isHostnameAllowed(hostname, allowedPatterns ?? getAllowedSites());
-    const nextIcon = inBlockGroup
-        ? iconPaths.inBlockGroup
-        : onAllowedSites
-          ? iconPaths.regular
-          : iconPaths.withSpecialState;
+    return updateActionIconForUrl(tabId, site?.url, groups, allowedPatterns);
+}
 
-    return setActionIcon(nextIcon, tabId);
+/**
+ * @param {number} tabId
+ * @param {string | null | undefined} url
+ * @param {import('../../shared-utils/site-groups').SiteGroup[]=} groups
+ * @param {string[]=} allowedPatterns
+ * @returns {Promise<void>}
+ */
+export function updateActionIconForUrl(tabId, url, groups, allowedPatterns) {
+    return setActionIcon(iconPathForUrl(url, groups, allowedPatterns), tabId);
 }
 
 /**
@@ -54,7 +74,15 @@ export async function refreshOpenTabActionIcons() {
             if (tab.id == null) {
                 return;
             }
-            await updateActionIcon(new Site(tab.url || ''), tab.id);
+            await updateActionIconForUrl(tab.id, tab.url);
         }),
     );
 }
+
+registerMessageHandler('blockedPageShown', (_options, sender) => {
+    const tabId = sender?.tab?.id;
+    if (tabId == null) {
+        return;
+    }
+    return updateActionIconForUrl(tabId, sender.tab.url || BLOCKED_PAGE_PATH);
+});

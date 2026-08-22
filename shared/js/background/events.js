@@ -5,7 +5,7 @@
  * if we do too much before adding it
  */
 import browser from 'webextension-polyfill';
-import { updateActionIcon } from './events/privacy-icon-indicator';
+import { updateActionIconForUrl } from './events/privacy-icon-indicator';
 import httpsStorage from './storage/https';
 import { clearExpiredBrokenSiteReportTimes } from './broken-site-report';
 import { sendPageloadsWithAdAttributionPixelAndResetCount } from './classes/ad-click-attribution-policy';
@@ -316,20 +316,30 @@ if (manifestVersion === 3) {
 }
 
 /**
- * For each completed page load, update the extension's action icon
+ * For each completed page load, update the extension's action icon.
+ * Use the live tab URL: DNR redirects to blocked.html often never update tab.site,
+ * and chrome-extension pages do not keep the previous host.
  */
+function updateToolbarIcon(tabId, url) {
+    if (!tabId || !url) return;
+    updateActionIconForUrl(tabId, url).catch((e) => console.error('could not set the action icon', e));
+}
+
+browser.webNavigation.onCommitted.addListener((details) => {
+    if (details.frameId !== 0) return;
+    updateToolbarIcon(details.tabId, details.url);
+});
+
 browser.webNavigation.onCompleted.addListener((details) => {
-    // only update the icon when the outermost frame is complete
     if (details.parentFrameId !== -1) return;
+    updateToolbarIcon(details.tabId, details.url);
+});
 
-    // try to access the tab where this event originated
-    const tab = tabManager.get({ tabId: details.tabId });
-
-    // just to be sure that we can access the current tab
-    if (!tab) return;
-
-    // select the next icon state
-    updateActionIcon(tab.site, tab.id).catch((e) => console.error('could not set the action icon', e));
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (!changeInfo.url && changeInfo.status !== 'complete') {
+        return;
+    }
+    updateToolbarIcon(tabId, tab?.url || changeInfo.url);
 });
 
 /**

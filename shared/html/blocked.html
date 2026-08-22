@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,29 +9,26 @@
   <link rel="stylesheet" type="text/css" href="../public/css/base.css">
   <link rel="stylesheet" type="text/css" href="../public/css/blocked.css">
 </head>
+
 <body class="blocked-page">
+  <figure class="blocked-quote" hidden>
+    <blockquote>
+      <p class="blocked-quote__text"></p>
+      <p class="blocked-quote__source" lang="zh-Hans"></p>
+    </blockquote>
+    <figcaption class="blocked-quote__cite">
+      <a class="blocked-quote__link" href="https://ctext.org/dao-de-jing" target="_blank" rel="noopener noreferrer"></a>
+    </figcaption>
+  </figure>
   <main class="blocked-card">
     <img class="blocked-card__icon" src="../img/icon_128_red.png" alt="" width="64" height="64">
     <p class="blocked-card__eyebrow">OpenFocusd</p>
     <h1 class="blocked-card__title">This site is blocked</h1>
     <p class="blocked-card__message">
-      This website is in a blocked group. Access resets at 6:00, or you can change groups in the extension settings.
+      This website is in a blocked group. Access resets at 6:00.
     </p>
   </main>
-  <script>
-    chrome.runtime.sendMessage({ messageType: 'getSanctuaryState' }).then((state) => {
-      if (!state?.active) {
-        return;
-      }
-      const title = document.querySelector('.blocked-card__title');
-      const message = document.querySelector('.blocked-card__message');
-      if (title) {
-        title.textContent = 'Sanctuary Mode is on';
-      }
-      if (message) {
-        message.textContent = 'Only sites on your Allowed Sites list can be used until the timer ends.';
-      }
-    }).catch(() => {});
-  </script>
+  <script src="../public/js/blocked.js"></script>
 </body>
+
 </html>

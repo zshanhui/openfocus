@@ -1,4 +1,4 @@
-import { updateActionIcon } from '../../../shared/js/background/events/privacy-icon-indicator';
+import { updateActionIcon, updateActionIconForUrl } from '../../../shared/js/background/events/privacy-icon-indicator';
 import { iconPaths } from '../../../shared/data/constants';
 import Site from '../../../shared/js/background/classes/site';
 import browser from 'webextension-polyfill';
@@ -50,6 +50,16 @@ describe('privacy icon indicator', () => {
     it('uses the light red icon on the blocked page', async () => {
         const site = new Site('chrome-extension://id/html/blocked.html');
         await updateActionIcon(site, 100, [], []);
+
+        expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
+            {
+                path: iconPaths.inBlockGroup,
+                tabId: 100,
+            },
+        ]);
+    });
+    it('uses the light red icon from a blocked page URL without a Site object', async () => {
+        await updateActionIconForUrl(100, 'chrome-extension://id/html/blocked.html', [], []);
 
         expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
             {
