@@ -18,7 +18,7 @@
     "note": "We allow the user to browse the web without being followed by trackers"
   },
   "optionsDesc": {
-    "title": "DuckDuckGo beschermt je privacy online met \n privézoekopdrachten, \n trackerblokkering \n en websiteversleuteling.",
+    "title": "OpenFocusd beschermt je privacy online met \n privézoekopdrachten, \n trackerblokkering \n en websiteversleuteling.",
     "note": "This describes how we protect the user from being tracked online"
   },
   "shareFeedback": {
@@ -38,7 +38,7 @@
     "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
   },
   "globalPrivacyControlDesc": {
-    "title": "Je gegevens zouden niet mogen worden verhandeld. Bij DuckDuckGo zijn we het daarmee eens.Activeer de instellingen voor 'Global Privacy Control' (GPC). We zullen\n vervolgens aan websites je voorkeuren doorgeven om:",
+    "title": "Je gegevens zouden niet mogen worden verhandeld. Bij OpenFocusd zijn we het daarmee eens.Activeer de instellingen voor 'Global Privacy Control' (GPC). We zullen\n vervolgens aan websites je voorkeuren doorgeven om:",
     "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
   },
   "notSellYourPersonalData": {

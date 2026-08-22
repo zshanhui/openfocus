@@ -1,3 +1,4 @@
+/// <reference path="../../../types/build-flags/index.d.ts" />
 /* global BUILD_TARGET */
 import { NewTabTrackerStats } from './newtab-tracker-stats';
 import { TrackerStats } from './classes/tracker-stats.js';

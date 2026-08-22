@@ -18,7 +18,7 @@
     "note": "We allow the user to browse the web without being followed by trackers"
   },
   "optionsDesc": {
-    "title": "DuckDuckGo защитава поверителността на данните Ви онлайн с\nповерително търсене,\nблокиране на тракери\nи криптиране на сайтове.",
+    "title": "OpenFocusd защитава поверителността на данните Ви онлайн с\nповерително търсене,\nблокиране на тракери\nи криптиране на сайтове.",
     "note": "This describes how we protect the user from being tracked online"
   },
   "shareFeedback": {
@@ -38,7 +38,7 @@
     "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
   },
   "globalPrivacyControlDesc": {
-    "title": "Вашите лични данни не са за продажба. Ние в DuckDuckGo сме съгласни с това.\nАктивирайте настройката „Глобален контрол на поверителността“ (GPC) и ние ще\nуведомяваме уебсайтовете за Вашето предпочитание:",
+    "title": "Вашите лични данни не са за продажба. Ние в OpenFocusd сме съгласни с това.\nАктивирайте настройката „Глобален контрол на поверителността“ (GPC) и ние ще\nуведомяваме уебсайтовете за Вашето предпочитание:",
     "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
   },
   "notSellYourPersonalData": {

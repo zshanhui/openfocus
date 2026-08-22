@@ -129,10 +129,10 @@
     },
     "blockTrackersTab": {
         "title": "Block Trackers",
-        "note": "Navigation tab for DuckDuckGo tracker-blocking and privacy options"
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
     },
     "optionsDesc": {
-        "title": "DuckDuckGo protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
+        "title": "OpenFocusd protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -152,7 +152,7 @@
         "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
     },
     "globalPrivacyControlDesc": {
-        "title": "Your data shouldn't be for sale. At DuckDuckGo, we agree.\nActivate the \"Global Privacy Control\" (GPC) settings and we'll\nsignal to websites your preference to:",
+        "title": "Your data shouldn't be for sale. At OpenFocusd, we agree.\nActivate the \"Global Privacy Control\" (GPC) settings and we'll\nsignal to websites your preference to:",
         "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
     },
     "notSellYourPersonalData": {
