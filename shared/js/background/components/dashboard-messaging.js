@@ -2,7 +2,6 @@ import { breakageReportForTab, getDisclosureDetails } from '../broken-site-repor
 import { dashboardDataFromTab } from '../classes/privacy-dashboard-data';
 import { registerMessageHandler } from '../message-registry';
 import { getCurrentTab } from '../utils';
-import { isFireButtonEnabled } from './fire-button';
 import { requestBreakageReportData } from '../breakage-report-request';
 
 /**
@@ -15,10 +14,7 @@ import { requestBreakageReportData } from '../breakage-report-request';
  *  - getPrivacyDashboardData
  *  - submitBrokenSiteReport
  *
- * FireButton component:
- *  - doBurn
- *  - getBurnOptions
- *  - setBurnDefaultOption
+ * ToggleReports component:
  *  - getToggleReportOptions
  *  - rejectToggleReport
  *  - sendToggleReport
@@ -129,9 +125,6 @@ export default class DashboardMessaging {
 
         const tab = await this.tabManager.getOrRestoreTab(tabId);
         if (!tab) throw new Error('unreachable - cannot access current tab with ID ' + tabId);
-        const fireButtonData = {
-            enabled: isFireButtonEnabled,
-        };
-        return dashboardDataFromTab(tab, fireButtonData);
+        return dashboardDataFromTab(tab, { enabled: false });
     }
 }
