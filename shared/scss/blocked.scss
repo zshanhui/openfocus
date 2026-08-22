@@ -20,21 +20,10 @@
 }
 
 .blocked-card__icon {
-    display: grid;
+    display: block;
     width: 64px;
     height: 64px;
     margin: 0 auto 24px;
-    border-radius: 50%;
-    background: rgba(vars.$red, 0.12);
-    place-items: center;
-
-    span {
-        display: block;
-        width: 28px;
-        height: 6px;
-        border-radius: 999px;
-        background: vars.$red;
-    }
 }
 
 .blocked-card__eyebrow {

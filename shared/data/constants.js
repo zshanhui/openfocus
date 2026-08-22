@@ -153,6 +153,7 @@ module.exports = {
     iconPaths: /** @type {const} */ ({
         regular: '/img/icon_browser_action.png',
         withSpecialState: '/img/icon_browser_action_special.png',
+        inBlockGroup: '/img/icon_browser_action_red.png',
     }),
     platform: {
         name: 'extension',

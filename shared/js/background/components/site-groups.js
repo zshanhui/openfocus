@@ -38,6 +38,7 @@ import {
     updateSiteGroup,
 } from '../site-groups-store';
 import { getExtensionURL, getManifestVersion } from '../wrapper';
+import { refreshOpenTabActionIcons } from '../events/privacy-icon-indicator';
 
 const BLOCKED_PAGE_PATH = '/html/blocked.html';
 
@@ -483,6 +484,7 @@ export default class SiteGroups {
         const deleted = deleteSiteGroup(id);
         await this.syncBlockedRules();
         await this.queueSync();
+        await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         return { saved: deleted, ...(await this.getState()) };
     }
 
@@ -532,6 +534,7 @@ export default class SiteGroups {
             await this.syncBlockedRules();
             await this.queueSync();
         }
+        await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         return { saved: true, domain: normalized, ...(await this.getState()) };
     }
 
@@ -551,6 +554,7 @@ export default class SiteGroups {
         saveSiteGroups(removeDomainFromGroup(getSiteGroups(), groupId, domain));
         await this.syncBlockedRules();
         await this.queueSync();
+        await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         return { saved: true, ...(await this.getState()) };
     }
 

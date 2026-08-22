@@ -4,6 +4,7 @@ import { getSiteGroups } from '../site-groups-store';
 import { addAllowedSitePatterns, clearAllowedSites, getAllowedSites, removeAllowedSitePattern } from '../allowed-sites-store';
 import { refreshCategoryAllowRules } from '../dnr-category-blocklist';
 import { isSanctuaryActive } from '../sanctuary-store';
+import { refreshOpenTabActionIcons } from '../events/privacy-icon-indicator';
 
 export default class AllowedSites {
     /**
@@ -82,6 +83,7 @@ export default class AllowedSites {
         if (toAdd.length) {
             addAllowedSitePatterns(toAdd);
             await refreshCategoryAllowRules();
+            await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         }
 
         return {
@@ -105,6 +107,7 @@ export default class AllowedSites {
         }
         removeAllowedSitePattern(options.pattern);
         await refreshCategoryAllowRules();
+        await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         return { saved: true, ...(await this.getState()) };
     }
 
@@ -115,6 +118,7 @@ export default class AllowedSites {
         }
         clearAllowedSites();
         await refreshCategoryAllowRules();
+        await refreshOpenTabActionIcons().catch((error) => console.warn('Failed to refresh action icons', error));
         return { saved: true, ...(await this.getState()) };
     }
 }
