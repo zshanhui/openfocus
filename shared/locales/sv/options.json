@@ -17,8 +17,124 @@
         "title": "Sök och surfa på webben utan att bli spårad.",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
+    "blockSitesTab": {
+        "title": "Blockera webbplatser",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Tillåtna webbplatser",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Tillåtna webbplatser",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Lägg till webbplats(er) som ska tillåtas i rutan nedan och klicka på ”Lägg till tillåten/tillåtna webbplats(er)”. Tips:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "För att tillåta flera webbplatser, lägg till en per rad.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Du kan använda * som jokertecken (t.ex. *.youtube.com, *.edu eller *docs*). Mönster som *.com eller *.co.uk är för breda och tillåts inte.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Ange webbplatser här...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Lägg till tillåten/tillåtna webbplats(er)",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Klicka på × för att ta bort en webbplats från listan.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "Ta bort {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Rensa alla",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Ta bort alla webbplatser från Tillåtna webbplatser?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Rensa alla",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Du kan ta bort webbplatser från Tillåtna webbplatser när som helst, även om tiden har gått ut.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} finns i gruppen {groupName}. Ta först bort den från Blockera webbplatser.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "”{line}” är inte en giltig webbplats eller ett giltigt jokertecken.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "”{line}” är för brett. Tillåt en specifik webbplats som *.youtube.com i stället för *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Ange minst en webbplats.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "De tillåtna webbplatserna kunde inte sparas.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "Om du lägger till {domain} i den här gruppen tas dessa tillåtna webbplatser bort: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Lägg till i gruppen",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary-läge",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "När Sanctuary-läget är aktivt kan bara webbplatser på Tillåtna webbplatser användas. Alla andra webbplatser blockeras utan undantag. Det kan inte stängas av förrän den inställda tiden är slut.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Varaktighet",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Visa Sanctuary-läge i popupfönstret",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Lägger till en Aktivera-knapp i popupfönstret. Läget startar först när du trycker på den knappen.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Sanctuary-läget är på. Tillåtna webbplatser och de här inställningarna är låsta i {remaining}.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Sanctuary-läget är på. Detta kan inte ändras förrän timern är slut.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Blockera spårare",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
     "optionsDesc": {
-        "title": "OpenFocusd skyddar din integritet på nätet med\nprivat sökning,\nblockering av spårare\noch kryptering av webbplatser.",
+        "title": "OpenFocusd och DuckDuckGo skyddar din integritet på nätet med\nprivat sökning,\nblockering av spårare\noch kryptering av webbplatser.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -88,6 +204,166 @@
     "invalidURL": {
         "title": "Ogiltig URL",
         "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Blockerade webbplatser",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Grupper",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Varje grupp har en gemensam daglig tidsgräns. På en webbplats i gruppen räknas tiden ned. Vid noll blockeras alla webbplatser i gruppen till kl. 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Lägg till grupp",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Namn",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Max. tid per dag",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "tim",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Spara ändringar",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Gruppen har sparats.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Gruppen kunde inte sparas.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Ta bort grupp",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Ta bort gruppen {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Ja",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Nej",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blockerade webbplatser",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Vuxen- och spelsajter",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Blockera vuxen- och spelsajter",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(fler än 52 000 webbplatser)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "När detta är på blockeras de sajterna alltid och öppnar samma blockeringssida som webbplatser du lägger till nedan. Tillåtna webbplatser kan ändå undanta en sajt på listan.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "För att stänga av blockering av vuxen- och spelsajter, lös detta:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Stäng av",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Lägg till webbplats",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Ta bort webbplats",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "För att ta bort {domain}, lös detta:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Det är inte rätt svar.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Avbryt",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Ta bort",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Inga webbplatser i den här gruppen ännu.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Tid kvar",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Tiden är slut. Namn, tid och befintliga webbplatser är låsta till kl. 6:00. Du kan fortfarande lägga till webbplatser.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Den här gruppen kan inte ändras före kl. 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Ange en giltig webbplatsadress.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Sökmotor",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Välj vart sökningar från popupfönstret och nyckelordet i adressfältet ska gå.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
         "title": "Ingen AI i sökningen",

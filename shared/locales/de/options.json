@@ -17,8 +17,124 @@
         "title": "Durchsuche und browse das Web ohne getrackt zu werden.",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
+    "blockSitesTab": {
+        "title": "Websites blockieren",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Erlaubte Websites",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Erlaubte Websites",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Füge unten Website(s) hinzu und klicke auf „Erlaubte Website(s) hinzufügen“. Tipps:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Für mehrere Websites jeweils eine pro Zeile eintragen.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Du kannst * als Platzhalter verwenden (z. B. *.youtube.com, *.edu oder *docs*). Muster wie *.com oder *.co.uk sind zu weit gefasst und nicht erlaubt.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Websites hier eingeben...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Erlaubte Website(s) hinzufügen",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Klicke auf ×, um eine Website von der Liste zu entfernen.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "{pattern} entfernen",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Alle löschen",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Alle Websites von Erlaubte Websites entfernen?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Alle löschen",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Du kannst Websites jederzeit von Erlaubte Websites entfernen, auch wenn die Zeit abgelaufen ist.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} ist in der Gruppe {groupName}. Entferne sie zuerst unter Websites blockieren.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "„{line}“ ist keine gültige Website oder kein gültiger Platzhalter.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "„{line}“ ist zu weit gefasst. Erlaube eine konkrete Website wie *.youtube.com statt *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Gib mindestens eine Website ein.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "Die erlaubten Websites konnten nicht gespeichert werden.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "Wenn du {domain} zu dieser Gruppe hinzufügst, werden diese erlaubten Websites entfernt: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Zur Gruppe hinzufügen",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary-Modus",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Ist der Sanctuary-Modus aktiv, können nur Websites auf der Liste Erlaubte Websites genutzt werden. Alle anderen Websites werden ohne Ausnahme blockiert. Er lässt sich erst ausschalten, wenn die eingestellte Zeit abgelaufen ist.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Dauer",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Sanctuary-Modus im Popup anzeigen",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Fügt dem Popup eine Aktivieren-Schaltfläche hinzu. Der Sanctuary-Modus startet erst, wenn du diese Schaltfläche drückst.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Der Sanctuary-Modus ist an. Erlaubte Websites und diese Einstellungen sind für {remaining} gesperrt.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Der Sanctuary-Modus ist an. Das kann erst geändert werden, wenn der Timer endet.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Tracker blockieren",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
     "optionsDesc": {
-        "title": "OpenFocusd schützt deine Privatsphäre online mit\nprivater Suche,\nTracker-Blockade\nund Website-Verschlüsselung.",
+        "title": "OpenFocusd und DuckDuckGo schützen deine Privatsphäre online mit\nprivater Suche,\nTracker-Blockade\nund Website-Verschlüsselung.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -88,6 +204,166 @@
     "invalidURL": {
         "title": "Ungültige URL",
         "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Blockierte Websites",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Gruppen",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Jede Gruppe hat ein gemeinsames Tageszeitlimit. Auf einer Website der Gruppe läuft die Zeit herunter. Bei null werden alle Websites der Gruppe bis 6:00 Uhr blockiert.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Gruppe hinzufügen",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Name",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Max. Zeit pro Tag",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "Std",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "Min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Änderungen speichern",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Gruppe gespeichert.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Die Gruppe konnte nicht gespeichert werden.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Gruppe löschen",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Gruppe {name} löschen?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Ja",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Nein",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blockierte Websites",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Erwachsene- und Glücksspielseiten",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Erwachsene- und Glücksspielseiten blockieren",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(mehr als 52.000 Websites)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Wenn dies an ist, werden diese Seiten immer blockiert und öffnen dieselbe Blockseite wie unten hinzugefügte Websites. Erlaubte Websites können trotzdem eine Ausnahme setzen.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Um die Blockierung von Erwachsene- und Glücksspielseiten auszuschalten, löse:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Ausschalten",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Website hinzufügen",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Website entfernen",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "Um {domain} zu entfernen, löse:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Das ist nicht die richtige Antwort.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Abbrechen",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Entfernen",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "In dieser Gruppe sind noch keine Websites.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Verbleibende Zeit",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Die Zeit ist um. Name, Zeit und vorhandene Websites sind bis 6:00 Uhr gesperrt. Du kannst weiterhin Websites hinzufügen.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Diese Gruppe kann bis 6:00 Uhr nicht geändert werden.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Gib eine gültige Website-Adresse ein.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Suchmaschine",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Wähle, wohin Suchen aus dem Popup und dem Schlüsselwort in der Adressleiste gehen.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
         "title": "Keine KI in der Suche",

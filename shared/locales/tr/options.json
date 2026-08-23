@@ -17,8 +17,124 @@
         "title": "Web'de hiç kimse sizi takip edemeden arama yapın ve gezinin.",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
+    "blockSitesTab": {
+        "title": "Siteleri engelle",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "İzin verilen siteler",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "İzin verilen siteler",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "İzin verilecek site(leri) aşağıdaki kutuya ekleyin, ardından “İzin verilen site(leri) ekle”ye tıklayın. İpuçları:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Birden fazla site için her satıra bir tane ekleyin.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "* karakterini joker olarak kullanabilirsiniz (ör. *.youtube.com, *.edu veya *docs*). *.com veya *.co.uk gibi kalıplar çok geniştir ve izin verilmez.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Siteleri buraya girin...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "İzin verilen site(leri) ekle",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Listeden bir siteyi kaldırmak için × öğesine tıklayın.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "{pattern} öğesini kaldır",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Tümünü temizle",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "İzin verilen siteler’deki tüm siteler kaldırılsın mı?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Tümünü temizle",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "İzin verilen siteler’den siteleri istediğiniz zaman, süre dolmuş olsa bile kaldırabilirsiniz.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain}, {groupName} grubunda. Önce Siteleri engelle’den kaldırın.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "“{line}” geçerli bir site veya joker değil.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "“{line}” çok geniş. *.com yerine *.youtube.com gibi belirli bir siteye izin verin.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "En az bir site girin.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "İzin verilen siteler kaydedilemedi.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "{domain} bu gruba eklenirse şu izin verilen siteler kaldırılır: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Gruba ekle",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary modu",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Sanctuary modu açıkken yalnızca İzin verilen siteler listesindeki siteler kullanılabilir. Diğer tüm siteler istisnasız engellenir. Ayarladığınız süre bitene kadar kapatılamaz.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Süre",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Açılır pencerede Sanctuary modunu göster",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Açılır pencereye bir Etkinleştir düğmesi ekler. Mod yalnızca o düğmeye basınca başlar.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Sanctuary modu açık. İzin verilen siteler ve bu ayarlar {remaining} süreyle kilitli.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Sanctuary modu açık. Zamanlayıcı bitene kadar bu değiştirilemez.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "İzleyicileri engelle",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
     "optionsDesc": {
-        "title": "OpenFocusd,\nözel arama,\nizleyici engelleme,\nve site şifreleme ile internette gizliliğinizi korur.",
+        "title": "OpenFocusd ve DuckDuckGo,\nözel arama,\nizleyici engelleme\nve site şifreleme ile internette gizliliğinizi korur.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -88,6 +204,166 @@
     "invalidURL": {
         "title": "Geçersiz URL",
         "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Engellenen siteler",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Gruplar",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Her grubun ortak günlük süre sınırı vardır. Gruptaki bir sitedeyken süre geri sayar. Sıfırda gruptaki tüm siteler 6:00’a kadar engellenir.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Grup ekle",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Ad",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Günlük azami süre",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "sa",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "dk",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Değişiklikleri kaydet",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Grup kaydedildi.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Grup kaydedilemedi.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Grubu sil",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "{name} grubu silinsin mi?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Evet",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Hayır",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Engellenen siteler",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Yetişkin ve kumar siteleri",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Yetişkin ve kumar sitelerini engelle",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(52 binden fazla site)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Bu açıkken o siteler her zaman engellenir ve aşağıya eklediğiniz sitelerle aynı engelleme sayfasını açar. İzin verilen siteler yine de listeden bir siteyi istisna edebilir.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Yetişkin ve kumar engellemeyi kapatmak için şunu çözün:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Kapat",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Site ekle",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Siteyi kaldır",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "{domain} öğesini kaldırmak için şunu çözün:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Bu doğru yanıt değil.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "İptal",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Kaldır",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Bu grupta henüz site yok.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Kalan süre",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Süre doldu. Ad, süre ve mevcut siteler 6:00’a kadar kilitli. Hâlâ site ekleyebilirsiniz.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Bu grup 6:00’a kadar değiştirilemez.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Geçerli bir site adresi girin.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Arama motoru",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Açılır pencere ve adres çubuğu anahtar sözcüğündeki aramaların nereye gideceğini seçin.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
         "title": "Yapay zekasız Arama",

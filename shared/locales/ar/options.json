@@ -10,283 +10,283 @@
         ]
     },
     "optionsHeader": {
-        "title": "Možnosti OpenFocusd",
+        "title": "خيارات OpenFocusd",
         "note": "Header for options (settings) page"
     },
     "optionsSubHeader": {
-        "title": "Nenech se sledovat při vyhledávání a prohlížení webu.",
+        "title": "ابحث وتصفّح الويب دون أن يتم تتبّعك.",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
     "blockSitesTab": {
-        "title": "Blokovat weby",
+        "title": "حظر المواقع",
         "note": "Navigation tab for managing completely blocked websites"
     },
     "allowedSitesTab": {
-        "title": "Povolené weby",
+        "title": "المواقع المسموح بها",
         "note": "Navigation tab for managing websites that are explicitly allowed"
     },
     "allowedSitesHeading": {
-        "title": "Povolené weby",
+        "title": "المواقع المسموح بها",
         "note": "Header for the list of websites that stay allowed"
     },
     "allowedSitesIntro": {
-        "title": "Přidejte web(y) k povolení do pole níže a klikněte na „Přidat povolený web(y)“. Tipy:",
+        "title": "أضف الموقع/المواقع المسموح بها في المربع أدناه، ثم انقر «إضافة موقع/مواقع مسموح بها». بعض النصائح:",
         "note": "Instructions for adding websites to the allowed list"
     },
     "allowedSitesTipMultiple": {
-        "title": "Chcete-li povolit více webů, zadejte každý na samostatný řádek.",
+        "title": "للسماح بعدة مواقع، أضف موقعًا واحدًا في كل سطر.",
         "note": "Tip explaining that each allowed website should be on its own line"
     },
     "allowedSitesTipWildcard": {
-        "title": "Můžete použít * jako zástupný znak (např. *.youtube.com, *.edu nebo *docs*). Vzory jako *.com nebo *.co.uk jsou příliš široké a nejsou povoleny.",
+        "title": "يمكنك استخدام * كحرف بدل (مثل *.youtube.com أو *.edu أو *docs*). الأنماط مثل *.com أو *.co.uk واسعة جدًا وغير مسموحة.",
         "note": "Tip explaining wildcard matching and that public suffixes are rejected"
     },
     "allowedSitesPlaceholder": {
-        "title": "Zadejte weby sem...",
+        "title": "أدخل المواقع هنا...",
         "note": "Placeholder for the allowed websites text box"
     },
     "addAllowedSites": {
-        "title": "Přidat povolený web(y)",
+        "title": "إضافة موقع/مواقع مسموح بها",
         "note": "Button that adds the websites in the text box to the allowed list"
     },
     "allowedSitesRemoveHint": {
-        "title": "Kliknutím na × odeberete web ze seznamu.",
+        "title": "انقر × لإزالة موقع من القائمة.",
         "note": "Explains how to remove a website from the allowed list"
     },
     "removeAllowedSite": {
-        "title": "Odebrat {pattern}",
+        "title": "إزالة {pattern}",
         "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
     },
     "clearAllAllowedSites": {
-        "title": "Vymazat vše",
+        "title": "مسح الكل",
         "note": "Button that removes every website from the allowed list"
     },
     "clearAllAllowedConfirm": {
-        "title": "Odebrat všechny weby z Povolených webů?",
+        "title": "هل تريد إزالة كل المواقع من المواقع المسموح بها؟",
         "note": "Confirmation shown before clearing the allowed list"
     },
     "confirmClearAll": {
-        "title": "Vymazat vše",
+        "title": "مسح الكل",
         "note": "Confirms clearing every allowed website"
     },
     "allowedSitesNote": {
-        "title": "Weby z Povolených webů můžete odebrat kdykoli, i když už čas vypršel.",
+        "title": "يمكنك إزالة المواقع من قائمة المواقع المسموح بها في أي وقت، حتى بعد انتهاء الوقت.",
         "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
     },
     "allowedSiteConflict": {
-        "title": "{domain} je ve skupině {groupName}. Nejprve ho odeberte z Blokovat weby.",
+        "title": "{domain} موجود في المجموعة {groupName}. أزِله أولًا من حظر المواقع.",
         "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
     },
     "allowedSiteInvalid": {
-        "title": "„{line}“ není platný web ani zástupný znak.",
+        "title": "«{line}» ليس موقعًا أو حرف بدل صالحًا.",
         "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
     },
     "allowedSiteTooBroad": {
-        "title": "„{line}“ je příliš široké. Povolte konkrétní web, například *.youtube.com místo *.com.",
+        "title": "«{line}» واسع جدًا. اسمح بموقع محدد مثل *.youtube.com بدلًا من *.com.",
         "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
     },
     "allowedSiteEmpty": {
-        "title": "Zadejte alespoň jeden web.",
+        "title": "أدخل موقعًا واحدًا على الأقل.",
         "note": "Error shown when the allowed sites text box is empty"
     },
     "allowedSitesSaveError": {
-        "title": "Povolené weby se nepodařilo uložit.",
+        "title": "تعذّر حفظ المواقع المسموح بها.",
         "note": "Error shown when adding allowed websites fails unexpectedly"
     },
     "addToGroupRemovesAllowed": {
-        "title": "Přidáním {domain} do této skupiny odeberete tyto povolené weby: {patterns}.",
+        "title": "إضافة {domain} إلى هذه المجموعة ستزيل هذه المواقع المسموح بها: {patterns}.",
         "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
     },
     "confirmAddToGroup": {
-        "title": "Přidat do skupiny",
+        "title": "إضافة إلى المجموعة",
         "note": "Confirms adding a website to a group and removing overlapping allowed entries"
     },
     "sanctuaryHeading": {
-        "title": "Režim Sanctuary",
+        "title": "وضع الملاذ",
         "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
     },
     "sanctuaryDesc": {
-        "title": "Když je režim Sanctuary aktivní, lze používat jen weby z Povolených webů. Všechny ostatní weby jsou zablokovány bez výjimek. Nelze ho vypnout, dokud nevyprší nastavený čas.",
+        "title": "عند تفعيل وضع الملاذ، يمكن استخدام المواقع الموجودة في قائمة المواقع المسموح بها فقط. تُحظر كل المواقع الأخرى دون استثناء. لا يمكن إيقافه قبل انتهاء الوقت الذي حددته.",
         "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
     },
     "sanctuaryDuration": {
-        "title": "Doba trvání",
+        "title": "المدة",
         "note": "Label for how long Sanctuary Mode stays on after it is activated"
     },
     "sanctuaryShowOnPopup": {
-        "title": "Zobrazit režim Sanctuary ve vyskakovacím okně",
+        "title": "إظهار وضع الملاذ في النافذة المنبثقة",
         "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
     },
     "sanctuaryShowOnPopupDesc": {
-        "title": "Přidá do vyskakovacího okna tlačítko Aktivovat. Režim se spustí až po stisknutí tohoto tlačítka.",
+        "title": "يضيف زر تفعيل إلى النافذة المنبثقة. يبدأ وضع الملاذ فقط عند الضغط على ذلك الزر.",
         "note": "Explains that the toggle does not start Sanctuary Mode by itself"
     },
     "sanctuaryActiveNote": {
-        "title": "Režim Sanctuary je zapnutý. Povolené weby a tato nastavení jsou uzamčena na {remaining}.",
+        "title": "وضع الملاذ مفعّل. المواقع المسموح بها وهذه الإعدادات مقفلة لمدة {remaining}.",
         "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
     },
     "sanctuaryLockedError": {
-        "title": "Režim Sanctuary je zapnutý. Toto nelze změnit, dokud časovač neskončí.",
+        "title": "وضع الملاذ مفعّل. لا يمكن تغيير هذا حتى ينتهي المؤقت.",
         "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
     },
     "blockTrackersTab": {
-        "title": "Blokovat trackery",
+        "title": "حظر المتعقّبات",
         "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
     },
     "optionsDesc": {
-        "title": "OpenFocusd a DuckDuckGo chrání tvoje soukromí na webu soukromým vyhledáváním\n,blokováním trackerů\na šifrováním stránek.",
+        "title": "يحمي OpenFocusd وDuckDuckGo خصوصيتك على الإنترنت عبر\nالبحث الخاص،\nوحظر المتعقّبات،\nوتشفير المواقع.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
-        "title": "Poděl se o zpětnou vazbu",
+        "title": "مشاركة ملاحظات",
         "note": "Click here to share your opinions about this product"
     },
     "reportBrokenSite": {
-        "title": "Nahlásit nefunkční web",
+        "title": "الإبلاغ عن موقع لا يعمل",
         "note": "Click here to report an issue with a specific site you are trying to use"
     },
     "showEmbeddedTweets": {
-        "title": "Zobrazit vložené tweety",
+        "title": "إظهار التغريدات المضمّنة",
         "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
     },
     "globalPrivacyControlAbbr": {
-        "title": "Globální kontrola ochrany osobních údajů (GPC)",
+        "title": "التحكم العالمي بالخصوصية (GPC)",
         "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
     },
     "globalPrivacyControlDesc": {
-        "title": "Tvoje data nesmí být na prodej. Přesně tak to v OpenFocusd vidíme.\nAktivuj nastavení „Global Privacy Control“ (GPC) a my dáme webovým stránkám signál, že preferuješ:",
+        "title": "بياناتك ليست للبيع. ونحن في OpenFocusd نتفق مع ذلك.\nفعّل إعدادات «التحكم العالمي بالخصوصية» (GPC) وسنبلّغ المواقع بأنك تفضّل:",
         "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
     },
     "notSellYourPersonalData": {
-        "title": "Neprodávat osobní údaje.",
+        "title": "عدم بيع بياناتك الشخصية.",
         "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
     },
     "limitSharingOfPersonalData": {
-        "title": "Omezit sdílení vašich osobních údajů s jinými společnosti.",
+        "title": "تقييد مشاركة بياناتك الشخصية مع شركات أخرى.",
         "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
     },
     "globalPrivacyControlDisclaimer": {
-        "title": "<b>I když je Globální kontrola ochrany osobních údajů (GPC)\n nový standard, většina webových stránek ho zatím nerozpozná, nicméně tvrdě pracujeme\n na tom, abychom zajistili, že bude akceptována po celém světě.</b> Webové stránky jsou nicméně povinny řešit podněty pouze v rozsahu, v jakém je k tomu donutí příslušné zákony.",
+        "title": "<b>نظرًا إلى أن التحكم العالمي بالخصوصية (GPC) معيار جديد،\nلن تتعرّف عليه معظم المواقع بعد، لكننا نعمل بجد\nلكي يُعتمد عالميًا.</b> ومع ذلك، المواقع ملزمة بالاستجابة للإشارة فقط بقدر ما تُلزمها القوانين المعمول بها.",
         "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
     },
     "emailProtection": {
-        "title": "Ochrana e-mailu",
+        "title": "حماية البريد الإلكتروني",
         "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
     },
     "autofillDisabled": {
-        "title": "Vypnuté automatické vyplňování",
+        "title": "الملء التلقائي معطّل",
         "note": "When we don't automatically help populate email fields with a private address"
     },
     "autofillEnabled": {
-        "title": "Je zapnuté automatické vyplňování pro uživatele <strong class=\"js-userdata-container\">{userName}</strong>",
+        "title": "الملء التلقائي مفعّل لـ <strong class=\"js-userdata-container\">{userName}</strong>",
         "note": "When we do help populate email addresses for (your email address here)"
     },
     "noUnprotectedSitesAdded": {
-        "title": "Nebyly přidány žádné nechráněné weby",
+        "title": "لم تُضف مواقع غير محمية",
         "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
     },
     "unprotectedSites": {
-        "title": "Nechráněné stránky",
+        "title": "المواقع غير المحمية",
         "note": "Header for the list of websites where our privacy protections are disabled"
     },
     "unprotectedSitesDesc": {
-        "title": "Tyto stránky nebudou vylepšeny ochranou soukromí.",
+        "title": "لن تُعزَّز هذه المواقع بحماية الخصوصية.",
         "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
     },
     "addUnprotectedSite": {
-        "title": "Přidat nechráněný web",
+        "title": "إضافة موقع غير محمي",
         "note": "Header for the user to add a site to the unprotected list"
     },
     "enterURL": {
-        "title": "Zadej adresu URL",
+        "title": "أدخل عنوان URL",
         "note": "Prompt to enter the website URL here"
     },
     "invalidURL": {
-        "title": "Neplatná adresa URL",
+        "title": "عنوان URL غير صالح",
         "note": "The URL the user entered is not a valid website address"
     },
     "blockedSites": {
-        "title": "Blokované weby",
+        "title": "المواقع المحظورة",
         "note": "Header for the list of websites the user wants to block completely"
     },
     "groupsTitle": {
-        "title": "Skupiny",
+        "title": "المجموعات",
         "note": "Header for website groups that share a daily time limit"
     },
     "groupsDesc": {
-        "title": "Každá skupina má společný denní časový limit. Na webu ze skupiny čas odpočítává. Po dosažení nuly jsou všechny weby ve skupině zablokovány do 6:00.",
+        "title": "لكل مجموعة حد زمني يومي مشترك. أثناء وجودك في موقع ضمن المجموعة، يبدأ العد التنازلي. عند الوصول إلى الصفر، تُحظر كل مواقع المجموعة حتى الساعة 6:00.",
         "note": "Explains that grouped websites share one daily allowance"
     },
     "addGroup": {
-        "title": "Přidat skupinu",
+        "title": "إضافة مجموعة",
         "note": "Button that creates a new website group"
     },
     "groupName": {
-        "title": "Název",
+        "title": "الاسم",
         "note": "Label for the website group name field"
     },
     "maxTimeAllowed": {
-        "title": "Max. čas za den",
+        "title": "الحد الأقصى للوقت يوميًا",
         "note": "Label for the shared daily time limit"
     },
     "hoursAbbr": {
-        "title": "h",
+        "title": "س",
         "note": "Abbreviation for hours"
     },
     "minutesAbbr": {
-        "title": "min",
+        "title": "د",
         "note": "Abbreviation for minutes"
     },
     "saveGroup": {
-        "title": "Uložit změny",
+        "title": "حفظ التغييرات",
         "note": "Button that saves a group's name and daily time limit"
     },
     "groupSaved": {
-        "title": "Skupina uložena.",
+        "title": "تم حفظ المجموعة.",
         "note": "Confirmation shown after a group is saved"
     },
     "groupSaveError": {
-        "title": "Skupinu se nepodařilo uložit.",
+        "title": "تعذّر حفظ المجموعة.",
         "note": "Error shown when saving a group fails"
     },
     "deleteGroup": {
-        "title": "Smazat skupinu",
+        "title": "حذف المجموعة",
         "note": "Button that deletes a website group"
     },
     "deleteGroupConfirm": {
-        "title": "Smazat skupinu {name}?",
+        "title": "هل تريد حذف المجموعة {name}؟",
         "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
     },
     "confirmYes": {
-        "title": "Ano",
+        "title": "نعم",
         "note": "Confirms the current dialog action"
     },
     "confirmNo": {
-        "title": "Ne",
+        "title": "لا",
         "note": "Cancels the current dialog without making a change"
     },
     "groupBlockedWebsites": {
-        "title": "Blokované weby",
+        "title": "المواقع المحظورة",
         "note": "Header for websites assigned to a group"
     },
     "adultGamblingHeading": {
-        "title": "Stránky pro dospělé a hazard",
+        "title": "مواقع البالغين والمقامرة",
         "note": "Section header on Always Block for the optional adult and gambling category list"
     },
     "adultGamblingToggle": {
-        "title": "Blokovat stránky pro dospělé a hazard",
+        "title": "حظر مواقع البالغين والمقامرة",
         "note": "Toggle that enables the bundled adult and gambling host list"
     },
     "adultGamblingListLink": {
-        "title": "(více než 52 tis. webů)",
+        "title": "(أكثر من 52 ألف موقع)",
         "note": "Link next to the adult and gambling toggle; opens the source hosts list"
     },
     "adultGamblingDesc": {
-        "title": "Když je toto zapnuto, tyto weby jsou vždy blokovány a otevírají stejnou stránku jako weby přidané níže. Povolené weby mohou i tak vytvořit výjimku.",
+        "title": "عند تفعيل هذا الخيار، تُحظر تلك المواقع دائمًا وتفتح صفحة الحظر نفسها المستخدمة للمواقع التي تضيفها أدناه. يمكن للمواقع المسموح بها أن تستثني موقعًا من هذه القائمة.",
         "note": "Explains the adult and gambling category switch on Always Block"
     },
     "adultGamblingDisableConfirm": {
-        "title": "Chcete-li vypnout blokování stránek pro dospělé a hazard, vyřešte:",
+        "title": "لإيقاف حظر مواقع البالغين والمقامرة، احسب هذه المسألة:",
         "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
     },
     "adultGamblingDisableMath": {
@@ -294,11 +294,11 @@
         "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
     },
     "confirmDisableAdultGambling": {
-        "title": "Vypnout",
+        "title": "إيقاف",
         "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
     },
     "addBlockedWebsite": {
-        "title": "Přidat web",
+        "title": "إضافة موقع",
         "note": "Button that adds a website to the current group"
     },
     "addWebsitePlaceholder": {
@@ -306,11 +306,11 @@
         "note": "Placeholder for the website field in a group"
     },
     "removeWebsite": {
-        "title": "Odebrat web",
+        "title": "إزالة الموقع",
         "note": "Accessible label for removing a website from a group"
     },
     "removeWebsiteConfirm": {
-        "title": "Chcete-li odebrat {domain}, vyřešte:",
+        "title": "لإزالة {domain}، احسب هذه المسألة:",
         "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
     },
     "removeWebsiteMath": {
@@ -318,43 +318,43 @@
         "note": "Two-digit addition problem shown before a website can be removed"
     },
     "removeWebsiteMathWrong": {
-        "title": "To není správná odpověď.",
+        "title": "هذه ليست الإجابة الصحيحة.",
         "note": "Error shown when the removal math problem is answered incorrectly"
     },
     "confirmCancel": {
-        "title": "Zrušit",
+        "title": "إلغاء",
         "note": "Closes the website removal confirmation without removing the site"
     },
     "confirmRemove": {
-        "title": "Odebrat",
+        "title": "إزالة",
         "note": "Submits the math answer and removes the website if it is correct"
     },
     "noGroupedWebsites": {
-        "title": "V této skupině zatím nejsou žádné weby.",
+        "title": "لا توجد مواقع في هذه المجموعة بعد.",
         "note": "Empty state for a group with no assigned websites"
     },
     "timeLeft": {
-        "title": "Zbývající čas",
+        "title": "الوقت المتبقي",
         "note": "Label inside the remaining-time indicator for a group"
     },
     "groupLockedUntilReset": {
-        "title": "Čas vypršel. Název, čas a stávající weby jsou uzamčeny do 6:00. Stále můžete přidávat weby.",
+        "title": "انتهى الوقت. الاسم والوقت والمواقع الحالية مقفلة حتى الساعة 6:00. ما زال بإمكانك إضافة مواقع.",
         "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
     },
     "groupLockedError": {
-        "title": "Tuto skupinu nelze měnit do 6:00.",
+        "title": "لا يمكن تغيير هذه المجموعة حتى الساعة 6:00.",
         "note": "Error shown when a locked group is edited"
     },
     "invalidWebsite": {
-        "title": "Zadejte platnou adresu webu.",
+        "title": "أدخل عنوان موقع صالحًا.",
         "note": "Error shown when a grouped website entry is invalid"
     },
     "searchEngine": {
-        "title": "Vyhledávač",
+        "title": "محرك البحث",
         "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
     },
     "searchEngineDesc": {
-        "title": "Zvolte, kam půjdou hledání z vyskakovacího okna a klíčového slova v adresním řádku.",
+        "title": "اختر وجهة عمليات البحث من النافذة المنبثقة وكلمة البحث في شريط العنوان.",
         "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
     },
     "searchEngineDuckDuckGo": {
@@ -366,11 +366,11 @@
         "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
-        "title": "Žádná AI ve vyhledávání",
+        "title": "بدون ذكاء اصطناعي في البحث",
         "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
     },
     "noAiModeDesc": {
-        "title": "Zobrazí výsledky vyhledávání bez odpovědí umělé inteligence (Search Assist) a chatů s AI (Duck.ai) a ve výchozím nastavení odfiltruje obrázky vygenerované umělou inteligencí z výsledků vyhledávání. Platí pro všechna vyhledávání z webu duckduckgo.com a z adresního řádku.",
+        "title": "اعرض نتائج البحث دون إجابات الذكاء الاصطناعي (Search Assist) أو محادثات الذكاء الاصطناعي (Duck.ai)، وفلتر الصور المولَّدة بالذكاء الاصطناعي من نتائج الصور افتراضيًا. ينطبق على كل عمليات البحث من duckduckgo.com وشريط العنوان.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
     }
 }

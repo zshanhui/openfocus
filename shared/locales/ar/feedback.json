@@ -1,0 +1,56 @@
+{
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "brokenSiteLabel": {
+        "title": "أي موقع لا يعمل؟",
+        "note": "We're asking feedback from users. Here they are reporting a website url that is not working correctly."
+    },
+    "brokenSitePlaceholder": {
+        "title": "انسخ عنوان URL والصقه",
+        "note": "Instructions to fill an input field with a URL. Here \"your URL\" doesn't mean that they own the website, just that they're reporting it."
+    },
+    "feedbackHeaderLabel": {
+        "title": "ما الذي يعجبك؟ ما الذي لا يعمل؟ كيف يمكن تحسين الإضافة؟",
+        "note": "Label over a feedback text area where the user can tell us about their experience with our browser extension."
+    },
+    "feedbackPlaceholder": {
+        "title": "إلى أي الميزات أو الوظائف تشير ملاحظاتك؟ يُرجى أن تكون محددًا قدر الإمكان.",
+        "note": "Placeholder text on feedback form input."
+    },
+    "submittingFeedbackHelps": {
+        "title": "يساعدنا إرسال ملاحظات مجهولة على تحسين OpenFocusd.",
+        "note": "Description at top of feedback form."
+    },
+    "reportBrokenSite": {
+        "title": "أريد الإبلاغ عن موقع لا يعمل",
+        "note": "This opens a feedback form to report a broken site. Broken here means 'not working as expected'."
+    },
+    "submit": {
+        "title": "إرسال",
+        "note": "To submit the feedback form."
+    },
+    "describeTheIssue": {
+        "title": "صف المشكلة التي واجهتها:",
+        "note": "Label on broken site feedback textarea where users can describe in what way a site is not working as expected."
+    },
+    "describeBreakagePlaceholder": {
+        "title": "أي محتوى أو وظيفة في الموقع لا تعمل؟ يُرجى أن تكون محددًا قدر الإمكان.",
+        "note": "Placeholder text on the broken site form."
+    },
+    "thankYou": {
+        "title": "شكرًا على ملاحظاتك!",
+        "note": "Thank you note displayed after submitting feedback"
+    },
+    "thankYouBrokenSite": {
+        "title": "تساعدنا بلاغات المواقع المعطّلة على إصلاح هذه الأعطال.",
+        "note": "Additional note when submitting a broken site."
+    }
+}

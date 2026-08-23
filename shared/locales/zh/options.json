@@ -10,283 +10,283 @@
         ]
     },
     "optionsHeader": {
-        "title": "Možnosti OpenFocusd",
+        "title": "OpenFocusd 选项",
         "note": "Header for options (settings) page"
     },
     "optionsSubHeader": {
-        "title": "Nenech se sledovat při vyhledávání a prohlížení webu.",
+        "title": "在网上搜索和浏览，不被追踪。",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
     "blockSitesTab": {
-        "title": "Blokovat weby",
+        "title": "屏蔽网站",
         "note": "Navigation tab for managing completely blocked websites"
     },
     "allowedSitesTab": {
-        "title": "Povolené weby",
+        "title": "允许的网站",
         "note": "Navigation tab for managing websites that are explicitly allowed"
     },
     "allowedSitesHeading": {
-        "title": "Povolené weby",
+        "title": "允许的网站",
         "note": "Header for the list of websites that stay allowed"
     },
     "allowedSitesIntro": {
-        "title": "Přidejte web(y) k povolení do pole níže a klikněte na „Přidat povolený web(y)“. Tipy:",
+        "title": "在下方输入要允许的网站，然后点击“添加允许的网站”。提示：",
         "note": "Instructions for adding websites to the allowed list"
     },
     "allowedSitesTipMultiple": {
-        "title": "Chcete-li povolit více webů, zadejte každý na samostatný řádek.",
+        "title": "要允许多个网站，请每行输入一个。",
         "note": "Tip explaining that each allowed website should be on its own line"
     },
     "allowedSitesTipWildcard": {
-        "title": "Můžete použít * jako zástupný znak (např. *.youtube.com, *.edu nebo *docs*). Vzory jako *.com nebo *.co.uk jsou příliš široké a nejsou povoleny.",
+        "title": "可以使用 * 作为通配符（例如 *.youtube.com、*.edu 或 *docs*）。*.com 或 *.co.uk 这类范围过宽的模式不允许使用。",
         "note": "Tip explaining wildcard matching and that public suffixes are rejected"
     },
     "allowedSitesPlaceholder": {
-        "title": "Zadejte weby sem...",
+        "title": "在此输入网站...",
         "note": "Placeholder for the allowed websites text box"
     },
     "addAllowedSites": {
-        "title": "Přidat povolený web(y)",
+        "title": "添加允许的网站",
         "note": "Button that adds the websites in the text box to the allowed list"
     },
     "allowedSitesRemoveHint": {
-        "title": "Kliknutím na × odeberete web ze seznamu.",
+        "title": "点击 × 可从列表中移除网站。",
         "note": "Explains how to remove a website from the allowed list"
     },
     "removeAllowedSite": {
-        "title": "Odebrat {pattern}",
+        "title": "移除 {pattern}",
         "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
     },
     "clearAllAllowedSites": {
-        "title": "Vymazat vše",
+        "title": "全部清除",
         "note": "Button that removes every website from the allowed list"
     },
     "clearAllAllowedConfirm": {
-        "title": "Odebrat všechny weby z Povolených webů?",
+        "title": "要从“允许的网站”中移除所有网站吗？",
         "note": "Confirmation shown before clearing the allowed list"
     },
     "confirmClearAll": {
-        "title": "Vymazat vše",
+        "title": "全部清除",
         "note": "Confirms clearing every allowed website"
     },
     "allowedSitesNote": {
-        "title": "Weby z Povolených webů můžete odebrat kdykoli, i když už čas vypršel.",
+        "title": "你可以随时从“允许的网站”中移除网站，即使时间已用完。",
         "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
     },
     "allowedSiteConflict": {
-        "title": "{domain} je ve skupině {groupName}. Nejprve ho odeberte z Blokovat weby.",
+        "title": "{domain} 已在组 {groupName} 中。请先从“屏蔽网站”中移除。",
         "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
     },
     "allowedSiteInvalid": {
-        "title": "„{line}“ není platný web ani zástupný znak.",
+        "title": "“{line}” 不是有效的网站或通配符。",
         "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
     },
     "allowedSiteTooBroad": {
-        "title": "„{line}“ je příliš široké. Povolte konkrétní web, například *.youtube.com místo *.com.",
+        "title": "“{line}” 范围过宽。请允许具体网站，例如使用 *.youtube.com 而不是 *.com。",
         "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
     },
     "allowedSiteEmpty": {
-        "title": "Zadejte alespoň jeden web.",
+        "title": "请至少输入一个网站。",
         "note": "Error shown when the allowed sites text box is empty"
     },
     "allowedSitesSaveError": {
-        "title": "Povolené weby se nepodařilo uložit.",
+        "title": "无法保存允许的网站。",
         "note": "Error shown when adding allowed websites fails unexpectedly"
     },
     "addToGroupRemovesAllowed": {
-        "title": "Přidáním {domain} do této skupiny odeberete tyto povolené weby: {patterns}.",
+        "title": "将 {domain} 加入此组会移除这些允许的网站：{patterns}。",
         "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
     },
     "confirmAddToGroup": {
-        "title": "Přidat do skupiny",
+        "title": "加入组",
         "note": "Confirms adding a website to a group and removing overlapping allowed entries"
     },
     "sanctuaryHeading": {
-        "title": "Režim Sanctuary",
+        "title": "庇护模式",
         "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
     },
     "sanctuaryDesc": {
-        "title": "Když je režim Sanctuary aktivní, lze používat jen weby z Povolených webů. Všechny ostatní weby jsou zablokovány bez výjimek. Nelze ho vypnout, dokud nevyprší nastavený čas.",
+        "title": "启用庇护模式后，只能使用“允许的网站”列表中的网站。其余网站一律屏蔽，没有例外。在设定时间结束前无法关闭。",
         "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
     },
     "sanctuaryDuration": {
-        "title": "Doba trvání",
+        "title": "时长",
         "note": "Label for how long Sanctuary Mode stays on after it is activated"
     },
     "sanctuaryShowOnPopup": {
-        "title": "Zobrazit režim Sanctuary ve vyskakovacím okně",
+        "title": "在弹出窗口中显示庇护模式",
         "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
     },
     "sanctuaryShowOnPopupDesc": {
-        "title": "Přidá do vyskakovacího okna tlačítko Aktivovat. Režim se spustí až po stisknutí tohoto tlačítka.",
+        "title": "会在弹出窗口中添加“启用”按钮。只有按下该按钮后才会开始庇护模式。",
         "note": "Explains that the toggle does not start Sanctuary Mode by itself"
     },
     "sanctuaryActiveNote": {
-        "title": "Režim Sanctuary je zapnutý. Povolené weby a tato nastavení jsou uzamčena na {remaining}.",
+        "title": "庇护模式已开启。允许的网站和这些设置将锁定 {remaining}。",
         "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
     },
     "sanctuaryLockedError": {
-        "title": "Režim Sanctuary je zapnutý. Toto nelze změnit, dokud časovač neskončí.",
+        "title": "庇护模式已开启。计时结束前无法更改。",
         "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
     },
     "blockTrackersTab": {
-        "title": "Blokovat trackery",
+        "title": "屏蔽跟踪器",
         "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
     },
     "optionsDesc": {
-        "title": "OpenFocusd a DuckDuckGo chrání tvoje soukromí na webu soukromým vyhledáváním\n,blokováním trackerů\na šifrováním stránek.",
+        "title": "OpenFocusd 和 DuckDuckGo 通过\n私密搜索、\n跟踪器拦截\n和网站加密来保护你的在线隐私。",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
-        "title": "Poděl se o zpětnou vazbu",
+        "title": "分享反馈",
         "note": "Click here to share your opinions about this product"
     },
     "reportBrokenSite": {
-        "title": "Nahlásit nefunkční web",
+        "title": "报告无法正常使用的网站",
         "note": "Click here to report an issue with a specific site you are trying to use"
     },
     "showEmbeddedTweets": {
-        "title": "Zobrazit vložené tweety",
+        "title": "显示嵌入的推文",
         "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
     },
     "globalPrivacyControlAbbr": {
-        "title": "Globální kontrola ochrany osobních údajů (GPC)",
+        "title": "全球隐私控制 (GPC)",
         "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
     },
     "globalPrivacyControlDesc": {
-        "title": "Tvoje data nesmí být na prodej. Přesně tak to v OpenFocusd vidíme.\nAktivuj nastavení „Global Privacy Control“ (GPC) a my dáme webovým stránkám signál, že preferuješ:",
+        "title": "你的数据不应被出售。OpenFocusd 也这么认为。\n启用“全球隐私控制”(GPC) 后，我们会向网站表明你希望：",
         "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
     },
     "notSellYourPersonalData": {
-        "title": "Neprodávat osobní údaje.",
+        "title": "不出售你的个人数据。",
         "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
     },
     "limitSharingOfPersonalData": {
-        "title": "Omezit sdílení vašich osobních údajů s jinými společnosti.",
+        "title": "限制将你的个人数据分享给其他公司。",
         "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
     },
     "globalPrivacyControlDisclaimer": {
-        "title": "<b>I když je Globální kontrola ochrany osobních údajů (GPC)\n nový standard, většina webových stránek ho zatím nerozpozná, nicméně tvrdě pracujeme\n na tom, abychom zajistili, že bude akceptována po celém světě.</b> Webové stránky jsou nicméně povinny řešit podněty pouze v rozsahu, v jakém je k tomu donutí příslušné zákony.",
+        "title": "<b>由于全球隐私控制 (GPC) 是一项新标准，\n大多数网站尚未识别它，但我们正在努力\n推动它被全球接受。</b>不过，网站仅在适用法律要求时才必须响应此信号。",
         "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
     },
     "emailProtection": {
-        "title": "Ochrana e-mailu",
+        "title": "电子邮件保护",
         "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
     },
     "autofillDisabled": {
-        "title": "Vypnuté automatické vyplňování",
+        "title": "已禁用自动填充",
         "note": "When we don't automatically help populate email fields with a private address"
     },
     "autofillEnabled": {
-        "title": "Je zapnuté automatické vyplňování pro uživatele <strong class=\"js-userdata-container\">{userName}</strong>",
+        "title": "已为 <strong class=\"js-userdata-container\">{userName}</strong> 启用自动填充",
         "note": "When we do help populate email addresses for (your email address here)"
     },
     "noUnprotectedSitesAdded": {
-        "title": "Nebyly přidány žádné nechráněné weby",
+        "title": "尚未添加不受保护的网站",
         "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
     },
     "unprotectedSites": {
-        "title": "Nechráněné stránky",
+        "title": "不受保护的网站",
         "note": "Header for the list of websites where our privacy protections are disabled"
     },
     "unprotectedSitesDesc": {
-        "title": "Tyto stránky nebudou vylepšeny ochranou soukromí.",
+        "title": "这些网站不会获得隐私保护增强。",
         "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
     },
     "addUnprotectedSite": {
-        "title": "Přidat nechráněný web",
+        "title": "添加不受保护的网站",
         "note": "Header for the user to add a site to the unprotected list"
     },
     "enterURL": {
-        "title": "Zadej adresu URL",
+        "title": "输入网址",
         "note": "Prompt to enter the website URL here"
     },
     "invalidURL": {
-        "title": "Neplatná adresa URL",
+        "title": "无效网址",
         "note": "The URL the user entered is not a valid website address"
     },
     "blockedSites": {
-        "title": "Blokované weby",
+        "title": "已屏蔽的网站",
         "note": "Header for the list of websites the user wants to block completely"
     },
     "groupsTitle": {
-        "title": "Skupiny",
+        "title": "分组",
         "note": "Header for website groups that share a daily time limit"
     },
     "groupsDesc": {
-        "title": "Každá skupina má společný denní časový limit. Na webu ze skupiny čas odpočítává. Po dosažení nuly jsou všechny weby ve skupině zablokovány do 6:00.",
+        "title": "每个分组共享每日时长上限。你在该组网站上浏览时，时间会倒计时。到零后，组内所有网站会被屏蔽，直到早上 6:00。",
         "note": "Explains that grouped websites share one daily allowance"
     },
     "addGroup": {
-        "title": "Přidat skupinu",
+        "title": "添加分组",
         "note": "Button that creates a new website group"
     },
     "groupName": {
-        "title": "Název",
+        "title": "名称",
         "note": "Label for the website group name field"
     },
     "maxTimeAllowed": {
-        "title": "Max. čas za den",
+        "title": "每日最长可用时间",
         "note": "Label for the shared daily time limit"
     },
     "hoursAbbr": {
-        "title": "h",
+        "title": "小时",
         "note": "Abbreviation for hours"
     },
     "minutesAbbr": {
-        "title": "min",
+        "title": "分钟",
         "note": "Abbreviation for minutes"
     },
     "saveGroup": {
-        "title": "Uložit změny",
+        "title": "保存更改",
         "note": "Button that saves a group's name and daily time limit"
     },
     "groupSaved": {
-        "title": "Skupina uložena.",
+        "title": "分组已保存。",
         "note": "Confirmation shown after a group is saved"
     },
     "groupSaveError": {
-        "title": "Skupinu se nepodařilo uložit.",
+        "title": "无法保存分组。",
         "note": "Error shown when saving a group fails"
     },
     "deleteGroup": {
-        "title": "Smazat skupinu",
+        "title": "删除分组",
         "note": "Button that deletes a website group"
     },
     "deleteGroupConfirm": {
-        "title": "Smazat skupinu {name}?",
+        "title": "要删除分组 {name} 吗？",
         "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
     },
     "confirmYes": {
-        "title": "Ano",
+        "title": "是",
         "note": "Confirms the current dialog action"
     },
     "confirmNo": {
-        "title": "Ne",
+        "title": "否",
         "note": "Cancels the current dialog without making a change"
     },
     "groupBlockedWebsites": {
-        "title": "Blokované weby",
+        "title": "已屏蔽的网站",
         "note": "Header for websites assigned to a group"
     },
     "adultGamblingHeading": {
-        "title": "Stránky pro dospělé a hazard",
+        "title": "成人与赌博网站",
         "note": "Section header on Always Block for the optional adult and gambling category list"
     },
     "adultGamblingToggle": {
-        "title": "Blokovat stránky pro dospělé a hazard",
+        "title": "屏蔽成人与赌博网站",
         "note": "Toggle that enables the bundled adult and gambling host list"
     },
     "adultGamblingListLink": {
-        "title": "(více než 52 tis. webů)",
+        "title": "（超过 5.2 万个网站）",
         "note": "Link next to the adult and gambling toggle; opens the source hosts list"
     },
     "adultGamblingDesc": {
-        "title": "Když je toto zapnuto, tyto weby jsou vždy blokovány a otevírají stejnou stránku jako weby přidané níže. Povolené weby mohou i tak vytvořit výjimku.",
+        "title": "开启后，这些网站会始终被屏蔽，并打开与下方手动添加网站相同的拦截页。“允许的网站”仍可为该列表中的网站设置例外。",
         "note": "Explains the adult and gambling category switch on Always Block"
     },
     "adultGamblingDisableConfirm": {
-        "title": "Chcete-li vypnout blokování stránek pro dospělé a hazard, vyřešte:",
+        "title": "要关闭成人与赌博屏蔽，请先算出：",
         "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
     },
     "adultGamblingDisableMath": {
@@ -294,11 +294,11 @@
         "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
     },
     "confirmDisableAdultGambling": {
-        "title": "Vypnout",
+        "title": "关闭",
         "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
     },
     "addBlockedWebsite": {
-        "title": "Přidat web",
+        "title": "添加网站",
         "note": "Button that adds a website to the current group"
     },
     "addWebsitePlaceholder": {
@@ -306,11 +306,11 @@
         "note": "Placeholder for the website field in a group"
     },
     "removeWebsite": {
-        "title": "Odebrat web",
+        "title": "移除网站",
         "note": "Accessible label for removing a website from a group"
     },
     "removeWebsiteConfirm": {
-        "title": "Chcete-li odebrat {domain}, vyřešte:",
+        "title": "要移除 {domain}，请先算出：",
         "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
     },
     "removeWebsiteMath": {
@@ -318,43 +318,43 @@
         "note": "Two-digit addition problem shown before a website can be removed"
     },
     "removeWebsiteMathWrong": {
-        "title": "To není správná odpověď.",
+        "title": "答案不正确。",
         "note": "Error shown when the removal math problem is answered incorrectly"
     },
     "confirmCancel": {
-        "title": "Zrušit",
+        "title": "取消",
         "note": "Closes the website removal confirmation without removing the site"
     },
     "confirmRemove": {
-        "title": "Odebrat",
+        "title": "移除",
         "note": "Submits the math answer and removes the website if it is correct"
     },
     "noGroupedWebsites": {
-        "title": "V této skupině zatím nejsou žádné weby.",
+        "title": "此分组中还没有网站。",
         "note": "Empty state for a group with no assigned websites"
     },
     "timeLeft": {
-        "title": "Zbývající čas",
+        "title": "剩余时间",
         "note": "Label inside the remaining-time indicator for a group"
     },
     "groupLockedUntilReset": {
-        "title": "Čas vypršel. Název, čas a stávající weby jsou uzamčeny do 6:00. Stále můžete přidávat weby.",
+        "title": "时间已用完。名称、时长和现有网站将锁定至 6:00。你仍可以添加网站。",
         "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
     },
     "groupLockedError": {
-        "title": "Tuto skupinu nelze měnit do 6:00.",
+        "title": "此分组在 6:00 之前无法更改。",
         "note": "Error shown when a locked group is edited"
     },
     "invalidWebsite": {
-        "title": "Zadejte platnou adresu webu.",
+        "title": "请输入有效的网站地址。",
         "note": "Error shown when a grouped website entry is invalid"
     },
     "searchEngine": {
-        "title": "Vyhledávač",
+        "title": "搜索引擎",
         "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
     },
     "searchEngineDesc": {
-        "title": "Zvolte, kam půjdou hledání z vyskakovacího okna a klíčového slova v adresním řádku.",
+        "title": "选择弹出窗口和地址栏关键字搜索使用的搜索引擎。",
         "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
     },
     "searchEngineDuckDuckGo": {
@@ -366,11 +366,11 @@
         "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
-        "title": "Žádná AI ve vyhledávání",
+        "title": "搜索中不使用 AI",
         "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
     },
     "noAiModeDesc": {
-        "title": "Zobrazí výsledky vyhledávání bez odpovědí umělé inteligence (Search Assist) a chatů s AI (Duck.ai) a ve výchozím nastavení odfiltruje obrázky vygenerované umělou inteligencí z výsledků vyhledávání. Platí pro všechna vyhledávání z webu duckduckgo.com a z adresního řádku.",
+        "title": "查看不含 AI 回答（Search Assist）或 AI 对话（Duck.ai）的搜索结果，并默认从图片结果中过滤 AI 生成的图片。适用于来自 duckduckgo.com 和地址栏的所有搜索。",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
     }
 }

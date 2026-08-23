@@ -17,8 +17,124 @@
         "title": "Iščite in brskajte po spletu brez sledenja.",
         "note": "We allow the user to browse the web without being followed by trackers"
     },
+    "blockSitesTab": {
+        "title": "Blokiraj spletna mesta",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Dovoljena spletna mesta",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Dovoljena spletna mesta",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Spodaj dodajte spletno mesto/mesta za dovoljenje in kliknite »Dodaj dovoljeno spletno mesto/mesta«. Nasveti:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Za več spletnih mest dodajte po eno v vrstico.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Uporabite lahko * kot nadomestni znak (npr. *.youtube.com, *.edu ali *docs*). Vzorci, kot sta *.com ali *.co.uk, so preširoki in niso dovoljeni.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Tukaj vnesite spletna mesta...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Dodaj dovoljeno spletno mesto/mesta",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Kliknite ×, da odstranite spletno mesto s seznama.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "Odstrani {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Počisti vse",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Odstraniti vsa spletna mesta z Dovoljenih spletnih mest?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Počisti vse",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Spletna mesta z Dovoljenih spletnih mest lahko odstranite kadar koli, tudi če je čas potekel.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} je v skupini {groupName}. Najprej ga odstranite iz Blokiraj spletna mesta.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "»{line}« ni veljavno spletno mesto ali nadomestni znak.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "»{line}« je preširoko. Dovolite konkretno spletno mesto, npr. *.youtube.com, namesto *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Vnesite vsaj eno spletno mesto.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "Dovoljenih spletnih mest ni bilo mogoče shraniti.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "Dodajanje {domain} v to skupino bo odstranilo ta dovoljena spletna mesta: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Dodaj v skupino",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Način Sanctuary",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Ko je način Sanctuary aktiven, lahko uporabljate samo spletna mesta na seznamu Dovoljena spletna mesta. Vsa ostala so blokirana brez izjem. Ni ga mogoče izklopiti, dokler ne poteče nastavljeni čas.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Trajanje",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Pokaži način Sanctuary v pojavnem oknu",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "V pojavno okno doda gumb Aktiviraj. Način se začne šele, ko pritisnete ta gumb.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Način Sanctuary je vklopljen. Dovoljena spletna mesta in te nastavitve so zaklenjene za {remaining}.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Način Sanctuary je vklopljen. Tega ni mogoče spremeniti, dokler se časovnik ne konča.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Blokiraj sledilnike",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
     "optionsDesc": {
-        "title": "OpenFocusd varuje vašo zasebnost na spletu z\nzasebnim iskanjem,\nblokiranjem sledilnikov\nin šifriranjem spletnih mest.",
+        "title": "OpenFocusd in DuckDuckGo varujeta vašo zasebnost na spletu z\nzasebnim iskanjem,\nblokiranjem sledilnikov\nin šifriranjem spletnih mest.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -88,6 +204,166 @@
     "invalidURL": {
         "title": "Neveljaven URL",
         "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Blokirana spletna mesta",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Skupine",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Vsaka skupina ima skupno dnevno časovno omejitev. Na spletnem mestu iz skupine čas teče navzdol. Pri ničli so vsa spletna mesta v skupini blokirana do 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Dodaj skupino",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Ime",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Najv. čas na dan",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "h",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Shrani spremembe",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Skupina shranjena.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Skupine ni bilo mogoče shraniti.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Izbriši skupino",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Izbrisati skupino {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Da",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Ne",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blokirana spletna mesta",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Spletna mesta za odrasle in igre na srečo",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Blokiraj spletna mesta za odrasle in igre na srečo",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(več kot 52 tisoč spletnih mest)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Ko je to vklopljeno, so ta spletna mesta vedno blokirana in odprejo isto blokirano stran kot tista, ki jih dodate spodaj. Dovoljena spletna mesta lahko še vedno naredijo izjemo.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Če želite izklopiti blokiranje strani za odrasle in igre na srečo, rešite:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Izklopi",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Dodaj spletno mesto",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Odstrani spletno mesto",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "Če želite odstraniti {domain}, rešite:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "To ni pravilen odgovor.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Prekliči",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Odstrani",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "V tej skupini še ni spletnih mest.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Preostali čas",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Čas je potekel. Ime, čas in obstoječa spletna mesta so zaklenjeni do 6:00. Še vedno lahko dodajate spletna mesta.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Te skupine ni mogoče spreminjati do 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Vnesite veljaven naslov spletnega mesta.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Iskalnik",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Izberite, kam gredo iskanja iz pojavnega okna in ključne besede v naslovni vrstici.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
     },
     "noAiMode": {
         "title": "Brez umetne inteligence v iskanju",
