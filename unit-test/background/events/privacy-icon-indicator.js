@@ -1,22 +1,23 @@
-import { updateActionIcon } from '../../../shared/js/background/events/privacy-icon-indicator';
+import { updateActionIcon, updateActionIconForUrl } from '../../../shared/js/background/events/privacy-icon-indicator';
 import { iconPaths } from '../../../shared/data/constants';
 import Site from '../../../shared/js/background/classes/site';
 import browser from 'webextension-polyfill';
+
+const socialGroup = {
+    id: 'social',
+    name: 'Social',
+    maxSecondsPerDay: 3600,
+    domains: ['example.com'],
+};
 
 describe('privacy icon indicator', () => {
     beforeEach(() => {
         spyOn(browser.browserAction, 'setIcon').and.returnValue(Promise.resolve());
     });
-    it('uses special state when a site is allowlisted', async () => {
-        // construct an instance of Site where a user has allowlisted it
+    it('uses the gray icon when the site is on neither list', async () => {
         const site = new Site('https://example.com');
-        spyOnProperty(site, 'allowlisted').and.returnValue(true);
+        await updateActionIcon(site, 100, [], []);
 
-        // perform the update, as would occur through the onCompleted event
-        const tabId = 100;
-        await updateActionIcon(site, tabId);
-
-        // ensure the browser api is called with the correct args.
         expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
             {
                 path: iconPaths.withSpecialState,
@@ -24,19 +25,56 @@ describe('privacy icon indicator', () => {
             },
         ]);
     });
-    it('uses special state when a site is remote-disabled', async () => {
-        // construct an instance of Site where the `contentBlocking` feature was disabled
-        const site = new Site('https://example.com');
-        spyOn(site, 'isFeatureEnabled').and.returnValue(false);
+    it('uses the green icon when the site is on Allowed Sites', async () => {
+        const site = new Site('https://www.docs.example.com');
+        await updateActionIcon(site, 100, [], ['example.com']);
 
-        // perform the update, as would occur through the onCompleted event
-        const tabId = 100;
-        await updateActionIcon(site, tabId);
-
-        // ensure the browser api is called with the correct args.
         expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
             {
-                path: iconPaths.withSpecialState,
+                path: iconPaths.regular,
+                tabId: 100,
+            },
+        ]);
+    });
+    it('uses the light red icon when the site is in a Block Group', async () => {
+        const site = new Site('https://www.example.com');
+        await updateActionIcon(site, 100, [socialGroup], []);
+
+        expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
+            {
+                path: iconPaths.inBlockGroup,
+                tabId: 100,
+            },
+        ]);
+    });
+    it('uses the light red icon on the blocked page', async () => {
+        const site = new Site('chrome-extension://id/html/blocked.html');
+        await updateActionIcon(site, 100, [], []);
+
+        expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
+            {
+                path: iconPaths.inBlockGroup,
+                tabId: 100,
+            },
+        ]);
+    });
+    it('uses the light red icon from a blocked page URL without a Site object', async () => {
+        await updateActionIconForUrl(100, 'chrome-extension://id/html/blocked.html', [], []);
+
+        expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
+            {
+                path: iconPaths.inBlockGroup,
+                tabId: 100,
+            },
+        ]);
+    });
+    it('prefers the Block Group icon over Allowed Sites', async () => {
+        const site = new Site('https://example.com');
+        await updateActionIcon(site, 100, [socialGroup], ['example.com']);
+
+        expect(browser.browserAction.setIcon.calls.argsFor(0)).toEqual([
+            {
+                path: iconPaths.inBlockGroup,
                 tabId: 100,
             },
         ]);

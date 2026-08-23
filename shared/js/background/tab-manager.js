@@ -11,10 +11,6 @@ const { getCurrentTab } = require('./utils');
  * @typedef {import('./classes/site.js').allowlistName} allowlistName
  */
 
-/**
- * @typedef {import('./components/abn-experiments').default} AbnExperimentMetrics
- */
-
 // These tab properties are preserved when a new tab Object replaces an existing
 // one for the same tab ID.
 const persistentTabProperties = ['ampUrl', 'cleanAmpUrl', 'urlParametersRemoved', 'urlParametersRemovedUrl', 'userRefreshCount'];
@@ -25,12 +21,6 @@ class TabManager {
         this.tabContainer = {};
         /** @type {Record<string, Tab>} */
         this.swContainer = {};
-        /**
-         * abnMetrics is set in tab-tracking.js due to initialization order.
-         * It cannot be set here directly because components may not be available yet.
-         */
-        /** @type {AbnExperimentMetrics=} */
-        this.abnMetrics = undefined;
     }
 
     /* This overwrites the current tab data for a given
@@ -40,7 +30,7 @@ class TabManager {
      */
     create(tabData) {
         const normalizedData = browserWrapper.normalizeTabData(tabData);
-        const newTab = new Tab(normalizedData, this.abnMetrics);
+        const newTab = new Tab(normalizedData);
 
         const oldTab = this.tabContainer[newTab.id];
         if (oldTab) {
@@ -64,7 +54,7 @@ class TabManager {
     }
 
     async restore(tabId) {
-        const restoredState = await Tab.restore(tabId, this.abnMetrics);
+        const restoredState = await Tab.restore(tabId);
         if (restoredState) {
             this.tabContainer[tabId] = restoredState;
         }

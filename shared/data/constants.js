@@ -151,8 +151,18 @@ module.exports = {
         downgrade_redirect_loop: 13,
     },
     iconPaths: /** @type {const} */ ({
-        regular: '/img/icon_browser_action.png',
-        withSpecialState: '/img/icon_browser_action_special.png',
+        regular: {
+            16: '/img/icon_16.png',
+            32: '/img/icon_browser_action.png',
+        },
+        withSpecialState: {
+            16: '/img/icon_16_gray.png',
+            32: '/img/icon_browser_action_special.png',
+        },
+        inBlockGroup: {
+            16: '/img/icon_16_red.png',
+            32: '/img/icon_browser_action_red.png',
+        },
     }),
     platform: {
         name: 'extension',

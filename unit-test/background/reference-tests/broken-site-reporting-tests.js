@@ -7,7 +7,7 @@ const multipleTestSets = require('@duckduckgo/privacy-reference-tests/broken-sit
 
 let loadPixelSpy;
 
-describe.skip('Broken Site Reporting reference tests (remote reporting disabled)', () => {
+xdescribe('Broken Site Reporting reference tests (remote reporting disabled)', () => {
 async function submitAndValidateReport(report) {
     const trackerName = 'Ad Company';
     const trackerObj = {
@@ -214,43 +214,6 @@ describe('Broken Site Reporting tests / protections state', () => {
 
         const params = await submit(tab);
         expect(params.get('protectionsState')).toEqual('false');
-    });
-});
-
-describe('Broken Site Reporting tests / contentScopeExperiments (cohorts)', () => {
-    async function submit(tab) {
-        loadPixelSpy = spyOn(loadPixel, 'url').and.returnValue(null);
-        await breakageReportForTab({
-            pixelName: 'epbf',
-            tab,
-            tds: 'abc123',
-            remoteConfigEtag: 'abd142',
-            remoteConfigVersion: '1234',
-            category: 'content',
-            description: 'test',
-            pageParams: {},
-        });
-        const requestURLString = loadPixelSpy.calls.argsFor(0)[0];
-        return new URL(requestURLString).searchParams;
-    }
-
-    it('includes assigned cohorts in contentScopeExperiments param', async () => {
-        const tab = new Tab({ url: 'https://example.com' });
-        // Simulate assigned cohorts/experiments
-        tab.contentScopeExperiments = {
-            'test-feature': 'treatment',
-            'another-feature': 'control',
-        };
-        const params = await submit(tab);
-        // The param should be a comma-separated list of key:value pairs, sorted by key
-        expect(params.get('contentScopeExperiments')).toBe('another-feature:control,test-feature:treatment');
-    });
-
-    it('omits contentScopeExperiments param if none are assigned', async () => {
-        const tab = new Tab({ url: 'https://example.com' });
-        tab.contentScopeExperiments = {};
-        const params = await submit(tab);
-        expect(params.get('contentScopeExperiments')).toBeNull();
     });
 });
 

@@ -1,0 +1,380 @@
+{
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "optionsHeader": {
+        "title": "OpenFocusd 选项",
+        "note": "Header for options (settings) page"
+    },
+    "optionsSubHeader": {
+        "title": "在网上搜索和浏览，不被追踪。",
+        "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "屏蔽网站",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "允许的网站",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "允许的网站",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "在下方输入要允许的网站，然后点击“添加允许的网站”。提示：",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "要允许多个网站，请每行输入一个。",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "可以使用 * 作为通配符（例如 *.youtube.com、*.edu 或 *docs*）。*.com 或 *.co.uk 这类范围过宽的模式不允许使用。",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "在此输入网站...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "添加允许的网站",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "点击 × 可从列表中移除网站。",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "移除 {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "全部清除",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "要从“允许的网站”中移除所有网站吗？",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "全部清除",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "你可以随时从“允许的网站”中移除网站，即使时间已用完。",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} 已在组 {groupName} 中。请先从“屏蔽网站”中移除。",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "“{line}” 不是有效的网站或通配符。",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "“{line}” 范围过宽。请允许具体网站，例如使用 *.youtube.com 而不是 *.com。",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "请至少输入一个网站。",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "无法保存允许的网站。",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "将 {domain} 加入此组会移除这些允许的网站：{patterns}。",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "加入组",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "庇护模式",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "启用庇护模式后，只能使用“允许的网站”列表中的网站。其余网站一律屏蔽，没有例外。在设定时间结束前无法关闭。",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "时长",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "在弹出窗口中显示庇护模式",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "会在弹出窗口中添加“启用”按钮。只有按下该按钮后才会开始庇护模式。",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "庇护模式已开启。允许的网站和这些设置将锁定 {remaining}。",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "庇护模式已开启。计时结束前无法更改。",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "屏蔽跟踪器",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
+    "optionsDesc": {
+        "title": "OpenFocusd 和 DuckDuckGo 通过\n私密搜索、\n跟踪器拦截\n和网站加密来保护你的在线隐私。",
+        "note": "This describes how we protect the user from being tracked online"
+    },
+    "shareFeedback": {
+        "title": "分享反馈",
+        "note": "Click here to share your opinions about this product"
+    },
+    "reportBrokenSite": {
+        "title": "报告无法正常使用的网站",
+        "note": "Click here to report an issue with a specific site you are trying to use"
+    },
+    "showEmbeddedTweets": {
+        "title": "显示嵌入的推文",
+        "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
+    },
+    "globalPrivacyControlAbbr": {
+        "title": "全球隐私控制 (GPC)",
+        "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
+    },
+    "globalPrivacyControlDesc": {
+        "title": "你的数据不应被出售。OpenFocusd 也这么认为。\n启用“全球隐私控制”(GPC) 后，我们会向网站表明你希望：",
+        "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
+    },
+    "notSellYourPersonalData": {
+        "title": "不出售你的个人数据。",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
+    },
+    "limitSharingOfPersonalData": {
+        "title": "限制将你的个人数据分享给其他公司。",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
+    },
+    "globalPrivacyControlDisclaimer": {
+        "title": "<b>由于全球隐私控制 (GPC) 是一项新标准，\n大多数网站尚未识别它，但我们正在努力\n推动它被全球接受。</b>不过，网站仅在适用法律要求时才必须响应此信号。",
+        "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
+    },
+    "emailProtection": {
+        "title": "电子邮件保护",
+        "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
+    },
+    "autofillDisabled": {
+        "title": "已禁用自动填充",
+        "note": "When we don't automatically help populate email fields with a private address"
+    },
+    "autofillEnabled": {
+        "title": "已为 <strong class=\"js-userdata-container\">{userName}</strong> 启用自动填充",
+        "note": "When we do help populate email addresses for (your email address here)"
+    },
+    "noUnprotectedSitesAdded": {
+        "title": "尚未添加不受保护的网站",
+        "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSites": {
+        "title": "不受保护的网站",
+        "note": "Header for the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSitesDesc": {
+        "title": "这些网站不会获得隐私保护增强。",
+        "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
+    },
+    "addUnprotectedSite": {
+        "title": "添加不受保护的网站",
+        "note": "Header for the user to add a site to the unprotected list"
+    },
+    "enterURL": {
+        "title": "输入网址",
+        "note": "Prompt to enter the website URL here"
+    },
+    "invalidURL": {
+        "title": "无效网址",
+        "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "已屏蔽的网站",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "分组",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "每个分组共享每日时长上限。你在该组网站上浏览时，时间会倒计时。到零后，组内所有网站会被屏蔽，直到早上 6:00。",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "添加分组",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "名称",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "每日最长可用时间",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "小时",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "分钟",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "保存更改",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "分组已保存。",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "无法保存分组。",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "删除分组",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "要删除分组 {name} 吗？",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "是",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "否",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "已屏蔽的网站",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "成人与赌博网站",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "屏蔽成人与赌博网站",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "（超过 5.2 万个网站）",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "开启后，这些网站会始终被屏蔽，并打开与下方手动添加网站相同的拦截页。“允许的网站”仍可为该列表中的网站设置例外。",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "要关闭成人与赌博屏蔽，请先算出：",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "关闭",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "添加网站",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "移除网站",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "要移除 {domain}，请先算出：",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "答案不正确。",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "取消",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "移除",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "此分组中还没有网站。",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "剩余时间",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "时间已用完。名称、时长和现有网站将锁定至 6:00。你仍可以添加网站。",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "此分组在 6:00 之前无法更改。",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "请输入有效的网站地址。",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "搜索引擎",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "选择弹出窗口和地址栏关键字搜索使用的搜索引擎。",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
+    },
+    "noAiMode": {
+        "title": "搜索中不使用 AI",
+        "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
+    },
+    "noAiModeDesc": {
+        "title": "查看不含 AI 回答（Search Assist）或 AI 对话（Duck.ai）的搜索结果，并默认从图片结果中过滤 AI 生成的图片。适用于来自 duckduckgo.com 和地址栏的所有搜索。",
+        "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "语言",
+        "note": "Label for the language switcher on the options page"
+    }
+}

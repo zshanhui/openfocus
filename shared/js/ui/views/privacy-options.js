@@ -32,8 +32,6 @@ PrivacyOptions.prototype = window.$.extend({}, Parent.prototype, {
             'blocktrackers',
             'https-everywhere-enabled',
             'gpc-enabled',
-            'firebutton-clear-history-enabled',
-            'firebutton-tabclear-enabled',
             'no-ai-mode',
             'search-engine',
         ]);
@@ -41,8 +39,6 @@ PrivacyOptions.prototype = window.$.extend({}, Parent.prototype, {
             [this.$blocktrackers, 'click', this._clickSetting],
             [this.$httpseverywhereenabled, 'click', this._clickSetting],
             [this.$gpcenabled, 'click', this._clickSetting],
-            [this.$firebuttonclearhistoryenabled, 'click', this._clickSetting],
-            [this.$firebuttontabclearenabled, 'click', this._clickSetting],
             [this.$noaimode, 'click', this._clickSetting],
             [this.$searchengine, 'click', this._clickSearchEngine],
         ]);

@@ -1,124 +1,380 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "path": "*/title",
-        "key": "{*}/title",
-        "instruction": "*/note"
-      }
-    ]
-  },
-  "optionsHeader": {
-    "title": "OpenFocusd valikud",
-    "note": "Header for options (settings) page"
-  },
-  "optionsSubHeader": {
-    "title": "Otsi ja sirvi veebis ilma jälgimiseta.",
-    "note": "We allow the user to browse the web without being followed by trackers"
-  },
-  "optionsDesc": {
-    "title": "DuckDuckGo kaitseb sinu privaatsust veebis\nprivaatse otsingu,\njälgimise blokeerimise,\nja saidi krüptimise abil.",
-    "note": "This describes how we protect the user from being tracked online"
-  },
-  "shareFeedback": {
-    "title": "Jaga tagasisidet",
-    "note": "Click here to share your opinions about this product"
-  },
-  "reportBrokenSite": {
-    "title": "Teata mittetoimivast saidist",
-    "note": "Click here to report an issue with a specific site you are trying to use"
-  },
-  "showEmbeddedTweets": {
-    "title": "Näita manustatud säutse",
-    "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
-  },
-  "globalPrivacyControlAbbr": {
-    "title": "Üleilmne privaatsuskontroll (Global Privacy Control (GPC))",
-    "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
-  },
-  "globalPrivacyControlDesc": {
-    "title": "Sinu andmeid ei ole müügiks DuckDuckGo nõustub sellega.Aktiveeri seadistus „Üleilmne privaatsuskontroll“ (GPC) ja me anname veebisaitidele märku sinu eelistusest:",
-    "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
-  },
-  "notSellYourPersonalData": {
-    "title": "Sinu andmed ei ole müügiks.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
-  },
-  "limitSharingOfPersonalData": {
-    "title": "piirata sinu isikuandmete jagamist teiste ettevõtetega.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
-  },
-  "globalPrivacyControlDisclaimer": {
-    "title": "<b>Kuna ülemaailmne privaatsuskontroll (GPC) on uus standard,\n ei tunne enamik veebisaite seda veel ära, kuid me töötame selle nimel, et seda aktsepteeritaks üleilmselt.</b> Kuid veebisaidid peavad reageerima signaalile ainult niivõrd,\nkuivõrd kehtivad seadused neid selleks sunnivad. ",
-    "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
-  },
-  "emailProtection": {
-    "title": "E-posti kaitse",
-    "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
-  },
-  "autofillDisabled": {
-    "title": "Automaatne täitmine keelatud",
-    "note": "When we don't automatically help populate email fields with a private address"
-  },
-  "autofillEnabled": {
-    "title": "Automaatne täitmine on <strong class=\"js-userdata-container\">{userName}</strong> jaoks lubatud",
-    "note": "When we do help populate email addresses for (your email address here)"
-  },
-  "noUnprotectedSitesAdded": {
-    "title": "Kaitseta saite ei ole lisatud",
-    "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSites": {
-    "title": "Kaitseta saidid",
-    "note": "Header for the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSitesDesc": {
-    "title": "Nendele saitidele ei laienePrivaatsuse kaitse.",
-    "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
-  },
-  "addUnprotectedSite": {
-    "title": "Kaitseta saidi lisamine",
-    "note": "Header for the user to add a site to the unprotected list"
-  },
-  "enterURL": {
-    "title": "Sisestage URL",
-    "note": "Prompt to enter the website URL here"
-  },
-  "invalidURL": {
-    "title": "Vale URL",
-    "note": "The URL the user entered is not a valid website address"
-  },
-  "fireButtonHeading": {
-    "title": "Fire Button",
-    "note": "Header for the settings for the Fire button feature"
-  },
-  "fireButtonDesc": {
-    "title": "Fire Button teeb vahekaartide, sirvimisajaloo ja andmete kustutamise lihtsaks. Saad määrata, kas see kustutab nii sirvimisajaloo kui ka andmed ja kas see sulgeb sinu praegused vahekaardid või mitte.",
-    "note": "Describes the Fire button features"
-  },
-  "fireButtonClearHistoryTitle": {
-    "title": "Kustuta ajalugu",
-    "note": "Title for option toggle"
-  },
-  "fireButtonClearHistoryDesc": {
-    "title": "Pane tähele: kustutada saab ainult määratud ajavahemiku sirvimisajaloo (nt viimane tund või kogu aeg) ning seda ei saa teha saidi kaupa.",
-    "note": "Extra information about the clear history option toggle."
-  },
-  "fireButtonTabClosureTitle": {
-    "title": "Sule vahekaardid",
-    "note": "Title for option toggle."
-  },
-  "noAiMode": {
-    "title": "Otsingus ei kasutata tehisintellekti",
-    "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
-  },
-  "noAiModeDesc": {
-    "title": "Kuva otsingutulemused ilma tehisintellekti vastusteta (Search Assist) või tehisintellekti vestlusteta (Duck.ai), ja filtreeri pilditulemuste hulgast vaikimisi tehisintellekti loodud pildid. Kehtib kõigi otsingute puhul, mis tehakse veebisaidil duckduckgo.com ja aadressiribalt.",
-    "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
-  },
-  "burnPageTitle": {
-    "title": "Tühjendamine on käimas ...",
-    "note": "Title of the page opened after starting the data clearing process. Indicates the user that we're in the process of clearing website data."
-  }
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "optionsHeader": {
+        "title": "OpenFocusd valikud",
+        "note": "Header for options (settings) page"
+    },
+    "optionsSubHeader": {
+        "title": "Otsi ja sirvi veebis ilma jälgimiseta.",
+        "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "Saidi blokeerimine",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Lubatud saidid",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Lubatud saidid",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Lisa allpool olevasse kasti lubatav(ad) sait/saidid ja klõpsa „Lisa lubatud sait/saidid“. Näpunäited:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Mitme saidi lubamiseks lisa igaüks eraldi reale.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Võid kasutada * metamärgina (nt *.youtube.com, *.edu või *docs*). Mallid nagu *.com või *.co.uk on liiga laiad ega ole lubatud.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Sisesta saidid siia...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Lisa lubatud sait/saidid",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Klõpsa ×, et eemaldada sait loendist.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "Eemalda {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Tühjenda kõik",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Eemaldada kõik saidid loendist Lubatud saidid?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Tühjenda kõik",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Saate saite loendist Lubatud saidid eemaldada igal ajal, isegi kui aeg on otsas.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} on rühmas {groupName}. Eemalda see esmalt jaotisest Saidi blokeerimine.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "„{line}“ ei ole kehtiv veebisait ega metamärk.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "„{line}“ on liiga lai. Luba konkreetne sait, nt *.youtube.com, mitte *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Sisesta vähemalt üks veebisait.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "Lubatud saite ei õnnestunud salvestada.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "{domain} lisamine sellesse rühma eemaldab need lubatud saidid: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Lisa rühma",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary režiim",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Kui Sanctuary režiim on aktiivne, saab kasutada ainult loendi Lubatud saidid saite. Kõik teised saidid blokeeritakse eranditult. Seda ei saa välja lülitada enne määratud aja lõppu.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Kestus",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Näita Sanctuary režiimi hüpikaknas",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Lisab hüpikaknasse nupu Aktiveeri. Režiim algab alles pärast selle nupu vajutamist.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Sanctuary režiim on sisse lülitatud. Lubatud saidid ja need seaded on lukus {remaining}.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Sanctuary režiim on sisse lülitatud. Seda ei saa muuta enne taimeri lõppu.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Jälgijate blokeerimine",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
+    "optionsDesc": {
+        "title": "OpenFocusd ja DuckDuckGo kaitsevad sinu privaatsust veebis\nprivaatse otsingu,\njälgimise blokeerimise\nja saidi krüptimise abil.",
+        "note": "This describes how we protect the user from being tracked online"
+    },
+    "shareFeedback": {
+        "title": "Jaga tagasisidet",
+        "note": "Click here to share your opinions about this product"
+    },
+    "reportBrokenSite": {
+        "title": "Teata mittetoimivast saidist",
+        "note": "Click here to report an issue with a specific site you are trying to use"
+    },
+    "showEmbeddedTweets": {
+        "title": "Näita manustatud säutse",
+        "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
+    },
+    "globalPrivacyControlAbbr": {
+        "title": "Üleilmne privaatsuskontroll (Global Privacy Control (GPC))",
+        "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
+    },
+    "globalPrivacyControlDesc": {
+        "title": "Sinu andmeid ei ole müügiks OpenFocusd nõustub sellega.Aktiveeri seadistus „Üleilmne privaatsuskontroll“ (GPC) ja me anname veebisaitidele märku sinu eelistusest:",
+        "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
+    },
+    "notSellYourPersonalData": {
+        "title": "Sinu andmed ei ole müügiks.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
+    },
+    "limitSharingOfPersonalData": {
+        "title": "piirata sinu isikuandmete jagamist teiste ettevõtetega.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
+    },
+    "globalPrivacyControlDisclaimer": {
+        "title": "<b>Kuna ülemaailmne privaatsuskontroll (GPC) on uus standard,\n ei tunne enamik veebisaite seda veel ära, kuid me töötame selle nimel, et seda aktsepteeritaks üleilmselt.</b> Kuid veebisaidid peavad reageerima signaalile ainult niivõrd,\nkuivõrd kehtivad seadused neid selleks sunnivad. ",
+        "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
+    },
+    "emailProtection": {
+        "title": "E-posti kaitse",
+        "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
+    },
+    "autofillDisabled": {
+        "title": "Automaatne täitmine keelatud",
+        "note": "When we don't automatically help populate email fields with a private address"
+    },
+    "autofillEnabled": {
+        "title": "Automaatne täitmine on <strong class=\"js-userdata-container\">{userName}</strong> jaoks lubatud",
+        "note": "When we do help populate email addresses for (your email address here)"
+    },
+    "noUnprotectedSitesAdded": {
+        "title": "Kaitseta saite ei ole lisatud",
+        "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSites": {
+        "title": "Kaitseta saidid",
+        "note": "Header for the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSitesDesc": {
+        "title": "Nendele saitidele ei laienePrivaatsuse kaitse.",
+        "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
+    },
+    "addUnprotectedSite": {
+        "title": "Kaitseta saidi lisamine",
+        "note": "Header for the user to add a site to the unprotected list"
+    },
+    "enterURL": {
+        "title": "Sisestage URL",
+        "note": "Prompt to enter the website URL here"
+    },
+    "invalidURL": {
+        "title": "Vale URL",
+        "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Blokeeritud veebisaidid",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Rühmad",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Igal rühmal on ühine igapäevane ajapiirang. Rühma saidil olles aeg loendab alla. Nulli jõudes blokeeritakse kõik rühma saidid kella 6:00-ni.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Lisa rühm",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Nimi",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Maks. aeg päevas",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "h",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Salvesta muudatused",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Rühm on salvestatud.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Rühma ei õnnestunud salvestada.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Kustuta rühm",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Kustutada rühm {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Jah",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Ei",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blokeeritud veebisaidid",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Täiskasvanute- ja hasartmängusaidid",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Blokeeri täiskasvanute- ja hasartmängusaidid",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(üle 52 000 saidi)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Kui see on sees, blokeeritakse need saidid alati ja avavad sama blokeerimislehe nagu allpool lisatud saidid. Lubatud saidid võivad siiski teha erandi.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Täiskasvanute- ja hasartmängude blokeerimise väljalülitamiseks lahenda:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Lülita välja",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Lisa veebisait",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Eemalda veebisait",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "{domain} eemaldamiseks lahenda:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "See ei ole õige vastus.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Tühista",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Eemalda",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Selles rühmas pole veel veebisaite.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Aega jäänud",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Aeg on otsas. Nimi, aeg ja olemasolevad saidid on lukus kuni 6:00. Saate endiselt veebisaite lisada.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Seda rühma ei saa muuta enne 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Sisesta kehtiv veebisaidi aadress.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Otsingumootor",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Vali, kuhu lähevad otsingud hüpikaknast ja aadressiriba märksõnast.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
+    },
+    "noAiMode": {
+        "title": "Otsingus ei kasutata tehisintellekti",
+        "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
+    },
+    "noAiModeDesc": {
+        "title": "Kuva otsingutulemused ilma tehisintellekti vastusteta (Search Assist) või tehisintellekti vestlusteta (Duck.ai), ja filtreeri pilditulemuste hulgast vaikimisi tehisintellekti loodud pildid. Kehtib kõigi otsingute puhul, mis tehakse veebisaidil duckduckgo.com ja aadressiribalt.",
+        "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Keel",
+        "note": "Label for the language switcher on the options page"
+    }
 }

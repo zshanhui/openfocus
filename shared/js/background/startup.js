@@ -1,3 +1,4 @@
+/// <reference path="../../../types/build-flags/index.d.ts" />
 /* global BUILD_TARGET */
 import { NewTabTrackerStats } from './newtab-tracker-stats';
 import { TrackerStats } from './classes/tracker-stats.js';
@@ -5,7 +6,6 @@ import httpsStorage from './storage/https';
 import { clearExpiredBrokenSiteReportTimes } from './broken-site-report';
 import { getBrowserName } from './utils';
 const Companies = require('./companies');
-const experiment = require('./experiments');
 const https = require('./https');
 const settings = require('./settings');
 const dnrSessionId = require('./dnr-session-rule-id');
@@ -22,7 +22,6 @@ export async function onStartup() {
     }
 
     await settings.ready();
-    experiment.setActiveExperiment();
 
     try {
         const httpsLists = await httpsStorage.getLists(/* preferLocal= */ true);

@@ -1,124 +1,380 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "path": "*/title",
-        "key": "{*}/title",
-        "instruction": "*/note"
-      }
-    ]
-  },
-  "optionsHeader": {
-    "title": "OpenFocusd-alternativer",
-    "note": "Header for options (settings) page"
-  },
-  "optionsSubHeader": {
-    "title": "Søk og surf på nettet uten å bli sporet.",
-    "note": "We allow the user to browse the web without being followed by trackers"
-  },
-  "optionsDesc": {
-    "title": "DuckDuckGo beskytter personvernet ditt på nettet med\nprivat søk,\n sporingsblokkering\nog nettstedskryptering.",
-    "note": "This describes how we protect the user from being tracked online"
-  },
-  "shareFeedback": {
-    "title": "Del tilbakemelding",
-    "note": "Click here to share your opinions about this product"
-  },
-  "reportBrokenSite": {
-    "title": "Rapporter nettstedfeil",
-    "note": "Click here to report an issue with a specific site you are trying to use"
-  },
-  "showEmbeddedTweets": {
-    "title": "Vis innebygde tweeter",
-    "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
-  },
-  "globalPrivacyControlAbbr": {
-    "title": "Global Privacy Control (GPC)",
-    "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
-  },
-  "globalPrivacyControlDesc": {
-    "title": "Opplysningene dine skal ikke være til salgs. Hos DuckDuckGo deler vi denne oppfatningen.\nAktiver innstillingene for «Global Privacy Control» (GPC), så\nsignaliserer vi preferansene dine til nettsteder for at de",
-    "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
-  },
-  "notSellYourPersonalData": {
-    "title": "ikke skal selge dine personlige data.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
-  },
-  "limitSharingOfPersonalData": {
-    "title": "skal begrense deling av personopplysningene dine med andre selskaper.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
-  },
-  "globalPrivacyControlDisclaimer": {
-    "title": "<b>Siden Global Privacy Control (GPC) er en ny standard,\nanerkjennes den nok ikke av nettsteder flest ennå, men vi jobber\nhardt for å sørge for at den blir godkjent over hele verden.</b> Mange nettsteder er imidlertid kun pålagt å ta dette signalet til følge når\ngjeldende lover pålegger dem å gjøre det. ",
-    "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
-  },
-  "emailProtection": {
-    "title": "E-postbeskyttelse",
-    "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
-  },
-  "autofillDisabled": {
-    "title": "Autofyll deaktivert",
-    "note": "When we don't automatically help populate email fields with a private address"
-  },
-  "autofillEnabled": {
-    "title": "Autofyll aktivert for <strong class=\"js-userdata-container\">{userName}</strong>",
-    "note": "When we do help populate email addresses for (your email address here)"
-  },
-  "noUnprotectedSitesAdded": {
-    "title": "Ingen ubeskyttede nettsteder er lagt til",
-    "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSites": {
-    "title": "Ubeskyttede nettsteder",
-    "note": "Header for the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSitesDesc": {
-    "title": "Disse nettstedene blir ikke dekket av personvernbeskyttelse.",
-    "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
-  },
-  "addUnprotectedSite": {
-    "title": "Legg til ubeskyttet nettsted",
-    "note": "Header for the user to add a site to the unprotected list"
-  },
-  "enterURL": {
-    "title": "Skriv inn URL-adresse",
-    "note": "Prompt to enter the website URL here"
-  },
-  "invalidURL": {
-    "title": "Ugyldig URL-adresse",
-    "note": "The URL the user entered is not a valid website address"
-  },
-  "fireButtonHeading": {
-    "title": "Fire Button",
-    "note": "Header for the settings for the Fire button feature"
-  },
-  "fireButtonDesc": {
-    "title": "Fire Button gjør det enkelt å fjerne faner, nettleserhistorikk og data. Du kan kontrollere om den skal fjerne både nettleserhistorikk og data, og hvorvidt den skal lukke åpne faner.",
-    "note": "Describes the Fire button features"
-  },
-  "fireButtonClearHistoryTitle": {
-    "title": "Fjern historikk",
-    "note": "Title for option toggle"
-  },
-  "fireButtonClearHistoryDesc": {
-    "title": "Merk: Nettleserhistorikk kan bare fjernes for en angitt tidsperiode (f.eks. «den siste timen» eller «all tid»), og ikke per nettsted.",
-    "note": "Extra information about the clear history option toggle."
-  },
-  "fireButtonTabClosureTitle": {
-    "title": "Lukk faner",
-    "note": "Title for option toggle."
-  },
-  "noAiMode": {
-    "title": "Ingen AI i søk",
-    "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
-  },
-  "noAiModeDesc": {
-    "title": "Se søkeresultater uten AI-svar (Search Assist) eller AI-chatter (Duck.ai), og filtrer AI-genererte bilder fra bilderesultater som standard. Gjelder alle søk fra duckduckgo.com og adressefeltet.",
-    "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
-  },
-  "burnPageTitle": {
-    "title": "Brenning pågår…",
-    "note": "Title of the page opened after starting the data clearing process. Indicates the user that we're in the process of clearing website data."
-  }
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "optionsHeader": {
+        "title": "OpenFocusd-alternativer",
+        "note": "Header for options (settings) page"
+    },
+    "optionsSubHeader": {
+        "title": "Søk og surf på nettet uten å bli sporet.",
+        "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "Blokker nettsteder",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Tillatte nettsteder",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Tillatte nettsteder",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Legg til nettsted(er) som skal tillates i feltet under, og klikk «Legg til tillatt(e) nettsted(er)». Tips:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "For å tillate flere nettsteder, legg til ett per linje.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Du kan bruke * som jokertegn (f.eks. *.youtube.com, *.edu eller *docs*). Mønstre som *.com eller *.co.uk er for brede og er ikke tillatt.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Skriv inn nettsteder her...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Legg til tillatt(e) nettsted(er)",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Klikk på × for å fjerne et nettsted fra listen.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "Fjern {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Tøm alle",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Fjerne alle nettsteder fra Tillatte nettsteder?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Tøm alle",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Du kan fjerne nettsteder fra Tillatte nettsteder når som helst, også etter at tiden er ute.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} er i gruppen {groupName}. Fjern den først fra Blokker nettsteder.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "«{line}» er ikke et gyldig nettsted eller jokertegn.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "«{line}» er for bredt. Tillat et spesifikt nettsted som *.youtube.com i stedet for *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Skriv inn minst ett nettsted.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "De tillatte nettstedene kunne ikke lagres.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "Hvis du legger {domain} til denne gruppen, fjernes disse tillatte nettstedene: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Legg til i gruppen",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary-modus",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Når Sanctuary-modus er aktivert, kan bare nettsteder på Tillatte nettsteder brukes. Alle andre nettsteder blokkeres uten unntak. Den kan ikke slås av før den innstilte tiden er ute.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Varighet",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Vis Sanctuary-modus i sprettoppvinduet",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Legger til en Aktiver-knapp i sprettoppvinduet. Modusen starter først når du trykker på den knappen.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Sanctuary-modus er på. Tillatte nettsteder og disse innstillingene er låst i {remaining}.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Sanctuary-modus er på. Dette kan ikke endres før timeren er ferdig.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Blokker sporere",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
+    "optionsDesc": {
+        "title": "OpenFocusd og DuckDuckGo beskytter personvernet ditt på nettet med\nprivat søk,\nsporingsblokkering\nog nettstedskryptering.",
+        "note": "This describes how we protect the user from being tracked online"
+    },
+    "shareFeedback": {
+        "title": "Del tilbakemelding",
+        "note": "Click here to share your opinions about this product"
+    },
+    "reportBrokenSite": {
+        "title": "Rapporter nettstedfeil",
+        "note": "Click here to report an issue with a specific site you are trying to use"
+    },
+    "showEmbeddedTweets": {
+        "title": "Vis innebygde tweeter",
+        "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
+    },
+    "globalPrivacyControlAbbr": {
+        "title": "Global Privacy Control (GPC)",
+        "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
+    },
+    "globalPrivacyControlDesc": {
+        "title": "Opplysningene dine skal ikke være til salgs. Hos OpenFocusd deler vi denne oppfatningen.\nAktiver innstillingene for «Global Privacy Control» (GPC), så\nsignaliserer vi preferansene dine til nettsteder for at de",
+        "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
+    },
+    "notSellYourPersonalData": {
+        "title": "ikke skal selge dine personlige data.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
+    },
+    "limitSharingOfPersonalData": {
+        "title": "skal begrense deling av personopplysningene dine med andre selskaper.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
+    },
+    "globalPrivacyControlDisclaimer": {
+        "title": "<b>Siden Global Privacy Control (GPC) er en ny standard,\nanerkjennes den nok ikke av nettsteder flest ennå, men vi jobber\nhardt for å sørge for at den blir godkjent over hele verden.</b> Mange nettsteder er imidlertid kun pålagt å ta dette signalet til følge når\ngjeldende lover pålegger dem å gjøre det. ",
+        "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
+    },
+    "emailProtection": {
+        "title": "E-postbeskyttelse",
+        "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
+    },
+    "autofillDisabled": {
+        "title": "Autofyll deaktivert",
+        "note": "When we don't automatically help populate email fields with a private address"
+    },
+    "autofillEnabled": {
+        "title": "Autofyll aktivert for <strong class=\"js-userdata-container\">{userName}</strong>",
+        "note": "When we do help populate email addresses for (your email address here)"
+    },
+    "noUnprotectedSitesAdded": {
+        "title": "Ingen ubeskyttede nettsteder er lagt til",
+        "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSites": {
+        "title": "Ubeskyttede nettsteder",
+        "note": "Header for the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSitesDesc": {
+        "title": "Disse nettstedene blir ikke dekket av personvernbeskyttelse.",
+        "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
+    },
+    "addUnprotectedSite": {
+        "title": "Legg til ubeskyttet nettsted",
+        "note": "Header for the user to add a site to the unprotected list"
+    },
+    "enterURL": {
+        "title": "Skriv inn URL-adresse",
+        "note": "Prompt to enter the website URL here"
+    },
+    "invalidURL": {
+        "title": "Ugyldig URL-adresse",
+        "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Blokkerte nettsteder",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Grupper",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Hver gruppe har en felles daglig tidsgrense. På et nettsted i gruppen teller tiden ned. Ved null blokkeres alle nettsteder i gruppen til kl. 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Legg til gruppe",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Navn",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Maks. tid per dag",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "t",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Lagre endringer",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Gruppen er lagret.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Gruppen kunne ikke lagres.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Slett gruppe",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Slette gruppen {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Ja",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Nei",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Blokkerte nettsteder",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Voksen- og spillsider",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Blokker voksen- og spillsider",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(mer enn 52 000 nettsteder)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Når dette er på, blokkeres de sidene alltid og åpner samme blokkerte side som nettsteder du legger til under. Tillatte nettsteder kan likevel unnta et nettsted på listen.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "For å slå av blokkering av voksen- og spillsider, løs dette:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Slå av",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Legg til nettsted",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Fjern nettsted",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "For å fjerne {domain}, løs dette:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Det er ikke det riktige svaret.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Avbryt",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Fjern",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Ingen nettsteder i denne gruppen ennå.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Tid igjen",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "Tiden er ute. Navn, tid og eksisterende nettsteder er låst til kl. 6:00. Du kan fortsatt legge til nettsteder.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Denne gruppen kan ikke endres før kl. 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Skriv inn en gyldig nettstedadresse.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Søkemotor",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Velg hvor søk fra sprettoppvinduet og nøkkelordet i adresselinjen skal gå.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
+    },
+    "noAiMode": {
+        "title": "Ingen AI i søk",
+        "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
+    },
+    "noAiModeDesc": {
+        "title": "Se søkeresultater uten AI-svar (Search Assist) eller AI-chatter (Duck.ai), og filtrer AI-genererte bilder fra bilderesultater som standard. Gjelder alle søk fra duckduckgo.com og adressefeltet.",
+        "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Språk",
+        "note": "Label for the language switcher on the options page"
+    }
 }

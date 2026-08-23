@@ -1,124 +1,380 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "path": "*/title",
-        "key": "{*}/title",
-        "instruction": "*/note"
-      }
-    ]
-  },
-  "optionsHeader": {
-    "title": "Opções do OpenFocusd",
-    "note": "Header for options (settings) page"
-  },
-  "optionsSubHeader": {
-    "title": "Pesquisa e navega na Internet sem deixares rasto.",
-    "note": "We allow the user to browse the web without being followed by trackers"
-  },
-  "optionsDesc": {
-    "title": "O DuckDuckGo protege a tua privacidade online com\npesquisa privada,\nbloqueio de trackers\ne encriptação de sites.",
-    "note": "This describes how we protect the user from being tracked online"
-  },
-  "shareFeedback": {
-    "title": "Partilhar comentários",
-    "note": "Click here to share your opinions about this product"
-  },
-  "reportBrokenSite": {
-    "title": "Denunciar site danificado",
-    "note": "Click here to report an issue with a specific site you are trying to use"
-  },
-  "showEmbeddedTweets": {
-    "title": "Mostrar Tweets incorporados",
-    "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
-  },
-  "globalPrivacyControlAbbr": {
-    "title": "Controlo Global de Privacidade (CGP)",
-    "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
-  },
-  "globalPrivacyControlDesc": {
-    "title": "Os teus dados não são para vender. É isto que a DuckDuckGo defende.\nAtiva as definições do \"Controlo de Privacidade Global\" (GPC) para\nsinalizarmos aos sites que:",
-    "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
-  },
-  "notSellYourPersonalData": {
-    "title": "Não devem vender os teus dados pessoais.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
-  },
-  "limitSharingOfPersonalData": {
-    "title": "• Devem limitar a partilha dos teus dados pessoais com outras empresas.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
-  },
-  "globalPrivacyControlDisclaimer": {
-    "title": "<b>Uma vez que o Controlo de Privacidade Global (GPC) é uma norma nova,\na maioria dos sites ainda não o reconhecem. No entanto, estamos a trabalhar arduamente\npara que seja aceite em todo o mundo.</b> Porém, os sites só têm de agir em conformidade com o sinal\nna medida em que a legislação aplicável os obrigar a isso. ",
-    "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
-  },
-  "emailProtection": {
-    "title": "Proteção de e-mail",
-    "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
-  },
-  "autofillDisabled": {
-    "title": "Preenchimento automático desativado",
-    "note": "When we don't automatically help populate email fields with a private address"
-  },
-  "autofillEnabled": {
-    "title": "Preenchimento automático ativado para <strong class=\"js-userdata-container\">{userName}</strong>",
-    "note": "When we do help populate email addresses for (your email address here)"
-  },
-  "noUnprotectedSitesAdded": {
-    "title": "Nenhum site desprotegido adicionado",
-    "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSites": {
-    "title": "Sites desprotegidos",
-    "note": "Header for the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSitesDesc": {
-    "title": "Estes sites não serão aprimorados pela Proteção de Privacidade.",
-    "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
-  },
-  "addUnprotectedSite": {
-    "title": "Adicionar site desprotegido",
-    "note": "Header for the user to add a site to the unprotected list"
-  },
-  "enterURL": {
-    "title": "Introduz o URL",
-    "note": "Prompt to enter the website URL here"
-  },
-  "invalidURL": {
-    "title": "URL inválido",
-    "note": "The URL the user entered is not a valid website address"
-  },
-  "fireButtonHeading": {
-    "title": "Fire Button",
-    "note": "Header for the settings for the Fire button feature"
-  },
-  "fireButtonDesc": {
-    "title": "O Fire Button facilita a limpeza de separadores, histórico de navegação e dados. Pode decidir se limpa ou não o histórico de navegação e os dados, e se fecha ou não os separadores atuais.",
-    "note": "Describes the Fire button features"
-  },
-  "fireButtonClearHistoryTitle": {
-    "title": "Limpar histórico",
-    "note": "Title for option toggle"
-  },
-  "fireButtonClearHistoryDesc": {
-    "title": "Nota: precisa de especificar um intervalo de tempo para limpar o histórico de navegação (por exemplo, \"última hora\" ou \"sempre\"), e não é possível limpar só para um site.",
-    "note": "Extra information about the clear history option toggle."
-  },
-  "fireButtonTabClosureTitle": {
-    "title": "Fechar separadores",
-    "note": "Title for option toggle."
-  },
-  "noAiMode": {
-    "title": "Não há IA na pesquisa",
-    "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
-  },
-  "noAiModeDesc": {
-    "title": "Vê os resultados da pesquisa sem respostas de IA (Search Assist) ou chats de IA (Duck.ai) e filtra imagens geradas por IA a partir dos resultados das imagens por predefinição. Aplica-se a todas as pesquisas a partir do duckduckgo.com e da barra de endereços.",
-    "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
-  },
-  "burnPageTitle": {
-    "title": "Apagamento em curso...",
-    "note": "Title of the page opened after starting the data clearing process. Indicates the user that we're in the process of clearing website data."
-  }
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "optionsHeader": {
+        "title": "Opções do OpenFocusd",
+        "note": "Header for options (settings) page"
+    },
+    "optionsSubHeader": {
+        "title": "Pesquisa e navega na Internet sem deixares rasto.",
+        "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "Bloquear sites",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Sites permitidos",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Sites permitidos",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Adiciona o(s) site(s) a permitir na caixa abaixo e clica em «Adicionar site(s) permitido(s)». Dicas:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Para permitir vários sites, adiciona um por linha.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Podes usar * como carácter universal (p. ex. *.youtube.com, *.edu ou *docs*). Padrões como *.com ou *.co.uk são demasiado abrangentes e não são permitidos.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Introduz os sites aqui...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Adicionar site(s) permitido(s)",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Clica em × para remover um site da lista.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "Remover {pattern}",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Limpar tudo",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Remover todos os sites de Sites permitidos?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Limpar tudo",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Podes remover sites de Sites permitidos a qualquer momento, mesmo que o tempo tenha acabado.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} está no grupo {groupName}. Remove-o primeiro de Bloquear sites.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "«{line}» não é um site ou carácter universal válido.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "«{line}» é demasiado abrangente. Permite um site específico como *.youtube.com em vez de *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Introduz pelo menos um site.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "Não foi possível guardar os sites permitidos.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "Adicionar {domain} a este grupo remove estes sites permitidos: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Adicionar ao grupo",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Modo Sanctuary",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Quando o modo Sanctuary está ativo, só se podem usar os sites em Sites permitidos. Todos os outros são bloqueados, sem exceções. Não pode ser desligado até o tempo definido acabar.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Duração",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Mostrar o modo Sanctuary na janela instantânea",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Adiciona um botão Ativar à janela instantânea. O modo só começa quando carregas nesse botão.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "O modo Sanctuary está ligado. Sites permitidos e estas definições estão bloqueados durante {remaining}.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "O modo Sanctuary está ligado. Isto não pode ser alterado até o temporizador terminar.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Bloquear trackers",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
+    "optionsDesc": {
+        "title": "O OpenFocusd e o DuckDuckGo protegem a tua privacidade online com\npesquisa privada,\nbloqueio de trackers\ne encriptação de sites.",
+        "note": "This describes how we protect the user from being tracked online"
+    },
+    "shareFeedback": {
+        "title": "Partilhar comentários",
+        "note": "Click here to share your opinions about this product"
+    },
+    "reportBrokenSite": {
+        "title": "Denunciar site danificado",
+        "note": "Click here to report an issue with a specific site you are trying to use"
+    },
+    "showEmbeddedTweets": {
+        "title": "Mostrar Tweets incorporados",
+        "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
+    },
+    "globalPrivacyControlAbbr": {
+        "title": "Controlo Global de Privacidade (CGP)",
+        "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
+    },
+    "globalPrivacyControlDesc": {
+        "title": "Os teus dados não são para vender. É isto que a OpenFocusd defende.\nAtiva as definições do \"Controlo de Privacidade Global\" (GPC) para\nsinalizarmos aos sites que:",
+        "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
+    },
+    "notSellYourPersonalData": {
+        "title": "Não devem vender os teus dados pessoais.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
+    },
+    "limitSharingOfPersonalData": {
+        "title": "• Devem limitar a partilha dos teus dados pessoais com outras empresas.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
+    },
+    "globalPrivacyControlDisclaimer": {
+        "title": "<b>Uma vez que o Controlo de Privacidade Global (GPC) é uma norma nova,\na maioria dos sites ainda não o reconhecem. No entanto, estamos a trabalhar arduamente\npara que seja aceite em todo o mundo.</b> Porém, os sites só têm de agir em conformidade com o sinal\nna medida em que a legislação aplicável os obrigar a isso. ",
+        "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
+    },
+    "emailProtection": {
+        "title": "Proteção de e-mail",
+        "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
+    },
+    "autofillDisabled": {
+        "title": "Preenchimento automático desativado",
+        "note": "When we don't automatically help populate email fields with a private address"
+    },
+    "autofillEnabled": {
+        "title": "Preenchimento automático ativado para <strong class=\"js-userdata-container\">{userName}</strong>",
+        "note": "When we do help populate email addresses for (your email address here)"
+    },
+    "noUnprotectedSitesAdded": {
+        "title": "Nenhum site desprotegido adicionado",
+        "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSites": {
+        "title": "Sites desprotegidos",
+        "note": "Header for the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSitesDesc": {
+        "title": "Estes sites não serão aprimorados pela Proteção de Privacidade.",
+        "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
+    },
+    "addUnprotectedSite": {
+        "title": "Adicionar site desprotegido",
+        "note": "Header for the user to add a site to the unprotected list"
+    },
+    "enterURL": {
+        "title": "Introduz o URL",
+        "note": "Prompt to enter the website URL here"
+    },
+    "invalidURL": {
+        "title": "URL inválido",
+        "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Sites bloqueados",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Grupos",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Cada grupo tem um limite de tempo diário partilhado. Num site do grupo, o tempo conta decrescente. Ao chegar a zero, todos os sites do grupo são bloqueados até às 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Adicionar grupo",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Nome",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Tempo máx. por dia",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "h",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Guardar alterações",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Grupo guardado.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "Não foi possível guardar o grupo.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Eliminar grupo",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Eliminar o grupo {name}?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Sim",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Não",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Sites bloqueados",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Sites para adultos e de jogo",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Bloquear sites para adultos e de jogo",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(mais de 52 mil sites)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Quando isto está ligado, esses sites são sempre bloqueados e abrem a mesma página de bloqueio que os sites que adicionas abaixo. Sites permitidos pode ainda assim excecionar um site dessa lista.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Para desligar o bloqueio de adultos e jogo, resolve:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Desligar",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Adicionar site",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Remover site",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "Para remover {domain}, resolve:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Essa não é a resposta certa.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Cancelar",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Remover",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Ainda não há sites neste grupo.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Tempo restante",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "O tempo acabou. Nome, tempo e sites existentes estão bloqueados até às 6:00. Ainda podes adicionar sites.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Este grupo não pode ser alterado até às 6:00.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Introduz um endereço de site válido.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Motor de pesquisa",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Escolhe para onde vão as pesquisas da janela instantânea e da palavra-chave da barra de endereços.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
+    },
+    "noAiMode": {
+        "title": "Não há IA na pesquisa",
+        "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
+    },
+    "noAiModeDesc": {
+        "title": "Vê os resultados da pesquisa sem respostas de IA (Search Assist) ou chats de IA (Duck.ai) e filtra imagens geradas por IA a partir dos resultados das imagens por predefinição. Aplica-se a todas as pesquisas a partir do duckduckgo.com e da barra de endereços.",
+        "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Idioma",
+        "note": "Label for the language switcher on the options page"
+    }
 }

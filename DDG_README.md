@@ -1,5 +1,7 @@
 # DuckDuckGo Browser Extensions
 
+!this is the original readme unchanged
+
 [![Build Status](https://github.com/duckduckgo/duckduckgo-privacy-extension/actions/workflows/checks.yml/badge.svg)](https://github.com/duckduckgo/duckduckgo-privacy-extension/actions/workflows/checks.yml)
 
 DuckDuckGo Firefox, Chrome, and Edge extensions.

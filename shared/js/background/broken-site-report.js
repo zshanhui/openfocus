@@ -195,7 +195,6 @@ export async function breakageReportForTab({
     const openerContext = tab.openerContext ? tab.openerContext : undefined;
     const jsPerformance = pageParams.jsPerformance ? pageParams.jsPerformance : undefined;
     const locale = tab.locale;
-    const contentScopeExperiments = tab.contentScopeExperiments;
     const detectorData = pageParams.detectorData ? JSON.stringify(pageParams.detectorData) : undefined;
     // breakageData is pre-encoded by content-scope-scripts, pass as-is without re-encoding
     const breakageData = pageParams.breakageData !== undefined ? pageParams.breakageData : undefined;
@@ -236,13 +235,6 @@ export async function breakageReportForTab({
     if (openerContext) brokenSiteParams.set('openerContext', openerContext);
     if (reportFlow) brokenSiteParams.set('reportFlow', reportFlow);
     if (detectorData) brokenSiteParams.set('detectorData', detectorData);
-    if (contentScopeExperiments && Object.keys(contentScopeExperiments).length > 0) {
-        const experiments = Object.entries(contentScopeExperiments)
-            .sort(([a], [b]) => a.localeCompare(b))
-            .map(([key, value]) => `${key}:${value}`)
-            .join(',');
-        brokenSiteParams.set('contentScopeExperiments', experiments);
-    }
 
     /** @type {Record<string, string>} */
     const encodedParams = {};

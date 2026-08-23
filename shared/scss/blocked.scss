@@ -3,13 +3,66 @@
 .blocked-page {
     display: grid;
     min-height: 100vh;
-    place-items: center;
+    grid-template-rows: minmax(96px, 1fr) auto minmax(48px, 1fr);
+    justify-items: center;
     background: vars.$silver;
     color: vars.$slate;
 }
 
+.blocked-quote {
+    box-sizing: border-box;
+    grid-row: 1;
+    align-self: center;
+    width: min(520px, calc(100% - 48px));
+    margin: 0;
+    padding: 24px 8px;
+    text-align: center;
+}
+
+.blocked-quote blockquote {
+    margin: 0;
+}
+
+.blocked-quote__text {
+    color: vars.$slate-light;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.blocked-quote__source {
+    margin-top: 10px;
+    color: vars.$grey-dark;
+    font-family:
+        'Songti SC', STSong, SimSun, 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.blocked-quote__cite {
+    margin-top: 12px;
+    color: vars.$grey;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.blocked-quote__link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blocked-quote__link:hover,
+.blocked-quote__link:focus-visible {
+    color: inherit;
+    text-decoration: none;
+}
+
 .blocked-card {
     box-sizing: border-box;
+    grid-row: 2;
     width: min(480px, calc(100% - 40px));
     padding: 48px;
     border: 1px solid vars.$platinum;
@@ -20,21 +73,10 @@
 }
 
 .blocked-card__icon {
-    display: grid;
+    display: block;
     width: 64px;
     height: 64px;
     margin: 0 auto 24px;
-    border-radius: 50%;
-    background: rgba(vars.$red, 0.12);
-    place-items: center;
-
-    span {
-        display: block;
-        width: 28px;
-        height: 6px;
-        border-radius: 999px;
-        background: vars.$red;
-    }
 }
 
 .blocked-card__eyebrow {
@@ -43,7 +85,6 @@
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .blocked-card__title {

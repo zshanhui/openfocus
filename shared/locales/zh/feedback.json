@@ -1,0 +1,56 @@
+{
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "brokenSiteLabel": {
+        "title": "哪个网站无法正常使用？",
+        "note": "We're asking feedback from users. Here they are reporting a website url that is not working correctly."
+    },
+    "brokenSitePlaceholder": {
+        "title": "复制并粘贴网址",
+        "note": "Instructions to fill an input field with a URL. Here \"your URL\" doesn't mean that they own the website, just that they're reporting it."
+    },
+    "feedbackHeaderLabel": {
+        "title": "你喜欢什么？哪些地方不好用？扩展还可以怎样改进？",
+        "note": "Label over a feedback text area where the user can tell us about their experience with our browser extension."
+    },
+    "feedbackPlaceholder": {
+        "title": "你的反馈针对哪些功能？请尽量具体。",
+        "note": "Placeholder text on feedback form input."
+    },
+    "submittingFeedbackHelps": {
+        "title": "提交匿名反馈能帮助我们改进 OpenFocusd。",
+        "note": "Description at top of feedback form."
+    },
+    "reportBrokenSite": {
+        "title": "我想报告无法正常使用的网站",
+        "note": "This opens a feedback form to report a broken site. Broken here means 'not working as expected'."
+    },
+    "submit": {
+        "title": "提交",
+        "note": "To submit the feedback form."
+    },
+    "describeTheIssue": {
+        "title": "请描述你遇到的问题：",
+        "note": "Label on broken site feedback textarea where users can describe in what way a site is not working as expected."
+    },
+    "describeBreakagePlaceholder": {
+        "title": "网站的哪些内容或功能无法正常使用？请尽量具体。",
+        "note": "Placeholder text on the broken site form."
+    },
+    "thankYou": {
+        "title": "感谢你的反馈！",
+        "note": "Thank you note displayed after submitting feedback"
+    },
+    "thankYouBrokenSite": {
+        "title": "你提交的网站故障报告能帮助开发团队修复这些问题。",
+        "note": "Additional note when submitting a broken site."
+    }
+}

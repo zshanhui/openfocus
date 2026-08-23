@@ -377,6 +377,11 @@ function customizePopupLayout() {
         optionsBar.append(cogButton);
     }
 
+    page.querySelectorAll('.link-action--rounded').forEach((link) => {
+        const wrapper = link.closest('.text--center');
+        (wrapper || link).remove();
+    });
+
     refreshSearchEngine(page, search);
 
     if (!statusCard._refreshing) {

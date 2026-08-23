@@ -1,124 +1,380 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "path": "*/title",
-        "key": "{*}/title",
-        "instruction": "*/note"
-      }
-    ]
-  },
-  "optionsHeader": {
-    "title": "OpenFocusd-opties",
-    "note": "Header for options (settings) page"
-  },
-  "optionsSubHeader": {
-    "title": "Zoek en surf op internet zonder te worden gevolgd.",
-    "note": "We allow the user to browse the web without being followed by trackers"
-  },
-  "optionsDesc": {
-    "title": "DuckDuckGo beschermt je privacy online met \n privézoekopdrachten, \n trackerblokkering \n en websiteversleuteling.",
-    "note": "This describes how we protect the user from being tracked online"
-  },
-  "shareFeedback": {
-    "title": "Feedback delen",
-    "note": "Click here to share your opinions about this product"
-  },
-  "reportBrokenSite": {
-    "title": "Defecte website melden",
-    "note": "Click here to report an issue with a specific site you are trying to use"
-  },
-  "showEmbeddedTweets": {
-    "title": "Ingesloten tweets weergeven",
-    "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
-  },
-  "globalPrivacyControlAbbr": {
-    "title": "Global Privacy Control (GPC)",
-    "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
-  },
-  "globalPrivacyControlDesc": {
-    "title": "Je gegevens zouden niet mogen worden verhandeld. Bij DuckDuckGo zijn we het daarmee eens.Activeer de instellingen voor 'Global Privacy Control' (GPC). We zullen\n vervolgens aan websites je voorkeuren doorgeven om:",
-    "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
-  },
-  "notSellYourPersonalData": {
-    "title": "Verkoop je persoonlijke gegevens niet.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
-  },
-  "limitSharingOfPersonalData": {
-    "title": "• Het delen van je persoonsgegevens met andere bedrijven te beperken.",
-    "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
-  },
-  "globalPrivacyControlDisclaimer": {
-    "title": "<b>Global Privacy Control (GPC) is een nieuwe standaard.\n Daarom herkennen de meeste websites deze nog niet. We werken er hard aan om ervoor te zorgen dat GCP wereldwijd wordt geaccepteerd.</b> Maar websites zijn alleen verplicht om op dit signaal te reageren voor zover de toepasselijke wetgeving dat vereist. ",
-    "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
-  },
-  "emailProtection": {
-    "title": "E-mailbescherming",
-    "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
-  },
-  "autofillDisabled": {
-    "title": "Automatisch invullen uitgeschakeld",
-    "note": "When we don't automatically help populate email fields with a private address"
-  },
-  "autofillEnabled": {
-    "title": "Automatisch invullen ingeschakeld voor <strong class=\"js-userdata-container\">{userName}</strong>",
-    "note": "When we do help populate email addresses for (your email address here)"
-  },
-  "noUnprotectedSitesAdded": {
-    "title": "Geen onbeveiligde sites toegevoegd",
-    "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSites": {
-    "title": "Onbeschermde sites",
-    "note": "Header for the list of websites where our privacy protections are disabled"
-  },
-  "unprotectedSitesDesc": {
-    "title": "Deze sites worden niet beschermd met Privacybescherming.",
-    "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
-  },
-  "addUnprotectedSite": {
-    "title": "Onbeveiligde site toevoegen",
-    "note": "Header for the user to add a site to the unprotected list"
-  },
-  "enterURL": {
-    "title": "URL invoeren",
-    "note": "Prompt to enter the website URL here"
-  },
-  "invalidURL": {
-    "title": "Ongeldige URL",
-    "note": "The URL the user entered is not a valid website address"
-  },
-  "fireButtonHeading": {
-    "title": "Fire Button",
-    "note": "Header for the settings for the Fire button feature"
-  },
-  "fireButtonDesc": {
-    "title": "Met de Fire Button kun je eenvoudig tabbladen, browsegeschiedenis en gegevens wissen. Je kunt bepalen of zowel de browsegeschiedenis als de gegevens worden gewist en of je huidige tabbladen worden gesloten of niet.",
-    "note": "Describes the Fire button features"
-  },
-  "fireButtonClearHistoryTitle": {
-    "title": "Geschiedenis wissen",
-    "note": "Title for option toggle"
-  },
-  "fireButtonClearHistoryDesc": {
-    "title": "Let op: de browsegeschiedenis kan alleen worden gewist voor een bepaald tijdsbereik (bijv. 'afgelopen uur' of 'altijd') en niet per website.",
-    "note": "Extra information about the clear history option toggle."
-  },
-  "fireButtonTabClosureTitle": {
-    "title": "Tabbladen sluiten",
-    "note": "Title for option toggle."
-  },
-  "noAiMode": {
-    "title": "Geen AI in de zoekfunctie",
-    "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
-  },
-  "noAiModeDesc": {
-    "title": "Bekijk zoekresultaten zonder AI-antwoorden (Search Assist) of AI-chats (Duck.ai), en filter standaard door AI gegenereerde afbeeldingen uit de zoekresultaten van afbeeldingen. Geldt voor alle zoekopdrachten vanuit duckduckgo.com en de adresbalk.",
-    "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
-  },
-  "burnPageTitle": {
-    "title": "Bezig met verbranden...",
-    "note": "Title of the page opened after starting the data clearing process. Indicates the user that we're in the process of clearing website data."
-  }
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
+    },
+    "optionsHeader": {
+        "title": "OpenFocusd-opties",
+        "note": "Header for options (settings) page"
+    },
+    "optionsSubHeader": {
+        "title": "Zoek en surf op internet zonder te worden gevolgd.",
+        "note": "We allow the user to browse the web without being followed by trackers"
+    },
+    "blockSitesTab": {
+        "title": "Sites blokkeren",
+        "note": "Navigation tab for managing completely blocked websites"
+    },
+    "allowedSitesTab": {
+        "title": "Toegestane sites",
+        "note": "Navigation tab for managing websites that are explicitly allowed"
+    },
+    "allowedSitesHeading": {
+        "title": "Toegestane sites",
+        "note": "Header for the list of websites that stay allowed"
+    },
+    "allowedSitesIntro": {
+        "title": "Voeg site(s) toe in het vak hieronder en klik op „Toegestane site(s) toevoegen”. Tips:",
+        "note": "Instructions for adding websites to the allowed list"
+    },
+    "allowedSitesTipMultiple": {
+        "title": "Voor meerdere sites voeg je er één per regel toe.",
+        "note": "Tip explaining that each allowed website should be on its own line"
+    },
+    "allowedSitesTipWildcard": {
+        "title": "Je kunt * als jokerteken gebruiken (bijv. *.youtube.com, *.edu of *docs*). Patronen als *.com of *.co.uk zijn te breed en niet toegestaan.",
+        "note": "Tip explaining wildcard matching and that public suffixes are rejected"
+    },
+    "allowedSitesPlaceholder": {
+        "title": "Voer hier sites in...",
+        "note": "Placeholder for the allowed websites text box"
+    },
+    "addAllowedSites": {
+        "title": "Toegestane site(s) toevoegen",
+        "note": "Button that adds the websites in the text box to the allowed list"
+    },
+    "allowedSitesRemoveHint": {
+        "title": "Klik op × om een site van de lijst te verwijderen.",
+        "note": "Explains how to remove a website from the allowed list"
+    },
+    "removeAllowedSite": {
+        "title": "{pattern} verwijderen",
+        "note": "Accessible label for removing an allowed website. {pattern} is the website or wildcard."
+    },
+    "clearAllAllowedSites": {
+        "title": "Alles wissen",
+        "note": "Button that removes every website from the allowed list"
+    },
+    "clearAllAllowedConfirm": {
+        "title": "Alle sites uit Toegestane sites verwijderen?",
+        "note": "Confirmation shown before clearing the allowed list"
+    },
+    "confirmClearAll": {
+        "title": "Alles wissen",
+        "note": "Confirms clearing every allowed website"
+    },
+    "allowedSitesNote": {
+        "title": "Je kunt sites altijd uit Toegestane sites verwijderen, ook als de tijd om is.",
+        "note": "Explains that allowed sites can be removed even after a group's daily time is used up"
+    },
+    "allowedSiteConflict": {
+        "title": "{domain} staat in groep {groupName}. Verwijder die eerst bij Sites blokkeren.",
+        "note": "Error when an allowed website overlaps a grouped website. {domain} is the grouped site. {groupName} is the group name."
+    },
+    "allowedSiteInvalid": {
+        "title": "„{line}” is geen geldige website of jokerteken.",
+        "note": "Error when an allowed website entry cannot be parsed. {line} is the original input."
+    },
+    "allowedSiteTooBroad": {
+        "title": "„{line}” is te breed. Sta een specifieke site toe, zoals *.youtube.com, niet *.com.",
+        "note": "Error when an allowed pattern would match a whole public suffix. {line} is the original input."
+    },
+    "allowedSiteEmpty": {
+        "title": "Voer minstens één website in.",
+        "note": "Error shown when the allowed sites text box is empty"
+    },
+    "allowedSitesSaveError": {
+        "title": "De toegestane sites konden niet worden opgeslagen.",
+        "note": "Error shown when adding allowed websites fails unexpectedly"
+    },
+    "addToGroupRemovesAllowed": {
+        "title": "{domain} aan deze groep toevoegen verwijdert deze toegestane sites: {patterns}.",
+        "note": "Confirmation before moving a site from the allowed list into a group. {domain} is the website being added. {patterns} is the list of allowed entries that will be deleted."
+    },
+    "confirmAddToGroup": {
+        "title": "Aan groep toevoegen",
+        "note": "Confirms adding a website to a group and removing overlapping allowed entries"
+    },
+    "sanctuaryHeading": {
+        "title": "Sanctuary-modus",
+        "note": "Header for the Sanctuary Mode settings on the Allowed Sites page"
+    },
+    "sanctuaryDesc": {
+        "title": "Als de Sanctuary-modus actief is, kunnen alleen sites op Toegestane sites worden gebruikt. Alle andere websites worden zonder uitzondering geblokkeerd. Je kunt hem pas uitzetten als de ingestelde tijd om is.",
+        "note": "Explains that Sanctuary Mode is a lock that allows only the allowed list until the timer ends"
+    },
+    "sanctuaryDuration": {
+        "title": "Duur",
+        "note": "Label for how long Sanctuary Mode stays on after it is activated"
+    },
+    "sanctuaryShowOnPopup": {
+        "title": "Sanctuary-modus in de pop-up tonen",
+        "note": "Toggle that reveals the Activate Sanctuary Mode button in the extension popup"
+    },
+    "sanctuaryShowOnPopupDesc": {
+        "title": "Voegt een knop Activeren toe aan de pop-up. De modus start pas als je op die knop drukt.",
+        "note": "Explains that the toggle does not start Sanctuary Mode by itself"
+    },
+    "sanctuaryActiveNote": {
+        "title": "Sanctuary-modus staat aan. Toegestane sites en deze instellingen zijn {remaining} vergrendeld.",
+        "note": "Shown while Sanctuary Mode is running. {remaining} is the countdown, e.g. 1:05:00."
+    },
+    "sanctuaryLockedError": {
+        "title": "Sanctuary-modus staat aan. Dit kan pas worden gewijzigd als de timer afloopt.",
+        "note": "Error when the user tries to edit Allowed Sites or Sanctuary settings during a lock"
+    },
+    "blockTrackersTab": {
+        "title": "Trackers blokkeren",
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
+    },
+    "optionsDesc": {
+        "title": "OpenFocusd en DuckDuckGo beschermen je privacy online met\nprivézoekopdrachten,\ntrackerblokkering\nen websiteversleuteling.",
+        "note": "This describes how we protect the user from being tracked online"
+    },
+    "shareFeedback": {
+        "title": "Feedback delen",
+        "note": "Click here to share your opinions about this product"
+    },
+    "reportBrokenSite": {
+        "title": "Defecte website melden",
+        "note": "Click here to report an issue with a specific site you are trying to use"
+    },
+    "showEmbeddedTweets": {
+        "title": "Ingesloten tweets weergeven",
+        "note": "Whether the user wants to see Tweets embedded in various webpages or should they be hidden util clicked on"
+    },
+    "globalPrivacyControlAbbr": {
+        "title": "Global Privacy Control (GPC)",
+        "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
+    },
+    "globalPrivacyControlDesc": {
+        "title": "Je gegevens zouden niet mogen worden verhandeld. Bij OpenFocusd zijn we het daarmee eens.Activeer de instellingen voor 'Global Privacy Control' (GPC). We zullen\n vervolgens aan websites je voorkeuren doorgeven om:",
+        "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
+    },
+    "notSellYourPersonalData": {
+        "title": "Verkoop je persoonlijke gegevens niet.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SELL their personal data"
+    },
+    "limitSharingOfPersonalData": {
+        "title": "• Het delen van je persoonsgegevens met andere bedrijven te beperken.",
+        "note": "Part of the GPC description, this communicates that the user would signal to not SHARE their personal data"
+    },
+    "globalPrivacyControlDisclaimer": {
+        "title": "<b>Global Privacy Control (GPC) is een nieuwe standaard.\n Daarom herkennen de meeste websites deze nog niet. We werken er hard aan om ervoor te zorgen dat GCP wereldwijd wordt geaccepteerd.</b> Maar websites zijn alleen verplicht om op dit signaal te reageren voor zover de toepasselijke wetgeving dat vereist. ",
+        "note": "Explains to the user that we can communicate their choice to the website, but the website needs to choose to support this signal"
+    },
+    "emailProtection": {
+        "title": "E-mailbescherming",
+        "note": "Email protection is a feature that lets the user pick private email addresses for different websites"
+    },
+    "autofillDisabled": {
+        "title": "Automatisch invullen uitgeschakeld",
+        "note": "When we don't automatically help populate email fields with a private address"
+    },
+    "autofillEnabled": {
+        "title": "Automatisch invullen ingeschakeld voor <strong class=\"js-userdata-container\">{userName}</strong>",
+        "note": "When we do help populate email addresses for (your email address here)"
+    },
+    "noUnprotectedSitesAdded": {
+        "title": "Geen onbeveiligde sites toegevoegd",
+        "note": "Currently there are no websites on the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSites": {
+        "title": "Onbeschermde sites",
+        "note": "Header for the list of websites where our privacy protections are disabled"
+    },
+    "unprotectedSitesDesc": {
+        "title": "Deze sites worden niet beschermd met Privacybescherming.",
+        "note": "Describes that the user will not be protected by our privacy features when visiting these websites"
+    },
+    "addUnprotectedSite": {
+        "title": "Onbeveiligde site toevoegen",
+        "note": "Header for the user to add a site to the unprotected list"
+    },
+    "enterURL": {
+        "title": "URL invoeren",
+        "note": "Prompt to enter the website URL here"
+    },
+    "invalidURL": {
+        "title": "Ongeldige URL",
+        "note": "The URL the user entered is not a valid website address"
+    },
+    "blockedSites": {
+        "title": "Geblokkeerde websites",
+        "note": "Header for the list of websites the user wants to block completely"
+    },
+    "groupsTitle": {
+        "title": "Groepen",
+        "note": "Header for website groups that share a daily time limit"
+    },
+    "groupsDesc": {
+        "title": "Elke groep heeft een gedeelde dagelijkse tijdslimiet. Op een site in die groep telt de tijd af. Bij nul worden alle sites in de groep geblokkeerd tot 6:00.",
+        "note": "Explains that grouped websites share one daily allowance"
+    },
+    "addGroup": {
+        "title": "Groep toevoegen",
+        "note": "Button that creates a new website group"
+    },
+    "groupName": {
+        "title": "Naam",
+        "note": "Label for the website group name field"
+    },
+    "maxTimeAllowed": {
+        "title": "Max. tijd per dag",
+        "note": "Label for the shared daily time limit"
+    },
+    "hoursAbbr": {
+        "title": "u",
+        "note": "Abbreviation for hours"
+    },
+    "minutesAbbr": {
+        "title": "min",
+        "note": "Abbreviation for minutes"
+    },
+    "saveGroup": {
+        "title": "Wijzigingen opslaan",
+        "note": "Button that saves a group's name and daily time limit"
+    },
+    "groupSaved": {
+        "title": "Groep opgeslagen.",
+        "note": "Confirmation shown after a group is saved"
+    },
+    "groupSaveError": {
+        "title": "De groep kon niet worden opgeslagen.",
+        "note": "Error shown when saving a group fails"
+    },
+    "deleteGroup": {
+        "title": "Groep verwijderen",
+        "note": "Button that deletes a website group"
+    },
+    "deleteGroupConfirm": {
+        "title": "Groep {name} verwijderen?",
+        "note": "Yes/No confirmation before deleting a website group. {name} is the group name."
+    },
+    "confirmYes": {
+        "title": "Ja",
+        "note": "Confirms the current dialog action"
+    },
+    "confirmNo": {
+        "title": "Nee",
+        "note": "Cancels the current dialog without making a change"
+    },
+    "groupBlockedWebsites": {
+        "title": "Geblokkeerde websites",
+        "note": "Header for websites assigned to a group"
+    },
+    "adultGamblingHeading": {
+        "title": "Adult- en goksites",
+        "note": "Section header on Always Block for the optional adult and gambling category list"
+    },
+    "adultGamblingToggle": {
+        "title": "Adult- en goksites blokkeren",
+        "note": "Toggle that enables the bundled adult and gambling host list"
+    },
+    "adultGamblingListLink": {
+        "title": "(meer dan 52.000 sites)",
+        "note": "Link next to the adult and gambling toggle; opens the source hosts list"
+    },
+    "adultGamblingDesc": {
+        "title": "Als dit aan staat, worden die sites altijd geblokkeerd en openen ze dezelfde blokkeerpagina als sites die je hieronder toevoegt. Toegestane sites kan nog steeds een uitzondering maken.",
+        "note": "Explains the adult and gambling category switch on Always Block"
+    },
+    "adultGamblingDisableConfirm": {
+        "title": "Om het blokkeren van adult- en goksites uit te zetten, los op:",
+        "note": "Prompt before disabling the adult and gambling list. The user must answer a two-digit multiplication problem."
+    },
+    "adultGamblingDisableMath": {
+        "title": "{a} × {b} =",
+        "note": "Two-digit multiplication problem shown before adult and gambling blocking can be turned off"
+    },
+    "confirmDisableAdultGambling": {
+        "title": "Uitzetten",
+        "note": "Submits the math answer and turns off adult and gambling blocking if it is correct"
+    },
+    "addBlockedWebsite": {
+        "title": "Website toevoegen",
+        "note": "Button that adds a website to the current group"
+    },
+    "addWebsitePlaceholder": {
+        "title": "example.com",
+        "note": "Placeholder for the website field in a group"
+    },
+    "removeWebsite": {
+        "title": "Website verwijderen",
+        "note": "Accessible label for removing a website from a group"
+    },
+    "removeWebsiteConfirm": {
+        "title": "Om {domain} te verwijderen, los op:",
+        "note": "Prompt before removing a website. {domain} is the website address. The user must answer an addition problem."
+    },
+    "removeWebsiteMath": {
+        "title": "{a} + {b} =",
+        "note": "Two-digit addition problem shown before a website can be removed"
+    },
+    "removeWebsiteMathWrong": {
+        "title": "Dat is niet het juiste antwoord.",
+        "note": "Error shown when the removal math problem is answered incorrectly"
+    },
+    "confirmCancel": {
+        "title": "Annuleren",
+        "note": "Closes the website removal confirmation without removing the site"
+    },
+    "confirmRemove": {
+        "title": "Verwijderen",
+        "note": "Submits the math answer and removes the website if it is correct"
+    },
+    "noGroupedWebsites": {
+        "title": "Nog geen websites in deze groep.",
+        "note": "Empty state for a group with no assigned websites"
+    },
+    "timeLeft": {
+        "title": "Resterende tijd",
+        "note": "Label inside the remaining-time indicator for a group"
+    },
+    "groupLockedUntilReset": {
+        "title": "De tijd is om. Naam, tijd en bestaande sites zijn vergrendeld tot 6:00. Je kunt nog steeds websites toevoegen.",
+        "note": "Shown on a group that has used its daily time. Time and existing sites cannot be changed until 6:00, but new websites can still be added."
+    },
+    "groupLockedError": {
+        "title": "Deze groep kan tot 6:00 niet worden gewijzigd.",
+        "note": "Error shown when a locked group is edited"
+    },
+    "invalidWebsite": {
+        "title": "Voer een geldig websiteadres in.",
+        "note": "Error shown when a grouped website entry is invalid"
+    },
+    "searchEngine": {
+        "title": "Zoekmachine",
+        "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
+    },
+    "searchEngineDesc": {
+        "title": "Kies waar zoekopdrachten uit de pop-up en het trefwoord in de adresbalk naartoe gaan.",
+        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+    },
+    "searchEngineDuckDuckGo": {
+        "title": "DuckDuckGo",
+        "note": "Label for the DuckDuckGo search engine option. Product name, do not translate."
+    },
+    "searchEngineBrave": {
+        "title": "Brave Search",
+        "note": "Label for the Brave Search engine option. Product name, do not translate."
+    },
+    "noAiMode": {
+        "title": "Geen AI in de zoekfunctie",
+        "note": "Toggle to redirect DuckDuckGo searches to the no-AI variant (noai.duckduckgo.com)"
+    },
+    "noAiModeDesc": {
+        "title": "Bekijk zoekresultaten zonder AI-antwoorden (Search Assist) of AI-chats (Duck.ai), en filter standaard door AI gegenereerde afbeeldingen uit de zoekresultaten van afbeeldingen. Geldt voor alle zoekopdrachten vanuit duckduckgo.com en de adresbalk.",
+        "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Taal",
+        "note": "Label for the language switcher on the options page"
+    }
 }

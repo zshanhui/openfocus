@@ -1,11 +1,13 @@
 {
     "smartling": {
-        "string_format" : "icu",
-        "translate_paths": [{
-            "path": "*/title",
-            "key": "{*}/title",
-            "instruction": "*/note"
-        }]
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "path": "*/title",
+                "key": "{*}/title",
+                "instruction": "*/note"
+            }
+        ]
     },
     "optionsHeader": {
         "title": "OpenFocusd Options",
@@ -129,10 +131,10 @@
     },
     "blockTrackersTab": {
         "title": "Block Trackers",
-        "note": "Navigation tab for DuckDuckGo tracker-blocking and privacy options"
+        "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
     },
     "optionsDesc": {
-        "title": "DuckDuckGo protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
+        "title": "OpenFocusd and DuckDuckGo protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
         "note": "This describes how we protect the user from being tracked online"
     },
     "shareFeedback": {
@@ -152,7 +154,7 @@
         "note": "Global Privacy Control is the name of the feature that lets users set a preference to not have their information sold"
     },
     "globalPrivacyControlDesc": {
-        "title": "Your data shouldn't be for sale. At DuckDuckGo, we agree.\nActivate the \"Global Privacy Control\" (GPC) settings and we'll\nsignal to websites your preference to:",
+        "title": "Your data shouldn't be for sale. At OpenFocusd, we agree.\nActivate the \"Global Privacy Control\" (GPC) settings and we'll\nsignal to websites your preference to:",
         "note": "This describes the GPC feature, which lets the user set a preference to not have their personal information sold by websites to other parties. The string is followed by a list of actions like 'Not sell your personal data'. These are translated separately."
     },
     "notSellYourPersonalData": {
@@ -347,26 +349,6 @@
         "title": "Enter a valid website address.",
         "note": "Error shown when a grouped website entry is invalid"
     },
-    "fireButtonHeading": {
-        "title": "Fire Button",
-        "note": "Header for the settings for the Fire button feature"
-    },
-    "fireButtonDesc": {
-        "title": "The Fire Button makes it easy to clear your tabs, browsing history, and data. You can control whether it clears browsing history as well as data, and whether or not it closes your current tabs.",
-        "note": "Describes the Fire button features"
-    },
-    "fireButtonClearHistoryTitle": {
-        "title": "Clear History",
-        "note": "Title for option toggle"
-    },
-    "fireButtonClearHistoryDesc": {
-        "title": "Please note: browsing history can be cleared only for a specified time range (e.g. \"last hour\", or \"all time\"), and not on a per-site basis.",
-        "note": "Extra information about the clear history option toggle."
-    },
-    "fireButtonTabClosureTitle": {
-        "title": "Close Tabs",
-        "note": "Title for option toggle."
-    },
     "searchEngine": {
         "title": "Search engine",
         "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
@@ -391,8 +373,8 @@
         "title": "See search results without AI answers (Search Assist) or AI chats (Duck.ai), and filter AI‑generated images from image results by default. Applies to all searches from duckduckgo.com and the address bar.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
     },
-    "burnPageTitle": {
-        "title": "Burn in progress...",
-        "note": "Title of the page opened after starting the data clearing process. Indicates the user that we're in the process of clearing website data."
+    "languageLabel": {
+        "title": "Language",
+        "note": "Label for the language switcher on the options page"
     }
 }

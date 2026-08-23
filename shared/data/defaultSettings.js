@@ -10,8 +10,6 @@ module.exports = {
     'httpsDontUpgradeList-etag': null,
     'tds-etag': null,
     lastTdsUpdate: 0,
-    fireButtonClearHistoryEnabled: true,
-    fireButtonTabClearEnabled: true,
     useNoAiSearch: false,
     searchEngine: 'ddg',
     blockedSites: {},
@@ -23,4 +21,5 @@ module.exports = {
     siteGroups: null,
     groupUsage: {},
     siteGroupsInitialized: false,
+    uiLocale: '',
 };

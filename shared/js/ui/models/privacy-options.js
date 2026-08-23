@@ -1,4 +1,3 @@
-/* global BUILD_TARGET */
 const Parent = window.DDG.base.Model;
 const { SEARCH_ENGINE_DDG, normalizeSearchEngine } = require('../../shared-utils/search-engine');
 
@@ -6,8 +5,6 @@ function PrivacyOptions(attrs) {
     // set some default values for the toggle switches in the template
     attrs.httpsEverywhereEnabled = true;
     attrs.GPC = false;
-    attrs.fireButtonClearHistoryEnabled = true;
-    attrs.fireButtonTabClearEnabled = true;
     attrs.useNoAiSearch = false;
     attrs.searchEngine = SEARCH_ENGINE_DDG;
 
@@ -39,9 +36,6 @@ PrivacyOptions.prototype = window.$.extend({}, Parent.prototype, {
 
         this.httpsEverywhereEnabled = settings.httpsEverywhereEnabled;
         this.GPC = settings.GPC;
-        this.fireButtonEnabled = BUILD_TARGET === 'chrome';
-        this.fireButtonClearHistoryEnabled = settings.fireButtonClearHistoryEnabled;
-        this.fireButtonTabClearEnabled = settings.fireButtonTabClearEnabled;
         this.useNoAiSearch = !!settings.useNoAiSearch;
         this.searchEngine = normalizeSearchEngine(settings.searchEngine);
     },

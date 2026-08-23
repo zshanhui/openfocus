@@ -1,16 +1,5 @@
 @use 'vars';
 
-/* Logo */
-@mixin ddg_logo() {
-    background-size: contain;
-    @include cross_platform_bg_image('logo-horizontal@2x.png');
-}
-
-@mixin ddg_logo--small() {
-    background-size: contain;
-    @include cross_platform_bg_image('logo-small.svg');
-}
-
 /* App states */
 @mixin is_disabled() {
     opacity: 0.5;
