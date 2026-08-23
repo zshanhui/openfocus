@@ -16,7 +16,6 @@
 /* global DEBUG, RELOADER, BUILD_TARGET */
 
 import { onStartup } from './startup';
-import FireButton from './components/fire-button';
 import TabTracker from './components/tab-tracking';
 import MV3ContentScriptInjection from './components/mv3-content-script-injection';
 import OmniboxSearch from './components/omnibox-search';
@@ -35,10 +34,8 @@ import DashboardMessaging from './components/dashboard-messaging';
 import initDebugBuild from './devbuild';
 import initReloader from './devbuild-reloader';
 import tabManager from './tab-manager';
-import AbnExperimentMetrics, { setUpTestExperiment } from './components/abn-experiments';
 import MessageRouter from './components/message-router';
 import RequestBlocklist from './components/request-blocklist';
-import { AppUseMetric, SearchMetric, DashboardUseMetric, RefreshMetric } from './metrics';
 import { CPMStandaloneMessaging } from './components/cpm-standalone-messaging';
 import CookiePromptManagement from './components/cookie-prompt-management';
 
@@ -59,22 +56,19 @@ settings.ready().then(() => {
 });
 
 const remoteConfig = new RemoteConfig({ settings });
-const abnMetrics = BUILD_TARGET !== 'firefox' ? new AbnExperimentMetrics({ remoteConfig }) : null;
-const tds = new TDSStorage({ settings, remoteConfig, abnMetrics });
+const tds = new TDSStorage({ settings, remoteConfig });
 const devtools = new Devtools({ tds });
 const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager });
 /**
  * @type {{
  *  dashboardMessaging: DashboardMessaging
  *  omnibox: OmniboxSearch;
- *  fireButton?: FireButton;
  *  internalUser: InternalUserDetector;
  *  tds: TDSStorage;
  *  tabTracking: TabTracker;
  *  toggleReports: ToggleReports;
  *  trackers: TrackersGlobal;
  *  remoteConfig: RemoteConfig;
- *  abnMetrics: AbnExperimentMetrics?;
  *  messaging: MessageRouter;
  * }}
  */
@@ -82,31 +76,15 @@ const components = {
     dashboardMessaging,
     omnibox: new OmniboxSearch(),
     internalUser: new InternalUserDetector({ settings }),
-    tabTracking: new TabTracker({ tabManager, devtools, abnMetrics }),
+    tabTracking: new TabTracker({ tabManager, devtools }),
     tds,
     toggleReports: new ToggleReports({ dashboardMessaging }),
     trackers: new TrackersGlobal({ tds }),
     debugger: new DebuggerConnection({ tds, devtools }),
     devtools,
     remoteConfig,
-    abnMetrics,
     messaging: new MessageRouter(),
 };
-
-// Chrome-only components
-if (BUILD_TARGET === 'chrome') {
-    components.metrics = [
-        new AppUseMetric({ abnMetrics }),
-        new SearchMetric({ abnMetrics }),
-        new DashboardUseMetric({ abnMetrics, messaging: components.messaging }),
-        new RefreshMetric({
-            abnMetrics,
-            tabTracking: components.tabTracking,
-        }),
-    ];
-    components.fireButton = new FireButton({ settings, tabManager });
-    setUpTestExperiment(abnMetrics);
-}
 
 if (BUILD_TARGET === 'chrome') {
     // MV3-only components

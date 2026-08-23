@@ -12,7 +12,6 @@ import { sendPageloadsWithAdAttributionPixelAndResetCount } from './classes/ad-c
 import { postPopupMessage } from './popup-messaging';
 import { ensureInstalledAt } from './install-utils';
 const utils = require('./utils');
-const experiment = require('./experiments');
 const settings = require('./settings');
 const constants = require('../../data/constants');
 const onboarding = require('./onboarding');
@@ -47,12 +46,6 @@ async function onInstalled(details) {
             settings.updateSetting('showCounterMessaging', true);
             settings.updateSetting('shouldFireIncontextEligibilityPixel', true);
         }
-
-        if (browserName === 'chrome') {
-            experiment.setActiveExperiment();
-        }
-    } else if (details.reason.match(/update/) && browserName === 'chrome') {
-        experiment.setActiveExperiment();
     }
 }
 

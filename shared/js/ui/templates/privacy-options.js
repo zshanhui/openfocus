@@ -72,35 +72,5 @@ module.exports = function () {
             </li>
         </ul>
     </section>
-    <section class="${this.model.fireButtonEnabled ? 'options-content__fire-button divider-bottom' : 'options-content__fire-button is-hidden'}">
-        <ul class="default-list">
-            <li>
-                <h2 class="menu-title">
-                    ${t('options:fireButtonHeading.title')}
-                </h2>
-                <p class="menu-paragraph">
-                    ${t('options:fireButtonDesc.title')}
-                </p>
-                <p class="options-info">
-                    <a href="https://help.duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#the-fire-button">${t('shared:learnMore.title')}</a>
-                </p>
-            </li>
-            <li class="fire-button-toggle">
-                ${t('options:fireButtonClearHistoryTitle.title')}
-                ${toggleButton(
-                    this.model.fireButtonClearHistoryEnabled,
-                    'js-options-firebutton-clear-history-enabled',
-                    'fireButtonClearHistoryEnabled',
-                )}
-            </li>
-            <li>
-                <p class="menu-paragraph">${t('options:fireButtonClearHistoryDesc.title')}</p>
-            </li>
-            <li class="fire-button-toggle">
-                ${t('options:fireButtonTabClosureTitle.title')}
-                ${toggleButton(this.model.fireButtonTabClearEnabled, 'js-options-firebutton-tabclear-enabled', 'fireButtonTabClearEnabled')}
-            </li>
-        </ul>
-    </section>
 </section>`;
 };

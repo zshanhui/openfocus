@@ -1,9 +1,0 @@
-{
-    "defaultSuffixes": ["extension", "browser"],
-    "activeExperiments": {
-        "fooFeature": {
-            "cohorts": ["control", "treatment"],
-            "metrics": {}
-        }
-    }
-}

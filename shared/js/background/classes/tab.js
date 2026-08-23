@@ -23,16 +23,11 @@ const { TabState } = require('./tab-state');
 
 /** @typedef {{tabId: number, url: string | undefined, requestId?: string, status: string | null | undefined}} TabData */
 
-/**
- * @typedef {import('../components/abn-experiments').default} AbnExperimentMetrics
- */
-
 class Tab {
     /**
      * @param {TabData|TabState} tabData
-     * @param {AbnExperimentMetrics=} abnMetrics - Optional abnMetrics instance for experiments (not supported in Firefox)
      */
-    constructor(tabData, abnMetrics) {
+    constructor(tabData) {
         if (tabData instanceof TabState) {
             /** @type {TabState} */
             this._tabState = tabData;
@@ -45,35 +40,17 @@ class Tab {
         this.httpsRedirects = new HttpsRedirects();
         this.webResourceAccess = [];
         this.surrogates = {};
-        this.initExperiments(abnMetrics);
-    }
-
-    /**
-     * Responsible for storing the experiments that ran on the page, so stale tabs don't report the wrong experiments.
-     * @param {AbnExperimentMetrics=} abnMetrics
-     */
-    initExperiments(abnMetrics) {
-        if (!abnMetrics) return;
-        abnMetrics.automaticallyEnrollCurrentContentScopeExperiments();
-        const experiments = abnMetrics.getCurrentCohorts();
-        // turn into an object
-        this.contentScopeExperiments = {};
-        for (const experiment of experiments) {
-            if (!experiment.cohort) continue;
-            this.contentScopeExperiments[experiment.subfeature] = experiment.cohort;
-        }
     }
 
     /**
      * @param {number} tabId
-     * @param {AbnExperimentMetrics=} abnMetrics
      */
-    static async restore(tabId, abnMetrics) {
+    static async restore(tabId) {
         const state = await TabState.restore(tabId);
         if (!state) {
             return null;
         }
-        return new Tab(state, abnMetrics);
+        return new Tab(state);
     }
 
     set referrer(value) {
@@ -82,14 +59,6 @@ class Tab {
 
     get referrer() {
         return this._tabState.referrer;
-    }
-
-    get contentScopeExperiments() {
-        return this._tabState.contentScopeExperiments;
-    }
-
-    set contentScopeExperiments(value) {
-        this._tabState.setValue('contentScopeExperiments', value);
     }
 
     set adClick(value) {

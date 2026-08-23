@@ -14,7 +14,6 @@ Component initialization is done in [background.js](../background.js). Depending
 
 ## List of components
 
- - `FireButton`: Registers event listeners needed for the Fire button. Included on Chrome only.
  - `MV3ContentScriptInjection`: MV3-specific content-script registration. Exposes a `ready` property, which is a Promise that resolved when scripts are registered.
  - `TabTracker`: Registers event listeners to track tab metadata and updates the legacy `tabManager` singleton.
 
