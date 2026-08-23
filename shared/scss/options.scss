@@ -38,11 +38,8 @@
 }
 
 .options-brand {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 12px;
     margin-bottom: 28px;
+    padding-top: 8px;
     padding-right: 16px;
 }
 
@@ -61,6 +58,8 @@
 }
 
 .options-brand__name {
+    position: relative;
+    display: inline-block;
     color: vars.$slate;
     font-size: 24px;
     font-weight: 700;
@@ -68,15 +67,17 @@
 }
 
 .options-brand__badge {
-    flex: 0 0 auto;
-    padding: 3px 7px;
+    position: absolute;
+    top: -4px;
+    right: 0;
+    padding: 1px 5px;
     border-radius: 999px;
     background: vars.$platinum-light;
     color: vars.$slate-light;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    line-height: 14px;
+    line-height: 12px;
     text-transform: uppercase;
 }
 
@@ -215,6 +216,12 @@
     font-weight: bold;
     margin-bottom: 10px;
     color: vars.$slate;
+}
+
+.options-info--secondary {
+    font-size: 13px;
+    font-weight: 400;
+    color: vars.$slate-light;
 }
 
 .options-content__privacy {

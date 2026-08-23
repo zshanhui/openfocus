@@ -36,7 +36,9 @@
         "release-chrome": "make browser=chrome type=release && make chrome-release-zip",
         "release-embedded": "make browser=embedded type=release && make embedded-release-zip",
         "beta-chrome": "make chrome-beta browser=chrome type=release",
-        "validate-pixel-defs": "validate-ddg-pixel-defs pixel-definitions"
+        "validate-pixel-defs": "validate-ddg-pixel-defs pixel-definitions",
+        "website": "node website/build.mjs",
+        "website:watch": "node website/build.mjs --watch"
     },
     "devDependencies": {
         "@duckduckgo/eslint-config": "github:duckduckgo/eslint-config#v0.2.1",

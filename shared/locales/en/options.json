@@ -134,8 +134,12 @@
         "note": "Navigation tab for OpenFocusd tracker-blocking and privacy options"
     },
     "optionsDesc": {
-        "title": "OpenFocusd and DuckDuckGo protects your privacy online with\nprivate search,\ntracker blocking,\nand site encryption.",
+        "title": "OpenFocusd protects your privacy online with private search, tracker blocking, and site encryption.",
         "note": "This describes how we protect the user from being tracked online"
+    },
+    "trackerListManagedBy": {
+        "title": "Tracker block list is remote managed by DuckDuckGo, a privacy first search engine.",
+        "note": "Credit that the tracker blocklist is provided and updated by DuckDuckGo"
     },
     "shareFeedback": {
         "title": "Share feedback",

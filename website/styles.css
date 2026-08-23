@@ -1,0 +1,397 @@
+:root {
+    --ink: #1d1d1d;
+    --muted: #5a5a5a;
+    --faint: #8a8a8a;
+    --paper: #ffffff;
+    --card: #fffdf8;
+    --rule: #d9d2c4;
+    --mint: #b7cbb4;
+    --green: #3fa248;
+    --green-ink: #29521f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+a {
+    color: var(--green-ink);
+}
+
+a:hover {
+    color: var(--ink);
+}
+
+.wrap {
+    width: min(880px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+header {
+    border-bottom: 1px solid var(--rule);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.brand img {
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    font-size: 14px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--ink);
+}
+
+.hero {
+    padding: 72px 0 28px;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--green-ink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.lede {
+    max-width: 38em;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 19px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+}
+
+.btn-ghost:hover {
+    background: var(--card);
+    color: var(--ink);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px 0 48px;
+}
+
+.feature {
+    padding: 20px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.feature h2 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.feature p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.gallery {
+    padding: 12px 0 80px;
+    scroll-margin-top: 16px;
+}
+
+.gallery-wrap {
+    width: min(1040px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.gallery h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+}
+
+.gallery-lede {
+    max-width: 38em;
+    margin: 0 0 28px;
+    color: var(--muted);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.gallery-item {
+    display: block;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    color: inherit;
+    border-color: var(--mint);
+    box-shadow: 0 10px 28px rgba(29, 29, 29, 0.08);
+}
+
+.gallery-item:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    background: #f3f1eb;
+}
+
+.gallery-item span {
+    display: block;
+    padding: 12px 14px 14px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(29, 29, 29, 0.72);
+}
+
+.lightbox-figure {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 100%);
+    max-height: calc(100vh - 48px);
+    margin: 0;
+    overflow: auto;
+    background: var(--paper);
+    border-radius: 10px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+.lightbox-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 108px);
+    object-fit: contain;
+    background: #f3f1eb;
+}
+
+.lightbox-figure figcaption {
+    padding: 12px 44px 14px 16px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.lightbox-close:hover {
+    background: var(--card);
+    color: var(--ink);
+}
+
+.privacy {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--rule);
+}
+
+.privacy h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+}
+
+.updated {
+    margin: 0 0 28px;
+    color: var(--faint);
+    font-size: 13px;
+}
+
+.privacy h3 {
+    margin: 28px 0 8px;
+    font-size: 18px;
+}
+
+.privacy p,
+.privacy li {
+    color: var(--muted);
+}
+
+.privacy p {
+    margin: 0 0 12px;
+}
+
+.privacy ul {
+    margin: 0 0 12px;
+    padding-left: 1.2em;
+}
+
+.callout {
+    margin: 20px 0 28px;
+    padding: 16px 18px;
+    border-left: 3px solid var(--green);
+    background: var(--card);
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ink);
+}
+
+footer {
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--rule);
+    color: var(--faint);
+    font-size: 13px;
+}
+
+footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--muted);
+}
+
+@media (max-width: 680px) {
+    .features,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .gallery h2 {
+        font-size: 26px;
+    }
+
+    .lightbox {
+        padding: 12px;
+    }
+}

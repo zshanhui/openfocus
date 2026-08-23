@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!-- Generated from copy.yaml. Edit website/copy.yaml, then run: node website/build.mjs -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenFocusd — a privacy-first website blocker</title>
+    <meta name="description" content="OpenFocusd blocks distracting websites on a daily timer and blocks trackers while you browse. Free, open source, and it does not collect your data." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="canonical" href="https://zshanhui.github.io/openfocus/" />
+    <meta property="og:title" content="OpenFocusd" />
+    <meta property="og:description" content="Block distracting websites. Keep your time. No accounts, no analytics, no data collection." />
+    <meta property="og:image" content="icon.png" />
+    <meta property="og:type" content="website" />
+    <style>
+:root {
+    --ink: #1d1d1d;
+    --muted: #5a5a5a;
+    --faint: #8a8a8a;
+    --paper: #ffffff;
+    --card: #fffdf8;
+    --rule: #d9d2c4;
+    --mint: #b7cbb4;
+    --green: #3fa248;
+    --green-ink: #29521f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+a {
+    color: var(--green-ink);
+}
+
+a:hover {
+    color: var(--ink);
+}
+
+.wrap {
+    width: min(880px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+header {
+    border-bottom: 1px solid var(--rule);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.brand img {
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    font-size: 14px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--ink);
+}
+
+.hero {
+    padding: 72px 0 28px;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--green-ink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.lede {
+    max-width: 38em;
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 19px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+}
+
+.btn-ghost:hover {
+    background: var(--card);
+    color: var(--ink);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px 0 48px;
+}
+
+.feature {
+    padding: 20px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.feature h2 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.feature p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.gallery {
+    padding: 12px 0 80px;
+    scroll-margin-top: 16px;
+}
+
+.gallery-wrap {
+    width: min(1040px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.gallery h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+}
+
+.gallery-lede {
+    max-width: 38em;
+    margin: 0 0 28px;
+    color: var(--muted);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.gallery-item {
+    display: block;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    color: inherit;
+    border-color: var(--mint);
+    box-shadow: 0 10px 28px rgba(29, 29, 29, 0.08);
+}
+
+.gallery-item:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    background: #f3f1eb;
+}
+
+.gallery-item span {
+    display: block;
+    padding: 12px 14px 14px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(29, 29, 29, 0.72);
+}
+
+.lightbox-figure {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 100%);
+    max-height: calc(100vh - 48px);
+    margin: 0;
+    overflow: auto;
+    background: var(--paper);
+    border-radius: 10px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+.lightbox-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 108px);
+    object-fit: contain;
+    background: #f3f1eb;
+}
+
+.lightbox-figure figcaption {
+    padding: 12px 44px 14px 16px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.lightbox-close:hover {
+    background: var(--card);
+    color: var(--ink);
+}
+
+.privacy {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--rule);
+}
+
+.privacy h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+}
+
+.updated {
+    margin: 0 0 28px;
+    color: var(--faint);
+    font-size: 13px;
+}
+
+.privacy h3 {
+    margin: 28px 0 8px;
+    font-size: 18px;
+}
+
+.privacy p,
+.privacy li {
+    color: var(--muted);
+}
+
+.privacy p {
+    margin: 0 0 12px;
+}
+
+.privacy ul {
+    margin: 0 0 12px;
+    padding-left: 1.2em;
+}
+
+.callout {
+    margin: 20px 0 28px;
+    padding: 16px 18px;
+    border-left: 3px solid var(--green);
+    background: var(--card);
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ink);
+}
+
+footer {
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--rule);
+    color: var(--faint);
+    font-size: 13px;
+}
+
+footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--muted);
+}
+
+@media (max-width: 680px) {
+    .features,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .gallery h2 {
+        font-size: 26px;
+    }
+
+    .lightbox {
+        padding: 12px;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#top">
+          <img src="icon.png" width="36" height="36" alt="" />
+          OpenFocusd
+        </a>
+        <nav aria-label="Page">
+          <a href="#features">Features</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#privacy">Privacy</a>
+          <a href="https://github.com/zshanhui/openfocus">Source</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="wrap hero">
+        <p class="eyebrow">Free and open source</p>
+        <h1>Decide on what matters.<br />Limit and block the rest.</h1>
+        <p class="lede">OpenFocusd is a Chrome extension that blocks distracting websites on a daily timer and blocks trackers while you browse.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/zshanhui/openfocus">View source</a>
+          <a class="btn btn-ghost" href="#privacy">Privacy policy</a>
+        </div>
+      </section>
+
+      <section class="wrap features" id="features">
+        <article class="feature">
+          <h2>Site groups and timers</h2>
+          <p>Put sites into groups with a shared daily allowance. When the time runs out, those sites stay blocked until 6:00.</p>
+        </article>
+        <article class="feature">
+          <h2>Allowed Sites and Sanctuary</h2>
+          <p>Keep work sites reachable. Sanctuary Mode locks the browser to only that list until the timer you set runs out.</p>
+        </article>
+        <article class="feature">
+          <h2>Optional adult and gambling list</h2>
+          <p>Turn on a bundled host list when you want those sites blocked by default. Allowed Sites can still make an exception.</p>
+        </article>
+        <article class="feature">
+          <h2>Tracker blocking</h2>
+          <p>The same privacy protections can block trackers, send a Global Privacy Control signal, and prefer encrypted connections.</p>
+        </article>
+      </section>
+
+      <section class="gallery" id="gallery">
+        <div class="gallery-wrap">
+          <h2>See it in action</h2>
+          <p class="gallery-lede">Options, the popup, the blocked page, and the same screens in Arabic.</p>
+          <div class="gallery-grid">
+        <a class="gallery-item" href="#shot-groups">
+          <img src="screenshots/blocksite-2.png" alt="Block Sites groups with circular timers and daily time limits" loading="lazy" decoding="async" />
+          <span>Site groups share a daily timer</span>
+        </a>
+        <a class="gallery-item" href="#shot-always-block">
+          <img src="screenshots/always-block.png" alt="Always Block group with the adult and gambling sites toggle" loading="lazy" decoding="async" />
+          <span>Always-block plus the adult and gambling list</span>
+        </a>
+        <a class="gallery-item" href="#shot-allowed">
+          <img src="screenshots/allowedsites.png" alt="Allowed Sites list and Sanctuary Mode duration settings" loading="lazy" decoding="async" />
+          <span>Allowed Sites and Sanctuary Mode</span>
+        </a>
+        <a class="gallery-item" href="#shot-trackers">
+          <img src="screenshots/block-trackers.png" alt="Block Trackers page with Global Privacy Control and search engine choices" loading="lazy" decoding="async" />
+          <span>Tracker blocking, GPC, and private search</span>
+        </a>
+        <a class="gallery-item" href="#shot-popup">
+          <img src="screenshots/blocksites.png" alt="Extension popup over the Block Sites options page" loading="lazy" decoding="async" />
+          <span>The popup over Block Sites</span>
+        </a>
+        <a class="gallery-item" href="#shot-blocked">
+          <img src="screenshots/blockpage.png" alt="Blocked page with a quote and This site is blocked" loading="lazy" decoding="async" />
+          <span>The page shown when a site is blocked</span>
+        </a>
+        <a class="gallery-item" href="#shot-arabic">
+          <img src="screenshots/arabic.png" alt="Block Sites options page in Arabic with a right-to-left layout" loading="lazy" decoding="async" />
+          <span>The same options page in Arabic</span>
+        </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy">
+        <div class="wrap">
+          <h2>Privacy policy</h2>
+          <p class="updated">Last updated 23 August 2026</p>
+
+          <div class="callout">
+            <strong>OpenFocusd does not collect your data.</strong>
+            We do not operate a backend, do not have user accounts, and do not receive, sell, or analyze your browsing. Site lists, timers, and settings stay in your browser.
+          </div>
+
+          <h3>Who we are</h3>
+            <p>OpenFocusd is an open-source browser extension. This page is the project homepage and the privacy policy required by the Chrome Web Store. Contact: <a href="mailto:shanhui.dev@proton.me">shanhui.dev@proton.me</a>.</p>
+
+          <h3>What stays on your device</h3>
+            <p>To block sites and count time, the extension stores the following locally with Chrome’s storage APIs:</p>
+            <ul>
+              <li>Websites you add to groups, Allowed Sites, or Sanctuary</li>
+              <li>Daily time used and when that day resets</li>
+              <li>Your settings, such as language, search engine, Global Privacy Control, and the adult and gambling toggle</li>
+            </ul>
+            <p>Chrome treats that local browsing activity as user data even when it never leaves the device. Uninstalling OpenFocusd deletes it.</p>
+
+          <h3>What we do not do</h3>
+            <ul>
+              <li>We do not create accounts or ask for an email address</li>
+              <li>We do not run analytics or crash reporting</li>
+              <li>We do not sell data or use it for advertising</li>
+              <li>We do not receive feedback or breakage reports</li>
+            </ul>
+
+          <h3>Third-party lists (DuckDuckGo)</h3>
+            <p>Tracker blocking uses public lists and configuration hosted by DuckDuckGo. The extension periodically downloads those files from <code>staticcdn.duckduckgo.com</code>. Those downloads do not include your site lists, timers, or history.</p>
+            <p>If HTTPS upgrading is on, the extension may ask DuckDuckGo whether a site supports HTTPS by sending a short hash of the hostname — not the full address or the page content — to <code>duckduckgo.com</code>.</p>
+            <p>You can choose DuckDuckGo or Brave Search for searches started from the popup or the address-bar keyword. Those searches go to the search engine you picked, not to OpenFocusd.</p>
+
+          <h3>Limited Use</h3>
+            <p>OpenFocusd complies with the Chrome Web Store User Data Policy, including the Limited Use requirements. Any user data the extension handles is used only to provide its stated features: website blocking, daily timers, and on-device privacy protections. It is not used for unrelated purposes, and it is not sold or transferred for advertising or credit purposes.</p>
+
+          <h3>Children</h3>
+            <p>OpenFocusd does not knowingly collect personal information from children. Settings and site lists are stored only in the browser that installed the extension.</p>
+
+          <h3>Changes</h3>
+            <p>If this policy changes, we will update this page and the date above. The current version will always live at <a href="https://zshanhui.github.io/openfocus/#privacy">https://zshanhui.github.io/openfocus/#privacy</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Apache 2.0. Tracker lists by DuckDuckGo.</span>
+        <span>
+          <a href="https://github.com/zshanhui/openfocus">GitHub</a>
+          ·
+          <a href="#privacy">Privacy</a>
+        </span>
+      </div>
+    </footer>
+    <div class="lightbox" id="shot-groups" role="dialog" aria-modal="true" aria-label="Site groups share a daily timer">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/blocksite-2.png" alt="Block Sites groups with circular timers and daily time limits" />
+        <figcaption>Site groups share a daily timer</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-always-block" role="dialog" aria-modal="true" aria-label="Always-block plus the adult and gambling list">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/always-block.png" alt="Always Block group with the adult and gambling sites toggle" />
+        <figcaption>Always-block plus the adult and gambling list</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-allowed" role="dialog" aria-modal="true" aria-label="Allowed Sites and Sanctuary Mode">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/allowedsites.png" alt="Allowed Sites list and Sanctuary Mode duration settings" />
+        <figcaption>Allowed Sites and Sanctuary Mode</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-trackers" role="dialog" aria-modal="true" aria-label="Tracker blocking, GPC, and private search">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/block-trackers.png" alt="Block Trackers page with Global Privacy Control and search engine choices" />
+        <figcaption>Tracker blocking, GPC, and private search</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-popup" role="dialog" aria-modal="true" aria-label="The popup over Block Sites">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/blocksites.png" alt="Extension popup over the Block Sites options page" />
+        <figcaption>The popup over Block Sites</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-blocked" role="dialog" aria-modal="true" aria-label="The page shown when a site is blocked">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/blockpage.png" alt="Blocked page with a quote and This site is blocked" />
+        <figcaption>The page shown when a site is blocked</figcaption>
+      </figure>
+    </div>
+    <div class="lightbox" id="shot-arabic" role="dialog" aria-modal="true" aria-label="The same options page in Arabic">
+      <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
+      <figure class="lightbox-figure">
+        <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
+        <img src="screenshots/arabic.png" alt="Block Sites options page in Arabic with a right-to-left layout" />
+        <figcaption>The same options page in Arabic</figcaption>
+      </figure>
+    </div>
+    <script>
+      const closeLightbox = () => {
+        if (!location.hash.startsWith("#shot-")) {
+          return;
+        }
+        location.hash = "#gallery";
+        document.getElementById("gallery")?.scrollIntoView();
+      };
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+      });
+      window.addEventListener("hashchange", () => {
+        document.body.style.overflow = location.hash.startsWith("#shot-") ? "hidden" : "";
+      });
+    </script>
+  </body>
+</html>
