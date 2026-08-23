@@ -149,6 +149,41 @@
     background: vars.$white;
 }
 
+.options-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    direction: ltr;
+    padding: 16px 0 0;
+}
+
+.options-language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.options-language__label {
+    color: vars.$slate-light;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.options-language select {
+    box-sizing: border-box;
+    min-width: 148px;
+    height: 32px;
+    padding: 0 28px 0 10px;
+    border: 1px solid vars.$platinum-dark;
+    border-radius: 8px;
+    background: vars.$white;
+    color: vars.$slate;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
 .options-panel[hidden] {
     display: none;
 }

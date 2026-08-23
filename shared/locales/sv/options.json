@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Se sökresultat utan AI-svar (Search Assist) eller AI-chattar (Duck.ai), och filtrera bort AI-genererade bilder från bildresultat som standard. Gäller för alla sökningar på duckduckgo.com och i adressfältet.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Språk",
+        "note": "Label for the language switcher on the options page"
     }
 }

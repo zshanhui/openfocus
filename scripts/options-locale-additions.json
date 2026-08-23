@@ -64,7 +64,8 @@
         "groupLockedError": "Тази група не може да се променя до 6:00.",
         "invalidWebsite": "Въведете валиден адрес на уебсайт.",
         "searchEngine": "Търсачка",
-        "searchEngineDesc": "Изберете къде отиват търсенията от изскачащия прозорец и ключовата дума в адресната лента."
+        "searchEngineDesc": "Изберете къде отиват търсенията от изскачащия прозорец и ключовата дума в адресната лента.",
+        "languageLabel": "Език"
     },
     "cs": {
         "optionsDesc": "OpenFocusd a DuckDuckGo chrání tvoje soukromí na webu soukromým vyhledáváním\n,blokováním trackerů\na šifrováním stránek.",
@@ -131,7 +132,8 @@
         "groupLockedError": "Tuto skupinu nelze měnit do 6:00.",
         "invalidWebsite": "Zadejte platnou adresu webu.",
         "searchEngine": "Vyhledávač",
-        "searchEngineDesc": "Zvolte, kam půjdou hledání z vyskakovacího okna a klíčového slova v adresním řádku."
+        "searchEngineDesc": "Zvolte, kam půjdou hledání z vyskakovacího okna a klíčového slova v adresním řádku.",
+        "languageLabel": "Jazyk"
     },
     "da": {
         "optionsDesc": "OpenFocusd og DuckDuckGo beskytter dit privatliv online med\nprivat søgning,\ntracker-blokering\nog kryptering af websteder.",
@@ -198,7 +200,8 @@
         "groupLockedError": "Denne gruppe kan ikke ændres før kl. 6:00.",
         "invalidWebsite": "Indtast en gyldig webstedsadresse.",
         "searchEngine": "Søgemaskine",
-        "searchEngineDesc": "Vælg, hvor søgninger fra pop op-vinduet og nøgleordet i adressefeltet skal gå hen."
+        "searchEngineDesc": "Vælg, hvor søgninger fra pop op-vinduet og nøgleordet i adressefeltet skal gå hen.",
+        "languageLabel": "Sprog"
     },
     "de": {
         "optionsDesc": "OpenFocusd und DuckDuckGo schützen deine Privatsphäre online mit\nprivater Suche,\nTracker-Blockade\nund Website-Verschlüsselung.",
@@ -265,7 +268,8 @@
         "groupLockedError": "Diese Gruppe kann bis 6:00 Uhr nicht geändert werden.",
         "invalidWebsite": "Gib eine gültige Website-Adresse ein.",
         "searchEngine": "Suchmaschine",
-        "searchEngineDesc": "Wähle, wohin Suchen aus dem Popup und dem Schlüsselwort in der Adressleiste gehen."
+        "searchEngineDesc": "Wähle, wohin Suchen aus dem Popup und dem Schlüsselwort in der Adressleiste gehen.",
+        "languageLabel": "Sprache"
     },
     "el": {
         "optionsDesc": "Το OpenFocusd και το DuckDuckGo προστατεύουν την ιδιωτικότητά σας στο διαδίκτυο με\nιδιωτική αναζήτηση,\nαποκλεισμό παρακολούθησης\nκαι κρυπτογράφηση ιστότοπων.",
@@ -332,7 +336,8 @@
         "groupLockedError": "Αυτή η ομάδα δεν μπορεί να αλλάξει έως τις 6:00.",
         "invalidWebsite": "Εισαγάγετε έγκυρη διεύθυνση ιστότοπου.",
         "searchEngine": "Μηχανή αναζήτησης",
-        "searchEngineDesc": "Επιλέξτε πού πηγαίνουν οι αναζητήσεις από το αναδυόμενο παράθυρο και τη λέξη-κλειδί στη γραμμή διευθύνσεων."
+        "searchEngineDesc": "Επιλέξτε πού πηγαίνουν οι αναζητήσεις από το αναδυόμενο παράθυρο και τη λέξη-κλειδί στη γραμμή διευθύνσεων.",
+        "languageLabel": "Γλώσσα"
     },
     "es": {
         "optionsDesc": "OpenFocusd y DuckDuckGo protegen tu privacidad en línea con\nbúsquedas privadas,\nbloqueo de rastreadores\ny cifrado de sitios.",
@@ -399,7 +404,8 @@
         "groupLockedError": "Este grupo no se puede cambiar hasta las 6:00.",
         "invalidWebsite": "Introduce una dirección de sitio web válida.",
         "searchEngine": "Motor de búsqueda",
-        "searchEngineDesc": "Elige adónde van las búsquedas de la ventana emergente y de la palabra clave de la barra de direcciones."
+        "searchEngineDesc": "Elige adónde van las búsquedas de la ventana emergente y de la palabra clave de la barra de direcciones.",
+        "languageLabel": "Idioma"
     },
     "et": {
         "optionsDesc": "OpenFocusd ja DuckDuckGo kaitsevad sinu privaatsust veebis\nprivaatse otsingu,\njälgimise blokeerimise\nja saidi krüptimise abil.",
@@ -466,7 +472,8 @@
         "groupLockedError": "Seda rühma ei saa muuta enne 6:00.",
         "invalidWebsite": "Sisesta kehtiv veebisaidi aadress.",
         "searchEngine": "Otsingumootor",
-        "searchEngineDesc": "Vali, kuhu lähevad otsingud hüpikaknast ja aadressiriba märksõnast."
+        "searchEngineDesc": "Vali, kuhu lähevad otsingud hüpikaknast ja aadressiriba märksõnast.",
+        "languageLabel": "Keel"
     },
     "fi": {
         "optionsDesc": "OpenFocusd ja DuckDuckGo suojaavat yksityisyyttäsi verkossa tarjoten\nyksityisen haun,\nseurannan eston\nja sivuston salauksen.",
@@ -533,7 +540,8 @@
         "groupLockedError": "Tätä ryhmää ei voi muuttaa ennen kello 6.00.",
         "invalidWebsite": "Anna kelvollinen sivuston osoite.",
         "searchEngine": "Hakukone",
-        "searchEngineDesc": "Valitse, minne ponnahdusikkunan ja osoitepalkin avainsanan haut menevät."
+        "searchEngineDesc": "Valitse, minne ponnahdusikkunan ja osoitepalkin avainsanan haut menevät.",
+        "languageLabel": "Kieli"
     },
     "fr": {
         "optionsDesc": "OpenFocusd et DuckDuckGo protègent votre confidentialité en ligne grâce à\nla recherche privée,\nau blocage des traqueurs\net au chiffrement de site.",
@@ -600,7 +608,8 @@
         "groupLockedError": "Ce groupe ne peut pas être modifié avant 6 h 00.",
         "invalidWebsite": "Saisissez une adresse de site web valide.",
         "searchEngine": "Moteur de recherche",
-        "searchEngineDesc": "Choisissez où vont les recherches de la fenêtre contextuelle et du mot-clé de la barre d’adresse."
+        "searchEngineDesc": "Choisissez où vont les recherches de la fenêtre contextuelle et du mot-clé de la barre d’adresse.",
+        "languageLabel": "Langue"
     },
     "hr": {
         "optionsDesc": "OpenFocusd i DuckDuckGo štite tvoju privatnost na mreži koristeći\nprivatno pretraživanje,\nblokiranje alata za praćenje\ni enkripciju stranica.",
@@ -667,7 +676,8 @@
         "groupLockedError": "Ovu grupu nije moguće mijenjati do 6:00.",
         "invalidWebsite": "Unesi valjanu adresu web-stranice.",
         "searchEngine": "Tražilica",
-        "searchEngineDesc": "Odaberi kamo idu pretraživanja iz skočnog prozora i ključne riječi u adresnoj traci."
+        "searchEngineDesc": "Odaberi kamo idu pretraživanja iz skočnog prozora i ključne riječi u adresnoj traci.",
+        "languageLabel": "Jezik"
     },
     "hu": {
         "optionsDesc": "Az OpenFocusd és a DuckDuckGo privát kereséssel,\nnyomkövetők blokkolásával\nés webhelyek titkosításával védi az adataidat online.",
@@ -734,7 +744,8 @@
         "groupLockedError": "Ez a csoport 6:00-ig nem módosítható.",
         "invalidWebsite": "Adj meg érvényes webcímet.",
         "searchEngine": "Kereső",
-        "searchEngineDesc": "Válaszd ki, hova menjenek a keresések az előugró ablakból és a címsor kulcsszavából."
+        "searchEngineDesc": "Válaszd ki, hova menjenek a keresések az előugró ablakból és a címsor kulcsszavából.",
+        "languageLabel": "Nyelv"
     },
     "it": {
         "optionsDesc": "OpenFocusd e DuckDuckGo proteggono la tua privacy online con\nricerca privata,\nblocco dei sistemi di tracciamento\ne crittografia del sito.",
@@ -801,7 +812,8 @@
         "groupLockedError": "Questo gruppo non può essere modificato fino alle 6:00.",
         "invalidWebsite": "Inserisci un indirizzo di sito web valido.",
         "searchEngine": "Motore di ricerca",
-        "searchEngineDesc": "Scegli dove vanno le ricerche dal popup e dalla parola chiave nella barra degli indirizzi."
+        "searchEngineDesc": "Scegli dove vanno le ricerche dal popup e dalla parola chiave nella barra degli indirizzi.",
+        "languageLabel": "Lingua"
     },
     "nl": {
         "optionsDesc": "OpenFocusd en DuckDuckGo beschermen je privacy online met\nprivézoekopdrachten,\ntrackerblokkering\nen websiteversleuteling.",
@@ -868,7 +880,8 @@
         "groupLockedError": "Deze groep kan tot 6:00 niet worden gewijzigd.",
         "invalidWebsite": "Voer een geldig websiteadres in.",
         "searchEngine": "Zoekmachine",
-        "searchEngineDesc": "Kies waar zoekopdrachten uit de pop-up en het trefwoord in de adresbalk naartoe gaan."
+        "searchEngineDesc": "Kies waar zoekopdrachten uit de pop-up en het trefwoord in de adresbalk naartoe gaan.",
+        "languageLabel": "Taal"
     },
     "pl": {
         "optionsDesc": "OpenFocusd i DuckDuckGo chronią Twoją prywatność w sieci dzięki\nprywatnemu wyszukiwaniu,\nblokowaniu skryptów śledzących\ni szyfrowaniu stron.",
@@ -935,7 +948,8 @@
         "groupLockedError": "Tej grupy nie można zmieniać do 6:00.",
         "invalidWebsite": "Wpisz prawidłowy adres witryny.",
         "searchEngine": "Wyszukiwarka",
-        "searchEngineDesc": "Wybierz, dokąd mają iść wyszukiwania z wyskakującego okna i słowa kluczowego na pasku adresu."
+        "searchEngineDesc": "Wybierz, dokąd mają iść wyszukiwania z wyskakującego okna i słowa kluczowego na pasku adresu.",
+        "languageLabel": "Język"
     },
     "lt": {
         "optionsDesc": "„OpenFocusd“ ir „DuckDuckGo“ saugo jūsų privatumą internete naudodamos\nprivačią paiešką,\nsekėjų blokavimą\nir svetainių šifravimą.",
@@ -1002,7 +1016,8 @@
         "groupLockedError": "Šios grupės negalima keisti iki 6:00.",
         "invalidWebsite": "Įveskite tinkamą svetainės adresą.",
         "searchEngine": "Paieškos sistema",
-        "searchEngineDesc": "Pasirinkite, kur eina paieškos iš iškylančiojo lango ir adreso juostos raktažodžio."
+        "searchEngineDesc": "Pasirinkite, kur eina paieškos iš iškylančiojo lango ir adreso juostos raktažodžio.",
+        "languageLabel": "Kalba"
     },
     "lv": {
         "optionsDesc": "OpenFocusd un DuckDuckGo aizsargā tavu privātumu tiešsaistē ar\nprivāto meklēšanu,\nizsekotāju bloķēšanu\nun vietņu šifrēšanu.",
@@ -1069,7 +1084,8 @@
         "groupLockedError": "Šo grupu nevar mainīt līdz 6:00.",
         "invalidWebsite": "Ievadi derīgu vietnes adresi.",
         "searchEngine": "Meklētājprogramma",
-        "searchEngineDesc": "Izvēlies, kur nonāk meklējumi no uznirstošā loga un adreses joslas atslēgvārda."
+        "searchEngineDesc": "Izvēlies, kur nonāk meklējumi no uznirstošā loga un adreses joslas atslēgvārda.",
+        "languageLabel": "Valoda"
     },
     "nb": {
         "optionsDesc": "OpenFocusd og DuckDuckGo beskytter personvernet ditt på nettet med\nprivat søk,\nsporingsblokkering\nog nettstedskryptering.",
@@ -1136,7 +1152,8 @@
         "groupLockedError": "Denne gruppen kan ikke endres før kl. 6:00.",
         "invalidWebsite": "Skriv inn en gyldig nettstedadresse.",
         "searchEngine": "Søkemotor",
-        "searchEngineDesc": "Velg hvor søk fra sprettoppvinduet og nøkkelordet i adresselinjen skal gå."
+        "searchEngineDesc": "Velg hvor søk fra sprettoppvinduet og nøkkelordet i adresselinjen skal gå.",
+        "languageLabel": "Språk"
     },
     "pt": {
         "optionsDesc": "O OpenFocusd e o DuckDuckGo protegem a tua privacidade online com\npesquisa privada,\nbloqueio de trackers\ne encriptação de sites.",
@@ -1203,7 +1220,8 @@
         "groupLockedError": "Este grupo não pode ser alterado até às 6:00.",
         "invalidWebsite": "Introduz um endereço de site válido.",
         "searchEngine": "Motor de pesquisa",
-        "searchEngineDesc": "Escolhe para onde vão as pesquisas da janela instantânea e da palavra-chave da barra de endereços."
+        "searchEngineDesc": "Escolhe para onde vão as pesquisas da janela instantânea e da palavra-chave da barra de endereços.",
+        "languageLabel": "Idioma"
     },
     "ro": {
         "optionsDesc": "OpenFocusd și DuckDuckGo îți protejează confidențialitatea online cu\ncăutarea privată,\nblocarea tehnologiilor de urmărire\nși criptarea site-urilor.",
@@ -1270,7 +1288,8 @@
         "groupLockedError": "Acest grup nu poate fi modificat până la 6:00.",
         "invalidWebsite": "Introdu o adresă de site validă.",
         "searchEngine": "Motor de căutare",
-        "searchEngineDesc": "Alege unde merg căutările din fereastra pop-up și din cuvântul cheie din bara de adrese."
+        "searchEngineDesc": "Alege unde merg căutările din fereastra pop-up și din cuvântul cheie din bara de adrese.",
+        "languageLabel": "Limbă"
     },
     "ru": {
         "optionsDesc": "Чтобы защитить ваши данные в Интернете, OpenFocusd и DuckDuckGo предлагают конфиденциальный поиск, блокировку трекеров и шифрование соединения с сайтами.",
@@ -1337,7 +1356,8 @@
         "groupLockedError": "Эту группу нельзя изменить до 6:00.",
         "invalidWebsite": "Введите действительный адрес сайта.",
         "searchEngine": "Поисковая система",
-        "searchEngineDesc": "Выберите, куда идут поисковые запросы из всплывающего окна и по ключевому слову в адресной строке."
+        "searchEngineDesc": "Выберите, куда идут поисковые запросы из всплывающего окна и по ключевому слову в адресной строке.",
+        "languageLabel": "Язык"
     },
     "sk": {
         "optionsDesc": "OpenFocusd a DuckDuckGo chránia vaše súkromie online pomocou\nsúkromného vyhľadávania,\nblokovania sledovania\na šifrovania lokalít.",
@@ -1404,7 +1424,8 @@
         "groupLockedError": "Túto skupinu nie je možné meniť do 6:00.",
         "invalidWebsite": "Zadajte platnú adresu webu.",
         "searchEngine": "Vyhľadávač",
-        "searchEngineDesc": "Vyberte, kam pôjdu vyhľadávania z vyskakovacieho okna a kľúčového slova v adresnom riadku."
+        "searchEngineDesc": "Vyberte, kam pôjdu vyhľadávania z vyskakovacieho okna a kľúčového slova v adresnom riadku.",
+        "languageLabel": "Jazyk"
     },
     "sl": {
         "optionsDesc": "OpenFocusd in DuckDuckGo varujeta vašo zasebnost na spletu z\nzasebnim iskanjem,\nblokiranjem sledilnikov\nin šifriranjem spletnih mest.",
@@ -1471,7 +1492,8 @@
         "groupLockedError": "Te skupine ni mogoče spreminjati do 6:00.",
         "invalidWebsite": "Vnesite veljaven naslov spletnega mesta.",
         "searchEngine": "Iskalnik",
-        "searchEngineDesc": "Izberite, kam gredo iskanja iz pojavnega okna in ključne besede v naslovni vrstici."
+        "searchEngineDesc": "Izberite, kam gredo iskanja iz pojavnega okna in ključne besede v naslovni vrstici.",
+        "languageLabel": "Jezik"
     },
     "sv": {
         "optionsDesc": "OpenFocusd och DuckDuckGo skyddar din integritet på nätet med\nprivat sökning,\nblockering av spårare\noch kryptering av webbplatser.",
@@ -1538,7 +1560,8 @@
         "groupLockedError": "Den här gruppen kan inte ändras före kl. 6:00.",
         "invalidWebsite": "Ange en giltig webbplatsadress.",
         "searchEngine": "Sökmotor",
-        "searchEngineDesc": "Välj vart sökningar från popupfönstret och nyckelordet i adressfältet ska gå."
+        "searchEngineDesc": "Välj vart sökningar från popupfönstret och nyckelordet i adressfältet ska gå.",
+        "languageLabel": "Språk"
     },
     "tr": {
         "optionsDesc": "OpenFocusd ve DuckDuckGo,\nözel arama,\nizleyici engelleme\nve site şifreleme ile internette gizliliğinizi korur.",
@@ -1605,7 +1628,8 @@
         "groupLockedError": "Bu grup 6:00’a kadar değiştirilemez.",
         "invalidWebsite": "Geçerli bir site adresi girin.",
         "searchEngine": "Arama motoru",
-        "searchEngineDesc": "Açılır pencere ve adres çubuğu anahtar sözcüğündeki aramaların nereye gideceğini seçin."
+        "searchEngineDesc": "Açılır pencere ve adres çubuğu anahtar sözcüğündeki aramaların nereye gideceğini seçin.",
+        "languageLabel": "Dil"
     },
     "ar": {
         "optionsDesc": "يحمي OpenFocusd وDuckDuckGo خصوصيتك على الإنترنت عبر\nالبحث الخاص،\nوحظر المتعقّبات،\nوتشفير المواقع.",
@@ -1672,7 +1696,8 @@
         "groupLockedError": "لا يمكن تغيير هذه المجموعة حتى الساعة 6:00.",
         "invalidWebsite": "أدخل عنوان موقع صالحًا.",
         "searchEngine": "محرك البحث",
-        "searchEngineDesc": "اختر وجهة عمليات البحث من النافذة المنبثقة وكلمة البحث في شريط العنوان."
+        "searchEngineDesc": "اختر وجهة عمليات البحث من النافذة المنبثقة وكلمة البحث في شريط العنوان.",
+        "languageLabel": "اللغة"
     },
     "zh": {
         "optionsDesc": "OpenFocusd 和 DuckDuckGo 通过\n私密搜索、\n跟踪器拦截\n和网站加密来保护你的在线隐私。",
@@ -1739,6 +1764,7 @@
         "groupLockedError": "此分组在 6:00 之前无法更改。",
         "invalidWebsite": "请输入有效的网站地址。",
         "searchEngine": "搜索引擎",
-        "searchEngineDesc": "选择弹出窗口和地址栏关键字搜索使用的搜索引擎。"
+        "searchEngineDesc": "选择弹出窗口和地址栏关键字搜索使用的搜索引擎。",
+        "languageLabel": "语言"
     }
 }

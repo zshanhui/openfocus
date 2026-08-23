@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Bekijk zoekresultaten zonder AI-antwoorden (Search Assist) of AI-chats (Duck.ai), en filter standaard door AI gegenereerde afbeeldingen uit de zoekresultaten van afbeeldingen. Geldt voor alle zoekopdrachten vanuit duckduckgo.com en de adresbalk.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Taal",
+        "note": "Label for the language switcher on the options page"
     }
 }

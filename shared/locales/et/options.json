@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Kuva otsingutulemused ilma tehisintellekti vastusteta (Search Assist) või tehisintellekti vestlusteta (Duck.ai), ja filtreeri pilditulemuste hulgast vaikimisi tehisintellekti loodud pildid. Kehtib kõigi otsingute puhul, mis tehakse veebisaidil duckduckgo.com ja aadressiribalt.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Keel",
+        "note": "Label for the language switcher on the options page"
     }
 }

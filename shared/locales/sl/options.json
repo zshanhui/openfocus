@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Oglejte si rezultate iskanja brez odgovorov umetne inteligence (Search Assist) ali klepetov umetne inteligence (Duck.ai) in privzeto filtrirajte slike, ki jih je ustvarila umetna inteligenca, iz rezultatov slik. Velja za vsa iskanja na duckduckgo.com in iz naslovne vrstice.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Jezik",
+        "note": "Label for the language switcher on the options page"
     }
 }

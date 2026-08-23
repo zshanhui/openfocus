@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Результаты поиска выдаются без ответов от ИИ (Search Assist) и ИИ-чатов (Duck.ai), а из картинок по умолчанию исключаются изображения, созданные искусственным интеллектом. Настройка применяется ко всем запросам с сайта duckduckgo.com и из адресной строки.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Язык",
+        "note": "Label for the language switcher on the options page"
     }
 }

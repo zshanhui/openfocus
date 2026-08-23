@@ -1,8 +1,7 @@
-import { breakageReportForTab, getDisclosureDetails } from '../broken-site-report';
+import { getDisclosureDetails } from '../broken-site-report';
 import { dashboardDataFromTab } from '../classes/privacy-dashboard-data';
 import { registerMessageHandler } from '../message-registry';
 import { getCurrentTab } from '../utils';
-import { requestBreakageReportData } from '../breakage-report-request';
 
 /**
  * Message handlers for communication from the dashboard to the extension background.
@@ -46,61 +45,12 @@ export default class DashboardMessaging {
     }
 
     /**
-     * Only the dashboard sends this message, so we import the types from there.
-     * @param {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').BreakageReportRequest} breakageReport
-     * @param {string} [pixelName]
-     * @param {string} [reportFlow]
+     * Dashboard still sends this if leftover UI is triggered. OpenFocusd does
+     * not collect or forward breakage reports.
      * @returns {Promise<void>}
      */
-    async submitBrokenSiteReport(breakageReport, pixelName = 'epbf', reportFlow = undefined) {
-        // wait for config and TDS so we can get etags and config version
-        await Promise.all([this.tds.remoteConfig.allLoadingFinished, this.tds.tds.ready]);
-        const { category, description } = breakageReport;
-        const tab = await this.tabManager.getOrRestoreCurrentTab();
-        if (!tab) {
-            return;
-        }
-
-        // Get breakage data from content-scope-scripts
-        let pageParams = {};
-        try {
-            // Request data from content-scope-scripts and wait for response
-            const breakageData = await requestBreakageReportData(tab.id);
-
-            // Build pageParams from content-scope-scripts data
-            if (breakageData) {
-                pageParams = {
-                    jsPerformance: breakageData.jsPerformance,
-                    docReferrer: breakageData.referrer,
-                    opener: breakageData.opener,
-                    detectorData: breakageData.detectorData,
-                    breakageData: breakageData.breakageData,
-                };
-
-                // Set userRefreshCount from pageReloaded: 0 if not reloaded, 1 if reloaded
-                if (breakageData.pageReloaded !== undefined) {
-                    tab.userRefreshCount = breakageData.pageReloaded ? 1 : 0;
-                }
-            }
-        } catch (e) {
-            // Content-scope-scripts not available (e.g., on restricted pages)
-            console.warn('Failed to get breakage report data:', e);
-        }
-
-        const tds = this.tds.tds.etag;
-        const remoteConfigEtag = this.tds.remoteConfig.etag;
-        const remoteConfigVersion = this.tds.remoteConfig.config?.version || '';
-        return breakageReportForTab({
-            pixelName,
-            tab,
-            tds,
-            remoteConfigEtag,
-            remoteConfigVersion,
-            category,
-            description,
-            pageParams,
-            reportFlow,
-        });
+    async submitBrokenSiteReport() {
+        return Promise.resolve();
     }
 
     /**

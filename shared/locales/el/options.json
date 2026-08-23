@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Δείτε αποτελέσματα αναζήτησης χωρίς απαντήσεις τεχνητής νοημοσύνης (Search Assist) ή συνομιλίες τεχνητής νοημοσύνης (Duck.ai), και φιλτράρετε εικόνες που δημιουργούνται από τεχνητή νοημοσύνη από τα αποτελέσματα εικόνων βάσει προεπιλογής. Ισχύει για όλες τις αναζητήσεις από το duckduckgo.com και τη γραμμή διευθύνσεων.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Γλώσσα",
+        "note": "Label for the language switcher on the options page"
     }
 }

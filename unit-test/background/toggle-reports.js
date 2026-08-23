@@ -228,69 +228,18 @@ describe('ToggleReports', () => {
     });
 
     it('shouldDisplay', async () => {
-        // Set up the current tab.
         currentTabDetails = {
             id: 123,
             url: 'https://domain.example/path?param=value',
         };
         tabManager.create(currentTabDetails);
 
-        // Feature enabled + no responses.
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
-
-        // Feature disabled.
-        toggleReportsConfig.state = 'disabled';
         expect(await ToggleReports.shouldDisplay()).toEqual(false);
 
-        // Feature enabled + no responses.
         toggleReportsConfig.state = 'enabled';
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
-
-        // Feature disabled for the tab.
-        const allowedUrl = currentTabDetails.url;
-        currentTabDetails.url = 'https://no-toggle-reports.example/path';
-        tabManager.create(currentTabDetails);
-        expect(await ToggleReports.shouldDisplay()).toEqual(false);
-
-        // Feature enabled + two accepted responses.
-        currentTabDetails.url = allowedUrl;
-        tabManager.create(currentTabDetails);
-        currentTimestamp = today;
-        settings.updateSetting('toggleReportTimes', [
-            { timestamp: today, accepted: true },
-            { timestamp: today, accepted: true },
-        ]);
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
-
-        // Feature enabled + three accepted responses.
-        settings.updateSetting('toggleReportTimes', [
-            { timestamp: today, accepted: true },
-            { timestamp: today, accepted: true },
-            { timestamp: today, accepted: true },
-        ]);
-        expect(await ToggleReports.shouldDisplay()).toEqual(false);
-
-        // Feature enabled + three accepted responses, but
-        // promptLimitLogicEnabled disabled.
-        toggleReportsConfig.settings.promptLimitLogicEnabled = false;
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
-
-        // Feature enabled + one declined response.
-        toggleReportsConfig.settings.promptLimitLogicEnabled = true;
-        settings.updateSetting('toggleReportTimes', [{ timestamp: today, accepted: false }]);
-        expect(await ToggleReports.shouldDisplay()).toEqual(false);
-
-        // Feature enabled + one declined response, but dismissLogicEnabled
-        // disabled.
-        toggleReportsConfig.settings.dismissLogicEnabled = false;
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
-
-        // Feature enabled + no responses.
-        toggleReportsConfig.settings.dismissLogicEnabled = true;
         settings.updateSetting('toggleReportTimes', []);
-        expect(await ToggleReports.shouldDisplay()).toEqual(true);
+        expect(await ToggleReports.shouldDisplay()).toEqual(false);
 
-        // Tidy up.
         tabManager.delete(currentTabDetails.id);
     });
 });

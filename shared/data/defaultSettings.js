@@ -21,4 +21,5 @@ module.exports = {
     siteGroups: null,
     groupUsage: {},
     siteGroupsInitialized: false,
+    uiLocale: '',
 };

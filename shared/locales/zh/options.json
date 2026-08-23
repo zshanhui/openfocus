@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "查看不含 AI 回答（Search Assist）或 AI 对话（Duck.ai）的搜索结果，并默认从图片结果中过滤 AI 生成的图片。适用于来自 duckduckgo.com 和地址栏的所有搜索。",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "语言",
+        "note": "Label for the language switcher on the options page"
     }
 }

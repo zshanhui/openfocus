@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Keresési eredmények megtekintése MI-válaszok (Search Assist) és MI-beszélgetések (Duck.ai) nélkül, és az MI által generált képek alapértelmezett kiszűrése a képtalálatok közül. Minden duckduckgo.com-ról és a címsorból indított keresésre érvényes.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Nyelv",
+        "note": "Label for the language switcher on the options page"
     }
 }

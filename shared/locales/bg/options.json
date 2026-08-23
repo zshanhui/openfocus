@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Виждате резултатите от търсенето без отговори от AI (Search Assist) или AI чатове (Duck.ai) и филтрирате генерираните от AI изображения от резултатите с изображения по подразбиране. Важи за всички търсения от duckduckgo.com и адресната лента.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Език",
+        "note": "Label for the language switcher on the options page"
     }
 }

@@ -4,7 +4,7 @@
     "description" : "Laajennuksen nimi, joka näytetään verkkokaupassa"
   },
   "appDesc" : {
-    "message" : "Suojaa tietosi. Yksityinen haku valinnaisella tekoälyllä, yksityinen selaus ja mainosten esto.",
+    "message" : "Estää aikaa vievät sivustot ja parantaa keskittymistä, sisältää yksityisen selauksen, aktiivisen seurannan eston ja tietosuojan.",
     "description" : "Laajennuksen lyhyt kuvaus, joka näytetään verkkokaupassa"
   }
 }

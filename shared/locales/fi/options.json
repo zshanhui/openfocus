@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Näe hakutulokset ilman tekoälyn vastauksia (Search Assist) tai tekoälykeskusteluja (Duck.ai) ja suodata tekoälyn luomat kuvat kuvatuloksista oletusarvoisesti. Koskee kaikkia duckduckgo.com-sivustolta ja osoiteriviltä tehtyjä hakuja.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Kieli",
+        "note": "Label for the language switcher on the options page"
     }
 }

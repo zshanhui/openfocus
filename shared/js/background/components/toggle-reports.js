@@ -162,34 +162,12 @@ export default class ToggleReports {
     }
 
     /**
-     * Check if the toggle report UI flow should been displayed display for the
-     * currently focused tab.
+     * OpenFocusd does not collect DDG breakage reports, so never prompt after
+     * the user toggles protections off.
      *
      * @returns {Promise<boolean>}
      */
     static async shouldDisplay() {
-        const currentTab = await tabManager.getOrRestoreCurrentTab();
-
-        // Feature must be enabled for the tab.
-        if (!currentTab?.site?.isFeatureEnabled('toggleReports')) {
-            return false;
-        }
-
-        const { dismissLogicEnabled, promptLimitLogicEnabled, maxPromptCount } = getFeatureSettings('toggleReports');
-
-        await ToggleReports.clearExpiredResponses();
-        const counts = await ToggleReports.countResponses();
-
-        // Dismissed report count must not exceed the limit.
-        if (dismissLogicEnabled && counts.declined > 0) {
-            return false;
-        }
-
-        // Accepted report count must not exceed the limit.
-        if (promptLimitLogicEnabled && typeof maxPromptCount === 'number' && counts.accepted >= maxPromptCount) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
 }

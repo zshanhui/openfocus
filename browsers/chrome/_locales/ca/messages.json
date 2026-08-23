@@ -4,7 +4,7 @@
     "description" : "El títol de l'extensió, que es mostra a la botiga web"
   },
   "appDesc" : {
-    "message" : "Protegeix les teves dades. Cerca privada amb opcions d'IA, navegació privada i bloqueig d'anuncis.",
+    "message" : "Bloqueja llocs que fan perdre el temps i millora la concentració, amb navegació privada, bloqueig actiu de rastrejadors i protecció de dades.",
     "description" : "La breu descripció de l'extensió, que es mostra a la botiga web"
   }
 }

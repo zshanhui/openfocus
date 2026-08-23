@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Yapay zekâ yanıtları (Search Assist) veya yapay zekâ sohbetleri (Duck.ai) olmadan arama sonuçlarını görün ve varsayılan olarak yapay zekâ tarafından oluşturulan görselleri sonuçlardan filtreleyin. DuckDuckGo.com'dan ve adres çubuğundan yapılan tüm aramalara uygulanır.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Dil",
+        "note": "Label for the language switcher on the options page"
     }
 }

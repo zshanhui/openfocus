@@ -15,6 +15,8 @@ const AllowedSitesModel = require('./../models/allowed-sites.js');
 const allowedSitesTemplate = require('./../templates/allowed-sites.js');
 const BackgroundMessageModel = require('./../models/background-message.js');
 const InternalOptionsView = require('./../views/internal-options.js').default;
+const { sendMessage } = require('./../base/ui-wrapper.js');
+const { getUserLocale, setStoredUiLocale, UI_LOCALES } = require('../../background/i18n.js');
 const t = window.DDG.base.i18n.t;
 
 function Options(ops) {
@@ -39,6 +41,7 @@ Options.prototype = window.$.extend({}, Parent.prototype, mixins.setBrowserClass
             el.innerHTML = text;
         });
 
+        this._setupLanguageSwitcher();
         this._setupTabs();
 
         this.views.options = new PrivacyOptionsView({
@@ -77,6 +80,35 @@ Options.prototype = window.$.extend({}, Parent.prototype, mixins.setBrowserClass
         });
 
         this.message = new BackgroundMessageModel({});
+    },
+
+    _setupLanguageSwitcher: function () {
+        const select = document.querySelector('.js-options-language');
+        if (!select) {
+            return;
+        }
+
+        const current = getUserLocale();
+        const selected = UI_LOCALES.some((locale) => locale.code === current) ? current : 'en';
+        const label = t('options:languageLabel.title');
+
+        select.setAttribute('aria-label', label);
+        for (const locale of UI_LOCALES) {
+            const option = document.createElement('option');
+            option.value = locale.code;
+            option.textContent = locale.name;
+            option.selected = locale.code === selected;
+            select.appendChild(option);
+        }
+
+        select.addEventListener('change', () => {
+            if (select.value === selected) {
+                return;
+            }
+            setStoredUiLocale(select.value);
+            sendMessage('updateSetting', { name: 'uiLocale', value: select.value });
+            window.location.reload();
+        });
     },
 
     _setupTabs: function () {

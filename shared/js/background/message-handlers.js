@@ -6,7 +6,6 @@ import tdsStorage from './storage/tds';
 import { getArgumentsObject } from './helpers/arguments-object';
 import { resolveBreakageReportRequest } from './breakage-report-request';
 import { postPopupMessage } from './popup-messaging';
-import ToggleReports from './components/toggle-reports';
 import messageHandlers from './message-registry';
 import { getBlockedSites, setBlockedSites } from './dnr-user-blocklist';
 
@@ -51,26 +50,11 @@ export function setList(options) {
  * @param {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').SetListOptions} options
  */
 export async function setLists(options) {
-    // Is the user clicking to disable protections for the website (aka
-    // allowlisting the website), or enabling protections for the website again?
-    let allowlisting = false;
-
     // TODO: Consider making these tabManager.setList calls concurrently with
     //       Promise.all, but first verify that works in practice (e.g. with
     //       simultaneous DNR rule updates).
     for (const listItem of options.lists) {
-        if (listItem.value && listItem.list === 'allowlisted') {
-            allowlisting = true;
-        }
         await tabManager.setList(listItem);
-    }
-
-    // If the user is disabling protections for the page and the conditions are
-    // met, display a prompt asking the user to send a breakage report before
-    // reloading the page.
-    if (allowlisting && (await ToggleReports.shouldDisplay())) {
-        postPopupMessage({ messageType: 'toggleReport' });
-        return;
     }
 
     try {

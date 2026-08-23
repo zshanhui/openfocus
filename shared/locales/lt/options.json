@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Matykite paieškos rezultatus be DI atsakymų („Search Assist“) ar DI pokalbių („Duck.ai“), ir pagal numatytąsias nuostatas filtruokite DI sugeneruotus vaizdus iš vaizdų paieškos rezultatų. Taikoma visoms paieškoms iš duckduckgo.com ir adreso juostos.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Kalba",
+        "note": "Label for the language switcher on the options page"
     }
 }

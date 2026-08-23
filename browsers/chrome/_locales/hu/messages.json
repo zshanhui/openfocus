@@ -4,7 +4,7 @@
     "description" : "A bővítmény webáruházban megjelenített neve"
   },
   "appDesc" : {
-    "message" : "Védi az adataidat. Privát keresés opcionális MI-funkciókkal, privát böngészés és hirdetésblokkolás.",
+    "message" : "Blokkolja az időrabló webhelyeket és javítja a fókuszt, privát böngészéssel, aktív nyomkövető-blokkolással és adatvédelemmel.",
     "description" : "A bővítmény webáruházban megjelenített rövid leírása"
   }
 }

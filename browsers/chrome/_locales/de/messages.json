@@ -4,7 +4,7 @@
     "description" : "Der Titel der Erweiterung, der im Webshop angezeigt wird"
   },
   "appDesc" : {
-    "message" : "Schützt deine Daten. Private Suche mit optionaler KI, privates Browsen und Werbeblocker.",
+    "message" : "Blockiert zeitraubende Websites und verbessert die Konzentration, mit privatem Browsen, aktiver Tracker-Blockade und Datenschutz.",
     "description" : "Die Kurzbeschreibung der Erweiterung, die im Webshop angezeigt wird"
   }
 }

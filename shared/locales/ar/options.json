@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "اعرض نتائج البحث دون إجابات الذكاء الاصطناعي (Search Assist) أو محادثات الذكاء الاصطناعي (Duck.ai)، وفلتر الصور المولَّدة بالذكاء الاصطناعي من نتائج الصور افتراضيًا. ينطبق على كل عمليات البحث من duckduckgo.com وشريط العنوان.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "اللغة",
+        "note": "Label for the language switcher on the options page"
     }
 }

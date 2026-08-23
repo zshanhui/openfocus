@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Affichez les résultats de recherche sans réponses IA (Search Assist) ni chat IA (Duck.ai), et filtrez par défaut les images générées par l'IA dans les résultats d'images. S'applique à toutes les recherches effectuées sur duckduckgo.com et la barre d'adresse.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Langue",
+        "note": "Label for the language switcher on the options page"
     }
 }

@@ -372,5 +372,9 @@
     "noAiModeDesc": {
         "title": "Zeige Suchergebnisse ohne KI-Antworten (Search Assist) oder KI-Chats (Duck.ai) an und filtere standardmäßig KI-generierte Bilder aus den Bildergebnissen heraus. Gilt für alle Suchanfragen von duckduckgo.com und der Adressleiste.",
         "note": "Description text explaining what the No AI in Searches toggle does. 'Search Assist' and 'Duck.ai' are product names and should not be translated."
+    },
+    "languageLabel": {
+        "title": "Sprache",
+        "note": "Label for the language switcher on the options page"
     }
 }
