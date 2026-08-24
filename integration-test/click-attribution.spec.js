@@ -1,6 +1,6 @@
 import { test, expect } from './helpers/playwrightHarness';
 import backgroundWait from './helpers/backgroundWait';
-import { logPixels, pixelSuffix } from './helpers/pixels';
+import { logPixels } from './helpers/pixels';
 import testCases from 'privacy-test-pages/adClickFlow/shared/testCases.json';
 
 if (testCases.length === 0) {
@@ -8,7 +8,6 @@ if (testCases.length === 0) {
 }
 
 test.describe('Ad click blocking', () => {
-    let extensionVersion;
     const backgroundPixels = [];
     let cleanup;
 
@@ -25,8 +24,6 @@ test.describe('Ad click blocking', () => {
 
         await backgroundWait.forExtensionLoaded(context);
         await backgroundWait.forAllConfiguration(backgroundPage);
-
-        extensionVersion = await backgroundPage.evaluate(() => chrome.runtime.getManifest().version);
     });
 
     /**

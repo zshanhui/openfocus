@@ -1,4 +1,3 @@
-import browser from 'webextension-polyfill';
 chrome.runtime.getManifest = () => ({ version: '1234.56', manifest_version: 3 });
 
 const { setOrUpdateSearchRedirectRule } = require('../../shared/js/background/dnr-search-redirect');

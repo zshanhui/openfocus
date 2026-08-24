@@ -1,5 +1,4 @@
 const { NewTabTrackerStats } = require('../../shared/js/background/newtab-tracker-stats');
-const settings = require('../../shared/js/background/settings');
 const { TrackerStats } = require('../../shared/js/background/classes/tracker-stats');
 const constants = require('../../shared/data/constants');
 const testTDS = require('../data/tds.json');
@@ -90,7 +89,6 @@ describe('NewTabTrackerStats', () => {
 
         // The `A` and `B` should be grouped into the `Other` category
         expect(output).toEqual({
-            atb: undefined,
             totalCount: 7,
             totalPeriod: 'install-time',
             trackerCompaniesPeriod: 'last-day',
@@ -238,7 +236,6 @@ describe('alarms', () => {
             ],
             totalCount: 6,
         });
-        spyOn(settings, 'getSetting').and.returnValue('v374');
         newtab = new NewTabTrackerStats(stats);
         sendSpy = spyOn(newtab, '_publish');
         jasmine.clock().install();
@@ -256,9 +253,8 @@ describe('alarms', () => {
         jasmine.clock().tick(201);
         expect(sendSpy).toHaveBeenCalledTimes(1);
 
-        const display = newtab.toDisplayData(10, callTime);
+        const display = newtab.toDisplayData(callTime);
         expect(display).toEqual({
-            atb: 'v374',
             totalCount: 6,
             totalPeriod: 'install-time',
             trackerCompaniesPeriod: 'last-day',

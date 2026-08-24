@@ -2,7 +2,6 @@ import browser from 'webextension-polyfill';
 import constants from '../../data/constants';
 import { getManifestVersion, createAlarm, syncToStorage, getFromStorage } from './wrapper.js';
 import tdsStorage from './storage/tds';
-import settings from './settings';
 import { emitter, TrackerBlockedEvent } from './before-request.js';
 import { generateDNRRule } from '@duckduckgo/ddg2dnr/lib/utils';
 import { NEWTAB_TRACKER_STATS_REDIRECT_PRIORITY } from '@duckduckgo/ddg2dnr/lib/rulePriorities';

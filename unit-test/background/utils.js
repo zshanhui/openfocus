@@ -1,4 +1,5 @@
 const utils = require('../../shared/js/background/utils');
+const settings = require('../../shared/js/background/settings');
 const settingHelper = require('../helpers/settings');
 const tdsStorage = require('../../shared/js/background/storage/tds').default;
 const tds = require('./../data/tds');
@@ -280,7 +281,7 @@ describe('utils.isInstalledWithinDays()', () => {
     });
 
     it('should return false for missing install timestamp', () => {
-        settingHelper.stub({ installedAt: null, atb: null });
+        settings.getSetting.and.callFake(() => null);
         const date = 1477695600000; // Sat Oct 29 2016
         const result = utils.isInstalledWithinDays(4, date);
         expect(result).toEqual(false);

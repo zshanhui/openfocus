@@ -37,7 +37,6 @@ function constructMockComponents(config) {
 describe('CPMStandaloneMessaging', () => {
     let messaging;
     let remoteConfig;
-    let settings;
     let loadUrlSpy;
 
     beforeAll(() => {
@@ -58,7 +57,6 @@ describe('CPMStandaloneMessaging', () => {
         });
         const components = constructMockComponents(config);
         remoteConfig = components.remoteConfig;
-        settings = components.settings;
         messaging = new CPMStandaloneMessaging({ remoteConfig });
         loadUrlSpy = spyOn(load, 'url').and.returnValue(Promise.resolve());
         // Site.isFeatureEnabled reads from the global tdsStorage.config

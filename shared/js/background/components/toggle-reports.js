@@ -5,7 +5,6 @@ import settings from '../settings';
 import { getFeatureSettings, reloadCurrentTab, resolveAfterDelay } from '../utils';
 import { getDisclosureDetails } from '../broken-site-report';
 import { createAlarm } from '../wrapper';
-import tabManager from '../tab-manager';
 
 /**
  * This component is for the "toggle reports" (aka the "simplified breakage

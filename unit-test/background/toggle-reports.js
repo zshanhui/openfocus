@@ -80,7 +80,6 @@ describe('ToggleReports', () => {
         expect(await toggleReports.toggleReportStarted()).toEqual({
             data: [
                 { id: 'siteUrl' },
-                { id: 'atb' },
                 { id: 'errorDescriptions' },
                 { id: 'extensionVersion' },
                 { id: 'features' },
@@ -99,7 +98,6 @@ describe('ToggleReports', () => {
         expect(await toggleReports.toggleReportStarted()).toEqual({
             data: [
                 { id: 'siteUrl', additional: { url: 'https://domain.example/path' } },
-                { id: 'atb' },
                 { id: 'errorDescriptions' },
                 { id: 'extensionVersion' },
                 { id: 'features' },
