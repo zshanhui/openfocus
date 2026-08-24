@@ -1,8 +1,9 @@
-const browserWrapper = require('./wrapper');
 import settings from './settings';
 import { SEARCH_REDIRECT_RULE_ID } from './dnr-utils';
 import { ALTERNATIVE_SEARCH_PRIORITY } from '@duckduckgo/ddg2dnr/lib/rulePriorities';
 import { generateDNRRule } from '@duckduckgo/ddg2dnr/lib/utils';
+
+const browserWrapper = require('./wrapper');
 
 const LEGACY_ATB_RULE_IDS = [20003, 20008, 20010];
 
@@ -22,7 +23,7 @@ export async function removeLegacyAtbRules() {
 /**
  * Install or remove the optional no-AI search redirect rule.
  */
-export function setOrUpdateSearchRedirectRule() {
+export async function setOrUpdateSearchRedirectRule() {
     if (browserWrapper.getManifestVersion() !== 3) {
         return;
     }
@@ -47,14 +48,14 @@ export function setOrUpdateSearchRedirectRule() {
         );
     }
 
-    chrome.declarativeNetRequest
-        .updateDynamicRules({
+    try {
+        await chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: [SEARCH_REDIRECT_RULE_ID],
             addRules,
-        })
-        .catch((error) => {
-            console.error('Error updating search redirect DNR rules:', error);
         });
+    } catch (error) {
+        console.error('Error updating search redirect DNR rules:', error);
+    }
 }
 
 settings.ready().then(() => {
