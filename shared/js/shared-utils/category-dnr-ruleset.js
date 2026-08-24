@@ -21,7 +21,7 @@ export const DOMAINS_PER_RULE = 1000;
 
 /**
  * Same fallback list as @duckduckgo/ddg2dnr resourceTypes (Node has no DNR enum).
- * @type {chrome.declarativeNetRequest.ResourceType[]}
+ * @type {`${chrome.declarativeNetRequest.ResourceType}`[]}
  */
 export const DNR_RESOURCE_TYPES = [
     'main_frame',

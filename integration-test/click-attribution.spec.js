@@ -105,9 +105,7 @@ test.describe('Ad click blocking', () => {
                 }
 
                 const expectedPixels = [];
-                expect(backgroundPixels.length, `${step.name} expects the right number of pixels to fire`).toEqual(
-                    expectedPixels.length,
-                );
+                expect(backgroundPixels.length, `${step.name} expects the right number of pixels to fire`).toEqual(expectedPixels.length);
                 backgroundPixels.length = 0;
             }
             await page.close();

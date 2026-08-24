@@ -25,11 +25,7 @@ function build() {
 }
 
 function escapeHtml(value) {
-    return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+    return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function formatInline(value) {
@@ -80,7 +76,9 @@ function galleryItems(items = []) {
 function galleryLightboxes(items = []) {
     return items
         .map(
-            (item) => `    <div class="lightbox" id="shot-${escapeHtml(item.id)}" role="dialog" aria-modal="true" aria-label="${escapeHtml(item.caption)}">
+            (
+                item,
+            ) => `    <div class="lightbox" id="shot-${escapeHtml(item.id)}" role="dialog" aria-modal="true" aria-label="${escapeHtml(item.caption)}">
       <a class="lightbox-backdrop" href="#gallery" aria-label="Close"></a>
       <figure class="lightbox-figure">
         <a class="lightbox-close" href="#gallery" aria-label="Close">&times;</a>
@@ -234,7 +232,10 @@ if (watchMode) {
 }
 
 function loadYaml(source) {
-    const lines = source.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').split('\n');
+    const lines = source
+        .replace(/^\uFEFF/, '')
+        .replace(/\r\n/g, '\n')
+        .split('\n');
     return readBlock(lines, 0, 0).value;
 }
 

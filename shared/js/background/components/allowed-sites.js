@@ -49,7 +49,7 @@ export default class AllowedSites {
     async handleAdd(options = {}) {
         await this._ready;
         if (isSanctuaryActive()) {
-            return { saved: false, locked: true, added: [], errors: [], ...(await this.getState()) };
+            return { saved: false, added: [], errors: [], ...(await this.getState()) };
         }
         if (typeof options.text !== 'string' || !options.text.trim()) {
             return { saved: false, empty: true, added: [], errors: [], ...(await this.getState()) };
@@ -100,7 +100,7 @@ export default class AllowedSites {
     async handleRemove(options = {}) {
         await this._ready;
         if (isSanctuaryActive()) {
-            return { saved: false, locked: true, ...(await this.getState()) };
+            return { saved: false, ...(await this.getState()) };
         }
         if (!options.pattern) {
             return { saved: false, ...(await this.getState()) };
@@ -114,7 +114,7 @@ export default class AllowedSites {
     async handleClear() {
         await this._ready;
         if (isSanctuaryActive()) {
-            return { saved: false, locked: true, ...(await this.getState()) };
+            return { saved: false, ...(await this.getState()) };
         }
         clearAllowedSites();
         await refreshCategoryAllowRules();

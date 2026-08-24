@@ -47,9 +47,10 @@ export default class DashboardMessaging {
     /**
      * Dashboard still sends this if leftover UI is triggered. OpenFocusd does
      * not collect or forward breakage reports.
+     * @param {...unknown} _args
      * @returns {Promise<void>}
      */
-    async submitBrokenSiteReport() {
+    async submitBrokenSiteReport(..._args) {
         return Promise.resolve();
     }
 

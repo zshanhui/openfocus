@@ -14,7 +14,7 @@ export function openExtensionPage(path) {
 }
 
 /**
- * @param {string} iconPath
+ * @param {string | Record<string, string>} iconPath
  * @param {number} tabId
  * @returns {Promise<void>}
  */

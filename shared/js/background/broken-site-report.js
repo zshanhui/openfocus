@@ -52,8 +52,9 @@ const PARAM_IDS = [
 
 /**
  * Breakage reports are collected locally only; remote reporting is disabled.
+ * @param {...unknown} _args
  */
-export function fire() {}
+export function fire(..._args) {}
 
 /**
  * @type {Object<import('../../../packages/privacy-grade/src/classes/trackers').ActionName, string>}

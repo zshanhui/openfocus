@@ -318,7 +318,6 @@ export class NewTabTrackerStats {
             stats.push(...spliced);
         }
 
-
         // now produce the data in the shape consumers require for rendering their UI
         // see 'dataFormatSchema' for the required format, it's in the `../newtab/schema` file
         return {

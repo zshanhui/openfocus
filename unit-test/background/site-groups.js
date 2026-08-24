@@ -1,12 +1,7 @@
 import settings from '../../shared/js/background/settings';
 import SiteGroups from '../../shared/js/background/components/site-groups';
 import { createSiteGroup, ensureSiteGroups, getSiteGroups, updateSiteGroup } from '../../shared/js/background/site-groups-store';
-import {
-    ALWAYS_BLOCK_GROUP_ID,
-    DEFAULT_GROUP_ID,
-    DEFAULT_GROUP_MAX_SECONDS,
-    getPeriodKey,
-} from '../../shared/js/shared-utils/site-groups';
+import { ALWAYS_BLOCK_GROUP_ID, DEFAULT_GROUP_ID, DEFAULT_GROUP_MAX_SECONDS, getPeriodKey } from '../../shared/js/shared-utils/site-groups';
 
 describe('site groups store', () => {
     let settingsStorage;

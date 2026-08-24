@@ -125,7 +125,7 @@ export default class Sanctuary {
         await this._ready;
         await this.expireIfNeeded();
         if (isSanctuaryActive()) {
-            return { saved: false, locked: true, ...this.getViewState() };
+            return { saved: false, ...this.getViewState() };
         }
         const updates = {};
         if (options.durationSeconds != null) {

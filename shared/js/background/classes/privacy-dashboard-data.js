@@ -11,7 +11,7 @@ import { getUserLocale } from '../i18n';
  * The return type of this function comes from a schema defined in the Privacy Dashboard,
  *
  * @param {import("./tab.js")} tab
- * @param {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').FireButtonData | undefined} fireButtonData
+ * @param {import('@duckduckgo/privacy-dashboard/schema/__generated__/schema.types').FireButton | undefined} fireButtonData
  * @returns {ExtensionGetPrivacyDashboardData}
  */
 export function dashboardDataFromTab(tab, fireButtonData) {

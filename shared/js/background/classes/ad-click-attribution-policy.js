@@ -218,7 +218,7 @@ export class AdClick {
     /**
      * Send this AdClick's 'm_ad_click_detected' pixel request, if it hasn't
      * been sent already.
-     * @param {string?} heuristicAdBaseDomain
+     * @param {string?} _heuristicAdBaseDomain
      */
     sendAdClickDetectedPixel(_heuristicAdBaseDomain) {
         if (this.adClickDetectedPixelSent) {

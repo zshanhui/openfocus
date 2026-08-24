@@ -28,13 +28,7 @@ PrivacyOptions.prototype = window.$.extend({}, Parent.prototype, {
     },
 
     setup: function () {
-        this._cacheElems('.js-options', [
-            'blocktrackers',
-            'https-everywhere-enabled',
-            'gpc-enabled',
-            'no-ai-mode',
-            'search-engine',
-        ]);
+        this._cacheElems('.js-options', ['blocktrackers', 'https-everywhere-enabled', 'gpc-enabled', 'no-ai-mode', 'search-engine']);
         this.bindEvents([
             [this.$blocktrackers, 'click', this._clickSetting],
             [this.$httpseverywhereenabled, 'click', this._clickSetting],

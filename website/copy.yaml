@@ -4,169 +4,169 @@
 # Inline markup: [label](url)  `code`  **bold**
 
 meta:
-  lang: en
-  title: OpenFocusd — a privacy-first website blocker
-  description: >-
-    OpenFocusd blocks distracting websites on a daily timer and blocks trackers
-    while you browse. Free, open source, and it does not collect your data.
-  canonical: https://zshanhui.github.io/openfocus/
-  og_title: OpenFocusd
-  og_description: >-
-    Block distracting websites. Keep your time. No accounts, no analytics, no
-    data collection.
-  source_url: https://github.com/zshanhui/openfocus
-  privacy_url: https://zshanhui.github.io/openfocus/#privacy
+    lang: en
+    title: OpenFocusd — a privacy-first website blocker
+    description: >-
+        OpenFocusd blocks distracting websites on a daily timer and blocks trackers
+        while you browse. Free, open source, and it does not collect your data.
+    canonical: https://zshanhui.github.io/openfocus/
+    og_title: OpenFocusd
+    og_description: >-
+        Block distracting websites. Keep your time. No accounts, no analytics, no
+        data collection.
+    source_url: https://github.com/zshanhui/openfocus
+    privacy_url: https://zshanhui.github.io/openfocus/#privacy
 
 brand: OpenFocusd
 
 nav:
-  features: Features
-  gallery: Gallery
-  privacy: Privacy
-  source: Source
+    features: Features
+    gallery: Gallery
+    privacy: Privacy
+    source: Source
 
 hero:
-  eyebrow: Free and open source
-  title:
-    - Decide on what matters.
-    - Limit and block the rest.
-  lede: >-
-    OpenFocusd is a Chrome extension that blocks distracting websites on a daily
-    timer and blocks trackers while you browse.
-  primary_cta:
-    label: View source
-    href: https://github.com/zshanhui/openfocus
-  secondary_cta:
-    label: Privacy policy
-    href: "#privacy"
+    eyebrow: Free and open source
+    title:
+        - Decide on what matters.
+        - Limit and block the rest.
+    lede: >-
+        OpenFocusd is a Chrome extension that blocks distracting websites on a daily
+        timer and blocks trackers while you browse.
+    primary_cta:
+        label: View source
+        href: https://github.com/zshanhui/openfocus
+    secondary_cta:
+        label: Privacy policy
+        href: '#privacy'
 
 features:
-  - title: Site groups and timers
-    body: >-
-      Put sites into groups with a shared daily allowance. When the time runs
-      out, those sites stay blocked until 6:00.
-  - title: Allowed Sites and Sanctuary
-    body: >-
-      Keep work sites reachable. Sanctuary Mode locks the browser to only that
-      list until the timer you set runs out.
-  - title: Optional adult and gambling list
-    body: >-
-      Turn on a bundled host list when you want those sites blocked by default.
-      Allowed Sites can still make an exception.
-  - title: Tracker blocking
-    body: >-
-      The same privacy protections can block trackers, send a Global Privacy
-      Control signal, and prefer encrypted connections.
+    - title: Site groups and timers
+      body: >-
+          Put sites into groups with a shared daily allowance. When the time runs
+          out, those sites stay blocked until 6:00.
+    - title: Allowed Sites and Sanctuary
+      body: >-
+          Keep work sites reachable. Sanctuary Mode locks the browser to only that
+          list until the timer you set runs out.
+    - title: Optional adult and gambling list
+      body: >-
+          Turn on a bundled host list when you want those sites blocked by default.
+          Allowed Sites can still make an exception.
+    - title: Tracker blocking
+      body: >-
+          The same privacy protections can block trackers, send a Global Privacy
+          Control signal, and prefer encrypted connections.
 
 gallery:
-  title: See it in action
-  lede: >-
-    Options, the popup, the blocked page, and the same screens in Arabic.
-  items:
-    - id: groups
-      src: screenshots/blocksite-2.png
-      alt: Block Sites groups with circular timers and daily time limits
-      caption: Site groups share a daily timer
-    - id: always-block
-      src: screenshots/always-block.png
-      alt: Always Block group with the adult and gambling sites toggle
-      caption: Always-block plus the adult and gambling list
-    - id: allowed
-      src: screenshots/allowedsites.png
-      alt: Allowed Sites list and Sanctuary Mode duration settings
-      caption: Allowed Sites and Sanctuary Mode
-    - id: trackers
-      src: screenshots/block-trackers.png
-      alt: Block Trackers page with Global Privacy Control and search engine choices
-      caption: Tracker blocking, GPC, and private search
-    - id: popup
-      src: screenshots/blocksites.png
-      alt: Extension popup over the Block Sites options page
-      caption: The popup over Block Sites
-    - id: blocked
-      src: screenshots/blockpage.png
-      alt: Blocked page with a quote and This site is blocked
-      caption: The page shown when a site is blocked
-    - id: arabic
-      src: screenshots/arabic.png
-      alt: Block Sites options page in Arabic with a right-to-left layout
-      caption: The same options page in Arabic
+    title: See it in action
+    lede: >-
+        Options, the popup, the blocked page, and the same screens in Arabic.
+    items:
+        - id: groups
+          src: screenshots/blocksite-2.png
+          alt: Block Sites groups with circular timers and daily time limits
+          caption: Site groups share a daily timer
+        - id: always-block
+          src: screenshots/always-block.png
+          alt: Always Block group with the adult and gambling sites toggle
+          caption: Always-block plus the adult and gambling list
+        - id: allowed
+          src: screenshots/allowedsites.png
+          alt: Allowed Sites list and Sanctuary Mode duration settings
+          caption: Allowed Sites and Sanctuary Mode
+        - id: trackers
+          src: screenshots/block-trackers.png
+          alt: Block Trackers page with Global Privacy Control and search engine choices
+          caption: Tracker blocking, GPC, and private search
+        - id: popup
+          src: screenshots/blocksites.png
+          alt: Extension popup over the Block Sites options page
+          caption: The popup over Block Sites
+        - id: blocked
+          src: screenshots/blockpage.png
+          alt: Blocked page with a quote and This site is blocked
+          caption: The page shown when a site is blocked
+        - id: arabic
+          src: screenshots/arabic.png
+          alt: Block Sites options page in Arabic with a right-to-left layout
+          caption: The same options page in Arabic
 
 privacy:
-  title: Privacy policy
-  updated: Last updated 23 August 2026
-  callout:
-    title: OpenFocusd does not collect your data.
-    body: >-
-      We do not operate a backend, do not have user accounts, and do not
-      receive, sell, or analyze your browsing. Site lists, timers, and settings
-      stay in your browser.
-  sections:
-    - title: Who we are
-      paragraphs:
-        - >-
-          OpenFocusd is an open-source browser extension. This page is the
-          project homepage and the privacy policy required by the Chrome Web
-          Store. Contact: [shanhui.dev@proton.me](mailto:shanhui.dev@proton.me).
-    - title: What stays on your device
-      paragraphs:
-        - >-
-          To block sites and count time, the extension stores the following
-          locally with Chrome’s storage APIs:
-      list:
-        - Websites you add to groups, Allowed Sites, or Sanctuary
-        - Daily time used and when that day resets
-        - >-
-          Your settings, such as language, search engine, Global Privacy
-          Control, and the adult and gambling toggle
-      after:
-        - >-
-          Chrome treats that local browsing activity as user data even when it
-          never leaves the device. Uninstalling OpenFocusd deletes it.
-    - title: What we do not do
-      list:
-        - We do not create accounts or ask for an email address
-        - We do not run analytics or crash reporting
-        - We do not sell data or use it for advertising
-        - We do not receive feedback or breakage reports
-    - title: Third-party lists (DuckDuckGo)
-      paragraphs:
-        - >-
-          Tracker blocking uses public lists and configuration hosted by
-          DuckDuckGo. The extension periodically downloads those files from
-          `staticcdn.duckduckgo.com`. Those downloads do not include your site
-          lists, timers, or history.
-        - >-
-          If HTTPS upgrading is on, the extension may ask DuckDuckGo whether a
-          site supports HTTPS by sending a short hash of the hostname — not the
-          full address or the page content — to `duckduckgo.com`.
-        - >-
-          You can choose DuckDuckGo or Brave Search for searches started from
-          the popup or the address-bar keyword. Those searches go to the search
-          engine you picked, not to OpenFocusd.
-    - title: Limited Use
-      paragraphs:
-        - >-
-          OpenFocusd complies with the Chrome Web Store User Data Policy,
-          including the Limited Use requirements. Any user data the extension
-          handles is used only to provide its stated features: website blocking,
-          daily timers, and on-device privacy protections. It is not used for
-          unrelated purposes, and it is not sold or transferred for advertising
-          or credit purposes.
-    - title: Children
-      paragraphs:
-        - >-
-          OpenFocusd does not knowingly collect personal information from
-          children. Settings and site lists are stored only in the browser that
-          installed the extension.
-    - title: Changes
-      paragraphs:
-        - >-
-          If this policy changes, we will update this page and the date above.
-          The current version will always live at
-          [https://zshanhui.github.io/openfocus/#privacy](https://zshanhui.github.io/openfocus/#privacy).
+    title: Privacy policy
+    updated: Last updated 23 August 2026
+    callout:
+        title: OpenFocusd does not collect your data.
+        body: >-
+            We do not operate a backend, do not have user accounts, and do not
+            receive, sell, or analyze your browsing. Site lists, timers, and settings
+            stay in your browser.
+    sections:
+        - title: Who we are
+          paragraphs:
+              - >-
+                  OpenFocusd is an open-source browser extension. This page is the
+                  project homepage and the privacy policy required by the Chrome Web
+                  Store. Contact: [shanhui.dev@proton.me](mailto:shanhui.dev@proton.me).
+        - title: What stays on your device
+          paragraphs:
+              - >-
+                  To block sites and count time, the extension stores the following
+                  locally with Chrome’s storage APIs:
+          list:
+              - Websites you add to groups, Allowed Sites, or Sanctuary
+              - Daily time used and when that day resets
+              - >-
+                  Your settings, such as language, search engine, Global Privacy
+                  Control, and the adult and gambling toggle
+          after:
+              - >-
+                  Chrome treats that local browsing activity as user data even when it
+                  never leaves the device. Uninstalling OpenFocusd deletes it.
+        - title: What we do not do
+          list:
+              - We do not create accounts or ask for an email address
+              - We do not run analytics or crash reporting
+              - We do not sell data or use it for advertising
+              - We do not receive feedback or breakage reports
+        - title: Third-party lists (DuckDuckGo)
+          paragraphs:
+              - >-
+                  Tracker blocking uses public lists and configuration hosted by
+                  DuckDuckGo. The extension periodically downloads those files from
+                  `staticcdn.duckduckgo.com`. Those downloads do not include your site
+                  lists, timers, or history.
+              - >-
+                  If HTTPS upgrading is on, the extension may ask DuckDuckGo whether a
+                  site supports HTTPS by sending a short hash of the hostname — not the
+                  full address or the page content — to `duckduckgo.com`.
+              - >-
+                  You can choose DuckDuckGo or Brave Search for searches started from
+                  the popup or the address-bar keyword. Those searches go to the search
+                  engine you picked, not to OpenFocusd.
+        - title: Limited Use
+          paragraphs:
+              - >-
+                  OpenFocusd complies with the Chrome Web Store User Data Policy,
+                  including the Limited Use requirements. Any user data the extension
+                  handles is used only to provide its stated features: website blocking,
+                  daily timers, and on-device privacy protections. It is not used for
+                  unrelated purposes, and it is not sold or transferred for advertising
+                  or credit purposes.
+        - title: Children
+          paragraphs:
+              - >-
+                  OpenFocusd does not knowingly collect personal information from
+                  children. Settings and site lists are stored only in the browser that
+                  installed the extension.
+        - title: Changes
+          paragraphs:
+              - >-
+                  If this policy changes, we will update this page and the date above.
+                  The current version will always live at
+                  [https://zshanhui.github.io/openfocus/#privacy](https://zshanhui.github.io/openfocus/#privacy).
 
 footer:
-  credit: Apache 2.0. Tracker lists by DuckDuckGo.
-  github: GitHub
-  privacy: Privacy
+    credit: Apache 2.0. Tracker lists by DuckDuckGo.
+    github: GitHub
+    privacy: Privacy

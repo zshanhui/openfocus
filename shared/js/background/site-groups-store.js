@@ -1,6 +1,12 @@
 import settings from './settings';
 import { normalizeBlockedSite } from '../shared-utils/blocked-sites';
-import { createDefaultGroups, ensureAlwaysBlockGroup, isAlwaysBlockGroup, normalizeGroup, normalizeGroups } from '../shared-utils/site-groups';
+import {
+    createDefaultGroups,
+    ensureAlwaysBlockGroup,
+    isAlwaysBlockGroup,
+    normalizeGroup,
+    normalizeGroups,
+} from '../shared-utils/site-groups';
 
 function clone(value) {
     return value == null ? value : JSON.parse(JSON.stringify(value));
@@ -34,9 +40,7 @@ export async function ensureSiteGroups() {
     await settings.ready();
     const groups = getSiteGroups();
     const initialized = Boolean(settings.getSetting('siteGroupsInitialized'));
-    const nextGroups = initialized
-        ? ensureAlwaysBlockGroup(groups, legacyBlockedDomains())
-        : createDefaultGroups(legacyBlockedDomains());
+    const nextGroups = initialized ? ensureAlwaysBlockGroup(groups, legacyBlockedDomains()) : createDefaultGroups(legacyBlockedDomains());
 
     const changed = !initialized || JSON.stringify(groups) !== JSON.stringify(nextGroups);
     if (changed) {
