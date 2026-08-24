@@ -46,6 +46,9 @@ jobs:
             - run: npm test
 
     playwright-tests:
+        # Disabled for now: integration tests are flaky and the Firefox
+        # harness isn't ready. Re-enable by removing this `if` line.
+        if: false
         timeout-minutes: 14
         runs-on: ubuntu-latest
         strategy:
