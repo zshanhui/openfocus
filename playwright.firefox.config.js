@@ -4,7 +4,7 @@ import path from 'path';
 // Note: We can't rely on npm_lifecycle_event because npx overwrites it.
 process.env.DDG_PLATFORM = 'firefox';
 
-const excludedTests = ['cookie-prompt-management.spec.js', 'onboarding.spec.js', 'click-attribution.spec.js'];
+const excludedTests = ['cookie-prompt-management.spec.js', 'click-attribution.spec.js'];
 
 export default defineConfig({
     testDir: './integration-test',

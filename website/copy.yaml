@@ -9,13 +9,13 @@ meta:
     description: >-
         OpenFocusd blocks distracting websites on a daily timer and blocks trackers
         while you browse. Free, open source, and it does not collect your data.
-    canonical: https://zshanhui.github.io/openfocus/
+    canonical: https://zshanhui.github.io/openfocusd/
     og_title: OpenFocusd
     og_description: >-
         Block distracting websites. Keep your time. No accounts, no analytics, no
         data collection.
     source_url: https://github.com/zshanhui/openfocus
-    privacy_url: https://zshanhui.github.io/openfocus/#privacy
+    privacy_url: https://zshanhui.github.io/openfocusd/#privacy
 
 brand: OpenFocusd
 
@@ -164,7 +164,7 @@ privacy:
               - >-
                   If this policy changes, we will update this page and the date above.
                   The current version will always live at
-                  [https://zshanhui.github.io/openfocus/#privacy](https://zshanhui.github.io/openfocus/#privacy).
+                  [https://zshanhui.github.io/openfocusd/#privacy](https://zshanhui.github.io/openfocusd/#privacy).
 
 footer:
     credit: Apache 2.0. Tracker lists by DuckDuckGo.

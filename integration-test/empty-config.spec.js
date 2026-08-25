@@ -17,6 +17,12 @@ test.describe('Extension functions with empty configuration', () => {
         expect(postInstallPage).toBeUndefined();
     });
 
+    test('First install opens the Block Sites settings view', async ({ context, backgroundPage }) => {
+        const optionsUrl = await backgroundPage.evaluate(() => chrome.runtime.getURL('html/options.html'));
+        const isBlockSitesView = (page) => page.url() === `${optionsUrl}#block-sites`;
+        await expect.poll(() => context.pages().some(isBlockSitesView), { timeout: 5000 }).toBe(true);
+    });
+
     test('There are no injected page exceptions', async ({ page }) => {
         await routeFromLocalhost(page);
         const errors = [];
@@ -32,10 +38,10 @@ test.describe('Extension functions with empty configuration', () => {
 
         expect(await isAllowlisted()).toBeFalsy();
 
-        // Open the settings page.
+        // Open the settings page on the tracker-protection tab (the allowlist UI lives there).
         const optionsUrl = await backgroundPage.evaluate(() => chrome.runtime.getURL('html/options.html'));
         const options = await context.newPage();
-        await options.goto(optionsUrl);
+        await options.goto(optionsUrl + '#block-trackers');
         await options.bringToFront();
 
         // Add a site to the allowlist.

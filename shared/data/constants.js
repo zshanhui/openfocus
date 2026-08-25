@@ -48,7 +48,6 @@ module.exports = {
         mixed: 'Mixed',
     },
     httpsService: 'https://duckduckgo.com/smarter_encryption.js',
-    duckDuckGoSerpHostname: 'duckduckgo.com',
     httpsMessages: {
         secure: 'Encrypted Connection',
         upgraded: 'Forced Encryption',

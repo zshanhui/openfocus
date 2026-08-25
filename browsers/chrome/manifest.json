@@ -1,6 +1,7 @@
 {
     "name": "OpenFocusd",
     "description": "__MSG_appDesc__",
+    "homepage_url": "https://zshanhui.github.io/openfocusd/",
     "default_locale": "en",
     "version": "2026.8.6",
     "minimum_chrome_version": "128.0",

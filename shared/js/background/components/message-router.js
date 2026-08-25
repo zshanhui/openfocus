@@ -2,7 +2,6 @@ import browser from 'webextension-polyfill';
 
 import messageHandlers from '../message-registry';
 import { getExtensionId } from '../wrapper';
-import { getBrowserName } from '../utils';
 import { getActivePort, setActivePort } from '../popup-messaging';
 
 /**
@@ -23,7 +22,6 @@ export class MessageReceivedEvent extends CustomEvent {
 export default class MessageRouter extends EventTarget {
     constructor() {
         super();
-        const browserName = getBrowserName();
         // Handle popup UI (aka privacy dashboard) messaging.
         browser.runtime.onConnect.addListener((port) => {
             if (port.name === 'privacy-dashboard') {
@@ -34,11 +32,6 @@ export default class MessageRouter extends EventTarget {
         // Handle any messages that come from content/UI scripts
         browser.runtime.onMessage.addListener((req, sender) => {
             if (sender.id !== getExtensionId()) return;
-
-            // TODO clean up legacy onboarding messaging
-            if (browserName === 'chrome' && (req === 'healthCheckRequest' || req === 'rescheduleCounterMessagingRequest')) {
-                req = { messageType: req };
-            }
 
             // TODO clean up message passing
             const legacyMessageTypes = ['debuggerMessage'];

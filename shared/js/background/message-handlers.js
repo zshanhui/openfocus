@@ -170,16 +170,6 @@ export function breakageReportResult(data, sender) {
     resolveBreakageReportRequest(sender.tab.id, data);
 }
 
-export function healthCheckRequest() {
-    return true;
-}
-
-export async function rescheduleCounterMessagingRequest() {
-    await settings.ready();
-    settings.updateSetting('rescheduleCounterMessagingOnStart', true);
-    return true;
-}
-
 /**
  * Default set of message handler functions used by the background message handler.
  *
@@ -208,8 +198,6 @@ export function registerStandardHandlers() {
         openShareFeedbackPage,
         addDebugFlag,
         breakageReportResult,
-        healthCheckRequest,
-        rescheduleCounterMessagingRequest,
         getBlockedSites,
         setBlockedSites,
     });

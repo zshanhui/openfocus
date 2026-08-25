@@ -153,8 +153,22 @@
 .options-toolbar {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
     direction: ltr;
     padding: 16px 0 0;
+}
+
+.options-toolbar__privacy {
+    color: vars.$slate-light;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .options-language {

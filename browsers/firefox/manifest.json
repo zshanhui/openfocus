@@ -6,6 +6,7 @@
             "strict_min_version": "102.0"
         }
     },
+    "homepage_url": "https://zshanhui.github.io/openfocusd/",
     "default_locale": "en",
     "version": "2026.8.6",
     "description": "Privacy, simplified. Protect your data as you search and browse: tracker blocking, smarter encryption, private search, and more.",

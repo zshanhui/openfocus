@@ -1,5 +1,7 @@
 README.md
 
+Website & privacy policy: https://zshanhui.github.io/openfocusd/
+
 OpenFocusd is WIP, however the preview is ready to be tested.
 
 The goal of OpenFocusd is to create a minimal, open, and privacy-first alternative to the popular StayFocusd Chrome extension which is owned by SensorTower, a marketing analytics corp.

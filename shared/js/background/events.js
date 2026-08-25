@@ -14,7 +14,6 @@ import { ensureInstalledAt } from './install-utils';
 const utils = require('./utils');
 const settings = require('./settings');
 const constants = require('../../data/constants');
-const onboarding = require('./onboarding');
 const cspProtection = require('./csp-blocking');
 const browserName = utils.getBrowserName();
 const browserWrapper = require('./wrapper');
@@ -41,128 +40,13 @@ async function onInstalled(details) {
     if (details.reason.match(/install/)) {
         await settings.ready();
         await ensureInstalledAt();
-        settings.updateSetting('showWelcomeBanner', true);
-        if (browserName === 'chrome') {
-            settings.updateSetting('showCounterMessaging', true);
-            settings.updateSetting('shouldFireIncontextEligibilityPixel', true);
-        }
+        // Land new users on the Block Sites settings view so they can add
+        // distracting sites right away. No welcome page or DDG redirect.
+        browserWrapper.openExtensionPage('/html/options.html#block-sites');
     }
 }
 
 browser.runtime.onInstalled.addListener(onInstalled);
-
-/**
- * ONBOARDING
- * Logic to allow the SERP to display onboarding UI
- */
-async function onboardingMessaging({ transitionQualifiers, tabId }) {
-    await settings.ready();
-    const showWelcomeBanner = settings.getSetting('showWelcomeBanner');
-    const showCounterMessaging = settings.getSetting('showCounterMessaging');
-
-    // If the onboarding messaging has already been displayed, there's no need
-    // to trigger this event listener any longer.
-    if (!showWelcomeBanner && !showCounterMessaging) {
-        browser.webNavigation.onCommitted.removeListener(onboardingMessaging);
-        return;
-    }
-
-    // The counter messaging should only be active for the very first search
-    // navigation observed.
-    const isAddressBarQuery = transitionQualifiers.includes('from_address_bar');
-    if (isAddressBarQuery && showCounterMessaging) {
-        settings.removeSetting('showCounterMessaging');
-    }
-
-    // Clear the showWelcomeBanner setting to ensure that the welcome banner
-    // isn't shown again in the future.
-    if (showWelcomeBanner) {
-        settings.removeSetting('showWelcomeBanner');
-    }
-
-    // Display the onboarding messaging.
-
-    if (browserName === 'chrome') {
-        browserWrapper.executeScript({
-            target: { tabId },
-            func: onboarding.onDocumentStart,
-            args: [
-                {
-                    duckDuckGoSerpHostname: constants.duckDuckGoSerpHostname,
-                },
-            ],
-            injectImmediately: true,
-        });
-    }
-
-    if (manifestVersion === 3) {
-        browserWrapper.executeScript({
-            target: { tabId },
-            func: onboarding.onDocumentEndMainWorld,
-            args: [
-                {
-                    isAddressBarQuery,
-                    showWelcomeBanner,
-                    showCounterMessaging,
-                },
-            ],
-            injectImmediately: false,
-            world: 'MAIN',
-        });
-    }
-
-    browserWrapper.executeScript({
-        target: { tabId },
-        func: onboarding.onDocumentEnd,
-        args: [
-            {
-                isAddressBarQuery,
-                showWelcomeBanner,
-                showCounterMessaging,
-                browserName,
-                duckDuckGoSerpHostname: constants.duckDuckGoSerpHostname,
-                extensionId: browserWrapper.getExtensionId(),
-                manifestVersion,
-            },
-        ],
-        injectImmediately: false,
-    });
-}
-
-browser.webNavigation.onCommitted.addListener(onboardingMessaging, {
-    // We only target the search results page (SERP), which has a 'q' query
-    // parameter. Two filters are required since the parameter is not
-    // necessarily first.
-    url: [
-        {
-            schemes: ['https'],
-            hostEquals: constants.duckDuckGoSerpHostname,
-            pathEquals: '/',
-            queryContains: '?q=',
-        },
-        {
-            schemes: ['https'],
-            hostEquals: constants.duckDuckGoSerpHostname,
-            pathEquals: '/',
-            queryContains: '&q=',
-        },
-    ],
-});
-
-/**
- * Health checks + `showCounterMessaging` mutation
- * (Chrome only)
- */
-if (browserName === 'chrome') {
-    browser.runtime.onStartup.addListener(async () => {
-        await settings.ready();
-
-        if (settings.getSetting('rescheduleCounterMessagingOnStart')) {
-            settings.removeSetting('rescheduleCounterMessagingOnStart');
-            settings.updateSetting('showCounterMessaging', true);
-        }
-    });
-}
 
 /**
  * REQUESTS
