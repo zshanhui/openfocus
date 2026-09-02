@@ -358,8 +358,8 @@
         "note": "Header for choosing DuckDuckGo or Brave as the private search engine"
     },
     "searchEngineDesc": {
-        "title": "Choose where searches from the popup and address bar keyword go.",
-        "note": "Explains that the selected search engine is used by the extension popup and omnibox keyword"
+        "title": "Choose where searches from the popup go.",
+        "note": "Explains that the selected search engine is used by the extension popup"
     },
     "searchEngineDuckDuckGo": {
         "title": "DuckDuckGo",

@@ -142,8 +142,8 @@ privacy:
                   full address or the page content — to `duckduckgo.com`.
               - >-
                   You can choose DuckDuckGo or Brave Search for searches started from
-                  the popup or the address-bar keyword. Those searches go to the search
-                  engine you picked, not to OpenFocusd.
+                  the popup. Those searches go to the search engine you picked, not to
+                  OpenFocusd.
         - title: Limited Use
           paragraphs:
               - >-

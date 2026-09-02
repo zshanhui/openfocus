@@ -38,7 +38,7 @@ module.exports = function () {
                     ${raw(t('options:globalPrivacyControlDisclaimer.title'))}
                 </p>
                 <p class="options-info">
-                    <a href="https://duckduckgo.com/global-privacy-control-learn-more">${t('shared:learnMore.title')}</a>
+                    <a href="https://globalprivacycontrol.org">${t('shared:learnMore.title')}</a>
                 </p>
             </li>
         </ul>
