@@ -20,9 +20,6 @@
         "default_icon": "img/icon_browser_action.png",
         "default_popup": "html/popup.html"
     },
-    "omnibox": {
-        "keyword": "ddg"
-    },
     "background": {
         "scripts": [
             "public/js/background.js"

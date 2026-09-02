@@ -52,6 +52,13 @@ function dropTracking3pCookiesFromResponse(request) {
     let responseHeaders = request.responseHeaders;
 
     if (tab) {
+        // Rules (TDS) may not have finished loading on a cold start (e.g. right
+        // after install, or after a service-worker restart before the local cache
+        // is warm). We cannot classify the request without them, so leave cookies
+        // untouched rather than treat every request as a non-tracker.
+        if (!trackerutils.hasTrackerListLoaded()) {
+            return;
+        }
         const requestIsTracker = trackerutils.isTracker(request.url);
         if (!shouldBlockHeaders(request, tab, requestIsTracker)) {
             return;
@@ -90,6 +97,11 @@ function dropTracking3pCookiesFromRequest(request) {
     let requestHeaders = request.requestHeaders;
 
     if (tab) {
+        // See dropTracking3pCookiesFromResponse: rules may not be loaded yet on a
+        // cold start, so skip rather than mis-classify the request.
+        if (!trackerutils.hasTrackerListLoaded()) {
+            return;
+        }
         const requestIsTracker = trackerutils.isTracker(request.url);
         if (!shouldBlockHeaders(request, tab, requestIsTracker)) {
             return;

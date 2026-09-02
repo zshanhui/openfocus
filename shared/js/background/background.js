@@ -18,7 +18,6 @@
 import { onStartup } from './startup';
 import TabTracker from './components/tab-tracking';
 import MV3ContentScriptInjection from './components/mv3-content-script-injection';
-import OmniboxSearch from './components/omnibox-search';
 import InternalUserDetector from './components/internal-user-detector';
 import TDSStorage from './components/tds';
 import ToggleReports from './components/toggle-reports';
@@ -62,7 +61,6 @@ const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager })
 /**
  * @type {{
  *  dashboardMessaging: DashboardMessaging
- *  omnibox: OmniboxSearch;
  *  internalUser: InternalUserDetector;
  *  tds: TDSStorage;
  *  tabTracking: TabTracker;
@@ -74,7 +72,6 @@ const dashboardMessaging = new DashboardMessaging({ settings, tds, tabManager })
  */
 const components = {
     dashboardMessaging,
-    omnibox: new OmniboxSearch(),
     internalUser: new InternalUserDetector({ settings }),
     tabTracking: new TabTracker({ tabManager, devtools }),
     tds,
