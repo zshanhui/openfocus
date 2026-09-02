@@ -92,6 +92,7 @@ npm:
 clean:
 	rm -f build/.smarter_encryption.txt integration-test/artifacts/attribution.json
 	rm -rf $(BUILD_DIR)
+	rm -f build/.last-copy-$(browser)-$(type)
 
 .PHONY: clean
 

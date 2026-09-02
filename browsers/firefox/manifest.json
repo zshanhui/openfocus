@@ -8,7 +8,7 @@
     },
     "homepage_url": "https://zshanhui.github.io/openfocusd/",
     "default_locale": "en",
-    "version": "2026.8.6",
+    "version": "2026.9.2",
     "description": "Privacy, simplified. Protect your data as you search and browse: tracker blocking, smarter encryption, private search, and more.",
     "icons": {
         "16": "img/icon_16.png",
@@ -67,7 +67,6 @@
         "webRequestBlocking",
         "*://*/*",
         "webNavigation",
-        "activeTab",
         "tabs",
         "storage",
         "<all_urls>",
